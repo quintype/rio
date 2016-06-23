@@ -1,0 +1,61 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic,700);
+
+$sans: 'Open Sans', Helvetica,Arial, sans-serif; 
+$serif: 'expo-serif-pro', 'gerogia', serif;
+
+$primary-typeface: $sans;
+$secondary-typeface: $serif;
+
+
+body {
+   /* background-color: $light-gray;*/
+    margin: 0;
+	font-family:$primary-typeface;
+}
+
+.page {
+   background: rgba(41,184,229,1);
+   background: -moz-linear-gradient(top, rgba(41,184,229,1) 0%, rgba(179,220,237,1) 0%, rgba(255,255,255,1) 10%, rgba(255,255,255,1) 100%);
+   background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(41,184,229,1)), color-stop(0%, rgba(179,220,237,1)), color-stop(50%, rgba(255,255,255,1)), color-stop(100%, rgba(255,255,255,1)));
+   background: -webkit-linear-gradient(top, rgba(41,184,229,1) 0%, rgba(179,220,237,1) 0%, rgba(255,255,255,1) 10%, rgba(255,255,255,1) 100%);
+   background: -o-linear-gradient(top, rgba(41,184,229,1) 0%, rgba(179,220,237,1) 0%, rgba(255,255,255,1) 50%, rgba(255,255,255,1) 100%);
+   background: -ms-linear-gradient(top, rgba(41,184,229,1) 0%, rgba(179,220,237,1) 0%, rgba(255,255,255,1) 50%, rgba(255,255,255,1) 100%);
+   background: linear-gradient(to bottom, rgba(41,184,229,1) 0%, rgba(179,220,237,1) 0%, rgba(255,255,255,1) 20%, rgba(255,255,255,1) 100%);
+     background-repeat: no-repeat;
+}
+
+.content{
+	margin-left: auto;
+    margin-right: auto;
+    max-width: 72em;
+}
+
+
+.layout-menu {
+    float: left;
+    min-width: 128px;
+    display: none;
+
+    @media (min-width: 768px) {
+	display: block;
+    }
+}
+
+.layout-content {
+    float: left;
+    width: 100%;
+}
+
+@media (min-width: 768px) {
+    .layout-menu {
+	display: block;
+	width: 20%;
+    }
+    .layout-content { width: 80%; }
+}
+
+.clear {
+    clear: both;
+}
+
+

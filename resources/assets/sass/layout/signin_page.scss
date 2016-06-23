@@ -1,0 +1,97 @@
+.signin-page {
+  margin: em(60) auto;
+  padding-top: em(60);
+  @include breakpoint($tablet) {
+    width: em(560);
+  }
+  h5 {
+    text-align: center;
+    margin: em(20) auto;
+  }
+}
+
+.signin {
+  margin: 0 auto;
+  text-align: center;
+  @include breakpoint($tablet) {
+    width: em(560);
+  }
+}
+
+.login-or-register {
+  width: calc(50% - 5px);
+  display: inline-block;
+  background-color: $black;
+  color: white;
+  font-weight: 100;
+  font-size: em(13);
+  text-transform: uppercase;
+  text-align: center;
+  padding: em(10, $fontsize-small) 0;
+  margin-top: em(37, $fontsize-small);
+
+  &__wrapper {
+    background-color: $black;
+    height: em(80, $fontsize-base);
+    margin-top: em(-40, $fontsize-base);
+  }
+
+  &__selected {
+    border-bottom: em(3, $fontsize-small) solid $brand-primary;
+  }
+}
+
+
+
+.login {
+  color: $white;
+  background-color: $grey-font;
+  text-transform: uppercase;
+  margin: em(20) auto;
+  border: 0;
+  font-weight: 100;
+  padding: em(8) em(40);     
+}
+
+.signin-button {
+  text-align: center;
+  margin: em(30) 0;
+}
+
+.forgot-password {
+  color: $brand-primary;
+  margin-top: - em(10);
+  text-align: center;
+}
+
+.input-fields {
+  display: block;
+  width: 90%;
+  height: em(40);
+  margin: em(15);
+  padding: 0 em(15);
+}
+
+.login-social-icons {
+  width: 50%;
+  display: block;
+  position: relative;
+  margin: 0 auto;
+
+  @include breakpoint($tablet) {
+    width: 30%;
+  }
+
+}
+
+#site-logo-small {
+  position: relative;
+  width: em(95, $fontsize-halfjumbo);
+  height: em(75, $fontsize-halfjumbo);
+  margin: em(-20, $fontsize-halfjumbo) auto 0 auto;
+  padding: 0;
+  background : $black image_url("logo/iga_logo.png") no-repeat center center;
+  background-size: contain;
+  z-index: $zIndex-2;
+  text-indent: - em(999);
+}

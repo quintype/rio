@@ -1,0 +1,32 @@
+.story__comments {
+  width:100%;
+  @include breakpoint($pc) {
+    @include span(8);
+    padding: 0;
+    margin-right: em(25);
+  }
+
+  textarea {
+    width: 100%;
+    margin: em(20) 0;
+    border-color: $gray-light;
+  }
+
+  &--displayed {
+    clear: both;
+    :first-child{
+      border-top: 0px;
+    }
+    h5 {
+      color: $brand-primary;
+      font-size: em(15);
+      border-top: 1px solid $gray-light;
+      margin-top: em(20);
+      padding-top: em(20);
+    }
+
+    p {
+      font-size: em(13);
+    }
+  }
+}

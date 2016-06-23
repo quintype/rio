@@ -1,0 +1,99 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic,700);
+
+$sans: 'sans-serif', Helvetica,Arial, sans-serif; 
+$serif: 'expo-serif-pro', 'gerogia', serif;
+
+$primary-typeface: $sans;
+$secondary-typeface: $serif;
+
+
+$base:      16px;
+$mobbase:   8px;
+$line:      1.5;
+
+$fontsize-smaller:    11px;
+$fontsize-small:      13;
+$fontsize-base:       17;
+$fontsize-medium:     18;
+$fontsize-large:      21;
+$fontsize-larger:     24;
+$fontsize-largest:    29;
+$fontsize-halfjumbo:  29;
+$fontsize-jumbo:      36;
+
+// Font weights ----------------------------------
+$regular: 400;
+$bold: 700;
+$black-weight: 800;
+
+$header-font-weight: #000000;
+
+// ---------------------------------------------
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+html {
+  font-size: 100%;
+}
+
+body {
+  font-family: $sans;
+  font-weight: 400;
+  font-size: em($fontsize-base);
+  line-height: $line;
+  // text-rendering: optimizeLegibility;
+  text-rendering: auto;
+
+}
+
+h1, h2, h3, h4, h5, h6, p, ul, ol {
+  font-weight: normal;
+  margin: 0;
+}
+
+h1 {
+  font-size: em($fontsize-jumbo);
+  line-height: em(50, $fontsize-halfjumbo);
+  font-weight: 300;
+}
+
+h2 {
+  font-size: em($fontsize-halfjumbo);
+  line-height: em(40, $fontsize-halfjumbo);
+  padding: em(24, $fontsize-halfjumbo) 0 em(16, $fontsize-halfjumbo);
+  font-family: $primary-typeface;
+}
+
+h3 {
+  font-size: em($fontsize-largest);
+  line-height: em(36, $fontsize-largest);
+  word-break: normal;
+  font-family: $primary-typeface;
+}
+
+h4 {
+  font-size: em($fontsize-larger);
+  line-height: em(32, $fontsize-larger);
+  font-weight: bold;
+}
+
+h5 {
+  font-size: em($fontsize-medium);
+  line-height: em(24, $fontsize-medium);
+  font-weight: bold;
+}
+
+h6 {
+  font-size: em($fontsize-small);
+  line-height: em(16, $fontsize-small);
+}
+
+p {
+  font-family: $primary-typeface;
+  font-size: em($fontsize-base);
+  line-height: em(26, 16);
+
+
+}

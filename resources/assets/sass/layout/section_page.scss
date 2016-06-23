@@ -1,0 +1,137 @@
+.section_page {
+
+  .section-heading {
+    text-transform: uppercase;
+    color: $brand-primary;
+    font-size: em(13);
+    border-bottom: em(1) solid;
+    margin-top: 20px;
+    clear: both;
+
+    h4 {
+      font-weight: 400;
+    }
+  }
+
+  .container-left {
+    width: auto;
+    @include breakpoint($pc) {
+      @include span(8);
+      overflow: auto;
+    }
+
+    .simple__arrow {
+      &-down {
+        text-align: center;
+        text-transform: uppercase;
+        color: $brand-primary;
+        margin: em(20) auto;
+      }
+      &-align {
+        margin-right: em(10);
+      }
+    }
+  }
+
+  .section {
+    &__hero-story {
+      position: relative;
+      margin: em(25) 0;
+
+      .section__hero-heading {
+        width: 30em;
+        position: absolute;
+        bottom: 0;
+        margin-left: em(20);
+        margin-bottom: em(20);
+        color: $white;
+      }
+
+      &_heroImage {
+        @include aspect-ratio (16,9);
+      }
+    }
+
+    &__top-story {
+      margin: em(20) auto;
+      @include breakpoint($pc) {
+        @include span(6);
+      }
+      h4 {
+        font-size: em(14);
+      }
+
+      &-author {
+        font-size: em(12);
+      }
+
+      &-bold {
+        font-weight: 600;
+      }
+
+      &-images {
+        @include aspect-ratio (16,9);
+      }
+    }
+
+    &__top-stories {
+      border-bottom : em(1) solid $gray-light;
+      overflow: auto;
+      &-heading-dimention {
+        min-height: 100px;
+        padding: em(10) em(10) 0 0;
+      }
+    }
+
+    &__stack--stories {
+      margin: em(20) 0;
+
+      ul {
+        padding: 0;
+
+        li {
+          margin: em(20) 0;
+          overflow: auto;
+        }
+      }
+      
+      &-images {
+        @include span(4);
+        @include aspect-ratio (16,9);
+      }
+
+      &-info {
+        @include span(8);
+        padding-left: em(25);
+      }
+      
+      &-heading h3{
+        font-size: em(17);
+        font-weight: 600;
+        line-height: 1.4;
+      } 
+      &-text p {
+        font-size: em(14);    
+        padding: em(10) 0 em(20);
+      }
+
+    }/* end of stack--stories */
+  } /* end of .section */
+}/* end of .section_page */
+
+/* styling for simple down arrow */
+.arrow-down {
+  height: 13px;
+  display: inline-block;
+  border-right: 1px solid $brand-primary;  
+}
+.arow-head {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-right: 1px solid  $brand-primary;
+  border-top: 1px solid  $brand-primary;
+  margin-left: -10px;
+  margin-bottom: 1px;
+  transform: rotate(135deg);
+}

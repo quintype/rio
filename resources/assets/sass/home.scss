@@ -1,0 +1,15 @@
+
+.hometop  ul {
+  padding: span(1 of 4);
+  list-style: none;
+li{
+
+  background-color:$color2;
+  list-style: none;  min-height:100px;
+  @include hometop(1 of 4);
+  margin-bottom: gutter(6);
+
+  
+}
+}
+
