@@ -3,371 +3,517 @@
 @import "vendor/breakpoint/breakpoint"; //Breakpoint SASS http://breakpoint-sass.com/
 @import "colors";
 @import "layout";
+@import "base/_grids";
 @import "base/_mixins";
 @import "base/_typography";
+@import "story/_story";
+
 
 $susy: (
-    columns: 12,
-    container: 1200px,
-    gutters: 4,
-	gutter-position: inside,
-    global-box-sizing: border-box,
-    debug: (image: hide)
+columns: 12,
+container: 1200px,
+gutters: 4,
+gutter-position: inside,
+global-box-sizing: border-box,
+debug: (image: hide)
 );
 
 @include border-box-sizing;
 
-* {
-  font-family: "Helvetica", sans-serif;
-}
+
 
 main {
     @include container;
     background-color: $color1;
 }
 
-header, article, aside {
-  margin-bottom: gutter();
-}
 
-header {
+.header {
     padding: 1px;;
     background-color: $white;
-	height: 50px;
+    height: 50px;
     vertical-align: inherit;
     line-height: 3px;
-	color: $light-blue;
+    color: $light-blue;
 }
 .logo { 
-	float: left;
-	font-size: 1.5rem; 
+    float: left;
+    font-size: 1.5rem; 
     line-height: 2em;
 }
 
 ul li{
-	list-style: none;
-	text-decoration:none;
+    list-style: none;
+    text-decoration:none;
+    font-family:$primary-typeface;	
 }
+.patners{
+    #slider{display:none;}
+    @include breakpoint($phone) {
+
+        height:100px;
+        #slider{display:block;}
+        #clientsdesk{display:none;}
+        #slider img { 
+            width:200px; 
+            height:125px; 
+            margin:0px; 
+            display:inline-block  
+        }
+
+        #slider li {
+            width:210px
+        }
+    }
+
+
+}
+.patners ul li{ float:left;}
+
+
+
 nav	{
 
-	float:right;
-	li {
-	float: left;
-	margin-left: 1em;
-	line-height: 3em;
-	} 
-	}
-	
+    float:right;
+    li {
+        float: left;
+        margin-left: 1em;
+        line-height: 3em;
+    } 
+    @include breakpoint($phone) {
+        @include span(12);
+        display:none;
+    }
+
+}
+
 .fill {
-	 background-color: $light-blue;
-	 color: $white;
-	 padding: 4px;
+    background-color: $light-blue;
+    color: $white;
+    padding: 4px;
 }
 
 
 .leftcontainer{
-	@include span(9);	
-	@include aspect-ratio(16,9);
-	padding: em(0);
-	background-image:url("main/1.jpg");
+    @include span(9);	
+    @include aspect-ratio(16,9);
+    padding: em(0);
+    background-image:url("main/1.jpg");
+    padding-right: em(2);
+    @include breakpoint($phone) {
+        @include span(12);
+        @include aspect-ratio(1,1);
+        padding: em(0);
+    }
+
 }
 
 .rightcontainer{
-	@include span(3 last);
-	background-color:$light-blue;
-	@include aspect-ratio(16,9);
-	padding:0em;
-  }
+    @include span(3 last);
+    @include aspect-ratio(16,9);
+    padding:0em;
+    @include breakpoint($phone) {
+        @include span(12);
+    }
 
-  .rightitem{
-	 width:100%;
-	@include aspect-ratio(16,9);
-	margin-top:5px;
-	padding-left:em(6);
-  }
+}
+
+.rightitem{
+    float:left;
+    width:100%;
+    @include aspect-ratio(16,9);
+    margin-top:6px;
+    padding-left:em(3);
+}
 
 .rightitem:first-child{ margin-top:0;}
 
 .sectionname__display {
-	background-color: $light-blue;
-	color: $white;
-	top: 0;
-	padding: 5px;
-	font-weight: $bold;
-	text-transform: capitalize;
-	z-index: 1;
-	float: left;
-	position: absolute;
+    background-color: $light-blue;
+    color: $white;
+    top: 0;
+    padding: 5px;
+    font-weight: $bold;
+    text-transform: uppercase;
+    z-index: 1;
+    float: left;
+    position: absolute;
 }
 
 
 .sourcetop {
-	color: $white;
-	bottom: 0;
-	padding-right: 5px;
-	font-style: italic;
-	text-transform: capitalize;
-	z-index: 1;
-	float: left;
-	text-align:right;
-	position: absolute;
-	right:0;
-	font-size:10px;
+    color: $white;
+    bottom: 10px;
+    padding-right: 5px;
+    font-style: italic;
+    text-transform: capitalize;
+    z-index: 1;
+    float: left;
+    text-align:right;
+    position: absolute;
+    right:0;
+    font-size:10px;
 }
 
 
 .titletop_big{
-	position: absolute;
-	bottom:0;
-	color: $white;
-	font-weight:$black-weight;
-	padding-left:10px;
-	font-family:$primary-typeface;	
-	z-index: 1;
-	float: left;
-	text-align:left;
-	padding-bottom:5%;
-	font-size:em(20);
+    position: absolute;
+    bottom:0;
+    color: $white;
+    font-weight:$black-weight;
+    padding-left:10px;
+    font-family:$primary-typeface;	
+    z-index: 1;
+    float: left;
+    text-align:left;
+    padding-bottom:5%;
+    font-size:em(20);
+
+    @include breakpoint($phone) {
+        bottom:10px;
+        font-size:em(16);
+    }
 
 }
 .titletop_small {
-	position: absolute;
-	bottom:0;
-	color: $white;
-	font-weight:bold;
-	padding: 5px;
-	text-transform: capitalize;
-	z-index: 1;
-	float: left;
-	text-align:left;
-	padding-bottom:5%;
-	font-size:14px;
+    position: absolute;
+    bottom:5px;
+    color: $white;
+    font-weight:bold;
+    padding: 5px;
+    text-transform: capitalize;
+    z-index: 1;
+    float: left;
+    text-align:left;
+    padding-bottom:5%;
+    font-size:14px;
 }
 
 .sourcetop_left{
-	position: absolute;
-	left:0;
-	color: $white;
-	bottom: 0;
-	padding-left:10px;
-	font-style: italic;
-	text-transform: capitalize;
-	z-index: 1;
-	float: left;
-	text-align:left;
+    position: absolute;
+    right:0;
+    color: $white;
+    bottom: 10px;
+    padding-right:10px;
+    font-style: italic;
+    text-transform: capitalize;
+    z-index: 1;
+    float: right;
+    text-align:right;
 
 }
 
 .sectionname__unique {
-	background-color: $light-blue;
-	color: $white;
-	font-size:16px;
-	top: 0;
-	padding: 8px 10px 10px 8px;
-	font-weight: $bold;
-	text-transform: capitalize;
-	z-index: 1;
-	margin-bottom:10px;
+    background-color: $light-blue;
+    color: $white;
+    font-size:16px;
+    top: 0;
+    padding: 8px 10px 10px 8px;
+    font-weight: $bold;
+    text-transform: capitalize;
+    z-index: 1;
+    margin-bottom:10px;
 }
 
 .empty {
-	 color: $light-blue;
-	 background-color: $white;
-	 padding: 4px;
-	 border:1px solid $light-blue;
+    color: $light-blue;
+    background-color: $white;
+    padding: 4px;
+    border:1px solid $light-blue;
 }
 .menubar {
-margin-right:5px;
+    margin-right:5px;
 }
 
+
 section {
-margin-top:10px;
+    margin-top:10px;
+    @include clearfix();
 }
 .section {
-margin-top:10px;
+    margin-top:10px;
 }
 .sectionwrap{
-padding-top:40px;
+    padding-top:40px;
 }
 .unique{
-	background-color:#eef6fc;
-	margin-bottom: 40px;
-	position:relative;
+    background-color:#eef6fc;
+    margin-bottom: 40px;
+    position:relative;
 }
 .nob{
-	padding-top:30px;
-	border:none;
+    padding-top:30px;
+    border:none;
 }
 
 
 .uniquesec{ margin-bottom:30px; }
 
 .sectiontitle {	 
-	color:$light-blue;
-	font-size:24px;
-	font-weight:$bold;
-	text-transform:capitalize;
-	width:100%; 
-	border-bottom: 1px solid $light-gray;
-	line-height:0.1em; 
-	margin:10px 0 20px; 
-	text-align:center;
-	letter-spacing: 1px;
-	span { background:#fff; padding:0 10px; }
+    color:$light-blue;
+    font-size:24px;
+    font-weight:$bold;
+    text-transform:capitalize;
+    width:100%; 
+    border-bottom: 1px solid $light-gray;
+    line-height:0.1em; 
+    margin:10px 0 20px; 
+    text-align:center;
+    letter-spacing: 1px;
+    span { background:#fff; padding:0 10px; }
 } 
 
 .left { text-align:left !important;}
 
 .wrap{
-	width:100%;
-	position:relative;
-	background-color:$dark-gray;
-	float:left;
-	margin-top:10px;
-	margin-bottom:10px;
+    width:100%;
+    position:relative;
+    float:left;
+    margin-top:10px;
+    margin-bottom:10px;
 }
-.article8 {
+.leftbig {
     @include span(8);
     padding: 0em;
-	background-color: $color5;
+    /*background-color: $color5;*/
+    padding-right:1em;
+    padding-top:1.3em;
+    @include breakpoint($phone) {
+        @include span(12);
+    }
 }
 
-.aside4 {
+.rightsmall {
     @include span(4 last);
     padding: 0em;
-    background-color: $color5;
-	@include aspect-ratio(16,9);
+    /*background-color: $color5;*/
+    @include aspect-ratio(16,9);
+    @include breakpoint($phone) {
+        @include span(12);
+    }
 }
 
-.aside4__title{
-	color: $dark-gray;
-	font-size: em(18);
-	font-weight: $black-weight;
-	padding-bottom:10px;
-	}
+.rightsmall__title{
+    color: $dark-gray;
+    font-size: em(18);
+    font-weight: $black-weight;
+    padding-bottom:10px;
+}
 
 
-footer {
+.footer {
     clear: both;
     /*padding: 1em;*/
     background-color: $dark-gray;
-	height:auto;
+    height:auto;
 }
 .footerblock{
-	 @include span(4);
-	  padding-top:1.5em;
-	  color: $white;
-	  
+    @include span(4);
+    padding-top:1.5em;
+    color: $white;
+    @include breakpoint($phone) {
+        @include span(12);
+        text-align:center;
+        ul{padding:0em; margin:0em;}
+        ul li{
+            padding:5px;
+            text-decoration:none;
+            display:inline-block;
+        }
+    }
+
 }
 .footerblock:first-child{ padding-top:1em;}
 
 .footer-short{
-	padding:5px;
-	width: 100%;
+    padding:5px;
+    width: 100%;
     background-color: $footer-short;
-	color: $white;
-	
-	 .content{
-	 	margin-left: auto;
-		margin-right: auto;
-	 }
-	 
+    color: $white;
+
+    .content{
+        margin-left: auto;
+        margin-right: auto;
+    }
+
 }
 .border{border: 1px solid $light-gray; }
 
 
-.article {
+article {
     @include span(4);
     /*background-color: $light-gray;*/
-	@include aspect-ratio(16,9);
+    @include aspect-ratio(16,9);
+    @include breakpoint($phone) {
+        @include span(12);
+        padding:1em;
+    }
+
 }
-.article:nth-child(1){
-	padding-left:0;
-	padding-right:5px;
+article:nth-child(1){
+    padding-left:0;
+    padding-right:5px;
+    @include breakpoint($phone) {
+        padding:1em;
+    }
 }
-.article:nth-child(2){ padding:0;}
-.article:nth-child(3){
-	padding-right:0;
-	padding-left:5px;
+article:nth-child(2){
+    padding:0;
+    @include breakpoint($phone) {
+        padding:1em;
+    }}
+article:nth-child(3){
+    padding-right:0;
+    padding-left:5px;
+    @include breakpoint($phone) {
+        padding:1em;
+    }
 }
-.article:nth-child(4){
-	padding-right:0;
-	padding-left:5px;
+article:nth-child(4){
+    padding-right:0;
+    padding-left:5px;
+    @include breakpoint($phone) {
+        padding:1em;
+    }
 }
 
 .sourcefrom {
-	font-style: italic;
-	text-align: right;
-	font-size: $fontsize-smaller;
-	padding-bottom:10px;
-	padding-right:5px;
+    font-style: italic;
+    text-align: right;
+    font-size: $fontsize-smaller;
+    padding-bottom:10px;
+    padding-right:5px;
 }
 
 
 .textwrap {
-	margin:12px;
-	font-family:$primary-typeface;	
-	/*background-color: $color5;*/
+    margin:12px;
+    font-family:$primary-typeface;	
+    /*background-color: $color5;*/
 }
 
 .article__title{
-	color: $dark-gray;
-	font-size: em(16);
-	font-weight: $black-weight;
-	padding-bottom:10px;
+    color: $dark-gray;
+    font-size: em(16);
+    font-weight: $black-weight;
+    padding-bottom:10px;
 }
 .article__desciption{
-	color: $text;
-	font-size: $fontsize-medium;
-	font-weight:$regular;
-	padding-bottom:10px;
+    color: $text;
+    font-size: $fontsize-medium;
+    font-weight:$regular;
+    padding-bottom:10px;
 }
 
 .textbottom{
-width:100%;
+    width:100%;
 }
 
 .textbottom__article{
-	border-right:1px solid #000;
-	color: $dark-gray;
-	padding:5px;
-	
+    /*border-right:1px solid #000;*/
+    color: $dark-gray;
+    padding:5px;
+    font-family: $merri;  
+    time {
+        font-weight:$bold;
+        letter-spacing: 0.2px;
+        font-size: em(15);
+    }
+
+
 }
 .textbottom__article:last-child {
     border:none;	
 }
 
 .textbottom__article__name{
-	color: $light-blue;
-	display: inline-block;
+    color: $light-blue;
+    display: inline-block;
+    font-family: $merri;     
+    font-size: em(16);
 }
 /*
 .article {
-	dflajdlajds;
-	&__byline {
-	sfjasofjakl}
+        dflajdlajds;
+        &__byline {
+        sfjasofjakl}
 }
 
 */
 
 .more{
-	color:$light-blue;
-	font-size:18px;
-	margin-bottom:10px;
-	padding-bottom:15px;
-	float:right;
-	text-decoration:underline;
-	padding-right:5px;
+    color:$light-blue;
+    font-size:18px;
+    margin-bottom:10px;
+    padding-bottom:15px;
+    float:right;
+    text-decoration:underline;
+    padding-right:5px;
 }
 
 
 .vedicon img{
-opacity:1;
-width:40px;
-height:40px;
-margin-left:auto;
-margin-right:auto;
-margin-top:25%;
+    opacity:1;
+    width:40px;
+    height:40px;
+    margin-left:auto;
+    margin-right:auto;
+    margin-top:25%;
+    position:absolute;
 }
+
+.figcontainer{
+    position:relative;
+    float:left;
+    width:100%;
+}
+
+
+
+.article__tag-heading {
+
+    color: $white;
+    background-color: $light-blue;
+    font-size: em(12);
+    white-space: nowrap;
+    margin-right: em(10);
+    padding: em(3);
+    text-transform: uppercase;
+    vertical-align: middle;
+}
+
+.article__tags {
+    display: inline-block;
+    margin: 0 auto;
+
+    @include breakpoint($pc) {
+        margin: em(15) 0;
+    }
+
+    ul {
+        margin: 0;
+        padding: 0;
+        display: inline-block;
+        color: $grey;
+        font-size: em(13);
+    }
+    li {
+        display: inline-block;
+        border: 1px solid $grey;
+        padding: 0 em(5);
+    }
+
+    a {
+        font-size: em(14);
+        font-family: $sans;
+        cursor: pointer;
+
+    }
+
+
+}
+
+
+
 
 /* Section 2 End*/

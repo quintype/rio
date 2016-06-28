@@ -3,6 +3,6 @@
 return [
     "publisher-name" => "pina-colada",
     "asset-host" => "",
-    "api-host" => "http://sketches.quintype.com",
-    "image-cdn" => "//quintype-01.imgix.net"
+    "api-host" => "http://tq.staging.quinpress.com/",
+	"image-cdn" => "//qt-staging-01.imgix.net"
 ];

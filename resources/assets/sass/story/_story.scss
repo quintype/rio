@@ -1,0 +1,235 @@
+.story_hero{
+    position:relative;
+    @include span(12);	
+    @include aspect-ratio(16,9);
+    padding: em(0);
+    width:100%;
+    @include breakpoint($phone) {
+        @include span(12);
+        @include aspect-ratio(1,1);
+        padding: em(0);
+    }
+    img{ max-height:520px;}
+    &__text{
+        position:absolute;
+        bottom:6px;
+        background-color:$black-opacity;
+        width:100%;
+        color:$white;
+
+    }
+}
+
+.story_container
+{
+    width:900px;
+    margin-left: auto;
+    margin-right: auto;
+
+    h1{       
+        color:#026287;
+        font-weight:$bold;
+        line-height: 1em;
+
+    }
+    .story-element-summary{
+        font-family: $merri;
+        font-weight: $bold;
+        color: $grey;
+        font-style: italic;
+
+    }
+    .story-element-publisher{
+        font-family: $merri;
+        font-weight: $bold;
+        color:$grey;
+        font-style: italic;
+        a{ color:#006187;}
+    }
+
+    .text{ font-family: $merri; p{font-family: $merri;    font-size:em(16); } }
+
+    .story-element-text{
+        word-wrap:break-word;
+        text-align:left;
+        font-family: $merri;
+
+        p{
+            font-family: $merri;
+            color:$black;
+            font-weight:$regular;
+            font-size:em(16);  
+            margin: em(10) 0 em(10) 0;
+
+            a{ color:$light-blue;}         
+        }
+
+        b{
+            font-weight:$bold;
+        }        
+    }
+
+
+    .story-element-blockquote {
+        padding: em(5) 0;
+        position: relative;
+        font-size: em(15);
+        color: $grey;
+        font-family: $merri;
+        font-weight: $bold;
+        font-style: italic;
+
+        blockquote {
+            &:before {
+                content: " ";
+                position: absolute;
+                height: 60%;
+                border-right: em(3) solid $light-blue;
+                left: 1em;
+            }
+        }
+    }
+
+
+
+
+}
+
+
+/* Quote Start*/
+.story-element-quote {
+    padding: em(10) 0;
+
+    blockquote {
+        margin: 0;
+        position: relative;
+        padding:em(20) em(50);
+        font-size: em(14);
+        color: $grey;
+
+        p{font-weight:$bold;}
+
+        &:before {
+            content: " ";
+            display: block;
+            position: absolute;
+            left: 0px;
+            top: 0;
+            background: url("http://www.iconsdb.com/icons/preview/caribbean-blue/double-quote-serif-right-xxl.png")no-repeat center center;
+            background-size: cover;
+            width: em(5);
+            height:em(5);
+            /*background-position: -68px -3px;*/
+            zoom: 5;
+        }
+
+
+        @include breakpoint($pc) {
+            font-size: em(14);
+        }
+    }
+
+    .attribution {
+        color: $light-blue;
+        text-transform: capitalize;
+        float:right;
+        padding-right:em(10);
+        font-size:em(14);  
+        font-style:italic;
+
+        @include breakpoint($pc) {
+            font-size: em(14);
+        }
+    }
+}
+/*Quote End*/
+
+/*Blurb Start*/
+.story-element-blurb {
+    padding:em(10) 0 em(10) 0;
+    font-style:italic;
+    position: relative;
+    color: $dark-blue;
+    font-weight:$bold;
+    border-top: 1px solid $light-gray;
+    border-bottom: 1px solid $light-gray;
+
+
+}
+
+/*Blub End*/
+
+/*Q & A  Start*/
+.story-element-ques-and-ans {
+    margin: em(10) 0;
+    h5 {
+        font-size: em(16);
+        line-height: 1.6;
+        color: $dark-blue;
+    }
+
+    .answer {
+        p {
+            color: $grey;
+            font-size: em(14);      
+        }
+    }
+}
+/*Q & A End*/
+
+
+/* Big Fact*/
+.story-element-bigfact {
+
+    margin: em(10) 0;
+    h2 {
+        font-size: em(28);
+        line-height: 1.6;
+        font-weight:$bold;
+        color: $light-blue;
+    }
+    .context{
+        p {
+            color: $grey; 
+            font-size: em(18);   
+            font-weight:$bold;
+        }
+
+    }
+}
+
+/*Big Fact End*/
+
+
+/* Author */
+.author{
+    width:100%;
+    margin-bottom:em(10);
+    position:relative;
+    float:left;
+    &__left{ width:25%;position:relative;float:left; img{width:100%;height:100%;} }
+    &__right{ 
+        width:75%; 
+        padding-left:em(15);
+        position:relative;float:left;
+        h5{
+            padding-top:em(5);
+            color:$light-blue;
+        }
+        p{
+            color:$grey;
+            font-size: em(12);
+        }
+
+    }
+
+}
+/*Author*/
+
+.storyad
+{
+    width:560px;
+    margin-left:auto;
+    margin-right:auto;
+    img{width:100%;}
+}

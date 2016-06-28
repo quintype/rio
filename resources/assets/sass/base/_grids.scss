@@ -1,16 +1,5 @@
-@import "susy";
-@import "breakpoint";
-@include border-box-sizing;
 
-$susy: (
-  columns: 12,
-  gutters: 0.15,
-  gutter-position: inside,
-  global-box-sizing: border-box,
-  container: 72em,
-);
-
-$phone: max-width 400px;
+$phone: max-width 700px;
 $tablet-small: min-width 401px;
 $tablet: min-width 700px;
 $only-phone-tablets: max-width 799px;
@@ -21,14 +10,6 @@ $tablet-maxwidth: em(680);
 $pc-maxwidth: em(1160);
 $pc-content-maxwidth: em(820);
 
-.container {
-  @include container;
-  padding: 0 12px;
-
-  // @include breakpoint($tablet) {
-  //   padding: 0 24px;
-  // }
-}
 body {
   overflow-x: hidden;
 }
