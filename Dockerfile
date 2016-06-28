@@ -4,7 +4,7 @@ MAINTAINER Quintype Developers <dev-core@quintype.com>
 
 EXPOSE 3000
 
-RUN ln -s /app/log /var/log/pina-colada
+RUN ln -s /app/log /var/log/climatedesk
 
 ADD . /app
 
