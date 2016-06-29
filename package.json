@@ -22,7 +22,6 @@
     "twigify": "git://github.com/gja/twigify#allow-transforms"
   },
   "dependencies": {
-    "lodash": "^4.13.1",
-    "notify-send": "^0.1.2"
+    "lodash": "^4.13.1"
   }
 }
