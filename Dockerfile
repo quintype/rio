@@ -12,6 +12,7 @@ WORKDIR /app
 
 RUN git log -n1 --pretty="Commit Date: %aD%nBuild Date: `date --rfc-2822`%n%h %an%n%s%n" > public/round-table.txt
 
+RUN apt-get install -y libnotify-bin
 RUN rm -rf tmp vendor node_modules
 RUN composer install
 RUN npm install
