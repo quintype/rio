@@ -3,7 +3,7 @@
 
         <div class="leftcontainer">
             {% for story in stories|slice(0,1)  %}
-                <a href='{{story['slug']}}'>
+                <a href="{{story['slug']}}">
                     <div class="figcontainer">
                         <h5 class="sectionname__display">{{story['sections'][0]['name']}}</h5>
                         <div class="titletop_big">{{story["headline"]}}</div>
@@ -21,7 +21,7 @@
         <div class="rightcontainer" >
             {% for story in stories|slice(1,3)  %}
                 <div class="rightitem" >
-                    <a href='{{story['slug']}}'>
+                    <a href="{{story['slug']}}">
                         <div class="figcontainer">
                             <h6 class="sectionname__display">{{story['sections'][0]['name']}}</h6>
                             <div class="titletop_small">{{story["headline"]}}</div>
@@ -45,7 +45,7 @@
     <section><!--  Section 2 open-->
          {% for story in stories|slice(4,3)  %}
         <article><!--  Article1 open-->
-             <a href='{{story['slug']}}'>
+             <a href="{{story['slug']}}">
             <div class="wrap border">
                 <div class="figcontainer">
                     <h5 class="sectionname__display">{{story['sections'][0]['name']}}</h5>
@@ -88,7 +88,7 @@
                 <div class="titletop_small">5 Timeless Truths From The Serenity Prayer That Offer Wisdom Prayer That Offer</div>
                 <div class="sourcetop">API Reurters</div>
 
-                <img src='{{ assetPath("main/img4.jpg") }}' />
+                <img src="{{ assetPath('main/img4.jpg') }}" />
 
             </figure>
 
@@ -107,9 +107,9 @@
             <article><!--  Article1 open-->
                 <div class="figcontainer">
                     <figure>
-                        <img src='{{ assetPath("main/7.jpg") }}' />
+                        <img src="{{ assetPath('main/7.jpg') }}" />
                     </figure>
-                    <div class="vedicon"> <img src='{{ assetPath("main/viedo.png")}}'/></div>
+                    <div class="vedicon"> <img src="{{ assetPath('main/viedo.png')}}"/></div>
                     <div class="sourcefrom">API Reurters</div>
                 </div>
 
@@ -127,9 +127,9 @@
             <article><!--  Article2 open-->
                 <div class="figcontainer">
                     <figure>
-                        <img src='{{ assetPath("main/2.jpg") }}' />
+                        <img src="{{ assetPath('main/2.jpg') }}" />
                     </figure>
-                    <div class="vedicon"> <img src='{{ assetPath("main/viedo.png")}}'/></div>
+                    <div class="vedicon"> <img src="{{ assetPath('main/viedo.png')}}"/></div>
                     <div class="sourcefrom">API Reurters</div>
                 </div>
 
@@ -147,9 +147,9 @@
             <article><!--  Article3 open-->
                 <div class="figcontainer">
                     <figure>
-                        <img src='{{ assetPath("main/4.jpg") }}' />
+                        <img src="{{ assetPath('main/4.jpg') }}" />
                     </figure>
-                    <div class="vedicon"> <img src='{{ assetPath("main/viedo.png")}}'/></div>
+                    <div class="vedicon"> <img src="{{ assetPath('main/viedo.png')}}"/></div>
                     <div class="sourcefrom">API Reurters</div>
                 </div>
 
@@ -181,7 +181,7 @@
             <article><!--  Article1 open-->
                 <div class="figcontainer">
                     <figure>
-                        <img src='{{ assetPath("main/1.jpg") }}' />
+                        <img src="{{ assetPath('main/1.jpg') }}" />
                     </figure>
                     <div class="sourcefrom">API Reurters</div>
                 </div>
@@ -199,7 +199,7 @@
             <article><!--  Article2 open-->
                 <div class="figcontainer">
                     <figure>
-                        <img src='{{ assetPath("main/6.jpg") }}' />
+                        <img src="{{ assetPath('main/6.jpg') }}" />
                     </figure>
                     <div class="sourcefrom">API Reurters</div>
                 </div>
@@ -217,7 +217,7 @@
             <article><!--  Article3 open-->
                 <div class="figcontainer">
                     <figure>
-                        <img src='{{ assetPath("main/8.jpg") }}' />
+                        <img src="{{ assetPath('main/8.jpg') }}" />
                     </figure>
                     <div class="sourcefrom">API Reurters</div>
                 </div>
@@ -253,7 +253,7 @@
             <article><!--  Article1 open-->
                 <figure>
 
-                    <img src='{{ assetPath("main/img1.jpg") }}' />
+                    <img src="{{ assetPath('main/img1.jpg') }}" />
                 </figure>
                 <div class="sourcefrom">API Reurters</div>
                 <div class="textwrap">
@@ -269,7 +269,7 @@
             </article>
             <article><!--  Article2 open-->
                 <figure>
-                    <img src='{{ assetPath("main/img2.jpg") }}' />
+                    <img src="{{ assetPath('main/img2.jpg') }}" />
                 </figure>
                 <div class="sourcefrom">API Reurters</div>
                 <div class="textwrap">
@@ -286,7 +286,7 @@
             <article><!--  Article3 open-->
                 <figure>
 
-                    <img src='{{ assetPath("main/img3.jpg") }}' />
+                    <img src="{{ assetPath('main/img3.jpg') }}" />
                 </figure>
                 <div class="sourcefrom">API Reurters</div>
                 <div class="textwrap">
@@ -315,7 +315,7 @@
             <article><!--  Article1 open-->
                 <div class="figcontainer">
                     <figure>
-                        <img src='{{ assetPath("main/2.jpg") }}' />
+                        <img src="{{ assetPath('main/2.jpg') }}" />
                     </figure>
                     <div class="sourcefrom">API Reurters</div>
                 </div>
@@ -332,7 +332,7 @@
             <article><!--  Article2 open-->
                 <div class="figcontainer">
                     <figure>
-                        <img src='{{ assetPath("main/3.jpg") }}' />
+                        <img src="{{ assetPath('main/3.jpg') }}" />
                     </figure>
                     <div class="sourcefrom">API Reurters</div>
                 </div>
@@ -350,7 +350,7 @@
             <article><!--  Article3 open-->
                 <div class="figcontainer">
                     <figure>
-                        <img src='{{ assetPath("main/5.jpg") }}' />
+                        <img src="{{ assetPath('main/5.jpg') }}" />
                     </figure>
                     <div class="sourcefrom">API Reurters</div>
                 </div>
