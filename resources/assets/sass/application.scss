@@ -122,8 +122,8 @@ nav	{
     float:left;
     width:100%;
     @include aspect-ratio(16,9);
-    margin-top:6px;
-    padding-left:em(3);
+    margin-top:5px;
+    padding-left:em(6);
 }
 
 .rightitem:first-child{ margin-top:0;}

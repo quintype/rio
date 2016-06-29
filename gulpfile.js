@@ -3,7 +3,7 @@ var elixir = require('laravel-elixir');
 var shell = require("gulp-shell")
 var del = require("del");
 
-var destination = "public/pina-colada/assets";
+var destination = "public/climatedesk/assets";
 var tempPath = "tmp/asset";
 
 elixir.config.publicPath = destination;
