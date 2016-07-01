@@ -1,5 +1,4 @@
 <div class="content"><!-- content open-->
-
     <section><!--  Section 2 open-->
 
         <div class="leftcontainer">
@@ -10,8 +9,8 @@
                         <div class="titletop_big">{{story["headline"]}}</div>
                         <div class="sourcetop_left">API Reurters</div>
 
-                        <figure>	                
-                            <img src="{{focusedImageUrl(story['hero-image-s3-key'], [16,9], story['hero-image-metadata'],{w:700},{auto:format},{fm:pjpg})}}" />
+                        <figure>
+                            <img src="{{focusedImageUrl(story['hero-image-s3-key'], [16,9], story['hero-image-metadata'],{w:700} )}}" />
                         </figure>
 
                     </div>
@@ -43,38 +42,38 @@
 
 
     <section><!--  Section 2 open-->
-         {% for story in stories|slice(4,3)  %}
-        <article><!--  Article1 open-->
-             <a href="{{story['slug']}}">
-            <div class="wrap border">
-                <div class="figcontainer">
-                    <h5 class="sectionname__display">{{story['sections'][0]['name']}}</h5>
-                    <figure>
-                         <img src="{{focusedImageUrl(story['hero-image-s3-key'], [16,9], story['hero-image-metadata'], {w: 400})}}" />
-                    </figure>
-                    <div class="sourcefrom">API Reurters</div>
-                </div>
+        {% for story in stories|slice(4,3)  %}
+            <article><!--  Article1 open-->
+                <a href="{{story['slug']}}">
+                    <div class="wrap border">
+                        <div class="figcontainer">
+                            <h5 class="sectionname__display">{{story['sections'][0]['name']}}</h5>
+                            <figure>
+                                <img src="{{focusedImageUrl(story['hero-image-s3-key'], [16,9], story['hero-image-metadata'], {w: 400})}}" />
+                            </figure>
+                            <div class="sourcefrom">API Reurters</div>
+                        </div>
 
-                <div class="textwrap">
-                    <div class="article__title">
-                       {{story["headline"]}}
-                    </div>
-                    <div class="article__desciption">
-                        {{story["summary"]}}
-                    </div>
-                    <div class="textbottom">
-                        <span class="textbottom__article">1</span>
-                        <span><h5 class="textbottom__article__name">{{story["author-name"]}}</h5></span>
-                        <span class="textbottom__article"> <time datetime="">
-							{% set timestamp = (story["published-at"] / 1000)|round(0, 'floor') %}{{timestamp|date('M d,Y')}}
+                        <div class="textwrap">
+                            <div class="article__title">
+                                {{story["headline"]}}
+                            </div>
+                            <div class="article__desciption">
+                                {{story["summary"]}}
+                            </div>
+                            <div class="textbottom">
+                                <span class="textbottom__article">1</span>
+                                <span><h5 class="textbottom__article__name">{{story["author-name"]}}</h5></span>
+                                <span class="textbottom__article"> <time datetime="">
+                                        {% set timestamp = (story["published-at"] / 1000)|round(0, 'floor') %}{{timestamp|date('M d,Y')}}
 
-                       </time></span>
-                    </div> <!-- textbottom close -->
-                </div><!-- textwrap close -->
-            </div>
-                    </a>
-        </article>
-          {% endfor %}
+                                    </time></span>
+                            </div> <!-- textbottom close -->
+                        </div><!-- textwrap close -->
+                    </div>
+                </a>
+            </article>
+        {% endfor %}
     </section><!--  Section 2 close-->
 
 
@@ -85,215 +84,20 @@
         </div>
         <div class="rightsmall" >
             {% for story in stories|slice(7,1)  %}
-            <a href='{{story['slug']}}'>              
-            <figure>
+                <a href='{{story['slug']}}'>
+                    <figure>
 
-                <span class="sectionname__display">{{story['sections'][0]['name']}}</span>
-                <div class="titletop_small"> {{story["headline"]}}</div> 
-                <div class="sourcetop">API Reurters</div>
-              <img src="{{focusedImageUrl(story['hero-image-s3-key'], [16,9], story['hero-image-metadata'], {w: 400})}}" />
+                        <span class="sectionname__display">{{story['sections'][0]['name']}}</span>
+                        <div class="titletop_small"> {{story["headline"]}}</div>
+                        <div class="sourcetop">API Reurters</div>
+                        <img src="{{focusedImageUrl(story['hero-image-s3-key'], [16,9], story['hero-image-metadata'], {w: 400})}}" />
 
-            </figure>
-</a>
-              {% endfor %}
+                    </figure>
+                </a>
+            {% endfor %}
         </div>
 
 
         <a  class="more" href="#">More Podcasts>></a>
     </section><!--  Section 3 close-->
-
-
-    <section><!--  Section 4 open-->
-
-
-        <div class="sectionwrap">		
-            <div class="sectiontitle left"><span>VIDEOS</span></div>
-              {% for story in videos_stories|slice(0,3)  %}
-            <article><!--  Article1 open-->
-                <div class="figcontainer">
-                    <figure>
-                         <img src="{{focusedImageUrl(story['hero-image-s3-key'], [16,9], story['hero-image-metadata'], {w: 400})}}" />		
-
-                    </figure>
-                    <div class="vedicon"> <img src="{{ assetPath('main/viedo.png')}}"/></div>
-                    <div class="sourcefrom">API Reurters</div>
-                </div>
-
-                <div class="textwrap">
-
-                    <div class="article__title">		
-                       {{story["headline"]}}
-                    </div>					
-                    <div class="textbottom">						
-                        <span> <h5 class="textbottom__article__name">{{story["author-name"]}}</h5></span>
-
-
-                        <span class="textbottom__article"> <time datetime="">{% set timestamp = (story["published-at"] / 1000)|round(0, 'floor') %}{{timestamp|date('M d,Y')}}</time></span>
-                    </div> <!-- textbottom close -->
-                </div><!-- textwrap close -->
-
-
-            </article>	
-                    
-                      {% endfor %}
-            
-          
-
-           
-        </div><!--  Section Wrap close-->
-        <a class="more" href="#">More Videos>></a>
-
-    </section><!--  Section 4 close-->
-
-
-
-    <section><!--  Section 5 open-->
-
-        <div class="sectionwrap">
-            <div class="sectiontitle left"><span>WEATHER</span></div>
-             {% for storys in weather_stories|slice(0,3) %}
-            <article><!--  Article1 open-->
-                <div class="figcontainer">
-                    <figure>
-
-                        
-                        <img src="{{focusedImageUrl(storys['hero-image-s3-key'], [16,9], storys['hero-image-metadata'], {w: 400})}}"/>		
-
-                    </figure>
-                    <div class="sourcefrom">API Reurters</div>
-                </div>
-                <div class="textwrap">
-
-                    <div class="article__title">		
-                        {{storys["headline"]}}
-                    </div>					
-                    <div class="textbottom">						
-                        <span> <h5 class="textbottom__article__name">{{storys["author-name"]}}</h5></span>                   
-                        <span class="textbottom__article"> <time datetime="">{% set timestamp = (story["published-at"] / 1000)|round(0, 'floor') %}{{timestamp|date('M d,Y')}}</time></span>
-                    </div> <!-- textbottom close -->
-                </div><!-- textwrap close -->
-
-
-            </article>	
-                    {% endfor %}
-            
-
-
-        </div><!--  Section Wrap close-->
-
-        <a class="more" href="#">Read More >></a>
-    </section><!--  Section 5 close-->
-
-</div><!--  content close-->
-
-
-
-<section class="unique"><!--  Section 5 open-->
-    <div class="content">
-        <div class="sectionwrap nob">
-
-            <div class="uniquesec unique"> <span class="sectionname__unique"> MOST POPULAR </span></div>
-
- {% for storys in breaking_news|slice(0,3) %}
-            <article><!--  Article1 open-->
-                <figure>
-
-<img src='{{focusedImageUrl(storys['hero-image-s3-key'], [16,9], storys['hero-image-metadata'], {w: 400})}}' />
-                </figure>
-                <div class="sourcefrom">API Reurters</div>
-                <div class="textwrap">
-                    <div class="article__title">		
-                       {{storys["headline"]}}
-                    </div>					
-                    <div class="textbottom">						
-                        <span> <h5 class="textbottom__article__name">{{storys["author-name"]}}</h5></span>
-
-                        <span class="textbottom__article"> <time datetime="">{% set timestamp = (story["published-at"] / 1000)|round(0, 'floor') %}{{timestamp|date('M d,Y')}}</time></span>
-                    </div> <!-- textbottom close -->
-                </div><!-- textwrap close -->
-
-
-            </article>		
-           {% endfor %}
-             
-            <a  class="more" href="#">Read More>></a>	
-
-           
-        </div><!--  Section Wrap close-->
-
-    </div>	<!--  content close-->
-</section><!--  Section 5 close-->
-<div class="content"><!-- content open-->
-    <section><!--  Section 5 open-->
-        <div class="sectionwrap">
-            <div class="sectiontitle left"><span>FOOD & HEALTH</span></div>
-
- {% for storys in food_stories|slice(0,3) %}
-            <article><!--  Article1 open-->
-                <div class="figcontainer">
-
-                    <figure>				
-                     <img src='{{focusedImageUrl(storys['hero-image-s3-key'], [16,9], storys['hero-image-metadata'], {w: 400})}}' />		
-
-                    </figure>
-                    <div class="sourcefrom">API Reurters</div>
-                </div>
-                <div class="textwrap">
-
-                    <div class="article__title">		
-                        {{storys["headline"]}}
-                    </div>					
-                    <div class="textbottom">						
-                        <span> <h5 class="textbottom__article__name">{{storys["author-name"]}}</h5></span>
-                        <span class="textbottom__article"> <time datetime="">{% set timestamp = (story["published-at"] / 1000)|round(0, 'floor') %}{{timestamp|date('M d,Y')}}</time></span>
-                    </div> <!-- textbottom close -->
-                </div><!-- textwrap close -->						
-            </article>	
-                       {% endfor %}
-          
-         
-
-            <div class="more textright"><a href="#">Read More</a>>></div>
-        </div>
-    </section><!--  Section 5 close-->
-    <div class="clear"></div>
-
-    <div class="section"><!--  Section 6 open-->
-
-        <div class="sectiontitle"><span>OUR PATNERS</span></div>
-        <div class="patners">
-            <ul id="clientsdesk">
-                <li><img src="{{ assetPath('patner-logos/atlantic.png') }}" /></li>
-                <li><img src="{{ assetPath('patner-logos/citylab.png') }}" /></li>
-                <li><img src="{{ assetPath('patner-logos/fusion.png') }}" /></li>
-                <li><img src="{{ assetPath('patner-logos/grist.png') }}" /></li>
-                <li><img src="{{ assetPath('patner-logos/guardian.png') }}" /></li>
-                <li><img src="{{ assetPath('patner-logos/huffpost.png') }}" /></li>
-                <li><img src="{{ assetPath('patner-logos/medium.png') }}" /></li>
-                <li><img src="{{ assetPath('patner-logos/motherjones.png') }}" /></li>
-                <li><img src="{{ assetPath('patner-logos/newrepublic.png') }}" /></li>
-                <li><img src="{{ assetPath('patner-logos/n.png') }}" /></li>
-                <li><img src="{{ assetPath('patner-logos/reveal.png') }}" /></li>
-                <li><img src="{{ assetPath('patner-logos/slate.png') }}" /></li>
-                <li><img src="{{ assetPath('patner-logos/wired.png') }}" /></li>
-            </ul>
-
-            <ul id="slider">
-                <li><img src="{{ assetPath('patner-logos/atlantic.png') }}" /></li>
-                <li><img src="{{ assetPath('patner-logos/citylab.png') }}" /></li>
-                <li><img src="{{ assetPath('patner-logos/fusion.png') }}" /></li>
-                <li><img src="{{ assetPath('patner-logos/grist.png') }}" /></li>
-                <li><img src="{{ assetPath('patner-logos/guardian.png') }}" /></li>
-                <li><img src="{{ assetPath('patner-logos/huffpost.png') }}" /></li>
-                <li><img src="{{ assetPath('patner-logos/medium.png') }}" /></li>
-                <li><img src="{{ assetPath('patner-logos/motherjones.png') }}" /></li>
-                <li><img src="{{ assetPath('patner-logos/newrepublic.png') }}" /></li>
-                <li><img src="{{ assetPath('patner-logos/n.png') }}" /></li>
-                <li><img src="{{ assetPath('patner-logos/reveal.png') }}" /></li>
-                <li><img src="{{ assetPath('patner-logos/slate.png') }}" /></li>
-                <li><img src="{{ assetPath('patner-logos/wired.png') }}" /></li>
-            </ul>
-        </div>
-
-    </div><!--  content close-->
 </div>
