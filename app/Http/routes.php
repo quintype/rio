@@ -17,4 +17,10 @@ Route::get('/ping', function () {
     return 'pong';
 });
 
-Route::get('/preview/home', 'PreviewController@home');
+//Route::get('/preview/home', 'PreviewController@home');
+//Route::get('/section/year/month/date/story_slug', 'PreviewController@home');
+
+Route::get('/{section}/{year}/{month}/{date}/{story_slug}', [
+'uses' => 'PreviewController@storyview'
+]);
+

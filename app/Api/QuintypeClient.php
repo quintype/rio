@@ -61,6 +61,11 @@ class Bulk
             $responses[$key] = $value->fromBulkResponse($apiResponse[$key]);
         }
         $this->responses = $responses;
+            // echo '<pre>';
+              // print_r($responses);
+        
+        
+        
     }
 
     public function getResponse($name) {

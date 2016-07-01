@@ -277,7 +277,7 @@ section {
     padding: 0em;
     /*background-color: $color5;*/
     padding-right:1em;
-    padding-top:1.3em;
+    padding-top:0.4em;
     @include breakpoint($phone) {
         @include span(12);
     }
@@ -393,10 +393,14 @@ article:nth-child(4){
 }
 
 .article__title{
+	position:relative;
+	float:left;
     color: $dark-gray;
     font-size: em(16);
     font-weight: $black-weight;
     padding-bottom:10px;
+	min-height:60px;
+    
 }
 .article__desciption{
     color: $text;
@@ -407,6 +411,8 @@ article:nth-child(4){
 
 .textbottom{
     width:100%;
+	position:relative;
+	float:left;
 }
 
 .textbottom__article{

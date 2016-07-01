@@ -22,6 +22,10 @@
     "twigify": "git://github.com/gja/twigify#allow-transforms"
   },
   "dependencies": {
-    "lodash": "^4.13.1"
+    "babel-preset-es2015": "^6.9.0",
+    "babel-preset-react": "^6.11.1",
+    "del": "^2.2.1",
+    "lodash": "^4.13.1",
+    "twig": "^0.9.5"
   }
 }
