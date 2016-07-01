@@ -76,28 +76,3 @@
         {% endfor %}
     </section><!--  Section 2 close-->
 
-
-    <section><!--  Section 2 open-->
-
-        <div class="leftbig">
-            <iframe src="https://art19.com/shows/inquiring-minds/episodes/e1241e76-2bd1-44cd-8ab6-6435ace2272f/embed?theme=dark-blue" style="width: 100%; height: 220px; border: 0 none;" scrolling="no"></iframe>
-        </div>
-        <div class="rightsmall" >
-            {% for story in stories|slice(7,1)  %}
-                <a href='{{story['slug']}}'>
-                    <figure>
-
-                        <span class="sectionname__display">{{story['sections'][0]['name']}}</span>
-                        <div class="titletop_small"> {{story["headline"]}}</div>
-                        <div class="sourcetop">API Reurters</div>
-                        <img src="{{focusedImageUrl(story['hero-image-s3-key'], [16,9], story['hero-image-metadata'], {w: 400})}}" />
-
-                    </figure>
-                </a>
-            {% endfor %}
-        </div>
-
-
-        <a  class="more" href="#">More Podcasts>></a>
-    </section><!--  Section 3 close-->
-</div>
