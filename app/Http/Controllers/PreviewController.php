@@ -11,6 +11,13 @@ class PreviewController extends QuintypeController {
     }
 
     public function storyview() {
+    	$a=explode("/",$_SERVER['REQUEST_URI']);
+    	//echo sizeof($a);
+    	$slug=$a[sizeof($a)-1];
+    	echo $slug;
+        
+         //$story_data = new QuintypeClient();
+         
         return view('story', $this->toView([]));
     }
 

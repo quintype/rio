@@ -1,0 +1,122 @@
+.statictext{
+    padding:1em;
+    p{ 
+        font-family: $merri; 
+        padding:em(6) 0 em(6) 0;
+        font-size: em(14);
+    }
+    .highlight{        
+        color: $light-blue;
+        text-transform: uppercase;
+    }
+    @include breakpoint($small-pc) {
+         padding:0em;
+        p{       
+            font-size: 16px;
+        }
+    }
+
+}
+
+.about{
+     .highlights,
+     a{        
+        color: $question-blue;
+    }
+    
+    .people_name{
+        font-family: $merri;
+        font-size: 16px;
+        text-align: left;
+        padding-left:1em;
+        color:$question-blue;;
+        text-align: center;
+        @include breakpoint($small-pc) {
+            font-size: 20px;
+             padding-left:2em; 
+             text-align: left;
+            
+        }
+        
+        
+    }
+    .people_info{
+        width:100%;
+        position:relative;
+        float:left;
+        padding: em(10) 0 em(10) 0;
+       
+    .picture{
+        position:relative;
+    @include span(4);  
+    margin-left:auto;
+    margin-right:auto;
+    float:left;
+    text-align:center;
+        img{
+    width:165px;
+    height:165px;
+    border-radius: 50%;
+    margin-left:auto;
+    margin-right:auto;
+    }
+    
+    @include breakpoint($small-pc) {
+        
+        @include span(1);
+        text-align: left;
+    }
+    }
+    .individual_info{
+       
+        @include span(4);
+  
+        position:relative; 
+        float:left;
+        @include breakpoint($small-pc) {
+            
+        @include span(3 last);
+       
+    }
+     
+    }
+    }
+    
+       
+    
+     
+    
+}
+
+
+.video{
+    height:204px;    
+    @include breakpoint($small-pc){
+        height:560px;
+    }
+}
+
+
+.headingline {
+  line-height: 3.5;
+  text-align: left;
+ 
+}
+.headingline span {
+   color:$heading-blue;
+    font-size:24px;
+    font-weight:$bold;
+  display: inline-block;
+  position: relative;  
+   padding : em(10) em(10) em(10) 0;
+}
+.headingline span:before,
+.headingline span:after {
+  content: "";
+  position: absolute;
+  height: 60px;
+  border-bottom: 1px solid $heading-blue;
+  top: 0;
+  left: 100%;
+  width: 765px;
+}

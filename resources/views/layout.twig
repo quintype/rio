@@ -9,7 +9,20 @@
     <script type="text/javascript">var qtReady = qtReady || [];</script>
 	<div class="header">
 	 <div class="content">
-	 <div class="logo"><a href="#"><img  class="menubar" src='{{ assetPath("icons/menu_b.svg") }}' /></a><img src='{{ assetPath("climatedesk_logo.png") }}' /> </div>		
+	 <div class="menubarimg"><a href="#"><img  class="menubar" src='{{ assetPath("icons/menu_b.svg") }}' /></a></div>
+         <div class="logo">
+            <a href="{{ url()}}"> <img src='{{ assetPath("climatedesk_logo.png") }}' /> </a></div>
+         <div class="menuitems">
+             <ul>
+                 {% for menuItem in config.menuItems() %}
+		<li><a href="{{menuItem.url()}}">{{menuItem.title()}}</a></li>
+	{% endfor %}
+                 
+             </ul>    
+         
+         </div>
+         
+         
 	 <nav><ul>
 	 <li><a href="#"><img src="{{ assetPath("icons/facebook_b.svg") }}" /></a></li>
 	 <li><a	href="#" ><img src="{{ assetPath("icons/twitter_b.svg") }}" /></a></li>	 
@@ -40,6 +53,44 @@
 	  
 	
      
+<div class="section"><!--  Section 6 open-->
+
+        <div class="sectiontitle"><span>OUR PATNERS</span></div>
+        <div class="patners">
+            <ul id="clientsdesk">
+                <li><img src="{{ assetPath('patner-logos/atlantic.png') }}" /></li>
+                <li><img src="{{ assetPath('patner-logos/citylab.png') }}" /></li>
+                <li><img src="{{ assetPath('patner-logos/fusion.png') }}" /></li>
+                <li><img src="{{ assetPath('patner-logos/grist.png') }}" /></li>
+                <li><img src="{{ assetPath('patner-logos/guardian.png') }}" /></li>
+                <li><img src="{{ assetPath('patner-logos/huffpost.png') }}" /></li>
+                <li><img src="{{ assetPath('patner-logos/medium.png') }}" /></li>
+                <li><img src="{{ assetPath('patner-logos/motherjones.png') }}" /></li>
+                <li><img src="{{ assetPath('patner-logos/newrepublic.png') }}" /></li>
+                <li><img src="{{ assetPath('patner-logos/n.png') }}" /></li>
+                <li><img src="{{ assetPath('patner-logos/reveal.png') }}" /></li>
+                <li><img src="{{ assetPath('patner-logos/slate.png') }}" /></li>
+                <li><img src="{{ assetPath('patner-logos/wired.png') }}" /></li>
+            </ul>
+
+            <ul id="slider">
+                <li><img src="{{ assetPath('patner-logos/atlantic.png') }}" /></li>
+                <li><img src="{{ assetPath('patner-logos/citylab.png') }}" /></li>
+                <li><img src="{{ assetPath('patner-logos/fusion.png') }}" /></li>
+                <li><img src="{{ assetPath('patner-logos/grist.png') }}" /></li>
+                <li><img src="{{ assetPath('patner-logos/guardian.png') }}" /></li>
+                <li><img src="{{ assetPath('patner-logos/huffpost.png') }}" /></li>
+                <li><img src="{{ assetPath('patner-logos/medium.png') }}" /></li>
+                <li><img src="{{ assetPath('patner-logos/motherjones.png') }}" /></li>
+                <li><img src="{{ assetPath('patner-logos/newrepublic.png') }}" /></li>
+                <li><img src="{{ assetPath('patner-logos/n.png') }}" /></li>
+                <li><img src="{{ assetPath('patner-logos/reveal.png') }}" /></li>
+                <li><img src="{{ assetPath('patner-logos/slate.png') }}" /></li>
+                <li><img src="{{ assetPath('patner-logos/wired.png') }}" /></li>
+            </ul>
+        </div>
+    </div>
+</div><!-- content close-->
 
 	 </div><!-- Container close-->
 	<div class="footer"> <div class="content">
@@ -48,11 +99,11 @@
 			<img src='{{ assetPath("climatedesk-white.png") }}' />
 					<div class="textwrap">
 						<ul>
-						<li> ABOUT US </li>
+						<li> <a href="/about-us">ABOUT US </a></li>
 						<li> INQUIRING MINDS </li>
 						<li> ADVERTISE</li>
-						<li> PRIVACY POLICY</li>
-						<li> TERMS OF USE</li>
+						<li> <a href="/privacy-policy">PRIVACY POLICY</a></li>
+						<li> <a href="/terms-and-conditions">TERMS OF USE</a></li>
 						</ul>
 					</div><!-- textwrap close -->		
 						

@@ -8,6 +8,7 @@
 @import "base/_typography";
 @import "base/_z-index-scale";
 @import "story/_story";
+@import "static";
 
 
 $susy: (
@@ -36,11 +37,13 @@ main {
     vertical-align: inherit;
     line-height: 3px;
     color: $light-blue;
+
 }
 .logo { 
     float: left;
     font-size: 1.5rem; 
-    line-height: 2em;
+    line-height: 2.2em;
+    margin-left: 1em;
 }
 
 ul li{
@@ -86,6 +89,55 @@ nav	{
         display:none;
     }
 
+}
+.menubarimg{
+    display: inline;
+    float: left;
+    margin-top: 10px;
+}
+.menuitems{
+    padding:15px;
+    background-color: $white;
+    width:200px;
+    position:absolute;
+    margin-left:-1px;
+    top: em(30);
+    z-index:$zIndex-2;
+    display:none;
+    ul {
+        padding:0;
+    }
+    ul li a{
+        font-family: $sans;
+        padding:em(15) 0 em(15) 0;
+        letter-spacing: 1.5px;
+        color:$grey;
+        position:relative;
+        float:left;
+        font-weight: $regular;
+        font-size: 16px;    
+        display: block;
+
+
+    }
+
+    ul li{
+        position:relative;
+        float:left;
+        border-top:1px solid $light-blue;
+        width: 100%;
+        display: block;
+
+    }
+
+    ul li :first{
+        border-top:0px;
+    }
+
+}
+
+.menubarimg:hover ~ .menuitems{
+    display: block;
 }
 
 .fill {
@@ -251,7 +303,7 @@ section {
 .uniquesec{ margin-bottom:30px; }
 
 .sectiontitle {	 
-    color:$light-blue;
+    color:$heading-blue;
     font-size:24px;
     font-weight:$bold;
     text-transform:capitalize;
@@ -263,6 +315,13 @@ section {
     letter-spacing: 1px;
     span { background:#fff; padding:0 10px; }
 } 
+
+.static{
+    margin:em(10) 0 em(10) 0;
+    border-bottom: 1px solid $heading-blue;  
+    label { background:inherit; padding:0 10px;  letter-spacing: 1.5px; }
+}
+
 
 .left { text-align:left !important;}
 
@@ -394,26 +453,28 @@ article:nth-child(4){
 }
 
 .article__title{
-	position:relative;
-	float:left;
+    position:relative;
+    float:left;
     color: $dark-gray;
-    font-size: em(16);
+    font-size: 14px;
     font-weight: $black-weight;
     padding-bottom:10px;
-	min-height:60px;
-    
+    min-height:60px;
+
 }
 .article__desciption{
     color: $text;
-    font-size: $fontsize-medium;
+    font-size: 12px;
     font-weight:$regular;
     padding-bottom:10px;
 }
 
 .textbottom{
     width:100%;
-	position:relative;
-	float:left;
+    position:relative;
+    float:left;
+font-size:12px;
+padding:20px;
 }
 
 .textbottom__article{
@@ -421,10 +482,11 @@ article:nth-child(4){
     color: $dark-gray;
     padding:5px;
     font-family: $merri;  
+
     time {
         font-weight:$bold;
         letter-spacing: 0.2px;
-        font-size: em(15);
+        font-size: 10px;
     }
 
 
@@ -524,3 +586,98 @@ article:nth-child(4){
 
 
 /* Section 2 End*/
+
+
+/*Search,tags,section article design Start*/
+.article
+{
+    @include span(4);
+    @include aspect-ratio(16,9);
+
+.article__title{
+    position:relative;
+    float:left;
+    color: $dark-gray;
+    font-size: 14px;
+    font-weight: $black-weight;
+    padding-bottom:10px;
+    min-height:60px;
+}
+.article__desciption{
+    color: $text;
+    font-size: 12px;   
+    padding-bottom:10px;
+}
+
+
+}
+/*Search,tags,section article design End*/
+
+
+.article_left{
+
+    @include span(12);
+    @include aspect-ratio(16,9);
+    margin:0em em(10) em(10) 0em;
+
+    @include breakpoint($small-pc) {
+        @include span(4);
+        padding:0em;
+        
+    }
+
+}
+
+
+.article_right{
+
+    @include span(12);
+    @include aspect-ratio(16,9);
+
+
+    @include breakpoint($small-pc) {
+        @include span(4);
+        padding:0em;
+        
+    }
+
+}
+
+
+.section_left{
+
+    @include span(12);
+    @include aspect-ratio(16,9);
+    
+
+
+    @include breakpoint($small-pc) {
+        @include span(8);
+        padding:0em;
+        figcontainer{
+            height:360px;
+        }
+        
+    }
+
+}
+
+.section_right{
+
+    @include span(12);
+    @include aspect-ratio(16,9);
+   
+   .wrap{border:1px solid $light-gray;}
+
+
+    @include breakpoint($small-pc) {
+        @include span(4);
+        padding:0em;
+         padding-left:1.3em;
+
+         .wrap {
+            margin:0;
+         }
+    }
+
+}
