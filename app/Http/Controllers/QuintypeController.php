@@ -17,4 +17,8 @@ class QuintypeController extends Controller
             "config" => $this->client->config()
         ], $args);
     }
+    
+    
+    
+    
 }

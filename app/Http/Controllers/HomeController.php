@@ -24,6 +24,9 @@ class HomeController extends QuintypeController {
                     "food_stories" => $bulk->getResponse("foodhealth"), "breaking_news" => $bulk->getResponse("breaking_news")]));
     }
 
+
+    
+
     public function sectionview() {
         $a = explode("/", $_SERVER['REQUEST_URI']);
         //echo sizeof($a);
