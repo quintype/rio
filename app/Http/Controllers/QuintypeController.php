@@ -25,5 +25,14 @@ class QuintypeController extends Controller
  public function getStories($args = null){
         return $this->client->stories($args);
     }
-    
+ 
+
+    public function bulkStories($args = null){
+    	$bulk = new Bulk();
+        $bulk->addRequest('stories', (new StoriesRequest('top'))->addParams($args));
+        $bulk->execute($this->client);
+       	return $bulk->getResponse("stories");
+    }
+
+       
 }

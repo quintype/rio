@@ -1,14 +1,21 @@
 <div class="content"><!-- content open-->
 
+
+
+
     <div class="story_hero">
          <div class="story_hero__text">
-            More than two dozen Republican senators this week asked Secretary of State John Kerry not to provide any funding | AP
+
+{{storyData['hero-image-caption']}}
+
+                
         </div>
         <figure>
-            <img  src="{{ assetPath('main/3.jpg') }}" />
-        </figure>
+
+<img src="{{focusedImageUrl(storyData['hero-image-s3-key'], [16,9], storyData['hero-image-metadata'], {w: 800})}}" class="story-img"/>       </figure>
        
     </div>
+    <BR>
     <div class="sourcefrom">
         API Reurters
     </div>
@@ -16,17 +23,22 @@
     <div class="story_container">
 
 
-        <div><span class="article__tag-heading">Science</span></div>
+        <div><span class="article__tag-heading">{{storyData["sections"][0]["name"]}}</span></div>
         <!-- Stoy Header Close -->
-        <h1>Senate Republicans Want To Cut Funding For UN Climate Change Agency</h1>
+        <h1>{{storyData["headline"]}}</h1>
 
-        <div class='story-element-summary'> More than two dozen Republican senators this week asked Secretary of State
-            John Kerry not to provide any funding for the United States’ involvement in
-            the United Nations effort to address climate change.</div>
+        <div class='story-element-summary'> {{storyData["summary"]}} </div>
 
-        <span><h6 class="textbottom__article__name">Jhon Doe</h6></span>
-        <span class='textbottom__article'><time> May 16,2016 </time></span>
+        <span><h6 class="textbottom__article__name">{{storyData["author-name"]}}</h6></span>
+        <span class='textbottom__article'><time>   {% set timestamp = (storyData["published-at"] / 1000)|round(0, 'floor') %}{{timestamp|date('M d,Y')}} </time></span>
 
+
+
+
+
+
+
+*********************************************************************************************************
         <div class='story-element-publisher'>This story was <a href='#'>originally published</a> by The Huffington Post.</div>
 
         <div class='story-element-text'>

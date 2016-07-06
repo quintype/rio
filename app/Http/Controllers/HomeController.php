@@ -27,6 +27,21 @@ class HomeController extends QuintypeController {
 
 
 
+
+
+
+    public function storyview($category, $y, $m, $d, $slug) {
+       $story = $this->client->storyData(array('slug' => $slug))['story'];
+     
+    // echo "<pre>";
+     //print_r($story);
+        return view('story', $this->toView(["storyData" => $story]));
+         
+       // return view('story', $this->toView([]));
+    }
+
+
+
   public function sectionview($section)    
     {
         $config = $this->client->config();

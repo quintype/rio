@@ -134,6 +134,14 @@ class QuintypeClient {
         return $this->postResponse("/api/v1/bulk", ["requests" => $requests])["results"];
     }
 
+      public function storyData($params =null){
+        return array_map(function ($s) {
+            return new Story($s);
+        }, $this->getResponse("/api/v1/stories-by-slug", $params));
+    }
+
+    
+
 }
 
 

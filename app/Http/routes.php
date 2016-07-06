@@ -21,7 +21,7 @@ Route::get('/ping', function () {
 //Route::get('/section/year/month/date/story_slug', 'PreviewController@home');
 
 Route::get('/{section}/{year}/{month}/{date}/{story_slug}', [
-    'uses' => 'PreviewController@storyview'
+    'uses' => 'HomeController@storyview'
 ]);
 
 Route::get('/section/podcasts', [
