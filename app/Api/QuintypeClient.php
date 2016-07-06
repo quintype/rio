@@ -33,6 +33,10 @@ class Config extends ArrayObject {
             return new MenuItem($menu, $this);
         }, $this["layout"]["menu"]);
     }
+     public function sections() {
+           return $this["sections"];
+    }
+
 
 }
 

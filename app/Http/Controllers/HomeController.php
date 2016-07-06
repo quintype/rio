@@ -3,9 +3,9 @@
 namespace App\Http\Controllers;
 
 use Log;
+use Illuminate\Http\Request;
 use App\Http\Controllers\QuintypeController;
 use App\Api\Bulk;
-use App\Api\MenuItem;
 use App\Api\Config;
 use App\Api\StoriesRequest;
 
@@ -25,18 +25,16 @@ class HomeController extends QuintypeController {
     }
 
 
-    
 
-    public function sectionview() {
-        $a = explode("/", $_SERVER['REQUEST_URI']);
-        //echo sizeof($a);
-        $slug = $a[sizeof($a) - 1];
-        echo $slug;
 
-        //$story_data = new QuintypeClient();
-
-        return view('section', $this->toView([]));
-    }
+  public function sectionview($section)    
+    {
+        $config = $this->client->config();
+        $sections = $config->sections();
+        $cur_section =  $sections[array_search( $section, array_column($sections, 'slug'), true )]; 
+         $stories = $this->getStories(array('story-group' => 'top', 'section' =>  $cur_section['name'], 'limit' => 8));
+         return view('section', $this->toView(["section" =>  $cur_section,"section_stories" =>  $stories]));
+    }  
 
     public function podcastview() {
         $a = explode("/", $_SERVER['REQUEST_URI']);

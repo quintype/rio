@@ -24,13 +24,14 @@ Route::get('/{section}/{year}/{month}/{date}/{story_slug}', [
     'uses' => 'PreviewController@storyview'
 ]);
 
-Route::get('/{section}/podcasts', [
+Route::get('/section/podcasts', [
     'uses' => 'HomeController@podcastview'
 ]);
 
-Route::get('/{section}/{section_name}', [
+Route::get('/section/{section}', [
     'uses' => 'HomeController@sectionview'
 ]);
+
 
 Route::get('/search', [
 
