@@ -1,0 +1,16 @@
+{% if dataElement['subtype'] == "photo-gallary" %}
+<div class="element-photo-gallary">
+	<div class="gallary">
+		<img src=" http://placehold.it/600x400">
+		<img src=" http://placehold.it/600x400">
+		<img src=" http://placehold.it/600x400">
+		<img src=" http://placehold.it/600x400">
+		<img src=" http://placehold.it/600x400">
+		<img src=" http://placehold.it/600x400">
+	</div>
+</div>
+{% else %}
+<div class="story-element-image">
+	<img src="{{focusedImageUrl(dataElement['image-s3-key'], [16,9], dataElement['image-metadata'], {w: 900})}}"/>
+</div>
+{% endif %}

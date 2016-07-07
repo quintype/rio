@@ -44,7 +44,7 @@
     <section><!--  Section 2 open-->
         {% for story in stories|slice(4,3)  %}
             <article><!--  Article1 open-->
-                <a href="{{story['slug']}}">
+                <a href="/{{story['slug']}}">
                     <div class="wrap border">
                         <div class="figcontainer">
                             <h6 class="sectionname__display">{{story['sections'][0]['name']}}</h6>
@@ -84,7 +84,7 @@
         </div>
         <div class="rightsmall" >
             {% for story in stories|slice(7,1)  %}
-                <a href="{{story['slug']}}">
+                <a href="/{{story['slug']}}">
                     <figure>
                         <span class="sectionname__display">{{story['sections'][0]['name']}}</span>
                         <div class="titletop_small"> {{story["headline"]}}</div>
@@ -108,8 +108,8 @@
                 <article><!--  Article1 open-->
                     <div class="figcontainer">
                         <figure>
-                             <a href="{{story['slug']}}">   <img src="{{focusedImageUrl(story['hero-image-s3-key'], [16,9], story['hero-image-metadata'], {w:400})}}" />
-</a>
+                            <a href="/{{story['slug']}}">   <img src="{{focusedImageUrl(story['hero-image-s3-key'], [16,9], story['hero-image-metadata'], {w:400})}}" />
+                            </a>
                         </figure>
                         <div class="vedicon"> <img src="{{ assetPath('main/viedo.png')}}"/></div>
                         <div class="sourcefrom">API Reurters</div>
@@ -118,7 +118,7 @@
                     <div class="textwrap">
 
                         <div class="article__title">
-                            <a href="{{story['slug']}}">    {{story["headline"]}} </a>
+                            <a href="/{{story['slug']}}">    {{story["headline"]}} </a>
                         </div>
                         <div class="textbottom">
                             <span> <h5 class="textbottom__article__name">{{story["author-name"]}}</h5></span>
@@ -150,16 +150,16 @@
                     <div class="figcontainer">
                         <figure>
 
-    <a href="{{story['slug']}}">
-                            <img src="{{focusedImageUrl(storys['hero-image-s3-key'], [16,9], storys['hero-image-metadata'], {w:400})}}"/>
-</a>
+                            <a href="/{{story['slug']}}">
+                                <img src="{{focusedImageUrl(storys['hero-image-s3-key'], [16,9], storys['hero-image-metadata'], {w:400})}}"/>
+                            </a>
                         </figure>
                         <div class="sourcefrom">API Reurters</div>
                     </div>
                     <div class="textwrap">
 
                         <div class="article__title">
-                             <a href="{{story['slug']}}">   {{storys["headline"]}} </a>
+                            <a href="/{{story['slug']}}">   {{storys["headline"]}} </a>
                         </div>
                         <div class="textbottom">
                             <span> <h5 class="textbottom__article__name">{{storys["author-name"]}}</h5></span>
@@ -190,14 +190,14 @@
             {% for story in breaking_news|slice(0,3) %}
                 <article><!--  Article1 open-->
                     <figure>
-    <a href="{{story['slug']}}">
-                        <img src="{{focusedImageUrl(story['hero-image-s3-key'], [16,9], story['hero-image-metadata'], {w:400})}}" /> 
+                        <a href="/{{story['slug']}}">
+                            <img src="{{focusedImageUrl(story['hero-image-s3-key'], [16,9], story['hero-image-metadata'], {w:400})}}" /> 
                         </a>
                     </figure>
                     <div class="sourcefrom">API Reurters</div>
                     <div class="textwrap">
                         <div class="article__title">
-                           <a href="{{story['slug']}}">     {{story["headline"]}} </a>
+                            <a href="/{{story['slug']}}">     {{story["headline"]}} </a>
                         </div>
                         <div class="textbottom">
                             <span> <h5 class="textbottom__article__name">{{story["author-name"]}}</h5></span>
@@ -229,15 +229,15 @@
                     <div class="figcontainer">
 
                         <figure>
-                           <a href="{{story['slug']}}">     <img src="{{focusedImageUrl(story['hero-image-s3-key'], [16,9], story['hero-image-metadata'], {w:400})}}"/>
-</a>
+                            <a href="/{{story['slug']}}">     <img src="{{focusedImageUrl(story['hero-image-s3-key'], [16,9], story['hero-image-metadata'], {w:400})}}"/>
+                            </a>
                         </figure>
                         <div class="sourcefrom">API Reurters</div>
                     </div>
                     <div class="textwrap">
 
                         <div class="article__title">
-                         <a href="{{story['slug']}}">       {{story["headline"]}} </a>
+                            <a href="/{{story['slug']}}">       {{story["headline"]}} </a>
                         </div>
                         <div class="textbottom">
                             <span> <h5 class="textbottom__article__name">{{story["author-name"]}}</h5></span>

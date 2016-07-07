@@ -1,0 +1,8 @@
+ <div> <span class="article__tag-heading"> Tags </span> </div>
+        <div class="article__tags">
+            <ul>
+            {% for tag in storyTags %}
+	<li><a href="/tags?tag={{tag['name']}}">{{ tag['name'] }}</a></li>	
+{% endfor %}
+            </ul>
+        </div>

@@ -1,13 +1,14 @@
 <div class="content"><!-- content open-->
-    <section>  <p class="headingline"><span>Tag : World News</span></p>
+    <section>  <p class="headingline"><span> Tag: {{tag}}</span></p>
   
 
-        <div class="wrap">
+{% for story in tagresults %}
+     <div class="wrap">
             <div class="article_left ">
                 <a href="{{story['slug']}}">
                     <div class="figcontainer">
                         <figure>
-                            <img src="{{ assetPath('main/5.jpg') }}" />
+                             <img src="{{focusedImageUrl(story['hero-image-s3-key'], [16,9], story['hero-image-metadata'],{w:700} )}}" />
                         </figure>
                         <div class="sourcetop">API Reurters</div>
                     </div>
@@ -15,155 +16,25 @@
             </div>
             <div class="article_right ">
                 <div class="article__title">
-                    This GOP Congressman’s Crusade Against Scientists Just Got Even More Insane
+                  {{story["headline"]}}
                 </div>
                 <div class="article__desciption">
-                    More than two dozen Republican senators this week asked Secretary of State.
+                   {{story["summary"]}}
                 </div>
                 <div class="textbottom">
-                    <span class="textbottom__article">1</span>
-                    <span><h5 class="textbottom__article__name">John Doe</h5></span>
-                    <span class="textbottom__article"> <time datetime="">
-                            May 12, 2015
-                        </time></span>
-                </div> <!-- textbottom close -->
+                                        <span class="textbottom__article">1</span>
+                                        <span><h5 class="textbottom__article__name">{{story["author-name"]}}</h5></span>
+                                        <span class="textbottom__article"> <time datetime="">
+                                                {% set timestamp = (story["published-at"] / 1000)|round(0, 'floor') %}{{timestamp|date('M d,Y')}}
+                                            </time></span>
+                                    </div> <!-- textbottom close -->
             </div>
         </div>
-        <div class="wrap">
-            <div class="article_left ">
-                <a href="{{story['slug']}}">
-                    <div class="figcontainer">
-                        <figure>
-                            <img src="{{ assetPath('main/1.jpg') }}" />
-                        </figure>
-                        <div class="sourcetop">API Reurters</div>
-                    </div>
-                </a>
-            </div>
-            <div class="article_right ">
-                <div class="article__title">
-                    This GOP Congressman’s Crusade Against Scientists Just Got Even More Insane
-                </div>
-                <div class="article__desciption">
-                    More than two dozen Republican senators this week asked Secretary of State.
-                </div>
-                <div class="textbottom">
-                    <span class="textbottom__article">1</span>
-                    <span><h5 class="textbottom__article__name">John Doe</h5></span>
-                    <span class="textbottom__article"> <time datetime="">
-                            May 12, 2015
-                        </time></span>
-                </div> <!-- textbottom close -->
-            </div>
-        </div>
-                                <div class="wrap">
-            <div class="article_left ">
-                <a href="{{story['slug']}}">
-                    <div class="figcontainer">
-                        <figure>
-                            <img src="{{ assetPath('main/3.jpg') }}" />
-                        </figure>
-                        <div class="sourcetop">API Reurters</div>
-                    </div>
-                </a>
-            </div>
-            <div class="article_right ">
-                <div class="article__title">
-                    This GOP Congressman’s Crusade Against Scientists Just Got Even More Insane
-                </div>
-                <div class="article__desciption">
-                    More than two dozen Republican senators this week asked Secretary of State.
-                </div>
-                <div class="textbottom">
-                    <span class="textbottom__article">1</span>
-                    <span><h5 class="textbottom__article__name">John Doe</h5></span>
-                    <span class="textbottom__article"> <time datetime="">
-                            May 12, 2015
-                        </time></span>
-                </div> <!-- textbottom close -->
-            </div>
-        </div>
-                                <div class="wrap">
-            <div class="article_left ">
-                <a href="{{story['slug']}}">
-                    <div class="figcontainer">
-                        <figure>
-                            <img src="{{ assetPath('main/7.jpg') }}" />
-                        </figure>
-                        <div class="sourcetop">API Reurters</div>
-                    </div>
-                </a>
-            </div>
-            <div class="article_right ">
-                <div class="article__title">
-                    This GOP Congressman’s Crusade Against Scientists Just Got Even More Insane
-                </div>
-                <div class="article__desciption">
-                    More than two dozen Republican senators this week asked Secretary of State.
-                </div>
-                <div class="textbottom">
-                    <span class="textbottom__article">1</span>
-                    <span><h5 class="textbottom__article__name">John Doe</h5></span>
-                    <span class="textbottom__article"> <time datetime="">
-                            May 12, 2015
-                        </time></span>
-                </div> <!-- textbottom close -->
-            </div>
-        </div>
-                                <div class="wrap">
-            <div class="article_left ">
-                <a href="{{story['slug']}}">
-                    <div class="figcontainer">
-                        <figure>
-                            <img src="{{ assetPath('main/2.jpg') }}" />
-                        </figure>
-                        <div class="sourcetop">API Reurters</div>
-                    </div>
-                </a>
-            </div>
-            <div class="article_right ">
-                <div class="article__title">
-                    This GOP Congressman’s Crusade Against Scientists Just Got Even More Insane
-                </div>
-                <div class="article__desciption">
-                    More than two dozen Republican senators this week asked Secretary of State.
-                </div>
-                <div class="textbottom">
-                    <span class="textbottom__article">1</span>
-                    <span><h5 class="textbottom__article__name">John Doe</h5></span>
-                    <span class="textbottom__article"> <time datetime="">
-                            May 12, 2015
-                        </time></span>
-                </div> <!-- textbottom close -->
-            </div>
-        </div>
-                                <div class="wrap">
-            <div class="article_left ">
-                <a href="{{story['slug']}}">
-                    <div class="figcontainer">
-                        <figure>
-                            <img src="{{ assetPath('main/4.jpg') }}" />
-                        </figure>
-                        <div class="sourcetop">API Reurters</div>
-                    </div>
-                </a>
-            </div>
-            <div class="article_right ">
-                <div class="article__title">
-                    This GOP Congressman’s Crusade Against Scientists Just Got Even More Insane
-                </div>
-                <div class="article__desciption">
-                    More than two dozen Republican senators this week asked Secretary of State.
-                </div>
-                <div class="textbottom">
-                    <span class="textbottom__article">1</span>
-                    <span><h5 class="textbottom__article__name">John Doe</h5></span>
-                    <span class="textbottom__article"> <time datetime="">
-                            May 12, 2015
-                        </time></span>
-                </div> <!-- textbottom close -->
-            </div>
-        </div>
+
+
+{% endfor %}
+
+
 
     </section>	
 

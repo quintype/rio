@@ -31,11 +31,16 @@ class HomeController extends QuintypeController {
 
 
     public function storyview($category, $y, $m, $d, $slug) {
+         $bulk = new Bulk();
        $story = $this->client->storyData(array('slug' => $slug))['story'];
      
-    // echo "<pre>";
-     //print_r($story);
-        return view('story', $this->toView(["storyData" => $story]));
+ //  echo "<pre>";
+  //  print_r($story);
+          $bulk->addRequest('foodhealth', (new StoriesRequest('top'))->addParams(["section" => "Food & Health", "limit" => 3]));
+        $bulk->execute($this->client);
+ 
+
+        return view('story', $this->toView(["storyData" => $story,"food_stories" => $bulk->getResponse("foodhealth")]));
          
        // return view('story', $this->toView([]));
     }
@@ -65,8 +70,11 @@ class HomeController extends QuintypeController {
     public function searchview() {
         return view('search', $this->toView([]));
     }
-        public function tagsview() {    
-        return view('tags', $this->toView([]));
+
+        public function tagsview(Request $request) {  
+         $tag = $request->tag;
+         $tagStories = $this->getStories(array('story-group'=>'top', 'tag' => $tag, 'limit' => 7));  
+         return view('tags', $this->toView(["tagresults"=>$tagStories, "tag" => $tag]));
     }
     
 

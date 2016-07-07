@@ -33,96 +33,31 @@
         <span class='textbottom__article'><time>   {% set timestamp = (storyData["published-at"] / 1000)|round(0, 'floor') %}{{timestamp|date('M d,Y')}} </time></span>
 
 
+        <!-- <div class='story-element-publisher'>This story was <a href='#'>originally published</a> by The Huffington Post.</div> -->
 
 
+        {% for card in storyData['cards'] %}                
+                {% include "story/story_elements" with {'storyElements': card['story-elements'] } %}    
+            {% endfor %}    
+       
 
-
-
-*********************************************************************************************************
-        <div class='story-element-publisher'>This story was <a href='#'>originally published</a> by The Huffington Post.</div>
-
-        <div class='story-element-text'>
-
-            <p>  The Palestinians joined the United Nations Framework Convention on Climate Change, the international treaty that governs action on climate change, in March. On Monday, the group of 28 senators,
-                led by Wyoming Republican John Barrasso, argued in a letter to Kerry that — because of a 1994 law barring federal funds from being distributed to any U.N. program that grants membership to
-                a state or organization that lacks “internationally recognized attributes of statehood” — the <a href="">UNFCCC</a>.
-            </p>
-            <p>
-                <b>It may not be entirely a coincidence that this letter comes from a group of senators who, by and large, don’t really believe climate change is an issue the U.S. should be addressing at all.</b>
-            </p>
-            <p>
-                They’re not all climate change deniers, per se. But Barrasso has said that the climate “is constantly changing” and that “the role human activity plays is not known.” Inhofe, who is chairman.
-            </p>       </div>
-
-        <div class="story-element-blockquote">
-            <blockquote>We urge the administration to clarify, both publicly and privately, that the United States does not
-                consider the ‘State of Palestine’ to be a sovereign state, and to work diligently
-                to prevent the Palestinians
-            </blockquote>
-        </div>
-
-
-        <div class="text story-element-quote">
-            <blockquote>
-                <p>We urge the administration to clarify, both publicly and privately, that the United States does not consider the
-                    ‘State of Palestine’ to be a sovereign state, and to work diligently to prevent the Palestinians</p>
-                <div class="attribution">- Jhon Doe</div>
-            </blockquote>
-        </div>
-
-        <div class="text story-element-blurb">
-            We urge the administration to clarify, both publicly and privately, that the United States does not consider the ‘State of Palestine’
-            to be a sovereign state, and to work diligently to prevent the Palestinians
-        </div>
-
-        <div class="text story-element-ques-and-ans">
-            <h5>We urge the administration to clarify, both publicly and privately?</h5>
-            <div class="answer">
-                <p>The UNFCCC was created in 1992 to provide a mechanism for international coordination on addressing climate change. The United States provides funding to support the
-                    UNFCCC secretariat and other activities, as do the 196 other parties to the convention.</p>
-            </div>
-        </div>
-
-        <div class="text story-element-ques-and-ans">
-            <h5>How urge the administration to clarify, both publicly and privately the administration to clarify?</h5>
-            <div class="answer">
-                <p>The UNFCCC was created in 1992 to provide a mechanism for international coordination on addressing climate change. The United States provides funding to support the
-                    UNFCCC secretariat and other activities, as do the 196 other parties to the convention.</p>
-            </div>
-        </div>
-
-
-        <div class="text story-element-bigfact">
-            <h2>Big Short Heading</h2>
-            <div class="context">
-                <p>The UNFCCC was created in 1992 to provide a mechanism for international coordination on addressing climate change.</p>
-            </div>
-        </div>
+     
 
 
         <div class='text author'>
             <div class='author__left'><img  src="{{ assetPath('main/img4.jpg') }}" /></div>
             <div class='author__right'>
-                <h5> Jhon Doe</h5>
+                <h5> {{storyData["author-name"]}} </h5>
                 <p>
-                    John Doe was created in 1992 to provide a mechanism for international coordination on addressing climate change.
-                    The United States provides funding to support the UNFCCC secretariat and other activities.
+                   {{storyData["author-bio"]}}
                 </p>
             </div>
-
-
         </div>
+        
 
-        <div> <span class="article__tag-heading"> Tags </span> </div>
-        <div class="article__tags">
-            <ul>
-                <li><a href="#">Climate</a></li>
-                <li><a href="#">ads</a></li>
-                <li><a href="#">Business</a></li>
-                <li><a href="#">Investment</a></li>
-            </ul>
-        </div>
 
+       
+{% include "story/story_tags" with {'storyTags': storyData["tags"]} %}
 
         <div class="storyad">
             <img  src="{{ assetPath('main/ad1.png') }}" />
@@ -136,101 +71,28 @@
     <section><!--  Section 5 open-->
         <div class="sectionwrap">
             <div class="sectiontitle left"><span>FOOD & HEALTH</span></div>
-
+  {% for story in food_stories|slice(0,3) %}
             <article><!--  Article1 open-->
                 <div class="figcontainer">
                     <figure>
-                        <img src="{{ assetPath('main/2.jpg') }}" />
+                       <a href="/{{story['slug']}}">     <img src="{{focusedImageUrl(story['hero-image-s3-key'], [16,9], story['hero-image-metadata'], {w:400})}}"/>
+                            </a>
                     </figure>
                     <div class="sourcefrom">API Reurters</div>
                 </div>
                 <div class="textwrap">
                     <div class="article__title">
-                        5 Timeless Truths From The Serenity Prayer That Offer Wisdom
+                           <a href="/{{story['slug']}}">       {{story["headline"]}} </a>
                     </div>
-                    <div class="textbottom">
-                        <span> <h5 class="textbottom__article__name">Jhon Doe</h5></span>
-                        <span class="textbottom__article"> <time datetime="">May 12,2015</time></span>
-                    </div> <!-- textbottom close -->
+                      <div class="textbottom">
+                            <span> <h5 class="textbottom__article__name">{{story["author-name"]}}</h5></span>
+                            <span class="textbottom__article"> <time datetime="">{% set timestamp = (story["published-at"] / 1000)|round(0, 'floor') %}{{timestamp|date('M d,Y')}}</time></span>
+                        </div> <!-- textbottom close -->
                 </div><!-- textwrap close -->
             </article>
-            <article><!--  Article2 open-->
-                <div class="figcontainer">
-                    <figure>
-                        <img src="{{ assetPath('main/3.jpg') }}" />
-                    </figure>
-                    <div class="sourcefrom">API Reurters</div>
-                </div>
-                <div class="textwrap">
-                    <div class="article__title">
-                        5 Times Joey was more thoughtful
-                    </div>
-                    <div class="textbottom">
-                        <span> <h5 class="textbottom__article__name">Jhon Doe</h5></span>
-                        <span class="textbottom__article"> <time datetime="">May 12,2015</time></span>
+              {% endfor %}
+           
 
-                    </div> <!-- textbottom close -->
-                </div><!-- textwrap close -->
-            </article>
-            <article><!--  Article3 open-->
-                <div class="figcontainer">
-                    <figure>
-                        <img src="{{ assetPath('main/5.jpg') }}" />
-                    </figure>
-                    <div class="sourcefrom">API Reurters</div>
-                </div>
-                <div class="textwrap">
-                    <div class="article__title">
-                        I-T probe into arms dealer unearths ‘Vadra home’ in UK
-                    </div>
-                    <div class="textbottom">
-                        <span> <h5 class="textbottom__article__name">Jhon Doe</h5></span>
-                        <span class="textbottom__article"> <time datetime="">May 12,2015</time></span>
-                    </div> <!-- textbottom close -->
 
-                </div>
-
-            </article><!--  Section Wrap close-->
         </div>
     </section><!--  Section 5 close-->
-
-
-
-    <div class="section"><!--  Section 6 open-->
-
-        <div class="sectiontitle"><span>OUR PATNERS</span></div>
-        <div class="patners">
-            <ul id="clientsdesk">
-                <li><img src="{{ assetPath('patner-logos/atlantic.png') }}" /></li>
-                <li><img src="{{ assetPath('patner-logos/citylab.png') }}" /></li>
-                <li><img src="{{ assetPath('patner-logos/fusion.png') }}" /></li>
-                <li><img src="{{ assetPath('patner-logos/grist.png') }}" /></li>
-                <li><img src="{{ assetPath('patner-logos/guardian.png') }}" /></li>
-                <li><img src="{{ assetPath('patner-logos/huffpost.png') }}" /></li>
-                <li><img src="{{ assetPath('patner-logos/medium.png') }}" /></li>
-                <li><img src="{{ assetPath('patner-logos/motherjones.png') }}" /></li>
-                <li><img src="{{ assetPath('patner-logos/newrepublic.png') }}" /></li>
-                <li><img src="{{ assetPath('patner-logos/n.png') }}" /></li>
-                <li><img src="{{ assetPath('patner-logos/reveal.png') }}" /></li>
-                <li><img src="{{ assetPath('patner-logos/slate.png') }}" /></li>
-                <li><img src="{{ assetPath('patner-logos/wired.png') }}" /></li>
-            </ul>
-
-            <ul id="slider">
-                <li><img src="{{ assetPath('patner-logos/atlantic.png') }}" /></li>
-                <li><img src="{{ assetPath('patner-logos/citylab.png') }}" /></li>
-                <li><img src="{{ assetPath('patner-logos/fusion.png') }}" /></li>
-                <li><img src="{{ assetPath('patner-logos/grist.png') }}" /></li>
-                <li><img src="{{ assetPath('patner-logos/guardian.png') }}" /></li>
-                <li><img src="{{ assetPath('patner-logos/huffpost.png') }}" /></li>
-                <li><img src="{{ assetPath('patner-logos/medium.png') }}" /></li>
-                <li><img src="{{ assetPath('patner-logos/motherjones.png') }}" /></li>
-                <li><img src="{{ assetPath('patner-logos/newrepublic.png') }}" /></li>
-                <li><img src="{{ assetPath('patner-logos/n.png') }}" /></li>
-                <li><img src="{{ assetPath('patner-logos/reveal.png') }}" /></li>
-                <li><img src="{{ assetPath('patner-logos/slate.png') }}" /></li>
-                <li><img src="{{ assetPath('patner-logos/wired.png') }}" /></li>
-            </ul>
-        </div>
-    </div>
-</div><!-- content close-->
