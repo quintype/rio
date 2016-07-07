@@ -9,10 +9,9 @@
     <script type="text/javascript">var qtReady = qtReady || [];</script>
 	<div class="header">
 	 <div class="content">
-	 <div class="menubarimg"><a href="#"><img  class="menubar" src='{{ assetPath("icons/menu_b.svg") }}' /></a></div>
-         <div class="logo">
-            <a href="{{ url()}}"> <img src='{{ assetPath("climatedesk_logo.png") }}' /> </a></div>
-         <div class="menuitems">
+	 <div class="menubarimg"><a href="#"><img  class="menubar" src='{{ assetPath("icons/menu_b.svg") }}' /></a>
+         
+            <div class="menuitems">
              <ul>
                  {% for menuItem in config.menuItems() %}
 		<li><a href="{{menuItem.url()}}">{{menuItem.title()}}</a></li>
@@ -21,6 +20,11 @@
              </ul>    
          
          </div>
+         
+         </div>
+         <div class="logo">
+            <a href="{{ url()}}"> <img src='{{ assetPath("climatedesk_logo.png") }}' /> </a></div>
+      
          
          
 	 <nav><ul>

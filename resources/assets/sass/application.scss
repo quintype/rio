@@ -117,8 +117,8 @@ nav	{
         font-weight: $regular;
         font-size: 16px;    
         display: block;
-
-
+        height:auto;
+        line-height:20px;
     }
 
     ul li{
@@ -127,6 +127,8 @@ nav	{
         border-top:1px solid $light-blue;
         width: 100%;
         display: block;
+         height:auto;
+        
 
     }
 
@@ -136,7 +138,7 @@ nav	{
 
 }
 
-.menubarimg:hover ~ .menuitems{
+.menubarimg:hover    .menuitems{
     display: block;
 }
 
