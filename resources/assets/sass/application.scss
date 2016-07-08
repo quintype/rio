@@ -44,6 +44,21 @@ main {
     font-size: 1.5rem; 
     line-height: 2.2em;
     margin-left: 1em;
+    @include breakpoint($phone)
+    {
+
+        margin-left:em(5);
+    }
+}
+
+.logoview{
+    width:180px;
+    height:30px;
+
+    @include breakpoint($phone){
+       width: 120px;
+       height:22px;
+    }
 }
 
 ul li{
@@ -74,8 +89,6 @@ ul li{
 }
 .patners ul li{ float:left;}
 
-
-
 nav	{
 
     float:right;
@@ -94,6 +107,11 @@ nav	{
     display: inline;
     float: left;
     margin-top: 10px;
+    @include breakpoint($phone){
+        margin-left:em(5);
+        margin-top:em(14);
+
+    }
 }
 .menuitems{
     padding:15px;
@@ -149,6 +167,53 @@ nav	{
 }
 
 
+.mob_buttons{
+width:40%;
+float:right;
+line-height: 45px;
+ul li{
+    float:left;
+}
+  @include breakpoint($pc){
+        display:none;
+    }
+
+}
+
+.donate {
+    background-color: $light-blue;
+    color: $white;
+    font-size:13px;
+    font-weight:$bold; 
+    text-transform: uppercase; 
+    letter-spacing: 1.5px;
+    padding: 5px 15px 5px 15px;
+    @include breakpoint($phone){
+        font-size: 8px;
+        margin-right:5px;
+        padding:em(7) em(5) em(6) em(5);
+    }
+}
+.search_butn {
+    color: $light-blue;
+    background-color: $white;   
+    border:1px solid $light-blue;    
+    font-size:13px;
+    font-weight:$bold; 
+    text-transform: uppercase; 
+    letter-spacing: 1.5px;
+    padding: 5px 15px 5px 15px;
+      @include breakpoint($phone){
+        font-size: 8px;
+        padding:em(7) em(5) em(6) em(5);
+    }
+    
+
+
+}
+
+
+
 .sectionname__display {
     background-color: $light-blue;
     color: $white;
@@ -172,6 +237,7 @@ nav	{
         @include span(12);
         @include aspect-ratio(1,1);
         padding: em(0);
+        margin-bottom:10px;
     }
 
 }
@@ -287,6 +353,11 @@ nav	{
 }
 .menubar {
     margin-right:5px;
+     @include breakpoint($phone){
+        width:22px;
+        height:22px;
+        margin-left:12px;
+    }
 }
 
 

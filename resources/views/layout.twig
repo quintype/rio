@@ -4,6 +4,9 @@
     <title>Quintype Sample App</title>
     <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
     <link rel="stylesheet" type="text/css" href="{{ assetPath("application.css") }}"/>
+    <script src="http://code.jquery.com/jquery-latest.js"></script>
+     <script type="text/javascript" src="{{ assetPath("application.js") }}"></script>
+
   </head>
 <body class='page'>
     <script type="text/javascript">var qtReady = qtReady || [];</script>
@@ -23,16 +26,20 @@
          
          </div>
          <div class="logo">
-            <a href="{{ url()}}"> <img src='{{ assetPath("climatedesk_logo.png") }}' /> </a></div>
-      
-         
-         
+            <a href="{{ url()}}"> <img class="logoview" src='{{ assetPath("climatedesk_logo.png") }}' /> </a></div> 
+    <div class="mob_buttons"> <ul>	
+	 <li><a href="#" class="donate">Donate</a></li>
+	 <li><a	href="#" class="search_butn">Search</a></li>
+	 </ul>
+	 </div>
+
+
 	 <nav><ul>
 	 <li><a href="#"><img src="{{ assetPath("icons/facebook_b.svg") }}" /></a></li>
 	 <li><a	href="#" ><img src="{{ assetPath("icons/twitter_b.svg") }}" /></a></li>	 
 	 <li><a	href="#"><img src="{{ assetPath("icons/youtube_b.svg") }}" /></a></li>
-	 <li><a href="#" class="fill">Donate</a></li>
-	 <li><a	href="#" class="empty">Search</a></li>
+	 <li><a href="#" class="donate">Donate</a></li>
+	 <li><a	href="#" class="search_butn">Search</a></li>
 	
 	 </ul></nav>	
 	 </div>
@@ -149,8 +156,6 @@
         "image-cdn": "{{config("quintype.image-cdn")}}"
       };
     </script>
-	<script src="http://code.jquery.com/jquery-latest.js"></script>
-    <script type="text/javascript" src="{{ assetPath("application.js") }}"></script>
 	
 		<script type="text/javascript">
   		$(document).ready(function(){

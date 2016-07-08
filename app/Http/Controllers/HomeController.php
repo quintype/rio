@@ -24,37 +24,28 @@ class HomeController extends QuintypeController {
                     "food_stories" => $bulk->getResponse("foodhealth"), "breaking_news" => $bulk->getResponse("breaking_news")]));
     }
 
-
-
-
-
-
-
     public function storyview($category, $y, $m, $d, $slug) {
-         $bulk = new Bulk();
-       $story = $this->client->storyData(array('slug' => $slug))['story'];
-     
- //  echo "<pre>";
-  //  print_r($story);
-          $bulk->addRequest('foodhealth', (new StoriesRequest('top'))->addParams(["section" => "Food & Health", "limit" => 3]));
-        $bulk->execute($this->client);
- 
+        $bulk = new Bulk();
+        $story = $this->client->storyData(array('slug' => $slug))['story'];
 
-        return view('story', $this->toView(["storyData" => $story,"food_stories" => $bulk->getResponse("foodhealth")]));
-         
-       // return view('story', $this->toView([]));
+        // echo "<pre>";
+        // print_r($story);
+        $bulk->addRequest('foodhealth', (new StoriesRequest('top'))->addParams(["section" => "Food & Health", "limit" => 3]));
+        $bulk->execute($this->client);
+
+
+        return view('story', $this->toView(["storyData" => $story, "food_stories" => $bulk->getResponse("foodhealth")]));
+
+        // return view('story', $this->toView([]));
     }
 
-
-
-  public function sectionview($section)    
-    {
+    public function sectionview($section) {
         $config = $this->client->config();
         $sections = $config->sections();
-        $cur_section =  $sections[array_search( $section, array_column($sections, 'slug'), true )]; 
-         $stories = $this->getStories(array('story-group' => 'top', 'section' =>  $cur_section['name'], 'limit' => 8));
-         return view('section', $this->toView(["section" =>  $cur_section,"section_stories" =>  $stories]));
-    }  
+        $cur_section = $sections[array_search($section, array_column($sections, 'slug'), true)];
+        $stories = $this->getStories(array('story-group' => 'top', 'section' => $cur_section['name'], 'limit' => 8));
+        return view('section', $this->toView(["section" => $cur_section, "section_stories" => $stories]));
+    }
 
     public function podcastview() {
         $a = explode("/", $_SERVER['REQUEST_URI']);
@@ -71,23 +62,24 @@ class HomeController extends QuintypeController {
         return view('search', $this->toView([]));
     }
 
-        public function tagsview(Request $request) {  
-         $tag = $request->tag;
-         $tagStories = $this->getStories(array('story-group'=>'top', 'tag' => $tag, 'limit' => 7));  
-         return view('tags', $this->toView(["tagresults"=>$tagStories, "tag" => $tag]));
+    public function tagsview(Request $request) {
+        $tag = $request->tag;
+        $tagStories = $this->getStories(array('story-group' => 'top', 'tag' => $tag, 'limit' => 7));
+        return view('tags', $this->toView(["tagresults" => $tagStories, "tag" => $tag]));
     }
-    
 
     public function aboutview() {
         return view('about', $this->toView([]));
     }
 
-      public function privacyview() {
+    public function privacyview() {
         return view('privacy', $this->toView([]));
     }
-       public function termsview() {
+
+    public function termsview() {
         return view('terms', $this->toView([]));
     }
+
 }
 
 ?>
