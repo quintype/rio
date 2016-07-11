@@ -38,7 +38,7 @@ Route::get('/search', [
     'uses' => 'HomeController@searchview'
 ]);
 
-Route::get('/tags', [
+Route::get('/topic/{tagname}', [
 
     'uses' => 'HomeController@tagsview'
 ]);

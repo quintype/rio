@@ -63,7 +63,10 @@ class HomeController extends QuintypeController {
     }
 
     public function tagsview(Request $request) {
-        $tag = $request->tag;
+        //$tag = $request->tag;
+      //  print_r($request->topic);
+         $a = explode("/", $_SERVER['REQUEST_URI']);
+         $tag = $a[sizeof($a) - 1];
         $tagStories = $this->getStories(array('story-group' => 'top', 'tag' => $tag, 'limit' => 7));
         return view('tags', $this->toView(["tagresults" => $tagStories, "tag" => $tag]));
     }
