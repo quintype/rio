@@ -44,6 +44,7 @@ class HomeController extends QuintypeController {
         $sections = $config->sections();
         $cur_section = $sections[array_search($section, array_column($sections, 'slug'), true)];
         $stories = $this->getStories(array('story-group' => 'top', 'section' => $cur_section['name'], 'limit' => 8));
+   //  echo"<pre>";   print_r($stories);
         if($cur_section['name']!='Inquiring Minds')
         return view('section', $this->toView(["section" => $cur_section, "section_stories" => $stories]));
         else
