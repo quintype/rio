@@ -44,19 +44,13 @@ class HomeController extends QuintypeController {
         $sections = $config->sections();
         $cur_section = $sections[array_search($section, array_column($sections, 'slug'), true)];
         $stories = $this->getStories(array('story-group' => 'top', 'section' => $cur_section['name'], 'limit' => 8));
+        if($cur_section['name']!='Inquiring Minds')
         return view('section', $this->toView(["section" => $cur_section, "section_stories" => $stories]));
+        else
+        return view('podcasts', $this->toView(["section" => $cur_section, "section_stories" => $stories]));
     }
 
-    public function podcastview() {
-        $a = explode("/", $_SERVER['REQUEST_URI']);
-        //echo sizeof($a);
-        $slug = $a[sizeof($a) - 1];
-        echo $slug;
-
-        //$story_data = new QuintypeClient();
-
-        return view('podcasts', $this->toView([]));
-    }
+ 
 
     public function searchview() {
         return view('search', $this->toView([]));

@@ -9,16 +9,9 @@
 @import "base/_z-index-scale";
 @import "story/_story";
 @import "static";
+@import "podcast";
 
 
-$susy: (
-columns: 12,
-container: 1200px,
-gutters: 4,
-gutter-position: inside,
-global-box-sizing: border-box,
-debug: (image: hide)
-);
 
 @include border-box-sizing;
 

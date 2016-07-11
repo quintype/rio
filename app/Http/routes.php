@@ -24,9 +24,9 @@ Route::get('/{section}/{year}/{month}/{date}/{story_slug}', [
     'uses' => 'HomeController@storyview'
 ]);
 
-Route::get('/section/podcasts', [
-    'uses' => 'HomeController@podcastview'
-]);
+// Route::get('/section/inquiring-minds', [
+//     'uses' => 'HomeController@podcastview'
+// ]);
 
 Route::get('/section/{section}', [
     'uses' => 'HomeController@sectionview'

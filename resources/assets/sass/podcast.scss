@@ -1,0 +1,102 @@
+.podcastimg{
+    height:auto;
+    width:100%;
+}
+
+.left_podcast{
+  @include span(8);
+ margin-top:em(5);
+  position:relative;
+  float:left;
+  padding-left: 0;
+  padding-right:em(10);
+  h5{ letter-spacing: em(1); text-transform: uppercase; display:inline-block;padding:em(5);
+margin:0.5em;
+  border-bottom:2px solid $orange; }
+.podcast_share{
+	 @include span(4);
+	/*padding:0;*/
+	padding-left: 0;
+
+	ul {
+		width:100%;
+		padding:0 em(5) 0  em(10) ;
+	}
+
+  ul li a{
+  	color:$orange;
+  	font-size: em(12);
+  	text-transform: uppercase;
+  	font-weight: $bold;
+  }
+
+  }
+
+  .podcast_info{
+  	
+  	 @include span(8);
+  	font-size: em(12);
+  	padding: 0;
+  	 font-family: $merri; 
+
+  }
+
+
+}
+.right_podcast{
+	  @include span(4);
+	  margin-top:em(5);
+	   position:relative;
+      float:left;
+
+ .title{
+
+  	color:#ff6900;
+  }
+ 
+}
+
+.author_info{
+
+
+padding:em(2) 0 em(5) 0;
+width:100%;
+position:relative;
+float:left;
+
+.author_img{
+width:25%;
+float:left;
+
+
+}
+.author_imgs{
+border-radius:50%;
+}
+.author_right{
+	width: 75%;
+	float:left;
+	p{font-family: $merri; font-size: 10px; float:left;}
+}
+
+.author_title{
+color:$orange;
+text-transform: uppercase;
+float:left;
+width:100%;
+font-weight: $bold;
+font-size: 12px;
+
+}
+
+.author_position{
+color:#ccc;
+float:left;
+font-family: $merri;
+font-size: em(10);
+}
+
+
+
+
+}
