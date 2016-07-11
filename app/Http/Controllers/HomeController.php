@@ -28,8 +28,8 @@ class HomeController extends QuintypeController {
         $bulk = new Bulk();
         $story = $this->client->storyData(array('slug' => $slug))['story'];
 
-        // echo "<pre>";
-        // print_r($story);
+       // echo "<pre>";
+       // print_r($story);
         $bulk->addRequest('foodhealth', (new StoriesRequest('top'))->addParams(["section" => "Food & Health", "limit" => 3]));
         $bulk->execute($this->client);
 

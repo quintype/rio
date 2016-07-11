@@ -466,6 +466,7 @@ section {
             padding:5px;
             text-decoration:none;
             display:inline-block;
+            letter-spacing: 0.8px;
         }
 }
 
@@ -478,7 +479,7 @@ section {
     width: 100%;
     background-color: $footer-short;
     color: $white;
-
+    font-size: 12px;
     .content{
         margin-left: auto;
         margin-right: auto;
@@ -535,7 +536,7 @@ article:nth-child(4){
 
 
 .textwrap {
-    margin:12px;
+    margin:em(12) 0 em(5) 0;
     font-family:$primary-typeface;	
     /*background-color: $color5;*/
 }
@@ -768,4 +769,8 @@ padding:20px;
          }
     }
 
+}
+
+.icons{
+    padding-right:em(10);
 }
