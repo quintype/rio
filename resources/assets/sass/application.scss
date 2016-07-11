@@ -767,3 +767,64 @@ padding:20px;
 .icons{
     padding-right:em(10);
 }
+
+
+
+/*Advertisement Start*/
+
+.ad_big{
+    width:em(728) ;
+    height:em(90);
+    color:$white;
+    background-color: $light-gray;
+    text-align:center;
+    font-weight:$bold;
+    margin:em(5) auto em(5) auto;
+    @include breakpoint($phone){display:none;}
+}
+
+.ad_mobile{
+    width:em(300) ;
+    height:em(250);
+  
+    color:$white;
+    background-color: $light-gray;
+    text-align:center;
+    font-weight:$bold;
+    position:relative;
+    float:left;
+      margin:em(5) auto em(5) auto;
+    @include breakpoint($pc){display:none;}
+}
+
+.section_right_ad{
+    width:em(300) ;
+    height:em(250);
+  
+    color:$white;
+    background-color: $light-gray;
+    text-align:center;
+    font-weight:$bold;
+      margin:em(5) auto em(5) auto;
+      float:right;
+    @include breakpoint($phone){display:none;}
+}
+
+
+
+.section_center_ad{
+    width:em(300) ;
+    height:em(250);
+    
+    color:$white;
+    background-color: $light-gray;
+    text-align:center;
+    font-weight:$bold;
+      margin:em(5) auto em(5) auto;
+     position: relative;
+     float: left;
+    @include breakpoint($pc){display:none;}
+}
+
+
+/*Advertisement End*/
