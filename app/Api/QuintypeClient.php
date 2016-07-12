@@ -130,6 +130,12 @@ class QuintypeClient {
         }, $this->getResponse("/api/v1/stories", $params)["stories"]);
     }
 
+ public function search($params = null) {
+        return array_map(function ($s) {
+            return new Story($s);
+        }, $this->getResponse("/api/v1/search", $params)["results"]['stories']);
+    }
+    
     public function postBulk($requests) {
         return $this->postResponse("/api/v1/bulk", ["requests" => $requests])["results"];
     }

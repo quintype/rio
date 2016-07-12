@@ -57,6 +57,7 @@ class HomeController extends QuintypeController {
       //  return view('search', $this->toView([]));
         $query = $request->q;
         $searchedstories = $this->searchStories(array('q' => $query, 'size' => 7));
+     //   print_r($searchedstories);
         return view('search', $this->toView(["searchresults"=>$searchedstories, "term" => $query]));
     }
 

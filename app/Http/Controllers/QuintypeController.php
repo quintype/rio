@@ -34,5 +34,8 @@ class QuintypeController extends Controller
        	return $bulk->getResponse("stories");
     }
 
+    public function searchStories($args = null){
+        return $this->client->search($args);
+    }
        
 }
