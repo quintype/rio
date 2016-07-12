@@ -29,6 +29,10 @@ elixir(function(mix) {
 });
 
 elixir(function(mix) {
+    mix.copy("resources/assets/images/patner-logos", tempPath);
+});
+
+elixir(function(mix) {
     mix.copy(tempPath, destination);
 });
 
@@ -42,4 +46,3 @@ elixir(function(mix) {
       "**/*.svg"
     ], destination);
 });
-
