@@ -4,14 +4,14 @@
 }
 
 .podcast_banner{
- background-image: url("../images/inquiring_banner_desktop.png");
+ /*background-image: url("../images/inquiring_banner_desktop.png");*/
  background-repeat: no-repeat;
  height:250px;
  width: 100%;
 
 
   @include breakpoint($phone) {
- background-image: url("../images/inquiring_banner_mobile.png") ;
+ /*background-image: url("../images/inquiring_banner_mobile.png") ;*/
  background-repeat: no-repeat;
  height:350px;
  width: 100%;
