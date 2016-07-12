@@ -51,21 +51,18 @@
             <a href="{{ url()}}"> <img class="logoview" src='{{ assetPath("climatedesk_logo.png") }}' /> </a></div> 
     <div class="mob_buttons"> <ul>	
 	 <li><a href="#" class="donate">Donate</a></li>
-	 <li><a	href="#" class="search_butn">Search</a></li>
+	 <li><button id="search_init1" class="search_butn">Search</button></li>
 	 </ul>
 	 </div>
-<div class="nav-search" id="nav-search">
+
+<div class="nav-search" >
 <div class="layout-search" id="main-search">
   <form class="search-form" role="search" action="/search">
     <div class="form-el">
-        <input type="text" class="form-input" name="q" placeholder="Search here">
+        <input type="text" class="form-input" name="q" placeholder="Search for anything..">
       </div>
   </form>
 </div>               
-</div>
-<div class="navbar-action">
-  <a href="javascript:void(0);" class="mobile-nav-btn" id="mobile-nav-btn"></a>
-  <a href="javascript:void(0);" class="search-btn" id="search-btn"></a>
 </div>
 
 	 <nav><ul>
@@ -73,7 +70,7 @@
 	 <li><a	href="#" ><img src="{{ assetPath("icons/twitter_b.svg") }}" /></a></li>	 
 	 <li><a	href="#"><img src="{{ assetPath("icons/youtube_b.svg") }}" /></a></li>
 	 <li><a href="#" class="donate">Donate</a></li>
-	 <li><a	href="#" class="search_butn">Search</a></li>
+	 <li><button id="search_init" class="search_butn">Search</button></li>
 	
 	 </ul></nav>	
 	 </div>
@@ -224,15 +221,22 @@
 	
 		<script type="text/javascript">
   		$(document).ready(function(){
+ 
      		$('#slider').bxSlider({
     		ticker: true,
     		tickerSpeed: 5000,
 			tickerHover: true
   		});
+         $('#search_init,#search_init1').click(function()
+        {
+$(".nav-search").show();
+        });
+
   		});
 		</script>
     <script type="text/javascript">
       app.initQtReady();
+     
     </script>
   </body>
 </html>

@@ -828,3 +828,49 @@ padding:20px;
 
 
 /*Advertisement End*/
+
+#searchbox{
+    display: none;
+}
+
+.top{ margin-top:em(30); }
+
+   .nav-search {
+            display: none;
+            position: absolute;             
+            top: 23.5%;
+            /*padding: .4em .5em 0;*/
+            width: 100%;
+            max-width: em(350);
+            margin-right:10%;
+            z-index: 99;
+
+            @include breakpoint($pc) { right: 1em; }
+            .layout-search {
+                background-color: $white;
+                border-radius: 2px;
+                border:1px solid $light-blue;
+                position: relative;
+
+                &:before {
+                    content:'';
+                    width: 0; 
+                    height: 0; 
+                    border-left: 10px solid transparent;
+                    border-right: 10px solid transparent;
+                    border-bottom: 10px solid $light-blue;
+                    
+                    position: absolute;
+                    top: -10px;
+                    right: 15px;
+                }
+                .form-input{
+                    height: em(25);
+                    font-size: 100%;
+                    width: 100%;
+                    padding-left: em(40);
+                    border: 0px;
+                    /*background: url("../images/search-input-icon.png") no-repeat em(10) center;*/
+                }
+            }
+        }
