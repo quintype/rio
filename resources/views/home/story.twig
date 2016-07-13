@@ -1,3 +1,28 @@
+   
+<script type='text/javascript'>
+  var googletag = googletag || {};
+  googletag.cmd = googletag.cmd || [];
+  (function() {
+    var gads = document.createElement('script');
+    gads.async = true;
+    gads.type = 'text/javascript';
+    var useSSL = 'https:' == document.location.protocol;
+    gads.src = (useSSL ? 'https:' : 'http:') +
+      '//www.googletagservices.com/tag/js/gpt.js';
+    var node = document.getElementsByTagName('script')[0];
+    node.parentNode.insertBefore(gads, node);
+  })();
+</script>
+
+<script type='text/javascript'>
+  googletag.cmd.push(function() {
+    googletag.defineSlot('/60988533/CLMTDESK_Story_300x250_01', [300, 250], 'div-gpt-ad-1467975359177-0').addService(googletag.pubads());
+    googletag.defineSlot('/60988533/CLMTDESK_Story_Banner_01', [[728, 90],[320, 50]], 'div-gpt-ad-1467975359177-1').addService(googletag.pubads());
+    googletag.pubads().enableSingleRequest();
+    googletag.pubads().collapseEmptyDivs();
+    googletag.enableServices();
+  });
+</script>
     <div class="content"><!-- content open-->
    
 
@@ -59,9 +84,29 @@
            
     {% include "story/story_tags" with {'storyTags': storyData["tags"]} %}
 
-<div class="ad_big" placeholder="Advertisement">  AD 728x90</div>
 
-<div class="ad_mobile" placeholder="Advertisement">  AD 300x250</div>
+
+<div class="ad_big" placeholder="Advertisement"> 
+<!-- /60988533/CLMTDESK_Story_Banner_01 -->
+<div id='div-gpt-ad-1467975359177-1'>
+<script type='text/javascript'>
+googletag.cmd.push(function() { googletag.display('div-gpt-ad-1467975359177-1'); });
+</script>
+</div>
+
+</div>
+
+<div class="ad_mobile" placeholder="Advertisement">  
+    <!-- /60988533/CLMTDESK_Story_300x250_01 -->
+<div id='div-gpt-ad-1467975359177-0' style='height:250px; width:300px;'>
+<script type='text/javascript'>
+googletag.cmd.push(function() { googletag.display('div-gpt-ad-1467975359177-0'); });
+</script>
+</div>
+
+
+
+</div>
 
             <div class="storyad">
                 <img  src="{{ assetPath('main/ad.png') }}" />

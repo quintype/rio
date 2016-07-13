@@ -10,6 +10,8 @@
 @import "story/_story";
 @import "static";
 @import "podcast";
+@import "slick/slick";
+@import "slick/slick-theme";
 
 
 
@@ -776,7 +778,7 @@ padding:20px;
     width:em(728) ;
     height:em(90);
     color:$white;
-    background-color: $light-gray;
+    /*background-color: $light-gray;*/
     text-align:center;
     font-weight:$bold;
     margin:em(5) auto em(5) auto;
@@ -788,11 +790,11 @@ padding:20px;
     height:em(250);
   
     color:$white;
-    background-color: $light-gray;
+    /*background-color: $light-gray;*/
     text-align:center;
     font-weight:$bold;
     position:relative;
-    float:left;
+ 
       margin:em(5) auto em(5) auto;
     @include breakpoint($pc){display:none;}
 }
@@ -802,7 +804,7 @@ padding:20px;
     height:em(250);
   
     color:$white;
-    background-color: $light-gray;
+    /*background-color: $light-gray;*/
     text-align:center;
     font-weight:$bold;
       margin:em(5) auto em(5) auto;
@@ -817,7 +819,7 @@ padding:20px;
     height:em(250);
     
     color:$white;
-    background-color: $light-gray;
+    /*background-color: $light-gray;*/
     text-align:center;
     font-weight:$bold;
       margin:em(5) auto em(5) auto;
