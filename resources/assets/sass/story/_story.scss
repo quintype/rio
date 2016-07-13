@@ -42,12 +42,13 @@
     h1{       
         color:#026287;
         font-size: em(34);
-        line-height: em(44); 
+        line-height: 40px; 
 
         font-weight:$black-weight;
     
          @include breakpoint($phone) {
             font-size: em(20);
+            line-height: 25px;
          }
 
     }
