@@ -1,4 +1,5 @@
 <div class="content"><!-- content open-->
+
     <section class="top"><!--  Section 2 open-->
         <div class="leftcontainer">
             {% for story in stories|slice(0,1)  %}
@@ -61,7 +62,7 @@
                                 {{story["summary"]}}
                             </div>
                             <div class="textbottom">
-                                <span class="textbottom__article">1</span>
+                                <span class="textbottom__article"> {{story['metadata']['story-attributes']['partnerpublisher'][0]}} </span>
                                 <span><h5 class="textbottom__article__name">{{story["author-name"]}}</h5></span>
                                 <span class="textbottom__article"> <time datetime="">
                                         {% set timestamp = (story["published-at"] / 1000)|round(0, 'floor') %}{{timestamp|date('M d,Y')}}
@@ -141,8 +142,8 @@ googletag.cmd.push(function() { googletag.display('div-gpt-ad-1467975036401-0');
                             <a href="/{{story['slug']}}">    {{story["headline"]}} </a>
                         </div>
                         <div class="textbottom">
+                         <span class="textbottom__article"> {{story['metadata']['story-attributes']['partnerpublisher'][0]}} </span>
                             <span> <h5 class="textbottom__article__name">{{story["author-name"]}}</h5></span>
-
 
                             <span class="textbottom__article"> <time datetime="">{% set timestamp = (story["published-at"] / 1000)|round(0, 'floor') %}{{timestamp|date('M d,Y')}}</time></span>
                         </div> <!-- textbottom close -->
@@ -182,6 +183,7 @@ googletag.cmd.push(function() { googletag.display('div-gpt-ad-1467975036401-0');
                             <a href="/{{story['slug']}}">   {{storys["headline"]}} </a>
                         </div>
                         <div class="textbottom">
+                         <span class="textbottom__article"> {{story['metadata']['story-attributes']['partnerpublisher'][0]}} </span>
                             <span> <h5 class="textbottom__article__name">{{storys["author-name"]}}</h5></span>
                             <span class="textbottom__article"> <time datetime="">{% set timestamp = (story["published-at"] / 1000)|round(0, 'floor') %}{{timestamp|date('M d,Y')}}</time></span>
                         </div> <!-- textbottom close -->
@@ -220,6 +222,7 @@ googletag.cmd.push(function() { googletag.display('div-gpt-ad-1467975036401-0');
                             <a href="/{{story['slug']}}">     {{story["headline"]}} </a>
                         </div>
                         <div class="textbottom">
+                         <span class="textbottom__article"> {{story['metadata']['story-attributes']['partnerpublisher'][0]}} </span>
                             <span> <h5 class="textbottom__article__name">{{story["author-name"]}}</h5></span>
 
                             <span class="textbottom__article"> <time datetime="">{% set timestamp = (story["published-at"] / 1000)|round(0, 'floor') %}{{timestamp|date('M d,Y')}}</time></span>
@@ -278,6 +281,7 @@ googletag.cmd.push(function() { googletag.display('div-gpt-ad-1467975036401-1');
                             <a href="/{{story['slug']}}">       {{story["headline"]}} </a>
                         </div>
                         <div class="textbottom">
+                         <span class="textbottom__article"> {{story['metadata']['story-attributes']['partnerpublisher'][0]}} </span>
                             <span> <h5 class="textbottom__article__name">{{story["author-name"]}}</h5></span>
                             <span class="textbottom__article"> <time datetime="">{% set timestamp = (story["published-at"] / 1000)|round(0, 'floor') %}{{timestamp|date('M d,Y')}}</time></span>
                         </div> <!-- textbottom close -->

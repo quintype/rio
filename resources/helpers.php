@@ -13,3 +13,4 @@ function focusedImageUrl($slug, $aspectRatio, $metadata, $opts) {
     $image = new FocusedImage($slug, $metadata);
     return $cdn . "/" . $image->path($aspectRatio, $opts);
 }
+
