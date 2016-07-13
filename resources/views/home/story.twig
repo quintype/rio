@@ -22,38 +22,12 @@
     googletag.pubads().collapseEmptyDivs();
     googletag.enableServices();
   });
+
+
+
 </script>
     <div class="content top"><!-- content open-->
    
-
-   
-
-
-
-  <div class="your-class">
-    <div>your content</div>
-    <div>your content</div>
-    <div>your content</div>
-  </div>
-
-  
-
-<ul class="bxslider">
-  <li><img src="{{ assetPath('climatedesk_logo.png') }} " /></li>
-  <li><img src="/images/.jpg" /></li>
-  <li><img src="/images/.jpg" /></li>
-  <li><img src="/images/pic4.jpg" /></li>
-</ul>
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -69,7 +43,6 @@
     <img src="{{focusedImageUrl(storyData['hero-image-s3-key'], [16,9], storyData['hero-image-metadata'], {w: 800})}}" class="story-img"/>       </figure>
            
         </div>
-        <BR>
         <div class="sourcefrom">
             API Reurters
         </div>
@@ -144,6 +117,16 @@ googletag.cmd.push(function() { googletag.display('div-gpt-ad-1467975359177-0');
             </div>
 
 
+
+   <div class="slider">
+<ul class="bxslider">
+<li><img src="http://bxslider.com/images/730_200/tree_root.jpg" title="Funky roots" /></li>
+  <li><img src="http://bxslider.com/images/730_200/hill_road.jpg" title="The long and winding road" /></li>
+  <li><img src="http://bxslider.com/images/730_200/trees.jpg" title="Happy trees" /></li>
+</ul></div>
+
+
+
         </div><!-- Stoy Container Close -->
 
 
@@ -177,12 +160,21 @@ googletag.cmd.push(function() { googletag.display('div-gpt-ad-1467975359177-0');
             </div>
         </section><!--  Section 5 close-->
 
-  <script type="text/javascript">
-    $(document).ready(function(){
-        alert("1");
-      $('.your-class').slick({
-        alert("2");
-        setting-name: setting-value
-      });
-    });
-  </script>
+
+
+<script type='text/javascript'>
+
+
+  $(document).ready(function(){
+ 
+      
+$('.bxslider').bxSlider({
+  mode: 'fade',
+  captions: true
+});
+});
+
+
+
+
+        </script>

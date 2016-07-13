@@ -4,3 +4,4 @@ global.app = {
 };
 
 require ("./jquery.bxSlider");
+// require ("./slick.min");

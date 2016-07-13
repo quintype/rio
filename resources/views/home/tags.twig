@@ -5,7 +5,7 @@
         {% for story in tagresults %}
             <div class="wrap">
                 <div class="article_left ">
-                    <a href="{{story['slug']}}">
+                    <a href="/{{story['slug']}}">
                         <div class="figcontainer">
                             <figure>
                                 <img src="{{focusedImageUrl(story['hero-image-s3-key'], [16,9], story['hero-image-metadata'],{w:700} )}}" />
@@ -15,8 +15,9 @@
                     </a>
                 </div>
                 <div class="article_right ">
+
                     <div class="article__title">
-                        {{story["headline"]}}
+                       <a href="/{{story['slug']}}">  {{story["headline"]}} </a>
                     </div>
                     <div class="article__desciption">
                         {{story["summary"]}}

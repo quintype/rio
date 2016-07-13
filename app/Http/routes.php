@@ -57,6 +57,12 @@ Route::get('/terms-and-conditions', [
 ]);
 
 
+Route::get('/Loadmore',function(){
+
+  if(Request::ajax()){
+    return "Ajax Successful";
+  }
+});
 
 
 

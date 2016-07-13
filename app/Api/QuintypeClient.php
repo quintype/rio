@@ -85,6 +85,7 @@ class StoriesRequest {
     public function addParams($params) {
         $this->params = array_merge($this->params, $params);
         return $this;
+        
     }
 
     public function toBulkRequest() {
@@ -135,7 +136,7 @@ class QuintypeClient {
             return new Story($s);
         }, $this->getResponse("/api/v1/search", $params)["results"]['stories']);
     }
-    
+
     public function postBulk($requests) {
         return $this->postResponse("/api/v1/bulk", ["requests" => $requests])["results"];
     }

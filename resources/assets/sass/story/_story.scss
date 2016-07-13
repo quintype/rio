@@ -16,6 +16,9 @@
         bottom:0px;
         background-color:$black-opacity;
         width:100%;
+         font-size: em(14);
+          padding: em(5) em(15) em(5) em(15);
+           opacity: .8;
         color:$white;
         z-index:$zIndex-1;
         word-wrap: break-word;
@@ -28,7 +31,7 @@
 
 .story_container
 {
-    width:80%;
+    width:800px;
     margin-left: auto;
     margin-right: auto;
  @include breakpoint($phone) {
@@ -38,10 +41,13 @@
 
     h1{       
         color:#026287;
-        font-weight:$bold;
-        line-height: 1em;
+        font-size: em(34);
+        line-height: em(44); 
+
+        font-weight:$black-weight;
+    
          @include breakpoint($phone) {
-            font-size: 20px;
+            font-size: em(20);
          }
 
     }
@@ -50,7 +56,7 @@
         font-weight: $bold;
         color: $grey;
         font-style: italic;
-
+        margin: em(5) em(0) em(5) em(0);
         @include breakpoint($phone) {
             font-size: 13px;
          }
@@ -255,18 +261,22 @@ width:100%;
     margin-bottom:em(10);
     position:relative;
     float:left;
-    &__left{ width:25%;position:relative;float:left; img{width:100%;} }
+    border-top:2px solid $light-gray;
+    padding-top:em(20);
+    &__left{ width:25%; position:relative;float:left; img{width:em(130); height:em(130); } }
     &__right{ 
         width:75%; 
         padding-left:em(15);
         position:relative;float:left;
         h5{
             padding-top:em(5);
-            color:$light-blue;
+            color:#026287;
+            padding:em(5) 0 em(5) 0;
         }
         p{
             color:$grey;
-            font-size: em(12);
+            font-family: $sans;
+            font-size: em(15);
         }
 
     }
@@ -276,10 +286,12 @@ width:100%;
 
 .storyad
 {
-    width:560px;
+    width:300px;
     margin-left:auto;
     margin-right:auto;
     img{width:100%;}
+
+    @include breakpoint ($pc){ width:560px; }
 }
 
 
