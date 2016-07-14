@@ -124,6 +124,7 @@ class QuintypeClient {
         $response = Cache::get($key);
       } else {
         $response = $this->getResponse($query);
+        
         Cache::put($key, $response, 10);
       }
       return $response;

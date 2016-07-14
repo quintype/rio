@@ -11,6 +11,6 @@
 </div>
 {% else %}
 <div class="story-element-image">
-	<img src="{{focusedImageUrl(dataElement['image-s3-key'], [16,9], dataElement['image-metadata'], {w: 900})}}"/>
+	<img src="{{focusedImageUrl(dataElement['image-s3-key'],config['image-cdn'], [16,9], dataElement['image-metadata'], {w: 900})}}"/>
 </div>
 {% endif %}

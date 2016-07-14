@@ -40,7 +40,7 @@
             </div>
             <figure>
 
-    <img src="{{focusedImageUrl(storyData['hero-image-s3-key'], [16,9], storyData['hero-image-metadata'], {w: 800})}}" class="story-img"/>       </figure>
+    <img src="{{focusedImageUrl(storyData['hero-image-s3-key'],config['image-cdn'], [16,9], storyData['hero-image-metadata'], {w: 800})}}" class="story-img"/>       </figure>
            
         </div>
         <div class="sourcefrom">
@@ -118,12 +118,6 @@ googletag.cmd.push(function() { googletag.display('div-gpt-ad-1467975359177-0');
 
 
 
-   <div class="slider">
-<ul class="bxslider">
-<li><img src="http://bxslider.com/images/730_200/tree_root.jpg" title="Funky roots" /></li>
-  <li><img src="http://bxslider.com/images/730_200/hill_road.jpg" title="The long and winding road" /></li>
-  <li><img src="http://bxslider.com/images/730_200/trees.jpg" title="Happy trees" /></li>
-</ul></div>
 
 
 
@@ -135,10 +129,10 @@ googletag.cmd.push(function() { googletag.display('div-gpt-ad-1467975359177-0');
             <div class="sectionwrap">
                 <div class="sectiontitle left"><span>FOOD & HEALTH</span></div>
       {% for story in food_stories|slice(0,3) %}
-                <article><!--  Article1 open-->
+                <article ><!--  Article1 open-->
                     <div class="figcontainer">
                         <figure>
-                           <a href="/{{story['slug']}}">     <img src="{{focusedImageUrl(story['hero-image-s3-key'], [16,9], story['hero-image-metadata'], {w:400})}}"/>
+                           <a href="/{{story['slug']}}">     <img src="{{focusedImageUrl(story['hero-image-s3-key'],config['image-cdn'], [16,9], story['hero-image-metadata'], {w:400})}}"/>
                                 </a>
                         </figure>
                         <div class="sourcefrom">API Reurters</div>
@@ -159,22 +153,3 @@ googletag.cmd.push(function() { googletag.display('div-gpt-ad-1467975359177-0');
 
             </div>
         </section><!--  Section 5 close-->
-
-
-
-<script type='text/javascript'>
-
-
-  $(document).ready(function(){
- 
-      
-$('.bxslider').bxSlider({
-  mode: 'fade',
-  captions: true
-});
-});
-
-
-
-
-        </script>

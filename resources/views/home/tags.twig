@@ -8,7 +8,7 @@
                     <a href="/{{story['slug']}}">
                         <div class="figcontainer">
                             <figure>
-                                <img src="{{focusedImageUrl(story['hero-image-s3-key'], [16,9], story['hero-image-metadata'],{w:700} )}}" />
+                                <img src="{{focusedImageUrl(story['hero-image-s3-key'],config['image-cdn'] , [16,9], story['hero-image-metadata'],{w:700} )}}" />
                             </figure>
                             <div class="sourcetop">API Reurters</div>
                         </div>

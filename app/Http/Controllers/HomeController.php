@@ -22,6 +22,11 @@ class HomeController extends QuintypeController {
     $bulk->addRequest('foodhealth', (new StoriesRequest('top'))->addParams(["section" => "Food & Health", "limit" => 3, "fields" => $fields]));
 
     $bulk->execute($this->client);
+
+    $a=$bulk->getResponse("top_stories");
+//echo "<pre>";
+   // print_r($a);
+
     return view('home', $this->toView([
       "stories" => $bulk->getResponse("top_stories"),
       "videos_stories" => $bulk->getResponse("videosstories"),
@@ -48,7 +53,7 @@ class HomeController extends QuintypeController {
 
     public function sectionview($section) {
         $config = $this->client->config();
-        $sections = $config->sections();
+        $sections = $config['sections'];
         $cur_section = $sections[array_search($section, array_column($sections, 'slug'), true)];
         $stories = $this->getStories(array('story-group' => 'top', 'section' => $cur_section['name'], 'limit' => 8));
    //  echo"<pre>";   print_r($stories);
