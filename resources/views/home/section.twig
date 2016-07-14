@@ -1,12 +1,12 @@
 <div class="content"><!-- content open-->
 
     <section>
+
+
         <p class="headingline"><span>{{section['display-name']}}</span></p>
 
         {% for story in section_stories|slice(0,1)  %}
-            <div class="wrap">
-
-                <div class="section_left border">
+            <div class="wrap">               <div class="section_left border">
                     <a href="/{{story['slug']}}">
                         <div class="figcontainer">
                             <div class="titletop_big">{{story["headline"]}}</div>
@@ -98,6 +98,10 @@
    
 {% endfor %}
     
+
+    <div class="section_right">
+
+    </div>
 </section>	
 
 
@@ -111,7 +115,7 @@
  
  $("#loadmore").click(function(){
 
-alert($(this).text());
+//alert($(this).text());
  });
 
         });

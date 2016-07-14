@@ -334,9 +334,9 @@ ul li{
     z-index: 1;
     float: right;
     text-align:right;
-    @include breakpoint($phone){
+   
         font-size:  em(12);
-    }
+    
 
 }
 
@@ -562,6 +562,8 @@ article:nth-child(4){
     padding-bottom:10px;
     min-height:60px;
     width: 100%;
+    font-weight: $bold;
+
 
 }
 .article__desciption{
@@ -569,6 +571,10 @@ article:nth-child(4){
     font-size: 12px;
     font-weight:$regular;
     padding-bottom:10px;
+    min-height: 79px;
+    position:relative;
+    float:left;
+
 }
 
 .textbottom{
@@ -576,13 +582,23 @@ article:nth-child(4){
     position:relative;
     float:left;
 font-size:12px;
-padding:20px;
+padding:em(10) 0 em(10) 0;
 }
 
 .textbottom__article{
+    padding-right:5px;
+    border-right:1px solid $light-gray;
+    line-height: 15px;
+    @include aspect-ratio(16,9);
+    img{
+        position: relative;
+        float:left;
+height:22px;
+width:25%;
+    }
     /*border-right:1px solid #000;*/
     color: $dark-gray;
-    padding:5px;
+  
     font-family: $merri;  
 
     time {
@@ -602,6 +618,8 @@ padding:20px;
     display: inline-block;
     font-family: $merri;     
     font-size: em(16);
+    padding:em(5) 0 em(5) 0;
+    border-right:1px solid $light-gray;
 }
 /*
 .article {
@@ -708,11 +726,15 @@ font-size: em(14);
     font-weight: $black-weight;
     padding-bottom:10px;
     min-height:60px;
+    font-weight: $bold;
 }
 .article__desciption{
     color: $text;
     font-size: 12px;   
     padding-bottom:10px;
+    min-height: 79px;
+    position:relative;
+    float:left;
 }
 
 

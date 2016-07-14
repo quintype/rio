@@ -180,6 +180,7 @@ return [
             'last',
             'assetPath',
             'focusedImageUrl',
+            'get_logo'
         ],
 
         /*
