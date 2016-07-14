@@ -133,10 +133,10 @@ nav	{
         font-size: 16px;    
         display: block;
         height:auto;
-        line-height:20px;
+                line-height:20px;
         @include breakpoint ($phone){
             font-size: em(12);
-            
+
 
         }
 
@@ -641,11 +641,11 @@ padding:20px;
 
 
 
-.article__tag-
+.article__tag-heading
  {
 
 font-size: em(14);
- font-weight: 800; 
+ font-weight: 800;   
  letter-spacing: 1.5px;
   padding: em(3) em(5) em(3) em(5);
     color: $white;
