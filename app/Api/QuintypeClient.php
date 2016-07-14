@@ -5,6 +5,7 @@ namespace App\Api;
 use ArrayObject;
 use GuzzleHttp\Client;
 use Log;
+use Cache;
 
 class MenuItem extends ArrayObject {
 
@@ -41,7 +42,7 @@ class Config extends ArrayObject {
 }
 
 class Story extends ArrayObject {
-    
+
 }
 
 class Bulk {
@@ -100,11 +101,6 @@ class StoriesRequest {
 
 }
 
-
-
-
-
-
 class QuintypeClient {
 
     public function __construct($apiHost) {
@@ -122,7 +118,15 @@ class QuintypeClient {
     }
 
     public function config() {
-        return new Config($this->getResponse("/api/v1/config"));
+      $query = '/api/config';
+      $key = 'swarajya-config';
+      if (Cache::has($key)) {
+        $response = Cache::get($key);
+      } else {
+        $response = $this->getResponse($query);
+        Cache::put($key, $response, 10);
+      }
+      return $response;
     }
 
     public function stories($params = null) {
@@ -147,8 +151,6 @@ class QuintypeClient {
         }, $this->getResponse("/api/v1/stories-by-slug", $params));
     }
 
-    
+
 
 }
-
-

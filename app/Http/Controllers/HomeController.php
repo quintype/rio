@@ -11,26 +11,25 @@ use App\Api\StoriesRequest;
 
 class HomeController extends QuintypeController {
 
-    public function index() {
+  public function index() {
+    $bulk = new Bulk();
 
-        $bulk = new Bulk();
 
-        $fields="id,headline,slug,url,hero-image-s3-key,hero-image-metadata,first-published-at,last-published-at,alternative,published-at,author-name,author-id,sections,story-template,summary,metadata";
-        $bulk->addRequest('top_stories', (new StoriesRequest('top'))->addParams(["limit" => 8, "fields" => $fields  ]));
-        $bulk->addRequest('weatherstories', (new StoriesRequest('top'))->addParams(["section" => "Weather", "limit" => 3, "fields" => $fields ]));
-        $bulk->addRequest('videosstories', (new StoriesRequest('top'))->addParams(["section" => "Video", "limit" => 3 , "fields" => $fields]));
-        $bulk->addRequest('breaking_news', (new StoriesRequest('breaking-news'))->addParams(["section" => "Video", "limit" => 3, "fields" => $fields]));
+    $fields="id,headline,slug,url,hero-image-s3-key,hero-image-metadata,first-published-at,last-published-at,alternative,published-at,author-name,author-id,sections,story-template,summary,metadata";
+    $bulk->addRequest('top_stories', (new StoriesRequest('top'))->addParams(["limit" => 8, "fields" => $fields]));
+    $bulk->addRequest('weatherstories', (new StoriesRequest('top'))->addParams(["section" => "Weather", "limit" => 3, "fields" => $fields]));
+    $bulk->addRequest('videosstories', (new StoriesRequest('top'))->addParams(["section" => "Video", "limit" => 3, "fields" => $fields]));
+    $bulk->addRequest('breaking_news', (new StoriesRequest('breaking-news'))->addParams(["section" => "Video", "limit" => 3, "fields" => $fields]));
+    $bulk->addRequest('foodhealth', (new StoriesRequest('top'))->addParams(["section" => "Food & Health", "limit" => 3, "fields" => $fields]));
 
-        $bulk->addRequest('foodhealth', (new StoriesRequest('top'))->addParams(["section" => "Food & Health", "limit" => 3 , "fields" => $fields]));
-        $bulk->execute($this->client);
-
-        $a=$bulk->getResponse("top_stories");
-     //  echo "<pre>";
-      //  print_r($a);
-
-        return view('home', $this->toView(["stories" => $bulk->getResponse("top_stories"), "videos_stories" => $bulk->getResponse("videosstories"), "weather_stories" => $bulk->getResponse("weatherstories"),
-                    "food_stories" => $bulk->getResponse("foodhealth"), "breaking_news" => $bulk->getResponse("breaking_news")]));
-    }
+    $bulk->execute($this->client);
+    return view('home', $this->toView([
+      "stories" => $bulk->getResponse("top_stories"),
+      "videos_stories" => $bulk->getResponse("videosstories"),
+      "weather_stories" => $bulk->getResponse("weatherstories"),
+      "food_stories" => $bulk->getResponse("foodhealth"),
+      "breaking_news" => $bulk->getResponse("breaking_news")]));
+  }
 
     public function storyview($category, $y, $m, $d, $slug) {
         $bulk = new Bulk();
@@ -60,7 +59,7 @@ class HomeController extends QuintypeController {
         return view('podcasts', $this->toView(["section" => $cur_section, "section_stories" => $stories]));
     }
 
- 
+
 
     public function searchview(Request $request) {
       //  return view('search', $this->toView([]));
@@ -70,7 +69,7 @@ class HomeController extends QuintypeController {
         return view('search', $this->toView(["searchresults"=>$searchedstories, "term" => $query]));
     }
 
-    
+
 
 
 

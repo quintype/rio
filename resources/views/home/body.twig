@@ -1,16 +1,15 @@
 <div class="content"><!-- content open-->
 
     <section class="top"><!--  Section 2 open-->
-        <div class="leftcontainer">
+      <div class="leftcontainer">
             {% for story in stories|slice(0,1)  %}
                 <a href="{{story['slug']}}">
                     <div class="figcontainer">
                         <h6 class="sectionname__display">{{story['sections'][0]['name']}}</h6>
                         <div class="titletop_big">{{story["headline"]}}</div>
                         <div class="sourcetop_left">API Reurters</div>
-
                         <figure>
-                            <img src="{{focusedImageUrl(story['hero-image-s3-key'], [16,9], story['hero-image-metadata'],{w:700} )}}" />
+                            <img src="{{focusedImageUrl(story['hero-image-s3-key'], config['image-cdn'], [16,9], story['hero-image-metadata'],{w:700} )}}" />
                         </figure>
 
                     </div>
@@ -26,7 +25,7 @@
                             <div class="titletop_small">{{story["headline"]}}</div>
                             <div class="sourcetop">API Reurters</div>
                             <figure>
-                                <img src="{{focusedImageUrl(story['hero-image-s3-key'], [16,9], story['hero-image-metadata'],{w:300})}}" />
+                                <img src="{{focusedImageUrl(story['hero-image-s3-key'], config['image-cdn'], [16,9], story['hero-image-metadata'],{w:300})}}" />
 
                             </figure>
                         </div>
@@ -49,7 +48,7 @@
                         <div class="figcontainer">
                             <h6 class="sectionname__display">{{story['sections'][0]['name']}}</h6>
                             <figure>
-                                <img src="{{focusedImageUrl(story['hero-image-s3-key'], [16,9], story['hero-image-metadata'], {w: 400})}}" />
+                                <img src="{{focusedImageUrl(story['hero-image-s3-key'], config['image-cdn'], [16,9], story['hero-image-metadata'], {w: 400})}}" />
                             </figure>
                             <div class="sourcefrom">API Reurters</div>
                         </div>
@@ -89,7 +88,7 @@
                         <span class="sectionname__display">{{story['sections'][0]['name']}}</span>
                         <div class="titletop_small"> {{story["headline"]}}</div>
                         <div class="sourcetop">API Reurters</div>
-                        <img src="{{focusedImageUrl(story['hero-image-s3-key'], [16,9], story['hero-image-metadata'], {w:400})}}" />
+                        <img src="{{focusedImageUrl(story['hero-image-s3-key'], config['image-cdn'], [16,9], story['hero-image-metadata'], {w:400})}}" />
 
                     </figure>
                 </a>
@@ -99,7 +98,7 @@
         <a  class="more" href="#">More Podcasts >></a>
     </section><!--  Section 3 close-->
 
-<div class="ad_big" placeholder="Advertisement"> 
+<div class="ad_big" placeholder="Advertisement">
 
 
 <!-- /60988533/CLMTDESK_Home_Banner_01 -->
@@ -123,16 +122,16 @@ googletag.cmd.push(function() { googletag.display('div-gpt-ad-1467975036401-0');
     <section><!--  Section 4 open-->
 
 
-        <div class="sectionwrap">
+      <div class="sectionwrap">
             <div class="sectiontitle left"><span>VIDEOS</span></div>
-            {% for story in videos_stories|slice(0,3)  %}
+            {% for story in videos_stories|slice(0,3) %}
                 <article><!--  Article1 open-->
                     <div class="figcontainer">
                         <figure>
-                            <a href="/{{story['slug']}}">   <img src="{{focusedImageUrl(story['hero-image-s3-key'], [16,9], story['hero-image-metadata'], {w:400})}}" />
+                          <a href="/{{story['slug']}}">   <img src="{{focusedImageUrl(story['hero-image-s3-key'], config['image-cdn'], [16,9], story['hero-image-metadata'], {w:400})}}" />
                             </a>
                         </figure>
-                        <div class="vedicon"> <img src="{{ assetPath('main/viedo.png')}}"/></div>
+                        <div class="vedicon"> <img src="{{ assetPath('main/viedo.png', config) }}"/></div>
                         <div class="sourcefrom">API Reurters</div>
                     </div>
 
@@ -166,13 +165,13 @@ googletag.cmd.push(function() { googletag.display('div-gpt-ad-1467975036401-0');
 
         <div class="sectionwrap">
             <div class="sectiontitle left"><span>WEATHER</span></div>
-            {% for storys in weather_stories|slice(0,3) %}
+            {% for storys in weather_stories | slice(0,3) %}
                 <article><!--  Article1 open-->
                     <div class="figcontainer">
                         <figure>
 
-                            <a href="/{{story['slug']}}">
-                                <img src="{{focusedImageUrl(storys['hero-image-s3-key'], [16,9], storys['hero-image-metadata'], {w:400})}}"/>
+                            <a href="/{{storys['slug']}}">
+                              <img src="{{focusedImageUrl(storys['hero-image-s3-key'], config['image-cdn'], [16,9], storys['hero-image-metadata'], {w:400})}}"/>
                             </a>
                         </figure>
                         <div class="sourcefrom">API Reurters</div>
@@ -204,16 +203,16 @@ googletag.cmd.push(function() { googletag.display('div-gpt-ad-1467975036401-0');
 
 
 <section class="unique"><!--  Section 5 open-->
-    <div class="content">
-        <div class="sectionwrap nob">
+  <div class="content">
+    <div class="sectionwrap nob">
 
-            <div class="uniquesec unique"> <span class="sectionname__unique"> MOST POPULAR </span></div>
+      <div class="uniquesec unique"> <span class="sectionname__unique"> MOST POPULAR </span></div>
 
             {% for story in breaking_news|slice(0,3) %}
                 <article ><!--  Article1 open-->
                     <figure>
                         <a href="/{{story['slug']}}">
-                            <img src="{{focusedImageUrl(story['hero-image-s3-key'], [16,9], story['hero-image-metadata'], {w:400})}}" /> 
+                            <img src="{{focusedImageUrl(story['hero-image-s3-key'], [16,9], story['hero-image-metadata'], {w:400})}}" />
                         </a>
                     </figure>
                     <div class="sourcefrom">API Reurters</div>
@@ -240,7 +239,7 @@ googletag.cmd.push(function() { googletag.display('div-gpt-ad-1467975036401-0');
 
     </div>	<!--  content close-->
 </section><!--  Section 5 close-->
-<div class="ad_big" placeholder="Advertisement"> 
+<div class="ad_big" placeholder="Advertisement">
 <!-- /60988533/CLMTDESK_Home_Banner_02 -->
 <div id='div-gpt-ad-1467975036401-3'>
 <script type='text/javascript'>
@@ -249,7 +248,7 @@ googletag.cmd.push(function() { googletag.display('div-gpt-ad-1467975036401-3');
 </div>
 
 </div>
-<div class="ad_mobile" placeholder="Advertisement"> 
+<div class="ad_mobile" placeholder="Advertisement">
 
 <!-- /60988533/CLMTDESK_Home_300x250_02 -->
 <div id='div-gpt-ad-1467975036401-1' style='height:250px; width:300px;'>
@@ -269,8 +268,8 @@ googletag.cmd.push(function() { googletag.display('div-gpt-ad-1467975036401-1');
                 <article><!--  Article1 open-->
                     <div class="figcontainer">
 
-                        <figure>
-                            <a href="/{{story['slug']}}">     <img src="{{focusedImageUrl(story['hero-image-s3-key'], [16,9], story['hero-image-metadata'], {w:400})}}"/>
+                      <figure>
+                          <a href="/{{story['slug']}}">     <img src="{{focusedImageUrl(story['hero-image-s3-key'], config['image-cdn'], [16,9], story['hero-image-metadata'], {w:400})}}"/>
                             </a>
                         </figure>
                         <div class="sourcefrom">API Reurters</div>
@@ -295,4 +294,3 @@ googletag.cmd.push(function() { googletag.display('div-gpt-ad-1467975036401-1');
         </div>
     </section><!--  Section 5 close-->
     <div class="clear"></div>
-
