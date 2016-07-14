@@ -18,12 +18,18 @@ class QuintypeController extends Controller
 
   public function toView($args) {
     return array_merge([
-      "config" => $this->config()
+      "config" => $this->config(),
+      "menuItems" => $this->menuItems()
     ], $args);
   }
 
   public function getStories($args = null){
     return $this->client->stories($args);
+  }
+
+  public function menuItems() {
+    $config = new Config($this->client->config());
+    return $config->menuItems();
   }
 
   public function config($args = null) {

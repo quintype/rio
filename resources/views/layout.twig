@@ -63,21 +63,21 @@
 </svg>
 
    </a>
-         
-            <div class="menuitems">
+
+           <div class="menuitems">
              <ul>
-                 {% for menuItem in config.menuItems() %}
-		<li><a href="{{menuItem.url()}}">{{menuItem.title()}}</a></li>
-	{% endfor %}
-                 
-             </ul>    
-         
-         </div>
-         
+               {% for menuItem in menuItems %}
+	       <li><a href="{{menuItem.url()}}">{{menuItem.title()}}</a></li>
+	       {% endfor %}
+
+             </ul>
+
+           </div>
+
          </div>
          <div class="logo">
-            <a href="{{ url()}}"> <img class="logoview" src='{{ assetPath("climatedesk_logo.png") }}' /> </a></div> 
-    <div class="mob_buttons"> <ul>	
+            <a href="{{ url()}}"> <img class="logoview" src='{{ assetPath("climatedesk_logo.png") }}' /> </a></div>
+    <div class="mob_buttons"> <ul>
 	 <li><a href="#" class="donate">Donate</a></li>
 	 <li><button id="search_init1" class="search_butn">Search</button></li>
 	 </ul>
@@ -90,17 +90,17 @@
         <input type="text" class="form-input" name="q" placeholder="Search for anything..">
       </div>
   </form>
-</div>               
+</div>
 </div>
 
 	 <nav><ul>
 	 <li><a href="#"><img src="{{ assetPath("icons/facebook_b.svg") }}" /></a></li>
-	 <li><a	href="#" ><img src="{{ assetPath("icons/twitter_b.svg") }}" /></a></li>	 
+	 <li><a	href="#" ><img src="{{ assetPath("icons/twitter_b.svg") }}" /></a></li>
 	 <li><a	href="#"><img src="{{ assetPath("icons/youtube_b.svg") }}" /></a></li>
 	 <li><a href="#" class="donate">Donate</a></li>
 	 <li><button id="search_init" class="search_butn">Search</button></li>
-	
-	 </ul></nav>	
+
+	 </ul></nav>
 	 </div>
 	 </div> <!-- Header Close-->
 	<!--

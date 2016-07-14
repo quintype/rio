@@ -86,7 +86,7 @@ class StoriesRequest {
     public function addParams($params) {
         $this->params = array_merge($this->params, $params);
         return $this;
-        
+
     }
 
     public function toBulkRequest() {
