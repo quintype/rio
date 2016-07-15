@@ -42,7 +42,7 @@
         color:#026287;
         font-size: em(34);
         line-height: 40px; 
-
+        margin-top:em(15);
         font-weight:$black-weight;
     
          @include breakpoint($phone) {
@@ -95,7 +95,9 @@ width:100%;
             font-size:em(16);  
             margin: em(10) 0 em(10) 0;
             a{ color:$light-blue;}     
-         
+         @include breakpoint($phone) {
+            font-size: em(13);
+         }
 
         }
 
@@ -256,16 +258,17 @@ width:100%;
 
 
 /* Author */
-.author{
+.author{ 
     width:100%;
     margin-bottom:em(10);
     position:relative;
     float:left;
     border-top:2px solid $light-gray;
     padding-top:em(20);
-    &__left{ width:25%; position:relative;float:left; img{width:em(130); height:em(130); } }
+    &__left{ width:150px; position:relative;float:left; @include aspect-ratio(16,9);
+     img{width:em(130); height:em(130);  padding-right:15px;} }
     &__right{ 
-        width:75%; 
+         
         padding-left:em(15);
         position:relative;float:left;
         h5{
