@@ -24,8 +24,8 @@ class HomeController extends QuintypeController {
     $bulk->execute($this->client);
 
     $a=$bulk->getResponse("top_stories");
-echo "<pre>";
-    print_r($a);
+//echo "<pre>";
+  //  print_r($a);
 
     return view('home', $this->toView([
       "stories" => $bulk->getResponse("top_stories"),
