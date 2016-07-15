@@ -41,7 +41,7 @@
                                         </div>
                                     </a>
                                     <div class="article__desciption">
-                                        {{story["summary"]}}
+                                        {{story["summary"]}}.
                                     </div>
                                     <div class="textbottom">
                                           {%  if story['metadata']['story-attributes'] %}
@@ -87,9 +87,11 @@
                         <div class="article__title">
                             {{story["headline"]}}</div>
                     </a>
+                      {%  if  story["summary"] %}
                     <div class="article__desciption">
-                        {{story["summary"]}}.
+                        {{story["summary"]}}
                     </div>
+                    {% endif %}
                     <div class="textbottom">
                            {%  if story['metadata']['story-attributes'] %}
                                     <span class="textbottom__article">

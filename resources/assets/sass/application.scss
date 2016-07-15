@@ -432,7 +432,7 @@ section {
 
 .sectiontitle {	 
     color:$heading-blue;
-    font-size:24px;
+    font-size:em(22);
     font-weight:$bold;
     text-transform:capitalize;
     width:100%; 
@@ -440,9 +440,10 @@ section {
     line-height:0.1em; 
     margin:10px 0 20px; 
     text-align:center;
-    letter-spacing: 1px;
-    span { background:#fff; padding:0 10px; }
+    letter-spacing: 1.5px;
+    span { background:#fff; padding:0 10px 0 0; }
 } 
+.patner span{ padding:10px; color:#7b7b7b; font-size:18px;}
 
 .static{
     margin:em(10) 0 em(10) 0;
@@ -579,28 +580,31 @@ article:nth-child(4){
     font-size: $fontsize-smaller;
     padding-bottom:10px;
     padding-right:5px;
+    color:$small-heading;
+    opacity: 0.8;
+    min-height: em(25);
 }
 
 
 .textwrap {
     margin:em(12) 0 em(5) 0;
-    padding:em(12);
+   
     font-family:$primary-typeface;	
     /*background-color: $color5;*/
+}
+
+.wrap .textwrap{
+    padding:em(12);
 }
 
 .article__title{
     position:relative;
     float:left;
-    color: $dark-gray;
-    font-size: 14px;
-    font-weight: $black-weight;
-   
+    color: $small-heading;
+    font-size: 15px;
+    font-weight: $bold;   
     min-height:em(90);
     width: 100%;
-    font-weight: $bold;
-
-
 }
 .article__desciption{
     color: $text;
@@ -702,13 +706,16 @@ width:25%;
 */
 
 .more{
-    color:$light-blue;
-    font-size:18px;
+    color:$question-blue;
+    font-size:em(18);
     margin-bottom:10px;
-    padding-bottom:15px;
+    padding-bottom:em(10) 0 em(10) 0;
     float:right;
     text-decoration:underline;
     padding-right:5px;
+    font-family: $merri;
+    font-style: italic;
+    font-weight: $bold;
 }
 
 
@@ -792,9 +799,9 @@ font-size: em(14);
 .article__title{
     position:relative;
     float:left;
-    color: $dark-gray;
-    font-size: 14px;
-    font-weight: $black-weight;
+    color: $small-heading;
+    font-size: 15px;
+    font-weight: $bold;
   
      min-height:em(90);
          font-weight: $bold;
