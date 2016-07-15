@@ -48,9 +48,8 @@
        
     .picture{
         position:relative;
-    @include span(4);  
-    margin-left:auto;
-    margin-right:auto;
+    @include span(3);  
+    text-align: left;
     float:left;
     text-align:center;
         img{
@@ -61,21 +60,22 @@
     margin-right:auto;
     }
     
-    @include breakpoint($small-pc) {
+    @include breakpoint($phone) {
         
-        @include span(1);
-        text-align: left;
+        @include span(12);
+        margin-left:auto;
+    margin-right:auto;
     }
     }
     .individual_info{
        
-        @include span(4);
+        @include span(12);
   
         position:relative; 
         float:left;
-        @include breakpoint($small-pc) {
+        @include breakpoint($pc) {
             
-        @include span(3 last);
+        @include span(9);
        
     }
      
