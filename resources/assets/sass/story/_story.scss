@@ -258,15 +258,16 @@ width:100%;
 
 
 /* Author */
-.author{ 
+.author{
     width:100%;
     margin-bottom:em(10);
     position:relative;
     float:left;
     border-top:2px solid $light-gray;
     padding-top:em(20);
-    &__left{ width:150px; position:relative;float:left; @include aspect-ratio(16,9);
-     img{width:em(130); height:em(130);  padding-right:15px;} }
+    &__left{ width:130px; position:relative;float:left;
+ @include aspect-ratio(16,9);
+     img{width:em(130); height:em(130); } }
     &__right{ 
          
         padding-left:em(15);
