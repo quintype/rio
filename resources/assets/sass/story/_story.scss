@@ -266,12 +266,13 @@ width:100%;
     border-top:2px solid $light-gray;
     padding-top:em(20);
     &__left{ width:130px; position:relative;float:left;
- @include aspect-ratio(16,9);
-     img{width:em(130); height:em(130); } }
+ 
+     img{width:130px; height:130px;  } }
     &__right{ 
          
         padding-left:em(15);
         position:relative;float:left;
+        width:80%;
         h5{
             padding-top:em(5);
             color:#026287;

@@ -295,7 +295,8 @@ ul li{
     padding-left:em(6);
 
     .sectionname__display {
-    font-size: 8px;
+    font-size: em(10);
+    letter-spacing: em(1);
     
 }
 
@@ -318,6 +319,8 @@ ul li{
     position: absolute;
     right:0;
     font-size:10px;
+    min-height: 25px;
+    opacity: 0.8;
 }
 
 
@@ -326,13 +329,14 @@ ul li{
     bottom:0;
     color: $white;
     font-weight:$black-weight;
-    padding-left:10px;
+    padding-left:em(25);
     font-family:$primary-typeface;	
     z-index: 1;
     float: left;
     text-align:left;
     padding-bottom:5%;
-    font-size:em(20);
+    font-size:em(30);
+    line-height: 40px;
 
     @include breakpoint($phone) {
         bottom:10px;
@@ -345,7 +349,7 @@ ul li{
     bottom:5px;
     color: $white;
     font-weight:bold;
-    padding: 5px;
+    padding: em(5) em(5) em(5) em(10);
     text-transform: capitalize;
     z-index: 1;
     float: left;
@@ -364,9 +368,9 @@ ul li{
     text-transform: capitalize;
     z-index: 1;
     float: right;
-    text-align:right;
-   
-        font-size:  em(12);
+    text-align:right;   
+     font-size:  em(12);
+     opacity: 0.8;
     
 
 }
@@ -624,6 +628,7 @@ height:18px;
 width:100px;
 padding:em(3);
 border-right:1px solid $light-gray;
+padding-left:em(25);
     }
     .textbottom__article__name{
 

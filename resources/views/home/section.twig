@@ -10,7 +10,7 @@
                     <a href="/{{story['slug']}}">
                         <div class="figcontainer">
                             <div class="titletop_big">{{story["headline"]}}</div>
-                            <div class="sourcetop_left">API Reurters</div>
+                            <div class="sourcetop_left">{{ story["hero-image-attribution"] }}</div>
 
                             <figure>
                                 <img src="{{focusedImageUrl(story['hero-image-s3-key'],config['image-cdn'], [16,9], story['hero-image-metadata'],{w:700} )}}" />
@@ -31,7 +31,7 @@
                                     <figure>
                                         <img src="{{focusedImageUrl(story['hero-image-s3-key'],config['image-cdn'], [16,9], story['hero-image-metadata'],{w:400} )}}" />
                                     </figure>
-                                    <div class="sourcefrom">API Reurters</div>
+                                    <div class="sourcefrom">{{ story["hero-image-attribution"] }}</div>
                                 </div>
 
                                 <div class="textwrap">
@@ -41,7 +41,7 @@
                                         </div>
                                     </a>
                                     <div class="article__desciption">
-                                        {{story["summary"]}}.
+                                        {{story["summary"]}}
                                     </div>
                                     <div class="textbottom">
                                           {%  if story['metadata']['story-attributes'] %}
@@ -77,7 +77,7 @@
                             <figure>
                                 <img src="{{focusedImageUrl(story['hero-image-s3-key'] ,config['image-cdn'], [16,9], story['hero-image-metadata'],{w:400} )}}" />
                             </figure>
-                            <div class="sourcetop">API Reurters</div>
+                            <div class="sourcetop">{{ story["hero-image-attribution"] }}</div>
                         </div>
                     </a>
                 </div>
