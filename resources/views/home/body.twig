@@ -7,11 +7,11 @@
                     <div class="figcontainer">
                         <h6 class="sectionname__display">{{story['sections'][0]['name']}}</h6>
                         <div class="titletop_big">{{story["headline"]}}</div>
-               <div class="textbottom_left">                           
+               <div class="textbottom_left">
                                 {%  if story['metadata']['story-attributes'] %}
-                                  
-                                        <img src="{{  get_logo(story['metadata']['story-attributes']['partnerpublisher'][0] ) }}" /> 
-                                    
+
+                                        <img src="{{  get_logo(story['metadata']['story-attributes']['partnerpublisher'][0] ) }}" />
+
                                  {% endif %}
                                 <span><h5 class="textbottom__article__name">{{story["author-name"]}}</h5></span>
                                 </div> <!-- textbottom close -->
@@ -71,11 +71,11 @@
                                 {{story["summary"]}}
                             </div>
                             <div class="textbottom">
-            
-                                
+
+
                                 {%  if story['metadata']['story-attributes'] %}
                                     <span class="textbottom__article">
-                                        <img src="{{  get_logo(story['metadata']['story-attributes']['partnerpublisher'][0] ) }}" /> 
+                                        <img src="{{  get_logo(story['metadata']['story-attributes']['partnerpublisher'][0] ) }}" />
                                     </span>
                                  {% endif %}
                                 <span><h5 class="textbottom__article__name">{{story["author-name"]}}</h5></span>
@@ -96,7 +96,7 @@
 
         <div class="leftbig">
         <div class="art19-web-player awp-medium awp-theme-dark-blue" data-series-id="57a44066-708b-488c-99cc-588c98834fee" data-pick-from-series="latest" data-api-url="https://rss.art19.com/"></div>
-        
+
             <iframe src="https://art19.com/shows/inquiring-minds/episodes/e1241e76-2bd1-44cd-8ab6-6435ace2272f/embed?theme=dark-blue" style="width: 100%; height: 220px; border: 0 none;" scrolling="no"></iframe>
         </div>
         <div class="rightsmall" >
@@ -159,7 +159,7 @@ googletag.cmd.push(function() { googletag.display('div-gpt-ad-1467975036401-0');
                             <a href="/{{story['slug']}}">    {{story["headline"]}} </a>
                         </div>
                         <div class="textbottom">
-                         
+
                             <span> <h5 class="textbottom__article__name">{{story["author-name"]}}</h5></span>
 
                             <span class="textbottom__article"> <time datetime="">{% set timestamp = (story["published-at"] / 1000)|round(0, 'floor') %}{{timestamp|date('M d,Y')}}</time></span>
@@ -183,13 +183,13 @@ googletag.cmd.push(function() { googletag.display('div-gpt-ad-1467975036401-0');
 
         <div class="sectionwrap">
             <div class="sectiontitle left"><span>WEATHER</span></div>
-            {% for storys in weather_stories | slice(0,3) %}
+            {% for story in weather_stories|slice(0,3) %}
                 <article><!--  Article1 open-->
                     <div class="figcontainer">
                         <figure>
 
-                            <a href="/{{storys['slug']}}">
-                              <img src="{{focusedImageUrl(storys['hero-image-s3-key'], config['image-cdn'], [16,9], storys['hero-image-metadata'], {w:400})}}"/>
+                            <a href="/{{story['slug']}}">
+                              <img src="{{focusedImageUrl(story['hero-image-s3-key'], config['image-cdn'], [16,9], story['hero-image-metadata'], {w:400})}}"/>
                             </a>
                         </figure>
                         <div class="sourcefrom">{{ story["hero-image-attribution"] }}</div>
@@ -197,11 +197,11 @@ googletag.cmd.push(function() { googletag.display('div-gpt-ad-1467975036401-0');
                     <div class="textwrap">
 
                         <div class="article__title">
-                            <a href="/{{story['slug']}}">   {{storys["headline"]}} </a>
+                            <a href="/{{story['slug']}}">   {{story["headline"]}} </a>
                         </div>
                         <div class="textbottom">
-                       
-                            <span> <h5 class="textbottom__article__name">{{storys["author-name"]}}</h5></span>
+
+                            <span> <h5 class="textbottom__article__name">{{story["author-name"]}}</h5></span>
                             <span class="textbottom__article"> <time datetime="">{% set timestamp = (story["published-at"] / 1000)|round(0, 'floor') %}{{timestamp|date('M d,Y')}}</time></span>
                         </div> <!-- textbottom close -->
                     </div><!-- textwrap close -->
@@ -239,7 +239,7 @@ googletag.cmd.push(function() { googletag.display('div-gpt-ad-1467975036401-0');
                             <a href="/{{story['slug']}}">     {{story["headline"]}} </a>
                         </div>
                         <div class="textbottom">
-                         
+
                             <span> <h5 class="textbottom__article__name">{{story["author-name"]}}</h5></span>
 
                             <span class="textbottom__article"> <time datetime="">{% set timestamp = (story["published-at"] / 1000)|round(0, 'floor') %}{{timestamp|date('M d,Y')}}</time></span>
@@ -298,7 +298,7 @@ googletag.cmd.push(function() { googletag.display('div-gpt-ad-1467975036401-1');
                             <a href="/{{story['slug']}}">       {{story["headline"]}} </a>
                         </div>
                         <div class="textbottom">
-                       
+
                             <span> <h5 class="textbottom__article__name">{{story["author-name"]}}</h5></span>
                             <span class="textbottom__article"> <time datetime="">{% set timestamp = (story["published-at"] / 1000)|round(0, 'floor') %}{{timestamp|date('M d,Y')}}</time></span>
                         </div> <!-- textbottom close -->
