@@ -56,9 +56,9 @@
             <g id="Group-Copy" transform="translate(1.000000, 3.000000)">
                 <rect id="menubar1" x="0" y="6.5" width="26" height="2"></rect>
                 <rect id="menubar1" x="0" y="0" width="26" height="2"></rect>
-            1    <rect id="menubar1" x="0" y="13" width="26" height="2"></rect>
-            1>
-        </g> 1   </g>
+                <rect id="menubar1" x="0" y="13" width="26" height="2"></rect>
+            
+        </g>    </g>
 </svg>
 
    </span>
@@ -123,7 +123,7 @@
      
 <div class="section"><!--  Section 6 open-->
 
-        <div class="sectiontitle patner"><span>OUR PATNERS</span></div>
+        <div class="sectiontitle patner"><span>OUR PARTNERS</span></div>
         <div class="patners">
             <ul id="clientsdesk">
                 <li><img src="{{ assetPath('patner-logos/atlantic.png') }}" /></li>
@@ -234,7 +234,7 @@
 </div>
 
 		<div class="clear"></div>
-	<div class='footer-short'><div class="content"><center>&copy; <B>Copyright 2016  -  Climatedesk  </B> <a href="http://www.quintype.com/"> Powered by Quintype</a></center></div></div>
+	<div class='footer-short'><div class="content"><center>&copy; Copyright 2016  -  Climatedesk   <a href="http://www.quintype.com/"> Powered by Quintype</a></center></div></div>
 	</div> <!-- Footer Close -->
 	
 	
@@ -252,9 +252,9 @@
 
  
  $('html').click(function (e) {
-
+  // alert(e.target.id);
     if (e.target.id == 'menubar1') {
-  
+      
       $(".menuitems").show();
     } else {
  
