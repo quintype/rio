@@ -89,14 +89,15 @@ ul li{
 nav	{
 
     float:right;
+    display: none;
     li {
         float: left;
         margin-left: 1em;
         line-height: 3em;
     } 
-    @include breakpoint($phone) {
-        @include span(12);
-        display:none;
+    @include breakpoint($pc) {
+      
+        display:block;
     }
 
 }
@@ -177,6 +178,15 @@ line-height: 45px;
 ul li{
     float:left;
 }
+
+      @include breakpoint($tablet){
+        width:30%;
+    }
+     @include breakpoint($phone){
+        width:45%;
+    }
+
+
   @include breakpoint($pc){
         display:none;
     }
@@ -191,11 +201,19 @@ ul li{
     text-transform: uppercase; 
     letter-spacing: 1.5px;
     padding: 5px 15px 5px 15px;
-    @include breakpoint($phone){
+  
+      @include breakpoint($only-phone-tablets){
+        font-size: 8px;
+        margin-right:8px;
+        padding:em(7) em(5) em(6) em(5);
+    }
+  @include breakpoint($phone){
         font-size: 8px;
         margin-right:5px;
         padding:em(7) em(5) em(6) em(5);
     }
+
+
 }
 .search_butn {
     color: $light-blue;
@@ -206,6 +224,7 @@ ul li{
     text-transform: uppercase; 
     letter-spacing: 1.5px;
     padding: 5px 15px 5px 15px;
+    margin-top:-2px;
       @include breakpoint($phone){
         font-size: 8px;
         padding:em(7) em(5) em(6) em(5);
@@ -730,6 +749,7 @@ width:25%;
 }
 
 .figcontainer{
+
     position:relative;
     float:left;
     width:100%;
