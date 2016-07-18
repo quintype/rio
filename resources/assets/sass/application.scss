@@ -154,7 +154,7 @@ nav	{
     ul li{
         position:relative;
         float:left;
-        border-top:1px solid $light-blue;
+        border-top:1px solid rgba(72,198,214,0.3);
         width: 100%;
         display: block;
          height:auto;
@@ -1029,4 +1029,9 @@ font-size: em(14);
                     /*background: url("../images/search-input-icon.png") no-repeat em(10) center;*/
                 }
             }
+        }
+
+
+        .socialicon{
+            padding-top: 5px;
         }
