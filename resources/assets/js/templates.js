@@ -13,13 +13,17 @@ global.transformTemplates = function(x) {
 
 var TEMPLATES = {
   "home_body": require("../../../resources/views/home/body.twig"),
-  "home_story": require("../../../resources/views/home/story.twig")
+  "story": require("../../../resources/views/home/story.twig")
 };
 
-Twig.extendFunction("focusedImageUrl", function(slug, aspectRatio, metadata, options) {
+Twig.extendFunction("focusedImageUrl", function(slug, config, aspectRatio, metadata, options) {
   var cdn = global.qtConfig["image-cdn"];
   var image = new FocusedImage(slug, metadata);
   return cdn + "/" + image.path(aspectRatio, options);
+});
+
+Twig.extendFunction("assetPath", function(file, config) {
+  return global.qtConfig["image-cdn"] + "/" + global.qtConfig["publisher-name"] +  "/" + "assets" + file
 });
 
 module.exports = window.ooga = TEMPLATES;
