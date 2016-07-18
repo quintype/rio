@@ -120,18 +120,24 @@ nav	{
     /*top: em(30);*/
     z-index:$zIndex-2;
     display:none;
+    margin-top:18px;
+
+    @include breakpoint($phone){
+        margin-left:-6px;
+        margin-top:12px;
+    }
     ul {
         padding:0;
     }
     ul li a{
         font-family: $sans;
         padding:em(15) 0 em(15) 0;
-        letter-spacing: 1.5px;
+        letter-spacing: 1px;
         color:#6a6a6a;
         position:relative;
         float:left;
         font-weight: $bold;
-        font-size: 16px;    
+        font-size: 12px;    
         display: block;
         height:auto;
                 line-height:20px;
@@ -139,7 +145,9 @@ nav	{
             font-size: em(12);
 
 
-        }
+     
+
+        };
 
     }
 
@@ -154,15 +162,17 @@ nav	{
 
     }
 
-    ul li :first{
+
+
+    ul :first-child{
         border-top:0px;
     }
 
 }
-
-.menubarimg:hover    .menuitems{
+/*
+.menubarimg:active    .menuitems{
     display: block;
-}
+}*/
 
 .fill {
     background-color: $light-blue;
@@ -348,7 +358,7 @@ ul li{
     bottom:0;
     color: $white;
     font-weight:$bold;
-    padding-left:em(20);
+    padding-left:20px;
     font-family:$primary-typeface;	
     z-index: 1;
     float: left;
@@ -647,13 +657,14 @@ margin-left:20px;
 z-index: $zIndex-2;
    @include aspect-ratio(16,9);
     img{
+        @include aspect-ratio(16,9);
         position: relative;
         float:left;
 height:18px;
 width:100px;
 padding:em(3);
 border-right:1px solid $light-gray;
-padding-left:em(25);
+
 @include breakpoint($phone){
     padding-left: 0;
 }
@@ -665,6 +676,7 @@ padding-left:em(25);
         padding-left: em(10);
         padding-right: em(10);
         font-size: em(14);
+        color:$question-blue;
     }
 
 
@@ -697,7 +709,7 @@ width:25%;
     time {
         font-weight:$bold;
         letter-spacing: 0.2px;
-        font-size: 10px;
+        font-size: 1em;
         padding-left:em(5);
     }
 
@@ -708,7 +720,7 @@ width:25%;
 }
 
 .textbottom__article__name{
-    color: $light-blue;
+    color:$question-blue;
     display: inline-block;
     font-family: $merri;     
     font-size: em(16);
