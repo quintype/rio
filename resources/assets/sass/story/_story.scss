@@ -264,7 +264,8 @@ width:100%;
     position:relative;
     float:left;
     border-top:2px solid $light-gray;
-    padding-top:em(20);
+    padding-top:em(40);
+    margin-top: em(15);
     &__left{ width:130px; position:relative;float:left;
  
      img{width:130px; height:130px;  } }
@@ -294,6 +295,7 @@ width:100%;
     width:300px;
     margin-left:auto;
     margin-right:auto;
+    margin:em(20) 0 em(0) 0;
     img{width:100%;}
 
     @include breakpoint ($pc){ width:560px; }
