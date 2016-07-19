@@ -282,6 +282,18 @@ ul li{
     bottom: 0;
     background: linear-gradient(to bottom, transparent 0%, transparent 70%, rgba(0,0,0,0.7) 100%);
 }
+
+.section_left .figcontainer:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(to bottom, transparent 0%, transparent 70%, rgba(0,0,0,0.7) 100%);
+}
+
+
 .rightcontainer .figcontainer:after {
     content: '';
     position: absolute;
