@@ -263,12 +263,10 @@ ul li{
 .leftcontainer{
     @include span(9);	
     @include aspect-ratio(16,9);
-    padding: em(0);
-    background-image:url("main/1.jpg");
+    padding: em(0);   
     padding-right: em(2);
     @include breakpoint($phone) {
         @include span(12);
-        @include aspect-ratio(1,1);
         padding: em(0);
         margin-bottom:10px;
     }
@@ -777,10 +775,10 @@ width:25%;
 .article__tag-heading
  {
 
-font-size: em(14);
- font-weight: 800;   
- letter-spacing: 1.5px;
-  padding: em(3) em(5) em(3) em(5);
+font-size: 16px;
+ font-weight: $bold;   
+ letter-spacing: 1.1px;
+  padding: em(5) em(10) em(5) em(10);
     color: $white;
     background-color: $light-blue;
      white-space: nowrap;
@@ -994,7 +992,10 @@ font-size: em(14);
     display: none;
 }
 
-.top{ margin-top:em(30); }
+.top{ margin-top:em(30); 
+@include breakpoint($phone){margin-top:em(0);}
+
+}
 
    .nav-search {
             display: none;
