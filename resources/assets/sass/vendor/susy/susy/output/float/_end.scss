@@ -5,36 +5,36 @@
 // -----------------
 // - PRIVATE
 @include susy-defaults((
-  last-flow: to,
+last-flow: to,
 ));
 
 // Float Last
 // ----------
 // - [$flow]  : ltr | rtl
 @mixin float-last(
-  $flow: map-get($susy-defaults, flow),
-  $last-flow: map-get($susy-defaults, last-flow),
-  $margin: 0
+$flow: map-get($susy-defaults, flow),
+$last-flow: map-get($susy-defaults, last-flow),
+$margin: 0
 ) {
-  $to: to($flow);
+    $to: to($flow);
 
-  $output: (
-    float: if($last-flow == to, $to, null),
-    margin-#{$to}: $margin,
-  );
+    $output: (
+        float: if($last-flow == to, $to, null),
+        margin-#{$to}: $margin,
+        );
 
-  @include output($output);
+    @include output($output);
 }
 
 // Float First
 // -----------
 // - [$flow]  : ltr | rtl
 @mixin float-first(
-  $flow: map-get($susy-defaults, flow)
+$flow: map-get($susy-defaults, flow)
 ) {
-  $output: (
-    margin-#{from($flow)}: 0,
-  );
+    $output: (
+        margin-#{from($flow)}: 0,
+        );
 
-  @include output($output);
+    @include output($output);
 }

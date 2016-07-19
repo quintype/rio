@@ -34,15 +34,15 @@ class Config extends ArrayObject {
             return new MenuItem($menu, $this);
         }, $this["layout"]["menu"]);
     }
-     public function sections() {
-           return $this["sections"];
-    }
 
+    public function sections() {
+        return $this["sections"];
+    }
 
 }
 
 class Story extends ArrayObject {
-
+    
 }
 
 class Bulk {
@@ -86,7 +86,6 @@ class StoriesRequest {
     public function addParams($params) {
         $this->params = array_merge($this->params, $params);
         return $this;
-
     }
 
     public function toBulkRequest() {
@@ -118,16 +117,16 @@ class QuintypeClient {
     }
 
     public function config() {
-      $query = '/api/config';
-      $key = 'swarajya-config';
-      if (Cache::has($key)) {
-        $response = Cache::get($key);
-      } else {
-        $response = $this->getResponse($query);
-        
-        Cache::put($key, $response, 10);
-      }
-      return $response;
+        $query = '/api/config';
+        $key = 'swarajya-config';
+        if (Cache::has($key)) {
+            $response = Cache::get($key);
+        } else {
+            $response = $this->getResponse($query);
+
+            Cache::put($key, $response, 10);
+        }
+        return $response;
     }
 
     public function stories($params = null) {
@@ -136,7 +135,7 @@ class QuintypeClient {
         }, $this->getResponse("/api/v1/stories", $params)["stories"]);
     }
 
- public function search($params = null) {
+    public function search($params = null) {
         return array_map(function ($s) {
             return new Story($s);
         }, $this->getResponse("/api/v1/search", $params)["results"]['stories']);
@@ -146,12 +145,10 @@ class QuintypeClient {
         return $this->postResponse("/api/v1/bulk", ["requests" => $requests])["results"];
     }
 
-      public function storyData($params =null){
+    public function storyData($params = null) {
         return array_map(function ($s) {
             return new Story($s);
         }, $this->getResponse("/api/v1/stories-by-slug", $params));
     }
-
-
 
 }

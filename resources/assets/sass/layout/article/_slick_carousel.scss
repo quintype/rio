@@ -1,105 +1,105 @@
 .top-story {
-  display: block;
-  position: relative;
-  overflow: hidden;
-
-  .content {
     display: block;
-    position: absolute;
-    bottom: 0;
-    z-index: $zIndex-2--articleOverHeroImage;
-    color: $white;
-    padding: 0 em(20);
+    position: relative;
+    overflow: hidden;
 
-    @include breakpoint($pc) {
-      background-color: $gray-darker;
-      @include span(3);
-      padding: em(10);
-      top: 0;
-    }
-  }
+    .content {
+        display: block;
+        position: absolute;
+        bottom: 0;
+        z-index: $zIndex-2--articleOverHeroImage;
+        color: $white;
+        padding: 0 em(20);
 
-  h5 {
-    font-size: em(10);
-    @include breakpoint($tablet) {
-      font-size: em(12)
-    }
-
-    @include breakpoint($pc) {
-      font-size: em(14)
-    }
-  }
-
-  .top-story--headline h3 {
-    font-weight: 600;
-    font-size: em(13);
-    color: $white;
-    display: block;
-    margin: em(12,48) 0;
-    padding: 0 ;
-    line-height: em(28, 24);
-    letter-spacing: em(-0.3);
-
-    @include breakpoint($tablet) {
-      font-size: em(16)
+        @include breakpoint($pc) {
+            background-color: $gray-darker;
+            @include span(3);
+            padding: em(10);
+            top: 0;
+        }
     }
 
-    @include breakpoint($pc) {
-      font-size: em(18);
-      margin-top: em(15);
-    }
-  }
+    h5 {
+        font-size: em(10);
+        @include breakpoint($tablet) {
+            font-size: em(12)
+        }
 
-  .top-story--summary {
-    display: none;
-    font-size: em(14);
-    font-weight: 100;
-    @include breakpoint($pc) {
-      display: block;
-      margin: em(25) 0;
+        @include breakpoint($pc) {
+            font-size: em(14)
+        }
     }
-  }
 
-  .byline {
-    display: none;
-    color: $white;
-    font-size: em(12);
-    padding: em(4,14);
-    font-style: italic;
+    .top-story--headline h3 {
+        font-weight: 600;
+        font-size: em(13);
+        color: $white;
+        display: block;
+        margin: em(12,48) 0;
+        padding: 0 ;
+        line-height: em(28, 24);
+        letter-spacing: em(-0.3);
 
-    @include breakpoint($tablet) {
-      display: block;
+        @include breakpoint($tablet) {
+            font-size: em(16)
+        }
+
+        @include breakpoint($pc) {
+            font-size: em(18);
+            margin-top: em(15);
+        }
     }
-    @include breakpoint($pc) {
-      float: left;
-    }
-  }
-  .author,
-  .timestamp {
-    color: rgba($white, 0.7);
-  }
-  .author {
-    display: block;
-    font-weight: 100;
-    font-size: em(10);
-    display: inline-block;
-    margin-right: em(100,14);
 
-    @include breakpoint($pc) {
-      display: inline-block;
-      font-size: em(12);
-      margin-right: em(100,14);
+    .top-story--summary {
+        display: none;
+        font-size: em(14);
+        font-weight: 100;
+        @include breakpoint($pc) {
+            display: block;
+            margin: em(25) 0;
+        }
     }
-  }
 
-  .hero-image {
-    background-size: cover;
-    background-position: center;
-    z-index: $zIndex-1--articleHeroImage;
+    .byline {
+        display: none;
+        color: $white;
+        font-size: em(12);
+        padding: em(4,14);
+        font-style: italic;
 
-    @include breakpoint($pc) {
-      @include span(9 last);
-      padding: 0;
+        @include breakpoint($tablet) {
+            display: block;
+        }
+        @include breakpoint($pc) {
+            float: left;
+        }
     }
-  }
+    .author,
+    .timestamp {
+        color: rgba($white, 0.7);
+    }
+    .author {
+        display: block;
+        font-weight: 100;
+        font-size: em(10);
+        display: inline-block;
+        margin-right: em(100,14);
+
+        @include breakpoint($pc) {
+            display: inline-block;
+            font-size: em(12);
+            margin-right: em(100,14);
+        }
+    }
+
+    .hero-image {
+        background-size: cover;
+        background-position: center;
+        z-index: $zIndex-1--articleHeroImage;
+
+        @include breakpoint($pc) {
+            @include span(9 last);
+            padding: 0;
+        }
+    }
 }

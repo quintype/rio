@@ -14,19 +14,19 @@ $_susy-media-context: ();
 // - $layout    : <settings>
 // - $no-query  : <boolean> | <selector>
 @mixin susy-breakpoint(
-  $query,
-  $layout: false,
-  $no-query: $susy-media-fallback
+$query,
+$layout: false,
+$no-query: $susy-media-fallback
 ) {
-  @include susy-media-router($query, $no-query) {
-    @if $layout {
-      @include with-layout($layout) {
-        @content;
-      }
-    } @else {
-      @content;
+    @include susy-media-router($query, $no-query) {
+        @if $layout {
+            @include with-layout($layout) {
+                @content;
+            }
+        } @else {
+            @content;
+        }
     }
-  }
 }
 
 
@@ -35,31 +35,31 @@ $_susy-media-context: ();
 // - $query: <min-width> [<max-width>] | <property> <value>
 // - $no-query: <boolean> | <selector>
 @mixin susy-media(
-  $query,
-  $no-query: $susy-media-fallback
+$query,
+$no-query: $susy-media-fallback
 ) {
-  $old-context: $_susy-media-context;
-  $name: if(map-has-key($susy-media, $query), $query, null);
-  $query: susy-get-media($query);
-  $query: susy-parse-media($query);
+    $old-context: $_susy-media-context;
+    $name: if(map-has-key($susy-media, $query), $query, null);
+    $query: susy-get-media($query);
+    $query: susy-parse-media($query);
 
-  @include susy-media-context($query, $name);
+    @include susy-media-context($query, $name);
 
-  @if $no-query and type-of($no-query) != string {
-    @content;
-  } @else {
-    @media #{susy-render-media($query)} {
-      @content;
-    }
-
-    @if type-of($no-query) == string {
-      #{$no-query} & {
+    @if $no-query and type-of($no-query) != string {
         @content;
-      }
-    }
-  }
+    } @else {
+        @media #{susy-render-media($query)} {
+            @content;
+        }
 
-  @include susy-media-context($old-context, $clean: true);
+        @if type-of($no-query) == string {
+            #{$no-query} & {
+                @content;
+            }
+        }
+    }
+
+    @include susy-media-context($old-context, $clean: true);
 }
 
 
@@ -67,18 +67,18 @@ $_susy-media-context: ();
 // ------------
 // Rout media arguments to the correct mixin.
 @mixin susy-media-router(
-  $query,
-  $no-query: $susy-media-fallback
+$query,
+$no-query: $susy-media-fallback
 ) {
-  @if susy-support(breakpoint, (mixin: breakpoint), $warn: false) {
-    @include breakpoint($query, $no-query) {
-      @content;
+    @if susy-support(breakpoint, (mixin: breakpoint), $warn: false) {
+        @include breakpoint($query, $no-query) {
+            @content;
+        }
+    } @else {
+        @include susy-media($query, $no-query) {
+            @content;
+        }
     }
-  } @else {
-    @include susy-media($query, $no-query) {
-      @content;
-    }
-  }
 }
 
 
@@ -86,17 +86,17 @@ $_susy-media-context: ();
 // -------------
 // Set the new media context
 @mixin susy-media-context(
-  $query,
-  $name: null,
-  $clean: false
+$query,
+$name: null,
+$clean: false
 ) {
-  $query: map-merge((name: $name), $query);
+    $query: map-merge((name: $name), $query);
 
-  @if $clean {
-    $_susy-media-context: $query !global;
-  } @else {
-    $_susy-media-context: map-merge($_susy-media-context, $query) !global;
-  }
+    @if $clean {
+        $_susy-media-context: $query !global;
+    } @else {
+        $_susy-media-context: map-merge($_susy-media-context, $query) !global;
+    }
 }
 
 
@@ -104,13 +104,13 @@ $_susy-media-context: ();
 // -------------
 // Return the full media context, or a single media property (e.g. min-width)
 @function susy-media-context(
-  $property: false
+$property: false
 ) {
-  @if $property {
-    @return map-get($_susy-media-context, $property);
-  } @else {
-    @return $_susy-media-context;
-  }
+    @if $property {
+        @return map-get($_susy-media-context, $property);
+    } @else {
+        @return $_susy-media-context;
+    }
 }
 
 
@@ -119,18 +119,18 @@ $_susy-media-context: ();
 // Return a named media-query from $susy-media.
 // - $name: <key>
 @function susy-get-media(
-  $name
+$name
 ) {
-  @if map-has-key($susy-media, $name) {
-    $map-value: map-get($susy-media, $name);
-    @if ($name == $map-value) {
-      $name: $map-value;
-    } @else {
-      $name: susy-get-media($map-value);
+    @if map-has-key($susy-media, $name) {
+        $map-value: map-get($susy-media, $name);
+        @if ($name == $map-value) {
+            $name: $map-value;
+        } @else {
+            $name: susy-get-media($map-value);
+        }
     }
-  }
 
-  @return $name;
+    @return $name;
 }
 
 
@@ -138,22 +138,22 @@ $_susy-media-context: ();
 // ------------
 // Build a media-query string from various media settings
 @function susy-render-media(
-  $query
+$query
 ) {
-  $output: null;
-  @each $property, $value in $query {
-    $string: null;
+    $output: null;
+    @each $property, $value in $query {
+        $string: null;
 
-    @if $property == media {
-      $string: $value;
-    } @else {
-      $string: '(#{$property}: #{$value})';
+        @if $property == media {
+            $string: $value;
+        } @else {
+            $string: '(#{$property}: #{$value})';
+        }
+
+        $output: if($output, '#{$output} and #{$string}', $string);
     }
 
-    $output: if($output, '#{$output} and #{$string}', $string);
-  }
-
-  @return $output;
+    @return $output;
 }
 
 
@@ -161,25 +161,25 @@ $_susy-media-context: ();
 // -----------
 // Return parsed media-query settings based on shorthand
 @function susy-parse-media(
-  $query
+$query
 ) {
-  $mq: null;
-  @if type-of($query) == map {
-    $mq: $query;
-  } @else if type-of($query) == number {
-    $mq: (min-width: $query);
-  } @else if type-of($query) == list and length($query) == 2 {
-    @if type-of(nth($query, 1)) == number {
-      $mq: (
-        min-width: min($query...),
-        max-width: max($query...),
-      );
+    $mq: null;
+    @if type-of($query) == map {
+        $mq: $query;
+    } @else if type-of($query) == number {
+        $mq: (min-width: $query);
+    } @else if type-of($query) == list and length($query) == 2 {
+        @if type-of(nth($query, 1)) == number {
+            $mq: (
+                min-width: min($query...),
+                max-width: max($query...),
+                );
+        } @else {
+            $mq: (nth($query, 1): nth($query, 2));
+        }
     } @else {
-      $mq: (nth($query, 1): nth($query, 2));
+        $mq: (media: '#{$query}');
     }
-  } @else {
-    $mq: (media: '#{$query}');
-  }
 
-  @return $mq;
+    @return $mq;
 }

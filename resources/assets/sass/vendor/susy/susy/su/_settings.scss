@@ -10,8 +10,8 @@ $su-version: 1.1;
 // ----------------
 // PRIVATE: The basic settings
 $susy-defaults: (
-  columns: 4,
-  gutters: .25,
+columns: 4,
+gutters: .25,
 );
 
 
@@ -27,9 +27,9 @@ $susy: () !default;
 // -------------
 // PRIVATE: Add defaults to Susy
 @mixin susy-defaults(
-  $defaults
+$defaults
 ) {
-  $susy-defaults: map-merge($susy-defaults, $defaults) !global;
+    $susy-defaults: map-merge($susy-defaults, $defaults) !global;
 }
 
 
@@ -39,9 +39,9 @@ $susy: () !default;
 // - $key   : setting name
 // - $value : setting value
 @mixin susy-set(
-  $key-value...
+$key-value...
 ) {
-  $susy: _susy-deep-set($susy, $key-value...) !global;
+    $susy: _susy-deep-set($susy, $key-value...) !global;
 }
 
 
@@ -51,23 +51,23 @@ $susy: () !default;
 // - $key     : <keyword>
 // - $layout  : <settings>
 @function susy-get(
-  $key,
-  $layout: map-merge($susy-defaults, $susy)
+$key,
+$layout: map-merge($susy-defaults, $susy)
 ) {
-  $layout: parse-grid($layout);
-  $_options: $layout $susy $susy-defaults;
-  $_break: false;
-  $_return: null;
+    $layout: parse-grid($layout);
+    $_options: $layout $susy $susy-defaults;
+    $_break: false;
+    $_return: null;
 
-  @each $opt in $_options {
-    @if type-of($opt) == map and not($_break) {
-      $_keyset: _susy-deep-has-key($opt, $key...);
-      @if $_keyset {
-        $_return: _susy-deep-get($opt, $key...);
-        $_break: true;
-      }
+    @each $opt in $_options {
+        @if type-of($opt) == map and not($_break) {
+            $_keyset: _susy-deep-has-key($opt, $key...);
+            @if $_keyset {
+                $_return: _susy-deep-get($opt, $key...);
+                $_break: true;
+            }
+        }
     }
-  }
 
-  @return $_return;
+    @return $_return;
 }

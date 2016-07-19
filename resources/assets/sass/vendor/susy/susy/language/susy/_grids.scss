@@ -8,13 +8,13 @@
 // - $layout: <settings>
 // - $clean: boolean
 @mixin layout(
-  $layout,
-  $clean: false
+$layout,
+$clean: false
 ) {
-  $inspect  : $layout;
-  $susy     : _get-layout($layout, $clean) !global;
+    $inspect  : $layout;
+    $susy     : _get-layout($layout, $clean) !global;
 
-  @include susy-inspect(layout, $inspect);
+    @include susy-inspect(layout, $inspect);
 }
 
 
@@ -24,18 +24,18 @@
 // - $layout: <settings>
 // - $clean: boolean
 @mixin with-layout(
-  $layout,
-  $clean: false
+$layout,
+$clean: false
 ) {
-  $inspect  : $layout;
-  $old      : $susy;
-  $susy     : _get-layout($layout, $clean) !global;
+    $inspect  : $layout;
+    $old      : $susy;
+    $susy     : _get-layout($layout, $clean) !global;
 
-  @include susy-inspect(with-layout, $inspect);
+    @include susy-inspect(with-layout, $inspect);
 
-  @content;
+    @content;
 
-  $susy: $old !global;
+    $susy: $old !global;
 }
 
 
@@ -44,9 +44,9 @@
 // Return a parsed layout map based on shorthand syntax
 // - $layout: <settings>
 @function layout(
-  $layout: $susy
+$layout: $susy
 ) {
-  @return parse-grid($layout);
+    @return parse-grid($layout);
 }
 
 
@@ -56,9 +56,9 @@
 // - $layout: <settings>
 // - $clean: boolean
 @function _get-layout(
-  $layout,
-  $clean: false
+$layout,
+$clean: false
 ) {
-  $layout: layout($layout);
-  @return if($clean, $layout, _susy-deep-merge($susy, $layout));
+    $layout: layout($layout);
+    @return if($clean, $layout, _susy-deep-merge($susy, $layout));
 }

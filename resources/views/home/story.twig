@@ -1,26 +1,26 @@
 <script type='text/javascript'>
- var googletag = googletag || {};
- googletag.cmd = googletag.cmd || [];
- (function() {
-   var gads = document.createElement('script');
-   gads.async = true;
-   gads.type = 'text/javascript';
-   var useSSL = 'https:' == document.location.protocol;
-   gads.src = (useSSL ? 'https:' : 'http:') +
-	      '//www.googletagservices.com/tag/js/gpt.js';
-   var node = document.getElementsByTagName('script')[0];
-   node.parentNode.insertBefore(gads, node);
- })();
+    var googletag = googletag || {};
+    googletag.cmd = googletag.cmd || [];
+    (function () {
+        var gads = document.createElement('script');
+        gads.async = true;
+        gads.type = 'text/javascript';
+        var useSSL = 'https:' == document.location.protocol;
+        gads.src = (useSSL ? 'https:' : 'http:') +
+                '//www.googletagservices.com/tag/js/gpt.js';
+        var node = document.getElementsByTagName('script')[0];
+        node.parentNode.insertBefore(gads, node);
+    })();
 </script>
 
 <script type='text/javascript'>
- googletag.cmd.push(function() {
-   googletag.defineSlot('/60988533/CLMTDESK_Story_300x250_01', [300, 250], 'div-gpt-ad-1467975359177-0').addService(googletag.pubads());
-   googletag.defineSlot('/60988533/CLMTDESK_Story_Banner_01', [[728, 90],[320, 50]], 'div-gpt-ad-1467975359177-1').addService(googletag.pubads());
-   googletag.pubads().enableSingleRequest();
-   googletag.pubads().collapseEmptyDivs();
-   googletag.enableServices();
- });
+    googletag.cmd.push(function () {
+        googletag.defineSlot('/60988533/CLMTDESK_Story_300x250_01', [300, 250], 'div-gpt-ad-1467975359177-0').addService(googletag.pubads());
+        googletag.defineSlot('/60988533/CLMTDESK_Story_Banner_01', [[728, 90], [320, 50]], 'div-gpt-ad-1467975359177-1').addService(googletag.pubads());
+        googletag.pubads().enableSingleRequest();
+        googletag.pubads().collapseEmptyDivs();
+        googletag.enableServices();
+    });
 
 
 
@@ -30,125 +30,134 @@
 
 
 
-  <div class="story_hero">
-    <div class="story_hero__text">
+    <div class="story_hero">
+        <div class="story_hero__text">
 
-      {{storyData['hero-image-caption']}}
-
-
-    </div>
-    <figure>
-
-      <img src="{{focusedImageUrl(storyData['hero-image-s3-key'],config['image-cdn'], [16,9], storyData['hero-image-metadata'], {w: 800})}}" class="story-img"/>       </figure>
-
-  </div>
-  <div class="sourcefrom">
-    {{ storyData["hero-image-attribution"] }}
-  </div>
-
-  <div class="story_container">
+            {{storyData['hero-image-caption']}}
 
 
-    <div><span class="article__tag-heading">{{storyData["sections"][0]["name"]}}</span></div>
-    <!-- Stoy Header Close -->
-    <h1>{{storyData["headline"]}}</h1>
+        </div>
+        <figure>
 
-    <div class='story-element-summary'> {{storyData["summary"]}} </div>
-
-    <span  class="textbottom__article__name" >{{storyData["author-name"]}}</span>
-    <span class='textbottom__article'><time>   {% set timestamp = (storyData["published-at"]//1000)|round(0, 'floor') %}{{timestamp|date('M d,Y')}} </time></span>
-
-
-    <!-- <div class='story-element-publisher'>This story was <a href='#'>originally published</a> by The Huffington Post.</div> -->
-
-
-    {% for card in storyData['cards'] %}
-      {% include "story/story_elements" with {'storyElements': card['story-elements'] } %}
-    {% endfor %}
-
-
-
-
-
-    <div class='text author'>
-      <div class='author__left'><img  src="{{ assetPath('main/img4.jpg') }}" /></div>
-      <div class='author__right'>
-        <h5> {{storyData["author-name"]}} </h5>
-        <p>
-          {{storyData["author-bio"]}}
-        </p>
-      </div>
-    </div>
-
-
-
-
-
-
-    {% include "story/story_tags" with {'storyTags': storyData["tags"]} %}
-
-
-
-    <div class="ad_big" placeholder="Advertisement">
-      <!-- /60988533/CLMTDESK_Story_Banner_01 -->
-      <div id='div-gpt-ad-1467975359177-1'>
-	<script type='text/javascript'>
-	 googletag.cmd.push(function() { googletag.display('div-gpt-ad-1467975359177-1'); });
-	</script>
-      </div>
+            <img src="{{focusedImageUrl(storyData['hero-image-s3-key'],config['image-cdn'], [16,9], storyData['hero-image-metadata'], {w: 800})}}" class="story-img"/>       </figure>
 
     </div>
-
-    <div class="ad_mobile" placeholder="Advertisement">
-      <!-- /60988533/CLMTDESK_Story_300x250_01 -->
-      <div id='div-gpt-ad-1467975359177-0' style='height:250px; width:300px;'>
-	<script type='text/javascript'>
-	 googletag.cmd.push(function() { googletag.display('div-gpt-ad-1467975359177-0'); });
-	</script>
-      </div>
-
-
-
+    <div class="sourcefrom">
+        {{ storyData["hero-image-attribution"] }}
     </div>
 
-    <div class="storyad">
-      <img  src="{{ assetPath('main/ad.png') }}" />
-    </div>
+    <div class="story_container">
+        `
+
+        <div><span class="article__tag-heading">{{storyData["sections"][0]["name"]}}</span></div>
+        <!-- Stoy Header Close -->
+        <h1>{{storyData["headline"]}}</h1>
+
+        <div class='story-element-summary'> {{storyData["summary"]}} </div>
+        <div class="textbottom__article storybyline">
+            <span  class="textbottom__article__name" >{{storyData["author-name"]}}</span>
+            <span class="textbottom__article--share"> <time>
+                    {% set timestamp = (storyData["published-at"] / 1000)|round(0, 'floor') %}{{timestamp|date('M d,Y')}}
+
+                </time></span>
+
+            {% include "story/elements/socialshare" %}
+
+            <!-- <div class='story-element-publisher'>This story was <a href='#'>originally published</a> by The Huffington Post.</div> -->
+        </div>
+
+
+        {% for card in storyData['cards'] %}
+            {% include "story/story_elements" with {'storyElements': card['story-elements'] } %}
+        {% endfor %}
 
 
 
 
 
-
-  </div><!-- Stoy Container Close -->
-
-
-
-  <section><!--  Section 5 open-->
-    <div class="sectionwrap">
-      <div class="sectiontitle left"><span>FOOD & HEALTH</span></div>
-      {% for story in food_stories|slice(0,3) %}
-        <article ><!--  Article1 open-->
-          <div class="figcontainer">
-            <figure>
-              <a href="/{{story['slug']}}">     <img src="{{focusedImageUrl(story['hero-image-s3-key'],config['image-cdn'], [16,9], story['hero-image-metadata'], {w:400})}}"/>
-              </a>
-            </figure>
-            <div class="sourcefrom">{{ story["hero-image-attribution"] }}</div>
-          </div>
-          <div class="textwrap">
-            <div class="article__title">
-              <a href="/{{story['slug']}}">       {{story["headline"]}} </a>
+        <div class='text author'>
+            <div class='author__left'><img  src="{{ assetPath('main/img4.jpg') }}" /></div>
+            <div class='author__right'>
+                <h5> {{storyData["author-name"]}} </h5>
+                <p>
+                    {{storyData["author-bio"]}}
+                </p>
             </div>
-            <div class="textbottom">
-              <span> <h5 class="textbottom__article__name">{{story["author-name"]}}</h5></span>
-              <span class="textbottom__article"> <time datetime="">{% set timestamp = (story["published-at"]//1000)|round(0, 'floor') %}{{timestamp|date('M d,Y')}}</time></span>
-            </div> <!-- textbottom close -->
-          </div><!-- textwrap close -->
-        </article>
-      {% endfor %}
+        </div>
 
 
 
-    </div>
-  </section><!--  Section 5 close-->
+
+
+
+        {% include "story/story_tags" with {'storyTags': storyData["tags"]} %}
+
+
+
+        <div class="ad_big" placeholder="Advertisement">
+            <!-- /60988533/CLMTDESK_Story_Banner_01 -->
+            <div id='div-gpt-ad-1467975359177-1'>
+                <script type='text/javascript'>
+                    googletag.cmd.push(function () {
+                        googletag.display('div-gpt-ad-1467975359177-1');
+                    });
+                </script>
+            </div>
+
+        </div>
+
+        <div class="ad_mobile" placeholder="Advertisement">
+            <!-- /60988533/CLMTDESK_Story_300x250_01 -->
+            <div id='div-gpt-ad-1467975359177-0' style='height:250px; width:300px;'>
+                <script type='text/javascript'>
+                    googletag.cmd.push(function () {
+                        googletag.display('div-gpt-ad-1467975359177-0');
+                    });
+                </script>
+            </div>
+
+
+
+        </div>
+
+        <div class="storyad">
+            <img  src="{{ assetPath('main/ad.png') }}" />
+        </div>
+
+
+
+
+
+
+    </div><!-- Stoy Container Close -->
+
+
+
+    <section><!--  Section 5 open-->
+        <div class="sectionwrap">
+            <div class="sectiontitle left"><span>FOOD & HEALTH</span></div>
+            {% for story in food_stories|slice(0,3) %}
+                <article ><!--  Article1 open-->
+                    <div class="figcontainer">
+                        <figure>
+                            <a href="/{{story['slug']}}">     <img src="{{focusedImageUrl(story['hero-image-s3-key'],config['image-cdn'], [16,9], story['hero-image-metadata'], {w:400})}}"/>
+                            </a>
+                        </figure>
+                        <div class="sourcefrom">{{ story["hero-image-attribution"] }}</div>
+                    </div>
+                    <div class="textwrap">
+                        <div class="article__title">
+                            <a href="/{{story['slug']}}">       {{story["headline"]}} </a>
+                        </div>
+                        <div class="textbottom">
+                            <span> <h5 class="textbottom__article__name">{{story["author-name"]}}</h5></span>
+                            <span class="textbottom__article"> <time datetime="">{% set timestamp = (story["published-at"]//1000)|round(0, 'floor') %}{{timestamp|date('M d,Y')}}</time></span>
+                        </div> <!-- textbottom close -->
+                    </div><!-- textwrap close -->
+                </article>
+            {% endfor %}
+
+
+
+        </div>
+    </section><!--  Section 5 close-->

@@ -1,43 +1,43 @@
 .article__tag-heading {
-  color: $white;
-  background-color: $gray-darker;
-  font-size: em(12);
-  white-space: nowrap;
-  margin-right: em(10);
-  padding: em(3);
-  text-transform: uppercase;
-  vertical-align: middle;
+    color: $white;
+    background-color: $gray-darker;
+    font-size: em(12);
+    white-space: nowrap;
+    margin-right: em(10);
+    padding: em(3);
+    text-transform: uppercase;
+    vertical-align: middle;
 }
 
 .article__tags {
-  display: inline-block;
-  margin: 0 auto;
-
-  @include breakpoint($pc) {
-    margin: em(30) 0;
-  }
-
-  ul {
-    margin: 0;
-    padding: 0;
     display: inline-block;
-    color: $grey-font;
-    font-size: em(13);
-  }
-   li {
-     display: inline-block;
-     border: 1px solid $grey-font;
-     padding: 0 em(5);
-   }
+    margin: 0 auto;
 
-   a {
-     font-size: em(14);
-     font-family: $primary-typeface;
-     cursor: pointer;
+    @include breakpoint($pc) {
+        margin: em(30) 0;
+    }
 
-   }
+    ul {
+        margin: 0;
+        padding: 0;
+        display: inline-block;
+        color: $grey-font;
+        font-size: em(13);
+    }
+    li {
+        display: inline-block;
+        border: 1px solid $grey-font;
+        padding: 0 em(5);
+    }
 
-   @include breakpoint($tablet) {
-     max-width: $tablet-maxwidth;
-   }
+    a {
+        font-size: em(14);
+        font-family: $primary-typeface;
+        cursor: pointer;
+
+    }
+
+    @include breakpoint($tablet) {
+        max-width: $tablet-maxwidth;
+    }
 }

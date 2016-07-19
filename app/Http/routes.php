@@ -57,9 +57,9 @@ Route::get('/terms-and-conditions', [
     'uses' => 'HomeController@termsview'
 ]);
 
-Route::get('/Loadmore',function(){
+Route::get('/Loadmore', function() {
 
-  if(Request::ajax()){
-    return "Ajax Successful";
-  }
+    if (Request::ajax()) {
+        return "Ajax Successful";
+    }
 });

@@ -1,11 +1,11 @@
 .story_hero{
     position:relative;
-   margin-top:em(10);
+    margin-top:em(10);
     @include aspect-ratio(16,9);
     padding: em(0);
     width:100%;
     @include breakpoint($phone) {
-       
+
         @include aspect-ratio(16,9);
         padding: em(0);
     }
@@ -16,15 +16,15 @@
         bottom:0px;
         background-color:$black-opacity;
         width:100%;
-         font-size: em(14);
-          padding: em(5) em(15) em(5) em(15);
-           opacity: .8;
+        font-size: em(14);
+        padding: em(5) em(15) em(5) em(15);
+        opacity: .8;
         color:$white;
         z-index:$zIndex-1;
         word-wrap: break-word;
         @include breakpoint($phone) {
             font-size: 10px;
-         }
+        }
 
     }
 }
@@ -34,9 +34,9 @@
     width:800px;
     margin-left: auto;
     margin-right: auto;
- @include breakpoint($phone) {
-           width:90%;
-         }
+    @include breakpoint($phone) {
+        width:90%;
+    }
 
     h1{       
         color:#026287;
@@ -44,11 +44,11 @@
         line-height: 40px; 
         margin-top:em(7);
         font-weight:$black-weight;
-    
-         @include breakpoint($phone) {
+
+        @include breakpoint($phone) {
             font-size: em(20);
             line-height: 25px;
-         }
+        }
 
     }
     .story-element-summary{
@@ -59,7 +59,7 @@
         margin: em(5) em(0) em(5) em(0);
         @include breakpoint($phone) {
             font-size: 13px;
-         }
+        }
 
     }
     .story-element-publisher{
@@ -70,24 +70,24 @@
         a{ color:#006187;}
         @include breakpoint($phone) {
             font-size: 13px;
-         }
+        }
     }
 
     .text{ font-family: $merri; p{font-family: $merri; font-size:16px; word-wrap: break-word; color:#333333;
-@include breakpoint($phone) {
-            font-size: 14px;
-         }
-    }  
-@include breakpoint($phone) {
-            font-size: 14px;
-         }
-}
+                                  @include breakpoint($phone) {
+                                      font-size: 14px;
+                                  }
+           }  
+           @include breakpoint($phone) {
+               font-size: 14px;
+           }
+    }
 
     .story-element-text{
         word-wrap:break-word;
         text-align:left;
         font-family: $merri;
-width:100%;
+        width:100%;
         p{
             font-family: $merri;
             color:#333333;
@@ -95,9 +95,9 @@ width:100%;
             font-size:16px;  
             margin: em(10) 0 em(10) 0;
             a{ color:$light-blue;}     
-         @include breakpoint($phone) {
-            font-size: em(13);
-         }
+            @include breakpoint($phone) {
+                font-size: em(13);
+            }
 
         }
 
@@ -118,7 +118,7 @@ width:100%;
         font-style: italic;
         @include breakpoint($phone) {
             font-size: 14px;
-         }
+        }
 
         blockquote {
             &:before {
@@ -129,19 +129,19 @@ width:100%;
                 left: 1em;
             }
         }
-         .attribution {
-        color: $light-blue;
-        text-transform: capitalize;
-        float:right;
-        padding-right:em(10);
-        font-size:em(14);  
-        font-style:italic;
-        display:inline-block;
-        margin-bottom:em(10);
-        @include breakpoint($pc) {
-            font-size: em(14);
+        .attribution {
+            color: $light-blue;
+            text-transform: capitalize;
+            float:right;
+            padding-right:em(10);
+            font-size:em(14);  
+            font-style:italic;
+            display:inline-block;
+            margin-bottom:em(10);
+            @include breakpoint($pc) {
+                font-size: em(14);
+            }
         }
-    }
     }
 
 
@@ -154,7 +154,7 @@ width:100%;
 .story-element-quote {
     padding: em(10) 0;
     width:100%;
-   margin: 15px 0 15px 0;
+    margin: 15px 0 15px 0;
 
     blockquote {
         margin: 0;
@@ -267,42 +267,42 @@ width:100%;
     padding-top:em(40);
     margin-top: em(15);
     &__left{ width:130px; position:relative;float:left;
- 
-     img{width:130px; height:130px;  } }
-    &__right{ 
-         
-        padding-left:em(15);
-        position:relative;float:left;
-        width:80%;
-        h5{
-            padding-top:em(5);
-            color:#026287;
-            padding:em(5) 0 em(5) 0;
-        }
-        p{
-            color:$grey;
-            font-family: $sans;
-            font-size: em(15);
-        }
+
+             img{width:130px; height:130px;  } }
+             &__right{ 
+
+                 padding-left:em(15);
+                 position:relative;float:left;
+                 width:80%;
+                 h5{
+                     padding-top:em(5);
+                     color:#026287;
+                     padding:em(5) 0 em(5) 0;
+                 }
+                 p{
+                     color:$grey;
+                     font-family: $sans;
+                     font-size: em(15);
+                 }
+
+             }
 
     }
+    /*Author*/
 
-}
-/*Author*/
+    .storyad
+    {
+        width:300px;
+        margin-left:auto;
+        margin-right:auto;
+        margin:em(20) 0 em(0) 0;
+        img{width:100%;}
 
-.storyad
-{
-    width:300px;
-    margin-left:auto;
-    margin-right:auto;
-    margin:em(20) 0 em(0) 0;
-    img{width:100%;}
-
-    @include breakpoint ($pc){ width:560px; }
-}
+        @include breakpoint ($pc){ width:560px; }
+    }
 
 
-.story-element-youtube-video {
+    .story-element-youtube-video {
         position: relative;
         padding-bottom: 56.25%;
         padding-top: em(25);
@@ -315,10 +315,37 @@ width:100%;
             height: 100%;
         }       
     }
-.embed_content{
-    visibility:hidden;
-}
-.story-element-image{
-    
-    img{width:100%;height:auto;}
-}
+    .embed_content{
+        visibility:hidden;
+    }
+    .story-element-image{
+
+        img{width:100%;height:auto;}
+    }
+
+
+    .storybyline{
+
+        width: 100%;
+        position: relative;
+        float:left;
+        margin:em(10) 0 em(10) 0;
+
+    }
+    .storyshare{
+
+        position: relative;
+        float: left;
+        margin-top: -7px;
+        ul {
+
+            margin: 0;
+            padding-left:em(10);
+        }
+    }
+
+
+    .social-share{
+
+        li{float:left; padding:0 em(5) 0 em(5);}
+    }

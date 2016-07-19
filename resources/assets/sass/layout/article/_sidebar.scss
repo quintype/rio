@@ -1,155 +1,155 @@
 .story__sidebar {
-  &--heading h3 {
-    color: $white;
-    background-color: $gray-darker;
-    text-transform: uppercase;
-    font-size: em(13);
-    padding:em(5)  em(20);
+    &--heading h3 {
+        color: $white;
+        background-color: $gray-darker;
+        text-transform: uppercase;
+        font-size: em(13);
+        padding:em(5)  em(20);
+
+        &-alignment {
+            padding: em(8) em(20);
+        }
+
+        &-signup {
+            border-bottom: 1px solid $gray-darker;
+        }
+    }
+
+    &_image{
+        @include span(4);
+        @include aspect-ratio (16, 9);
+
+        &-first {
+            width: 100%;
+            padding: 0;
+            @include aspect-ratio (16, 9);
+        }
+    }
+
+    &-stack {
+        border: 1px solid $gray-lighter;
+    }
+
+    &--stories {
+        border-top: 1px solid $brand-primary;
+        padding: em(10) em(15);
+        overflow: auto;
+        clear: both;
+
+        &--no-border {
+            border-top: 0;
+        }
+        &-byline { 
+            @include span(8);
+            padding-left: em(10);
+            font-size: em(13,$fontsize-largest);
+            line-height: 1;
+
+            &-first {
+                width: 100%;
+                padding: em(15);
+            }
+
+            &-author {
+                border-right: em(1) solid;
+                padding-right: em(5);
+            }
+        }
+
+        &-first {
+            border-top: 0;
+            padding:0 0 em(10) 0;
+        }
+        &_title h3 {
+            font-weight: 600;
+            padding-bottom: em(10);
+        }
+    }
+
+
+    &-black {
+        padding:0 em(25);
+        font-size: em(15);
+        color: $white;
+        background-color: $grey-font;
+    }
 
     &-alignment {
-      padding: em(8) em(20);
-    }
-
-    &-signup {
-      border-bottom: 1px solid $gray-darker;
-    }
-  }
-
-  &_image{
-    @include span(4);
-    @include aspect-ratio (16, 9);
-
-    &-first {
-      width: 100%;
-      padding: 0;
-      @include aspect-ratio (16, 9);
-    }
-  }
-
-  &-stack {
-    border: 1px solid $gray-lighter;
-  }
-
-  &--stories {
-    border-top: 1px solid $brand-primary;
-    padding: em(10) em(15);
-    overflow: auto;
-    clear: both;
-    
-    &--no-border {
-      border-top: 0;
-    }
-    &-byline { 
-      @include span(8);
-      padding-left: em(10);
-      font-size: em(13,$fontsize-largest);
-      line-height: 1;
-
-      &-first {
-        width: 100%;
-        padding: em(15);
-      }
-
-      &-author {
-        border-right: em(1) solid;
-        padding-right: em(5);
-      }
-    }
-
-    &-first {
-      border-top: 0;
-      padding:0 0 em(10) 0;
-    }
-    &_title h3 {
-      font-weight: 600;
-      padding-bottom: em(10);
-    }
-  }
-
-
-  &-black {
-    padding:0 em(25);
-    font-size: em(15);
-    color: $white;
-    background-color: $grey-font;
-  }
-
-  &-alignment {
-    padding: em(10) 0;
-    border-top: 1px solid $gray-lightest;
-    &:first-of-type {
-      border-top: 0;
-    }
-
-    h3 {
-      font-size: em(16);
-      line-height: 1.4;
-      margin-bottom: em(15);
-    }
-  }
-
-  &--byline {
-    font-size: em(13);
-    font-style: italic;
-    font-weight: 100;
-    line-height: 1;
-  }
-
-  &--newsletter {
-    margin: em(40) 0;
-    &-heading {
-      position: relative;
-      margin-top: em(20);
-      padding:em(5) em(10);
-      padding-left:em(70);
-      font-size: em(20);
-      color: $white;
-      background-color: $black;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      font-weight: 400;
-
-      ::before {
-        content: " ";
-        width: 60px;
-        height: 35px;
-        position: absolute;
-        left: 10px;
-        top: 5px;
-        background: transparent image_url("logo/iga_logo.png") no-repeat center center;
-        background-size: cover;
-      }
-    }
-    &-detail {
-      font-size: em(12);
-      background-color: $gray-lightest;
-      padding: em(25);
-
-      a {
-        color: $brand-primary;
-      }
-
-      form {
-        margin-top: em(20);
-        input {
-          width: 100%;
-          padding: em(5);
-          border: 0;
-          margin: em(10) 0;
+        padding: em(10) 0;
+        border-top: 1px solid $gray-lightest;
+        &:first-of-type {
+            border-top: 0;
         }
-        button {
-          color: $white;
-          background-color: $grey-font;
-          text-transform: uppercase;
-          margin: em(20) auto;
-          border: 0;
-          font-weight: 200;
-          padding: em(5) em(15);
+
+        h3 {
+            font-size: em(16);
+            line-height: 1.4;
+            margin-bottom: em(15);
         }
-      } // end of form styling
-    } // end of newsletter div styling
-  } // end of newsletter wrapper 
-/*   .Ad1 {
-    margin: em(30) 0;
-  } */
+    }
+
+    &--byline {
+        font-size: em(13);
+        font-style: italic;
+        font-weight: 100;
+        line-height: 1;
+    }
+
+    &--newsletter {
+        margin: em(40) 0;
+        &-heading {
+            position: relative;
+            margin-top: em(20);
+            padding:em(5) em(10);
+            padding-left:em(70);
+            font-size: em(20);
+            color: $white;
+            background-color: $black;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 400;
+
+            ::before {
+                content: " ";
+                width: 60px;
+                height: 35px;
+                position: absolute;
+                left: 10px;
+                top: 5px;
+                background: transparent image_url("logo/iga_logo.png") no-repeat center center;
+                background-size: cover;
+            }
+        }
+        &-detail {
+            font-size: em(12);
+            background-color: $gray-lightest;
+            padding: em(25);
+
+            a {
+                color: $brand-primary;
+            }
+
+            form {
+                margin-top: em(20);
+                input {
+                    width: 100%;
+                    padding: em(5);
+                    border: 0;
+                    margin: em(10) 0;
+                }
+                button {
+                    color: $white;
+                    background-color: $grey-font;
+                    text-transform: uppercase;
+                    margin: em(20) auto;
+                    border: 0;
+                    font-weight: 200;
+                    padding: em(5) em(15);
+                }
+            } // end of form styling
+        } // end of newsletter div styling
+    } // end of newsletter wrapper 
+    /*   .Ad1 {
+        margin: em(30) 0;
+      } */
 } // end of sidebar

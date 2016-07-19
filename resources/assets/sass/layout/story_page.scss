@@ -1,147 +1,147 @@
 .article__content {
-  padding: 0 15px;
-  @include breakpoint($pc) {
-    @include span(8);
-    padding: 0;
-    margin-right: em(25);
-  }
+    padding: 0 15px;
+    @include breakpoint($pc) {
+        @include span(8);
+        padding: 0;
+        margin-right: em(25);
+    }
 }
 
 .container-right {
-  display: none;
+    display: none;
 
-  @include breakpoint($pc) {
-    display: block;
-    max-width: 315px;
-    @include span(4);
-    margin-top:em(20);
-  }
+    @include breakpoint($pc) {
+        display: block;
+        max-width: 315px;
+        @include span(4);
+        margin-top:em(20);
+    }
 }
 
 h1 {
-  font-weight: 400;
+    font-weight: 400;
 }
 
 
 .article__hero {
-  border-bottom: em(2) solid $gray-lightest;
+    border-bottom: em(2) solid $gray-lightest;
 
-  &__headline{
-    line-height: 1.3;
-  }
+    &__headline{
+        line-height: 1.3;
+    }
 }
 
 .article__wrapper {
-  padding: em(50);
+    padding: em(50);
 }
 
 .article__hero__section {
-  width: 20%;
-  text-align: center;
-  color: $white;
-  background-color: $brand-primary;
-  text-transform: uppercase;
-  font-size: em(13); 
-  @include breakpoint($pc) {
-    width: 10%;
-  }
+    width: 20%;
+    text-align: center;
+    color: $white;
+    background-color: $brand-primary;
+    text-transform: uppercase;
+    font-size: em(13); 
+    @include breakpoint($pc) {
+        width: 10%;
+    }
 
-  &-dimension {
-    padding: em(5) em(10);
-  }
+    &-dimension {
+        padding: em(5) em(10);
+    }
 }
 
 .article__details__byline {
     &--authorname {
-      text-transform: capitalize;
-      border-right: em(2) solid;
-      margin-right: em(5);
+        text-transform: capitalize;
+        border-right: em(2) solid;
+        margin-right: em(5);
     }
     &--published-info{
-      color: $gray-dark;
+        color: $gray-dark;
     }
 }
 
 .red-button {
-  float: right;
-  clear: both;
-  letter-spacing: 1.5px;
-  font-size: em(12);
-  font-weight: 400;
-  color: $white;
-  background-color: $brand-primary;
-  border: 0;
-  text-transform: uppercase;
-  padding: em(5) em(20);
+    float: right;
+    clear: both;
+    letter-spacing: 1.5px;
+    font-size: em(12);
+    font-weight: 400;
+    color: $white;
+    background-color: $brand-primary;
+    border: 0;
+    text-transform: uppercase;
+    padding: em(5) em(20);
 }
 
 .headings {
-  border-bottom: em(1) solid $gray-darker;
-  .section-headings {
-    color: $white;
-    background-color: $gray-darker;
-    text-transform: uppercase;
-    letter-spacing: em(1.5);
-    font-size: em(13);
-    padding:em(3)  em(20);
-  }
+    border-bottom: em(1) solid $gray-darker;
+    .section-headings {
+        color: $white;
+        background-color: $gray-darker;
+        text-transform: uppercase;
+        letter-spacing: em(1.5);
+        font-size: em(13);
+        padding:em(3)  em(20);
+    }
 }
 
 .section__stories {
-  clear: both;
-  width:100%;
-  @include breakpoint($pc) {
-    @include span(8);
-    padding: 0;
-    margin-right: em(25);
-    margin-top: em(25);
-  }
+    clear: both;
+    width:100%;
+    @include breakpoint($pc) {
+        @include span(8);
+        padding: 0;
+        margin-right: em(25);
+        margin-top: em(25);
+    }
 
-  &__images {
-    @include aspect-ratio (16,9);
-  }
-  &--story {
-    margin: 0;
-    padding: 0;
-    overflow: auto;
-    position: relative;
+    &__images {
+        @include aspect-ratio (16,9);
+    }
+    &--story {
+        margin: 0;
+        padding: 0;
+        overflow: auto;
+        position: relative;
 
-    &-container {
-      position: relative;
-      @include breakpoint($pc) {
-        @include span(6);
-      }
-      margin: em(15) 0;
-    }
-    &-heading {
-      min-height: em(100);
-      padding-top: em(10);
-    }
-    &-byline {
-      font-size: em(12);
-    }
-    &-load-more {
-      position: relative;
-      text-transform: uppercase;
-      color: $brand-primary;
-      float: right;
-      font-size: em(14);
+        &-container {
+            position: relative;
+            @include breakpoint($pc) {
+                @include span(6);
+            }
+            margin: em(15) 0;
+        }
+        &-heading {
+            min-height: em(100);
+            padding-top: em(10);
+        }
+        &-byline {
+            font-size: em(12);
+        }
+        &-load-more {
+            position: relative;
+            text-transform: uppercase;
+            color: $brand-primary;
+            float: right;
+            font-size: em(14);
 
-      .arrow {
-        width: 20px;
-        display: inline-block;
-        border-bottom: 1px solid $brand-primary;  
-        margin-bottom: 5px;
-      }
-      .arow-head {
-        display: inline-block;
-        width: 10px;
-        height: 10px;
-        border-right: 1px solid  $brand-primary;
-        border-top: 1px solid  $brand-primary;
-        margin-left: -15px;
-        transform: rotate(45deg);
-      }
+            .arrow {
+                width: 20px;
+                display: inline-block;
+                border-bottom: 1px solid $brand-primary;  
+                margin-bottom: 5px;
+            }
+            .arow-head {
+                display: inline-block;
+                width: 10px;
+                height: 10px;
+                border-right: 1px solid  $brand-primary;
+                border-top: 1px solid  $brand-primary;
+                margin-left: -15px;
+                transform: rotate(45deg);
+            }
+        }
     }
-  }
 } // end of more section stories styling

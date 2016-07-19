@@ -2,21 +2,27 @@
 
 use App\Api\FocusedImage;
 
-function assetPath($file, $config = null)
-{
+function assetPath($file, $config = null) {
     $cdn = config("quintype.asset-host");
     return $cdn . elixir($file, config("quintype.publisher-name") . "/assets");
 }
 
 function focusedImageUrl($slug, $cdn, $aspectRatio, $metadata, $opts) {
-  $image = new FocusedImage($slug, $metadata);
-  return $cdn . "/" . $image->path($aspectRatio, $opts);
+    $image = new FocusedImage($slug, $metadata);
+    return $cdn . "/" . $image->path($aspectRatio, $opts);
 }
 
+function shorthead($headline) {
+    return substr($headline, 0, 100);
+}
+
+function shortsummary($summary) {
+    return substr($summary, 0, 112);
+}
 
 function get_logo($key) {
- 
-  $data =' {"Atlantic":
+
+    $data = ' {"Atlantic":
   [{"Logo" : "https://s3.amazonaws.com/third-party-logos/Atlantic-Logo.png",
   "URL": "http://www.theatlantic.com"}],
 "CIR":
@@ -62,14 +68,14 @@ function get_logo($key) {
   [{"Logo" : "https://s3.amazonaws.com/third-party-logos/Wired-Logo.png",
   "URL": "http://www.wired.com"}]
 }';
- 
 
-$s =  json_decode($data, true);
+
+    $s = json_decode($data, true);
 //echo "<pre>";
 //print_r($s);
 
-if($key!="")
-echo $s["$key"][0]['Logo'];
-else
-echo "";
+    if ($key != "")
+        echo $s["$key"][0]['Logo'];
+    else
+        echo "";
 }

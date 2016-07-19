@@ -4,134 +4,134 @@
 }
 
 .podcast_banner{
- background-image: url("../images/inquiring_banner_desktop.png");
- background-repeat: no-repeat;
- height:250px;
- width: 100%;
+    background-image: url("../images/inquiring_banner_desktop.png");
+    background-repeat: no-repeat;
+    height:250px;
+    width: 100%;
 
 
-  @include breakpoint($phone) {
- background-image: url("../images/inquiring_banner_mobile.png") ;
- background-repeat: no-repeat;
- height:350px;
- width: 100%;
-   background-position: center; 
-  }
+    @include breakpoint($phone) {
+        background-image: url("../images/inquiring_banner_mobile.png") ;
+        background-repeat: no-repeat;
+        height:350px;
+        width: 100%;
+        background-position: center; 
+    }
 }
 
 .left_podcast{
-  @include span(8);
- margin-top:em(5);
-  position:relative;
-  float:left;
-  padding-left: 0;
-  padding-right:em(10);
-  h5{ letter-spacing: em(1); text-transform: uppercase; display:inline-block;padding:em(5);
-margin:0.5em;
-  border-bottom:2px solid $orange;
-@include breakpoint($phone) {
-	display: none;
-}
-   }
-.podcast_share{
-	 @include span(4);
-	/*padding:0;*/
-	padding-left: 0;
+    @include span(8);
+    margin-top:em(5);
+    position:relative;
+    float:left;
+    padding-left: 0;
+    padding-right:em(10);
+    h5{ letter-spacing: em(1); text-transform: uppercase; display:inline-block;padding:em(5);
+        margin:0.5em;
+        border-bottom:2px solid $orange;
+        @include breakpoint($phone) {
+            display: none;
+        }
+    }
+    .podcast_share{
+        @include span(4);
+        /*padding:0;*/
+        padding-left: 0;
 
-	ul {
-		width:100%;
-		padding:0 em(5) 0  em(10) ;
-	}
+        ul {
+            width:100%;
+            padding:0 em(5) 0  em(10) ;
+        }
 
-  ul li a{
-  	color:$orange;
-  	font-size: em(12);
-  	text-transform: uppercase;
-  	font-weight: $bold;
-  }
+        ul li a{
+            color:$orange;
+            font-size: em(12);
+            text-transform: uppercase;
+            font-weight: $bold;
+        }
 
-   @include breakpoint($phone) {
- display:none;
-  }
+        @include breakpoint($phone) {
+            display:none;
+        }
 
 
-  }
+    }
 
-  .podcast_info{
-  	
-  	 @include span(8);
-  	font-size: em(12);
-  	padding: 0;
-  	 font-family: $merri; 
+    .podcast_info{
 
- @include breakpoint($phone) {
- @include span(12);
-  }
-  }
+        @include span(8);
+        font-size: em(12);
+        padding: 0;
+        font-family: $merri; 
 
- @include breakpoint($phone) {
- @include span(12);
-  }
+        @include breakpoint($phone) {
+            @include span(12);
+        }
+    }
+
+    @include breakpoint($phone) {
+        @include span(12);
+    }
 
 }
 .right_podcast{
-	  @include span(4);
-	  margin-top:em(5);
-	   position:relative;
-      float:left;
+    @include span(4);
+    margin-top:em(5);
+    position:relative;
+    float:left;
 
- .title{
+    .title{
 
-  	color:#ff6900;
-  }
+        color:#ff6900;
+    }
 
 
-  @include breakpoint($phone) {
- display:none;
-  }
+    @include breakpoint($phone) {
+        display:none;
+    }
 
- 
+
 }
 
 .author_info{
 
 
-padding:em(2) 0 em(5) 0;
-width:100%;
-position:relative;
-float:left;
+    padding:em(2) 0 em(5) 0;
+    width:100%;
+    position:relative;
+    float:left;
 
-.author_img{
-width:25%;
-float:left;
+    .author_img{
+        width:25%;
+        float:left;
 
 
-}
-.author_imgs{
-border-radius:50%;
-}
-.author_right{
-	width: 75%;
-	float:left;
-	p{font-family: $merri; font-size: 10px; float:left;}
-}
+    }
+    .author_imgs{
+        border-radius:50%;
+    }
+    .author_right{
+        width: 75%;
+        float:left;
+        p{font-family: $merri; font-size: 10px; float:left;}
+    }
 
-.author_title{
-color:$orange;
-text-transform: uppercase;
-float:left;
-width:100%;
-font-weight: $bold;
-font-size: 12px;
+    .author_title{
+        color:$orange;
+        text-transform: uppercase;
+        float:left;
+        width:100%;
+        font-weight: $bold;
+        font-size: 12px;
 
-}
+    }
 
-.author_position{
-color:#ccc;
-float:left;
-font-family: $merri;
-font-size: em(10);
-}
+    .author_position{
+        color:#ccc;
+        float:left;
+        font-family: $merri;
+        font-size: em(10);
+    }
 
 
 
@@ -140,26 +140,26 @@ font-size: em(10);
 
 .podcast_player{
 
-  @include breakpoint($phone) {
- display:none;
-  }
+    @include breakpoint($phone) {
+        display:none;
+    }
 
 }
 
 .subscribe{
 
-	height:50px;
-	font-size: 12px;
-	width:100%;
-	color:$white;
-	background-color: $orange;
-	font-weight: $bold;
-	text-align: center;
-	line-height: 50px;
-	float:left;
-	position:relative;
-	margin:em(10) 0 em(10) 0;
-	  @include breakpoint($pc) {
- display:none;
-  }
+    height:50px;
+    font-size: 12px;
+    width:100%;
+    color:$white;
+    background-color: $orange;
+    font-weight: $bold;
+    text-align: center;
+    line-height: 50px;
+    float:left;
+    position:relative;
+    margin:em(10) 0 em(10) 0;
+    @include breakpoint($pc) {
+        display:none;
+    }
 }

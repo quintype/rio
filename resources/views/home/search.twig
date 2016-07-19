@@ -1,8 +1,8 @@
 <div class="content"><!-- content open-->
-   
+
     <section>
- <p class="headingline"><span>Search : {{term}}</span></p>
-  {% for story in searchresults|slice(0,7)  %}                       
+        <p class="headingline"><span>Search : {{term}}</span></p>
+        {% for story in searchresults|slice(0,7)  %}                       
             <div class="wrap">
                 <div class="article_left ">
                     <a href="/{{story['slug']}}">
@@ -18,17 +18,17 @@
                     <a href="/{{story['slug']}}">
 
                         <div class="article__title">
-                            {{story["headline"]}}</div>
+                            {{shorthead(story['headline'])}}</div>
                     </a>
                     <div class="article__desciption">
                         {{story["summary"]}}
                     </div>
                     <div class="textbottom">
                         {%  if story['metadata']['story-attributes'] %}
-                                    <span class="textbottom__article">
-                                        <img src="{{  get_logo(story['metadata']['story-attributes']['partnerpublisher'][0] ) }}" /> 
-                                    </span>
-                                 {% endif %}
+                            <span class="textbottom__article">
+                                <img src="{{  get_logo(story['metadata']['story-attributes']['partnerpublisher'][0] ) }}" /> 
+                            </span>
+                        {% endif %}
                         <span><h5 class="textbottom__article__name">{{story["author-name"]}}</h5></span>
                         <span class="textbottom__article"> <time datetime="">
                                 {% set timestamp = (story["published-at"] / 1000)|round(0, 'floor') %}{{timestamp|date('M d,Y')}}
@@ -36,8 +36,8 @@
                     </div> <!-- textbottom close -->
                 </div>
             </div>
-   
-{% endfor %}
+
+        {% endfor %}
 
 
     </section>	

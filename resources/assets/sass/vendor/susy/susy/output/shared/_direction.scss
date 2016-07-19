@@ -5,7 +5,7 @@
 // ------------------
 // - PRIVATE
 @include susy-defaults((
-  flow: ltr,
+flow: ltr,
 ));
 
 // Get Direction
@@ -14,11 +14,11 @@
 // - [$flow]  : ltr | rtl
 // - [$key]   : from | to
 @function get-direction(
-  $flow: map-get($susy-defaults, flow),
-  $key: from
+$flow: map-get($susy-defaults, flow),
+$key: from
 ) {
-  $return: if($flow == rtl, (from: right, to: left), (from: left, to: right));
-  @return map-get($return, $key);
+    $return: if($flow == rtl, (from: right, to: left), (from: left, to: right));
+    @return map-get($return, $key);
 }
 
 // To
@@ -26,9 +26,9 @@
 // Return the 'to' direction of a flow
 // - [$flow]  : ltr | rtl
 @function to(
-  $flow: map-get($susy-defaults, flow)
+$flow: map-get($susy-defaults, flow)
 ) {
-  @return get-direction($flow, to);
+    @return get-direction($flow, to);
 }
 
 // From
@@ -36,7 +36,7 @@
 // Return the 'from' direction of a flow
 // - [$flow]  : ltr | rtl
 @function from(
-  $flow: map-get($susy-defaults, flow)
+$flow: map-get($susy-defaults, flow)
 ) {
-  @return get-direction($flow, from);
+    @return get-direction($flow, from);
 }

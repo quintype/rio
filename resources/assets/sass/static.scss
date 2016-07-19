@@ -11,7 +11,7 @@
         text-transform: uppercase;
     }
     @include breakpoint($small-pc) {
-         padding:0em;
+        padding:0em;
         p{       
             font-size: 16px;
         }
@@ -20,11 +20,11 @@
 }
 
 .about{
-     .highlights,
-     a{        
+    .highlights,
+    a{        
         color: $question-blue;
     }
-    
+
     .people_name{
         font-family: $merri;
         font-size: 16px;
@@ -34,59 +34,59 @@
         text-align: center;
         @include breakpoint($small-pc) {
             font-size: 20px;
-             padding-left:2em; 
-             text-align: left;
-            
+            padding-left:2em; 
+            text-align: left;
+
         }
-        
-        
+
+
     }
     .people_info{
         width:100%;
         position:relative;
         float:left;
         padding: em(10) 0 em(10) 0;
-       
-    .picture{
-        position:relative;
-    @include span(3);  
-    text-align: left;
-    float:left;
-    text-align:center;
-        img{
-    width:165px;
-    height:165px;
-    border-radius: 50%;
-    margin-left:auto;
-    margin-right:auto;
+
+        .picture{
+            position:relative;
+            @include span(3);  
+            text-align: left;
+            float:left;
+            text-align:center;
+            img{
+                width:165px;
+                height:165px;
+                border-radius: 50%;
+                margin-left:auto;
+                margin-right:auto;
+            }
+
+            @include breakpoint($phone) {
+
+                @include span(12);
+                margin-left:auto;
+                margin-right:auto;
+            }
+        }
+        .individual_info{
+
+            @include span(12);
+
+            position:relative; 
+            float:left;
+            @include breakpoint($pc) {
+
+                @include span(9);
+
+            }
+
+        }
     }
-    
-    @include breakpoint($phone) {
-        
-        @include span(12);
-        margin-left:auto;
-    margin-right:auto;
-    }
-    }
-    .individual_info{
-       
-        @include span(12);
-  
-        position:relative; 
-        float:left;
-        @include breakpoint($pc) {
-            
-        @include span(9);
-       
-    }
-     
-    }
-    }
-    
-       
-    
-     
-    
+
+
+
+
+
 }
 
 
@@ -99,25 +99,25 @@
 
 
 .headingline {
-  line-height: 1.5em;
-  text-align: left;
- 
+    line-height: 1.5em;
+    text-align: left;
+
 }
 .headingline span {
-   color:$heading-blue;
+    color:$heading-blue;
     font-size:24px;
     font-weight:$bold;
-  display: inline-block;
-  position: relative;  
-   padding : em(5);
+    display: inline-block;
+    position: relative;  
+    padding : em(5);
 }
 .headingline span:before,
 .headingline span:after {
-  content: "";
-  position: absolute;
-  height: 22px;
-  border-bottom: 1px solid $heading-blue;
-  top: 0;
-  left: 100%;
-  width: 765px;
+    content: "";
+    position: absolute;
+    height: 22px;
+    border-bottom: 1px solid $heading-blue;
+    top: 0;
+    left: 100%;
+    width: 765px;
 }

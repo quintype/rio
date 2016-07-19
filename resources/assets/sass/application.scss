@@ -53,8 +53,8 @@ main {
     height:100%;
 
     @include breakpoint($phone){
-       width: 120px;
-       height:22px;
+        width: 120px;
+        height:22px;
     }
 }
 
@@ -96,7 +96,7 @@ nav	{
         line-height: 3em;
     } 
     @include breakpoint($pc) {
-      
+
         display:block;
     }
 
@@ -140,12 +140,12 @@ nav	{
         font-size: 12px;    
         display: block;
         height:auto;
-                line-height:20px;
+        line-height:20px;
         @include breakpoint ($phone){
             font-size: em(12);
 
 
-     
+
 
         };
 
@@ -157,8 +157,8 @@ nav	{
         border-top:1px solid rgba(72,198,214,0.3);
         width: 100%;
         display: block;
-         height:auto;
-        
+        height:auto;
+
 
     }
 
@@ -182,22 +182,22 @@ nav	{
 
 
 .mob_buttons{
-width:45%;
-float:right;
-line-height: 45px;
-ul li{
-    float:left;
-}
+    width:45%;
+    float:right;
+    line-height: 45px;
+    ul li{
+        float:left;
+    }
 
-      @include breakpoint($tablet){
+    @include breakpoint($tablet){
         width:30%;
     }
-     @include breakpoint($phone){
+    @include breakpoint($phone){
         width:45%;
     }
 
 
-  @include breakpoint($pc){
+    @include breakpoint($pc){
         display:none;
     }
 
@@ -211,13 +211,13 @@ ul li{
     text-transform: uppercase; 
     letter-spacing: 1.5px;
     padding: 5px 15px 5px 15px;
-  
-      @include breakpoint($only-phone-tablets){
+
+    @include breakpoint($only-phone-tablets){
         font-size: 8px;
         margin-right:8px;
         padding:em(7) em(5) em(6) em(5);
     }
-  @include breakpoint($phone){
+    @include breakpoint($phone){
         font-size: 8px;
         margin-right:5px;
         padding:em(7) em(5) em(6) em(5);
@@ -235,11 +235,11 @@ ul li{
     letter-spacing: 1.5px;
     padding: 5px 15px 5px 15px;
     margin-top:-2px;
-      @include breakpoint($phone){
+    @include breakpoint($phone){
         font-size: 8px;
         padding:em(7) em(5) em(6) em(5);
     }
-    
+
 
 
 }
@@ -334,10 +334,10 @@ ul li{
     padding-left:em(6);
 
     .sectionname__display {
-    font-size: em(10);
-    letter-spacing: em(1);
-    
-}
+        font-size: em(10);
+        letter-spacing: em(1);
+
+    }
 
 }
 
@@ -358,7 +358,7 @@ ul li{
     position: absolute;
     right:0;
     font-size:10px;
-    min-height: 25px;
+    height: 25px;
     opacity: 0.8;
 }
 
@@ -410,9 +410,9 @@ ul li{
     z-index: 1;
     float: right;
     text-align:right;   
-     font-size:  em(12);
-     opacity: 0.8;
-    
+    font-size:  em(12);
+    opacity: 0.8;
+
 
 }
 
@@ -428,6 +428,53 @@ ul li{
     margin-bottom:10px;
 }
 
+.articleshare
+{
+    display:none;
+    position: absolute;
+    background-color: $question-blue;
+    color:$white;
+    text-align:center;
+    font-size: 18px;
+    line-height: 25px;
+    font-family: $merri;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    opacity: 0.9;
+    padding:em(15);
+
+
+
+    &__icons{
+
+        margin-left: auto;
+        margin-right: auto;
+        margin-top:em(30);
+        margin-bottom: em(60);
+        position: relative;
+        width: 100%;
+        float:left;
+        left:30%;
+
+        li{ float:left; }
+    }
+
+
+    &__title{
+        text-align: center;
+        float: left;
+
+
+    }
+
+
+}
+
+.popular:hover  .articleshare{display: block;}
+
+
+
 .empty {
     color: $light-blue;
     background-color: $white;
@@ -436,7 +483,7 @@ ul li{
 }
 .menubar {
     margin-right:5px;
-     @include breakpoint($phone){
+    @include breakpoint($phone){
         width:22px;
         height:22px;
         margin-left:12px;
@@ -482,11 +529,11 @@ section {
     text-align:center;
     letter-spacing: 1.5px;
     span { background:#fff; padding:0 10px 0 0;
-@include breakpoint($phone){
-    padding:0 10px 0 15px;
-}
+           @include breakpoint($phone){
+               padding:0 10px 0 15px;
+           }
 
-     }
+    }
 } 
 .patner {
     margin-top:20px;
@@ -550,23 +597,23 @@ section {
     padding-top:1.5em;
     padding-bottom:em(10);
     color: $white;
-     ul{padding:0em; margin:0em;}
+    ul{padding:0em; margin:0em;}
     @include breakpoint($phone) {
         @include span(12);
         text-align:center;
         ul{padding:0em; margin:0em;}
-       
+
     }
     .textwrap {
-    font-size: 12px;
-    padding: 0;
-     ul li a{
+        font-size: 12px;
+        padding: 0;
+        ul li a{
             padding:5px;
             text-decoration:none;
             display:inline-block;
             letter-spacing: 0.8px;
         }
-}
+    }
 
 
 }
@@ -638,7 +685,7 @@ article:nth-child(4){
 
 .textwrap {
     margin:em(12) 0 em(5) 0;
-   
+
     font-family:$primary-typeface;	
     /*background-color: $color5;*/
 }
@@ -653,10 +700,10 @@ article:nth-child(4){
     color: $small-heading;
     font-size: 15px;
     font-weight: $bold;   
-    
+
     width: 100%;
     @include breakpoint ($pc)
-    {min-height:em(90);}
+    {height:em(70);}
 
 }
 .article__desciption{
@@ -664,11 +711,11 @@ article:nth-child(4){
     font-size: 12px;
     font-weight:$regular;
     padding-bottom:10px;
-    
+
     position:relative;
     float:left;
-     @include breakpoint ($pc)
-    {min-height:79px;}
+    @include breakpoint ($pc)
+    {height:em(43);}
 
 }
 
@@ -676,24 +723,24 @@ article:nth-child(4){
     width:100%;
     position:absolute;
     float:left;
-font-size:12px;
-padding:em(10) 0 em(10) 0;
-bottom:0;
-margin-left:20px;
-z-index: $zIndex-2;
-   @include aspect-ratio(16,9);
+    font-size:12px;
+    padding:em(10) 0 em(10) 0;
+    bottom:0;
+    margin-left:20px;
+    z-index: $zIndex-2;
+    @include aspect-ratio(16,9);
     img{
         @include aspect-ratio(16,9);
         position: relative;
         float:left;
-height:20px;
-width:12%;
-padding:em(3);
-border-right:1px solid $light-gray;
+        height:20px;
+        width:12%;
+        padding:em(3);
+        border-right:1px solid $light-gray;
 
-@include breakpoint($phone){
-    padding-left: 0;
-}
+        @include breakpoint($phone){
+            padding-left: 0;
+        }
     }
     .textbottom__article__name{
 
@@ -702,7 +749,7 @@ border-right:1px solid $light-gray;
         padding-left: em(10);
         padding-right: em(10);
         font-size: 13px;
-        
+
     }
 
 
@@ -712,33 +759,39 @@ border-right:1px solid $light-gray;
     width:100%;
     position:relative;
     float:left;
-font-size:12px;
-padding:em(10) 0 em(10) 0;
+    font-size:12px;
+    padding:em(10) 0 em(10) 0;
 }
 
 .textbottom__article{
     padding-right:5px;
-    border-right:1px solid $light-gray;
+    /*border-right:1px solid $light-gray;*/
     line-height: 15px;
+    width:100%;
     @include aspect-ratio(16,9);
     img{
-        position: relative;
+        position: relative; 
         float:left;
-height:22px;
-width:25%;
+        height:22px;
+        width:25%;
+        padding-right: 10px;
+        border-right: 1px solid #DEDEDE;
     }
     /*border-right:1px solid #000;*/
     color: $dark-gray;
-  
+
     font-family: $merri;  
 
     time {
         font-weight:$bold;
         letter-spacing: 0.2px;
         font-size: 15px;
-        padding-left:em(5);
+        padding:0 em(10) 0 em(10) ;
     }
 
+    .textbottom__article--share{
+        float:left;
+    }
 
 }
 .textbottom__article:last-child {
@@ -746,12 +799,15 @@ width:25%;
 }
 
 .textbottom__article__name{
+    position:relative;
+    float:left;
     color:$question-blue;
     display: inline-block;
     font-family: $merri;     
     font-size: 15px;
     padding:0 em(10) 0  em(10) ;
     border-right:1px solid $light-gray;
+
 }
 /*
 .article {
@@ -796,17 +852,17 @@ width:25%;
 
 
 .article__tag-heading
- {
+{
 
-font-size: 16px;
- font-weight: $bold;   
- letter-spacing: 1.1px;
-  padding: em(5) em(10) em(5) em(10);
+    font-size: 16px;
+    font-weight: $bold;   
+    letter-spacing: 1.1px;
+    padding: em(5) em(10) em(5) em(10);
     color: $white;
     background-color: $light-blue;
-     white-space: nowrap;
+    white-space: nowrap;
     margin: em(10) 0 em(15) 0;
-       text-transform: uppercase;
+    text-transform: uppercase;
     vertical-align: middle;
 
 }
@@ -854,24 +910,24 @@ font-size: 16px;
     @include span(4);
     @include aspect-ratio(16,9);
 
-.article__title{
-    position:relative;
-    float:left;
-    color: $small-heading;
-    font-size: 15px;
-    font-weight: $bold;
-  
-     min-height:em(90);
-         font-weight: $bold;
-}
-.article__desciption{
-    color: $text;
-    font-size: 12px;   
-    padding-bottom:10px;
-    min-height: 79px;
-    position:relative;
-    float:left;
-}
+    .article__title{
+        position:relative;
+        float:left;
+        color: $small-heading;
+        font-size: 15px;
+        font-weight: $bold;
+
+        height:em(70);
+        font-weight: $bold;
+    }
+    .article__desciption{
+        color: $text;
+        font-size: 12px;   
+        padding-bottom:10px;
+        height: em(43);
+        position:relative;
+        float:left;
+    }
 
 
 }
@@ -887,7 +943,7 @@ font-size: 16px;
     @include breakpoint($small-pc) {
         @include span(4);
         padding:0em;
-        
+
     }
 
 }
@@ -902,7 +958,7 @@ font-size: 16px;
     @include breakpoint($small-pc) {
         @include span(4);
         padding:0em;
-        
+
     }
 
 }
@@ -912,7 +968,7 @@ font-size: 16px;
 
     @include span(12);
     @include aspect-ratio(16,9);
-    
+
 
 
     @include breakpoint($small-pc) {
@@ -921,7 +977,7 @@ font-size: 16px;
         figcontainer{
             height:360px;
         }
-        
+
     }
 
 }
@@ -930,18 +986,18 @@ font-size: 16px;
 
     @include span(12);
     @include aspect-ratio(16,9);
-   
-   .wrap{border:1px solid $light-gray;}
+
+    .wrap{border:1px solid $light-gray;}
 
 
     @include breakpoint($small-pc) {
         @include span(4);
         padding:0em;
-         padding-left:1.3em;
+        padding-left:1.3em;
 
-         .wrap {
+        .wrap {
             margin:0;
-         }
+        }
     }
 
 }
@@ -968,27 +1024,27 @@ font-size: 16px;
 .ad_mobile{
     width:em(300) ;
     height:em(250);
-  
+
     color:$white;
     /*background-color: $light-gray;*/
     text-align:center;
     font-weight:$bold;
     position:relative;
- 
-      margin:em(5) auto em(5) auto;
+
+    margin:em(5) auto em(5) auto;
     @include breakpoint($pc){display:none;}
 }
 
 .section_right_ad{
     width:em(300) ;
     height:em(250);
-  
+
     color:$white;
     /*background-color: $light-gray;*/
     text-align:center;
     font-weight:$bold;
-      margin:em(5) auto em(5) auto;
-      float:right;
+    margin:em(5) auto em(5) auto;
+    float:right;
     @include breakpoint($phone){display:none;}
 }
 
@@ -997,14 +1053,14 @@ font-size: 16px;
 .section_center_ad{
     width:em(300) ;
     height:em(250);
-    
+
     color:$white;
     /*background-color: $light-gray;*/
     text-align:center;
     font-weight:$bold;
-      margin:em(5) auto em(5) auto;
-     position: relative;
-     float: left;
+    margin:em(5) auto em(5) auto;
+    position: relative;
+    float: left;
     @include breakpoint($pc){display:none;}
 }
 
@@ -1016,51 +1072,63 @@ font-size: 16px;
 }
 
 .top{ margin-top:em(42); 
-@include breakpoint($phone){margin-top:em(0);}
+      @include breakpoint($phone){margin-top:em(0);}
 
 }
 
-   .nav-search {
-            display: none;
-            position: absolute;             
-            top: 7.5%;
-            /*padding: .4em .5em 0;*/
+.nav-search {
+    display: none;
+    position: absolute;             
+    top: 7.5%;
+    /*padding: .4em .5em 0;*/
+    width: 100%;
+    max-width: em(350);
+    margin-right:10%;
+    z-index: 99;
+
+    @include breakpoint($pc) { right: 1em; }
+    .layout-search {
+        background-color: $white;
+        border-radius: 2px;
+        border:1px solid $light-blue;
+        position: relative;
+
+        &:before {
+            content:'';
+            width: 0; 
+            height: 0; 
+            border-left: 10px solid transparent;
+            border-right: 10px solid transparent;
+            border-bottom: 10px solid $light-blue;
+
+            position: absolute;
+            top: -10px;
+            right: 15px;
+        }
+        .form-input{
+            height: em(25);
+            font-size: 100%;
             width: 100%;
-            max-width: em(350);
-            margin-right:10%;
-            z-index: 99;
-
-            @include breakpoint($pc) { right: 1em; }
-            .layout-search {
-                background-color: $white;
-                border-radius: 2px;
-                border:1px solid $light-blue;
-                position: relative;
-
-                &:before {
-                    content:'';
-                    width: 0; 
-                    height: 0; 
-                    border-left: 10px solid transparent;
-                    border-right: 10px solid transparent;
-                    border-bottom: 10px solid $light-blue;
-                    
-                    position: absolute;
-                    top: -10px;
-                    right: 15px;
-                }
-                .form-input{
-                    height: em(25);
-                    font-size: 100%;
-                    width: 100%;
-                    padding: 18px;
-                    border: 0px;
-                    /*background: url("../images/search-input-icon.png") no-repeat em(10) center;*/
-                }
-            }
+            padding: 18px;
+            border: 0px;
+            /*background: url("../images/search-input-icon.png") no-repeat em(10) center;*/
         }
+    }
+}
 
 
-        .socialicon{
-            padding-top: 5px;
-        }
+.socialicon{
+    padding-top: 5px;
+}
+
+.load_more{
+    border: 1px solid $light-blue;
+    background-color: $white;
+    color:$light-blue;
+    padding:em(10) em(15) em(10) em(15);
+    font-weight: $bold;
+    font-size: 20px;
+    margin:em(10);
+
+
+}

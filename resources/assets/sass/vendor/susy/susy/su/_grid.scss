@@ -7,10 +7,10 @@
 // Returns true if a grid is symmetrical.
 // - [$columns]   : <number> | <list>
 @function is-symmetrical(
-  $columns: susy-get(columns)
+$columns: susy-get(columns)
 ) {
-  $columns: valid-columns($columns);
-  @return if(type-of($columns) == number, $columns, null);
+    $columns: valid-columns($columns);
+    @return if(type-of($columns) == number, $columns, null);
 }
 
 
@@ -19,10 +19,10 @@
 // Find the number of columns in a given layout
 // - [$columns]   : <number> | <list>
 @function susy-count(
-  $columns: susy-get(columns)
+$columns: susy-get(columns)
 ) {
-  $columns: valid-columns($columns);
-  @return is-symmetrical($columns) or length($columns);
+    $columns: valid-columns($columns);
+    @return is-symmetrical($columns) or length($columns);
 }
 
 
@@ -33,24 +33,24 @@
 // - [$gutters]   : <ratio>
 // - [$spread]    : false/narrow | wide | wider
 @function susy-sum(
-  $columns  : susy-get(columns),
-  $gutters  : susy-get(gutters),
-  $spread   : false
+$columns  : susy-get(columns),
+$gutters  : susy-get(gutters),
+$spread   : false
 ) {
-  $columns: valid-columns($columns);
-  $gutters: valid-gutters($gutters);
+    $columns: valid-columns($columns);
+    $gutters: valid-gutters($gutters);
 
-  $spread: if($spread == wide, 0, if($spread == wider, 1, -1));
-  $gutter-sum: (susy-count($columns) + $spread) * $gutters;
-  $column-sum: is-symmetrical($columns);
+    $spread: if($spread == wide, 0, if($spread == wider, 1, -1));
+    $gutter-sum: (susy-count($columns) + $spread) * $gutters;
+    $column-sum: is-symmetrical($columns);
 
-  @if not($column-sum) {
-    @each $column in $columns {
-      $column-sum: ($column-sum or 0) + $column;
+    @if not($column-sum) {
+        @each $column in $columns {
+            $column-sum: ($column-sum or 0) + $column;
+        }
     }
-  }
 
-  @return $column-sum + $gutter-sum;
+    @return $column-sum + $gutter-sum;
 }
 
 
@@ -61,22 +61,22 @@
 // - $location    : <number>
 // - [$columns]   : <number> | <list>
 @function susy-slice(
-  $span,
-  $location,
-  $columns: susy-get(columns)
+$span,
+$location,
+$columns: susy-get(columns)
 ) {
-  $columns: valid-columns($columns);
-  $sub-columns: $span;
+    $columns: valid-columns($columns);
+    $sub-columns: $span;
 
-  @if not(is-symmetrical($columns)) {
-    $location: $location or 1;
-    $sub-columns: ();
-    @for $i from $location to ($location + $span) {
-      $sub-columns: append($sub-columns, nth($columns, $i));
+    @if not(is-symmetrical($columns)) {
+        $location: $location or 1;
+        $sub-columns: ();
+        @for $i from $location to ($location + $span) {
+            $sub-columns: append($sub-columns, nth($columns, $i));
+        }
     }
-  }
 
-  @return $sub-columns;
+    @return $sub-columns;
 }
 
 
@@ -89,15 +89,15 @@
 // - [$gutters]   : <ratio>
 // - [$spread]    : false/narrow | wide | wider
 @function susy(
-  $span,
-  $location     : false,
-  $columns      : susy-get(columns),
-  $gutters      : susy-get(gutters),
-  $spread       : false
+$span,
+$location     : false,
+$columns      : susy-get(columns),
+$gutters      : susy-get(gutters),
+$spread       : false
 ) {
-  $columns: valid-columns($columns);
-  $gutters: valid-gutters($gutters);
-  $span: susy-slice($span, $location, $columns);
+    $columns: valid-columns($columns);
+    $gutters: valid-gutters($gutters);
+    $span: susy-slice($span, $location, $columns);
 
-  @return susy-sum($span, $gutters, $spread);
+    @return susy-sum($span, $gutters, $spread);
 }

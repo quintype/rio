@@ -9,18 +9,18 @@
 // - $clip: background-clip
 // - [$flow]: ltr | rtl
 @mixin background-grid-output (
-  $image,
-  $size: null,
-  $clip: null,
-  $flow: map-get($susy-defaults, flow)
+$image,
+$size: null,
+$clip: null,
+$flow: map-get($susy-defaults, flow)
 ) {
-  $output: (
-    background-image: $image,
-    background-size: $size,
-    background-origin: $clip,
-    background-clip: $clip,
-    background-position: from($flow) top,
-  );
+    $output: (
+        background-image: $image,
+        background-size: $size,
+        background-origin: $clip,
+        background-clip: $clip,
+        background-position: from($flow) top,
+        );
 
-  @include output($output);
+    @include output($output);
 }

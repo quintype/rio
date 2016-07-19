@@ -7,17 +7,17 @@
 // Set isolation as an override.
 // - $location: <span>
 @mixin isolate(
-  $isolate: 1
+$isolate: 1
 ) {
-  $inspect: $isolate;
+    $inspect: $isolate;
 
-  $output: (
-    push: isolate($isolate),
-    flow: susy-get(flow, $isolate),
-  );
+    $output: (
+        push: isolate($isolate),
+        flow: susy-get(flow, $isolate),
+        );
 
-  @include susy-inspect(isolate, $inspect);
-  @include isolate-output($output...);
+    @include susy-inspect(isolate, $inspect);
+    @include isolate-output($output...);
 }
 
 
@@ -26,20 +26,20 @@
 // Return an isolation offset width.
 // - $location: <span>
 @function isolate(
-  $isolate: 1
+$isolate: 1
 ) {
-  $isolate: parse-span($isolate);
-  $isolation: susy-get(span, $isolate);
+    $isolate: parse-span($isolate);
+    $isolation: susy-get(span, $isolate);
 
-  @if $isolation and not(get-location($isolate)) {
-    $new: (
-      span: null,
-      location: $isolation,
-    );
-    $isolate: map-merge($isolate, $new);
-  }
+    @if $isolation and not(get-location($isolate)) {
+        $new: (
+            span: null,
+            location: $isolation,
+            );
+        $isolate: map-merge($isolate, $new);
+    }
 
-  @return get-isolation($isolate);
+    @return get-isolation($isolate);
 }
 
 
@@ -48,30 +48,30 @@
 // Return the isolation offset width
 // - $input: <map>
 @function get-isolation(
-  $input
+$input
 ) {
-  $location   : get-location($input);
-  $columns    : susy-get(columns, $input);
-  $width      : null;
+    $location   : get-location($input);
+    $columns    : susy-get(columns, $input);
+    $width      : null;
 
-  @if type-of($location) == number and not(unitless($location)) {
-    $width: $location;
-  } @else if $location {
-    $push: $location - 1;
-    @if $push > 0 {
-      $push: map-merge($input, (
-        span: $push,
-        location: 1,
-        spread: wide,
-      ));
-      $width: get-span-width($push);
+    @if type-of($location) == number and not(unitless($location)) {
+        $width: $location;
+    } @else if $location {
+        $push: $location - 1;
+        @if $push > 0 {
+            $push: map-merge($input, (
+                span: $push,
+                location: 1,
+                spread: wide,
+                ));
+            $width: get-span-width($push);
+        }
     }
-  }
 
-  @if susy-get(gutter-position, $input) == split
-      and susy-get(gutters, $input) > 0 {
-    $width: if($width == null, gutters($input), $width + gutters($input));
-  }
+    @if susy-get(gutter-position, $input) == split
+    and susy-get(gutters, $input) > 0 {
+        $width: if($width == null, gutters($input), $width + gutters($input));
+    }
 
-  @return $width or 0;
+    @return $width or 0;
 }

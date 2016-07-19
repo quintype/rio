@@ -1,8 +1,6 @@
 <div class="content"><!-- content open-->
 
     <section>
-
-
         <p class="headingline"><span>{{section['display-name']}}</span></p>
 
         {% for story in section_stories|slice(0,1)  %}
@@ -10,20 +8,20 @@
                     <a href="/{{story['slug']}}">
                         <div class="figcontainer">
 
-                                <h6 class="sectionname__display">{{story['sections'][0]['name']}}</h6>
-                        <div class="titletop_big">{{story["headline"]}}</div>
-               <div class="textbottom_left">
+                            <h6 class="sectionname__display">{{story['sections'][0]['name']}}</h6>
+                            <div class="titletop_big">{{shorthead(story['headline'])}}</div>
+                            <div class="textbottom_left">
                                 {%  if story['metadata']['story-attributes'] %}
 
-                                        <img src="{{  get_logo(story['metadata']['story-attributes']['partnerpublisher'][0] ) }}" />
+                                    <img src="{{  get_logo(story['metadata']['story-attributes']['partnerpublisher'][0] ) }}" />
 
-                                 {% endif %}
+                                {% endif %}
                                 <span><h5 class="textbottom__article__name">{{story["author-name"]}}</h5></span>
-                                </div> <!-- textbottom close -->
+                            </div> <!-- textbottom close -->
 
-                        <div class="sourcetop_left">{{ story["hero-image-attribution"] }}</div>
+                            <div class="sourcetop_left">{{ story["hero-image-attribution"] }}</div>
 
-                        
+
                             <figure>
                                 <img src="{{focusedImageUrl(story['hero-image-s3-key'],config['image-cdn'], [16,9], story['hero-image-metadata'],{w:700} )}}" />
                             </figure>
@@ -49,18 +47,18 @@
                                 <div class="textwrap">
                                     <a href="/{{story['slug']}}">
                                         <div class="article__title">
-                                            {{story["headline"]}}
+                                            {{shorthead(story['headline'])}}
                                         </div>
                                     </a>
                                     <div class="article__desciption">
-                                        {{story["summary"]}}.
+                                        {{ shortsummary(story["summary"])}}
                                     </div>
                                     <div class="textbottom">
-                                          {%  if story['metadata']['story-attributes'] %}
-                                    <span class="textbottom__article">
-                                        <img src="{{  get_logo(story['metadata']['story-attributes']['partnerpublisher'][0] ) }}" /> 
-                                    </span>
-                                 {% endif %}
+                                        {%  if story['metadata']['story-attributes'] %}
+                                            <span class="textbottom__article">
+                                                <img src="{{  get_logo(story['metadata']['story-attributes']['partnerpublisher'][0] ) }}" /> 
+                                            </span>
+                                        {% endif %}
                                         <span><h5 class="textbottom__article__name">{{story["author-name"]}}</h5></span>
                                         <span class="textbottom__article"> <time datetime="">
                                                 {% set timestamp = (story["published-at"] / 1000)|round(0, 'floor') %}{{timestamp|date('M d,Y')}}
@@ -78,7 +76,7 @@
 
 
 
-<div class="section_center_ad" placeholder="Advertisement">  AD 300x250</div>
+        <div class="section_center_ad" placeholder="Advertisement">  AD 300x250</div>
 
 
         {% for story in section_stories|slice(2,6)  %}                       
@@ -97,20 +95,20 @@
                     <a href="/{{story['slug']}}">
 
                         <div class="article__title">
-                            {{story["headline"]}}</div>
+                            {{shorthead(story['headline'])}}</div>
                     </a>
-                      {%  if  story["summary"] %}
-                    <div class="article__desciption">
-                        {{story["summary"]}}
-                    </div>
+                    {%  if  story["summary"] %}
+                        <div class="article__desciption">
+                            {{ shortsummary(story["summary"])}}
+                        </div>
                     {% endif %}
                     <div class="textbottom">
-                           {%  if story['metadata']['story-attributes'] %}
-                                    <span class="textbottom__article">
-                                        <img src="{{  get_logo(story['metadata']['story-attributes']['partnerpublisher'][0] ) }}" /> 
-                                    </span>
-                                 {% endif %}
-                                
+                        {%  if story['metadata']['story-attributes'] %}
+                            <span class="textbottom__article">
+                                <img src="{{  get_logo(story['metadata']['story-attributes']['partnerpublisher'][0] ) }}" /> 
+                            </span>
+                        {% endif %}
+
                         <span><h5 class="textbottom__article__name">{{story["author-name"]}}</h5></span>
                         <span class="textbottom__article"> <time datetime="">
                                 {% set timestamp = (story["published-at"] / 1000)|round(0, 'floor') %}{{timestamp|date('M d,Y')}}
@@ -118,28 +116,28 @@
                     </div> <!-- textbottom close -->
                 </div>
             </div>
-   
-{% endfor %}
-    
 
-    <div class="section_right">
+        {% endfor %}
 
+
+        <div class="section_right">
+
+        </div>
+    </section>	
+
+
+    <div class="load-more">
+        <button type="button" id="loadmore" class="load_more">LOAD MORE</button>
     </div>
-</section>	
-
-
-<div class="load-more">
-    <button type="button" id="loadmore" class="load-more-btn">Load more</button>
-</div>
 
 
     <script type="text/javascript">
-        $(document).ready(function(){
- 
- $("#loadmore").click(function(){
+        $(document).ready(function () {
+
+            $("#loadmore").click(function () {
 
 //alert($(this).text());
- });
+            });
 
         });
-        </script>
+    </script>

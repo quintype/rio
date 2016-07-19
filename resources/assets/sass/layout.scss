@@ -8,34 +8,34 @@ $secondary-typeface: $serif;
 
 
 body {
-   /* background-color: $light-gray;*/
+    /* background-color: $light-gray;*/
     margin: 0;
-	font-family:$primary-typeface;
+    font-family:$primary-typeface;
 }
 
 .page {
-   background: rgba(41,184,229,1);
-   background: -moz-linear-gradient(top, rgba(41,184,229,1) 0%, rgba(179,220,237,1) 0%, rgba(255,255,255,1) 10%, rgba(255,255,255,1) 100%);
-   background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(41,184,229,1)), color-stop(0%, rgba(179,220,237,1)), color-stop(50%, rgba(255,255,255,1)), color-stop(100%, rgba(255,255,255,1)));
-   background: -webkit-linear-gradient(top, rgba(41,184,229,1) 0%, rgba(179,220,237,1) 0%, rgba(255,255,255,1) 10%, rgba(255,255,255,1) 100%);
-   background: -o-linear-gradient(top, rgba(41,184,229,1) 0%, rgba(179,220,237,1) 0%, rgba(255,255,255,1) 10%, rgba(255,255,255,1) 100%);
-   background: -ms-linear-gradient(top, rgba(41,184,229,1) 0%, rgba(179,220,237,1) 0%, rgba(255,255,255,1) 10%, rgba(255,255,255,1) 100%);
-   background: linear-gradient(to bottom, rgba(41,184,229,1) 0%, rgba(179,220,237,1) 0%, rgba(255,255,255,1) 10%, rgba(255,255,255,1) 100%);
-     background-repeat: no-repeat;
+    background: rgba(41,184,229,1);
+    background: -moz-linear-gradient(top, rgba(41,184,229,1) 0%, rgba(179,220,237,1) 0%, rgba(255,255,255,1) 10%, rgba(255,255,255,1) 100%);
+    background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(41,184,229,1)), color-stop(0%, rgba(179,220,237,1)), color-stop(50%, rgba(255,255,255,1)), color-stop(100%, rgba(255,255,255,1)));
+    background: -webkit-linear-gradient(top, rgba(41,184,229,1) 0%, rgba(179,220,237,1) 0%, rgba(255,255,255,1) 10%, rgba(255,255,255,1) 100%);
+    background: -o-linear-gradient(top, rgba(41,184,229,1) 0%, rgba(179,220,237,1) 0%, rgba(255,255,255,1) 10%, rgba(255,255,255,1) 100%);
+    background: -ms-linear-gradient(top, rgba(41,184,229,1) 0%, rgba(179,220,237,1) 0%, rgba(255,255,255,1) 10%, rgba(255,255,255,1) 100%);
+    background: linear-gradient(to bottom, rgba(41,184,229,1) 0%, rgba(179,220,237,1) 0%, rgba(255,255,255,1) 10%, rgba(255,255,255,1) 100%);
+    background-repeat: no-repeat;
 }
 
 .content{
-	margin-left: auto;
+    margin-left: auto;
     margin-right: auto;
-   
-     @include breakpoint($pc){
-       border:0px ;
+
+    @include breakpoint($pc){
+        border:0px ;
         max-width: 66em;
     }
 
     @include breakpoint($phone){
-       width: 100%;
-       border:1px ;
+        width: 100%;
+        border:1px ;
 
     }
 
@@ -48,7 +48,7 @@ body {
     display: none;
 
     @media (min-width: 768px) {
-	display: block;
+        display: block;
     }
 }
 
@@ -59,8 +59,8 @@ body {
 
 @media (min-width: 768px) {
     .layout-menu {
-	display: block;
-	width: 20%;
+        display: block;
+        width: 20%;
     }
     .layout-content { width: 80%; }
 }

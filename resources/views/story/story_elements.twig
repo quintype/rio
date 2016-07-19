@@ -1,23 +1,23 @@
 
-	{% for element in storyElements %}
-		{% set elType = element['type'] %}
-		{% if elType == "text" %}
-		    {% include "story/elements/text" with {'dataElement': element } %}
-		{% elseif elType == "youtube-video" %}
-		    {% include "story/elements/youtube" with {'dataElement': element } %}
-		{% elseif elType == "jsembed" %}
+{% for element in storyElements %}
+    {% set elType = element['type'] %}
+    {% if elType == "text" %}
+        {% include "story/elements/text" with {'dataElement': element } %}
+    {% elseif elType == "youtube-video" %}
+        {% include "story/elements/youtube" with {'dataElement': element } %}
+    {% elseif elType == "jsembed" %}
 
-	    	{% include "story/elements/location" with {'dataElement': element } %}
+        {% include "story/elements/location" with {'dataElement': element } %}
 
-	  
-	    {% elseif elType == "q-and-a" %}
-	        {% include "story/elements/questionandanswer" with {'dataElement': element } %}
 
-	    {% elseif elType == "bigfact" %}
-	        {% include "story/elements/bigfact" with {'dataElement': element } %}
+    {% elseif elType == "q-and-a" %}
+        {% include "story/elements/questionandanswer" with {'dataElement': element } %}
 
-	    {% elseif elType == "image" %}
-	        {% include "story/elements/images" with {'dataElement': element } %}
-		    
-		{% endif %}
-	{% endfor %}	
+    {% elseif elType == "bigfact" %}
+        {% include "story/elements/bigfact" with {'dataElement': element } %}
+
+    {% elseif elType == "image" %}
+        {% include "story/elements/images" with {'dataElement': element } %}
+
+    {% endif %}
+{% endfor %}	
