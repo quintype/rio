@@ -73,7 +73,7 @@
          }
     }
 
-    .text{ font-family: $merri; p{font-family: $merri; font-size:16px; word-wrap: break-word;
+    .text{ font-family: $merri; p{font-family: $merri; font-size:16px; word-wrap: break-word; color:#333333;
 @include breakpoint($phone) {
             font-size: 14px;
          }
@@ -90,9 +90,9 @@
 width:100%;
         p{
             font-family: $merri;
-            color:$black;
+            color:#333333;
             font-weight:$regular;
-            font-size:em(16);  
+            font-size:16px;  
             margin: em(10) 0 em(10) 0;
             a{ color:$light-blue;}     
          @include breakpoint($phone) {

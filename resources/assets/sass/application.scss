@@ -481,7 +481,12 @@ section {
     margin:10px 0 30px 0; 
     text-align:center;
     letter-spacing: 1.5px;
-    span { background:#fff; padding:0 10px 0 0; }
+    span { background:#fff; padding:0 10px 0 0;
+@include breakpoint($phone){
+    padding:0 10px 0 15px;
+}
+
+     }
 } 
 .patner {
     margin-top:20px;
@@ -648,17 +653,22 @@ article:nth-child(4){
     color: $small-heading;
     font-size: 15px;
     font-weight: $bold;   
-    min-height:em(90);
+    
     width: 100%;
+    @include breakpoint ($pc)
+    {min-height:em(90);}
+
 }
 .article__desciption{
     color: $text;
     font-size: 12px;
     font-weight:$regular;
     padding-bottom:10px;
-    min-height: 79px;
+    
     position:relative;
     float:left;
+     @include breakpoint ($pc)
+    {min-height:79px;}
 
 }
 
@@ -806,7 +816,7 @@ font-size: 16px;
     margin: 0 auto;
 
     @include breakpoint($pc) {
-        margin: em(5) 0 em(5) 0;
+        margin: em(10) 0 em(5) 0;
     }
 
     ul {
@@ -1005,7 +1015,7 @@ font-size: 16px;
     display: none;
 }
 
-.top{ margin-top:em(30); 
+.top{ margin-top:em(42); 
 @include breakpoint($phone){margin-top:em(0);}
 
 }
@@ -1043,7 +1053,7 @@ font-size: 16px;
                     height: em(25);
                     font-size: 100%;
                     width: 100%;
-                    padding-left: em(40);
+                    padding: 18px;
                     border: 0px;
                     /*background: url("../images/search-input-icon.png") no-repeat em(10) center;*/
                 }
