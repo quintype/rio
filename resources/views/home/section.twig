@@ -9,9 +9,21 @@
             <div class="wrap">               <div class="section_left border">
                     <a href="/{{story['slug']}}">
                         <div class="figcontainer">
-                            <div class="titletop_big">{{story["headline"]}}</div>
-                            <div class="sourcetop_left">{{ story["hero-image-attribution"] }}</div>
 
+                                <h6 class="sectionname__display">{{story['sections'][0]['name']}}</h6>
+                        <div class="titletop_big">{{story["headline"]}}</div>
+               <div class="textbottom_left">
+                                {%  if story['metadata']['story-attributes'] %}
+
+                                        <img src="{{  get_logo(story['metadata']['story-attributes']['partnerpublisher'][0] ) }}" />
+
+                                 {% endif %}
+                                <span><h5 class="textbottom__article__name">{{story["author-name"]}}</h5></span>
+                                </div> <!-- textbottom close -->
+
+                        <div class="sourcetop_left">{{ story["hero-image-attribution"] }}</div>
+
+                        
                             <figure>
                                 <img src="{{focusedImageUrl(story['hero-image-s3-key'],config['image-cdn'], [16,9], story['hero-image-metadata'],{w:700} )}}" />
                             </figure>

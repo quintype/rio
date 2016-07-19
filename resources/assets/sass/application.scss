@@ -50,7 +50,7 @@ main {
 
 .logoview{
     width:180px;
-    height:30px;
+    height:100%;
 
     @include breakpoint($phone){
        width: 120px;
@@ -370,6 +370,7 @@ ul li{
         font-size:em(16);
         line-height: 20px;
     }
+    .textbottom__article__name{color:$white;}
 
 }
 .titletop_small {
@@ -445,7 +446,7 @@ section {
     background-color:#eef6fc;
     margin-bottom: 40px;
     position:relative;
-    article{
+    .wrap{
         background-color:$white;
     }
 }
@@ -614,7 +615,7 @@ article:nth-child(4){
     padding-right:5px;
     color:$small-heading;
     opacity: 0.8;
-    min-height: em(25);
+    height: em(25);
 }
 
 
@@ -663,8 +664,8 @@ z-index: $zIndex-2;
         @include aspect-ratio(16,9);
         position: relative;
         float:left;
-height:18px;
-width:100px;
+height:100%;
+width:12%;
 padding:em(3);
 border-right:1px solid $light-gray;
 
@@ -678,8 +679,8 @@ border-right:1px solid $light-gray;
         border:0;
         padding-left: em(10);
         padding-right: em(10);
-        font-size: em(14);
-        color:$question-blue;
+        font-size: 13px;
+        
     }
 
 
@@ -727,7 +728,7 @@ width:25%;
     display: inline-block;
     font-family: $merri;     
     font-size: em(16);
-    padding:0 em(10) 0  em(5) ;
+    padding:0 em(10) 0  em(10) ;
     border-right:1px solid $light-gray;
 }
 /*

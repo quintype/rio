@@ -55,7 +55,7 @@
 
     <div class='story-element-summary'> {{storyData["summary"]}} </div>
 
-    <span><h6 class="textbottom__article__name">{{storyData["author-name"]}}</h6></span>
+    <span  class="textbottom__article__name" >{{storyData["author-name"]}}</span>
     <span class='textbottom__article'><time>   {% set timestamp = (storyData["published-at"]//1000)|round(0, 'floor') %}{{timestamp|date('M d,Y')}} </time></span>
 
 

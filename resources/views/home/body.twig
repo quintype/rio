@@ -228,6 +228,7 @@ googletag.cmd.push(function() { googletag.display('div-gpt-ad-1467975036401-0');
 
             {% for story in breaking_news|slice(0,3) %}
                 <article ><!--  Article1 open-->
+                  <div class="wrap border">
                     <figure>
                         <a href="/{{story['slug']}}">
                             <img src="{{focusedImageUrl(story['hero-image-s3-key'], config['image-cdn'], [16,9], story['hero-image-metadata'], {w:400})}}" />
@@ -245,7 +246,7 @@ googletag.cmd.push(function() { googletag.display('div-gpt-ad-1467975036401-0');
                             <span class="textbottom__article"> <time datetime="">{% set timestamp = (story["published-at"] / 1000)|round(0, 'floor') %}{{timestamp|date('M d,Y')}}</time></span>
                         </div> <!-- textbottom close -->
                     </div><!-- textwrap close -->
-
+</div>
 
                 </article>
             {% endfor %}
