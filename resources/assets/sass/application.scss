@@ -266,6 +266,8 @@ nav	{
     padding: em(0);   
     padding-right: em(2);
     @include breakpoint($phone) {
+        @include aspect-ratio(1,1.1);
+        padding-top:50%;
         @include span(12);
         padding: em(0);
         margin-bottom:10px;
@@ -764,6 +766,28 @@ article:nth-child(4){
     padding:em(10) 0 em(10) 0;
 }
 
+.imagesd {
+    position: relative;
+    float: left;
+    width: 90px;
+    border-right: 1px solid #DEDEDE;
+    padding-right: 10px;
+    height: 20px;
+    /*margin-top: 2px;*/
+    }
+
+    .imagesd img {
+  display: block;
+  max-width: 100%;
+  max-height: 100%;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+
+        }
+
 .textbottom__article{
     padding-right:5px;
     /*border-right:1px solid $light-gray;*/
@@ -782,6 +806,13 @@ article:nth-child(4){
     color: $dark-gray;
 
     font-family: $merri;  
+
+
+
+    
+    
+
+
 
     time {
         font-weight:$bold;
@@ -805,7 +836,7 @@ article:nth-child(4){
     color:$question-blue;
     display: inline-block;
     font-family: $merri;     
-    font-size: 15px;
+    font-size: 13px;
     padding:0 em(10) 0  em(10) ;
     border-right:1px solid $light-gray;
 

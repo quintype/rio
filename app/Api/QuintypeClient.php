@@ -126,7 +126,10 @@ class QuintypeClient {
 
             Cache::put($key, $response, 10);
         }
+
+
         return $response;
+
     }
 
     public function stories($params = null) {
@@ -151,4 +154,19 @@ class QuintypeClient {
         }, $this->getResponse("/api/v1/stories-by-slug", $params));
     }
 
+
+
+  public function author($params) {
+    return $this->getResponse("/api/author/".$params);
+
+    }
+
+
+
+ 
+
+
+
 }
+
+

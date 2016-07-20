@@ -10,7 +10,9 @@
                         <div class="textbottom_left">
                             {%  if story['metadata']['story-attributes'] %}
 
-                                <img src="{{  get_logo(story['metadata']['story-attributes']['partnerpublisher'][0] ) }}" />
+                               <div class="imagesd">
+                                        <img src="{{  get_logo(story['metadata']['story-attributes']['partnerpublisher'][0] ) }}" />
+                                    </div>
 
                             {% endif %}
                             <span><h5 class="textbottom__article__name">{{story["author-name"]}}</h5></span>
@@ -74,9 +76,9 @@
 
 
                                 {%  if story['metadata']['story-attributes'] %}
-                                    <span class="textbottom__article">
+                                    <div class="imagesd">
                                         <img src="{{  get_logo(story['metadata']['story-attributes']['partnerpublisher'][0] ) }}" />
-                                    </span>
+                                    </div>
                                 {% endif %}
                                 <span class="textbottom__article__name"><h5 >{{story["author-name"]}}</h5></span>
                                 <span class="textbottom__article"> <time>
@@ -257,7 +259,13 @@
 
                             <div class="articleshare__icons">
                                 <ul>
-                                    <li> <a href="https://www.facebook.com/theclimatedesk/"><span class="icons"><svg width="20px" height="20px" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                    <li> 
+<a href="#" rel="nofollow" class="share__button facebook" onclick="javascript:window.open('http://facebook.com/sharer.php?u=http:climatedesk-web.staging.quintype.io/{{ story['slug'] }}', 'titleeeeeeeeeeeeeee.',
+                        'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');
+                return false;" >
+
+
+                <span class="icons"><svg width="20px" height="20px" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                                                 <!-- Generator: Sketch 3.8.3 (29802) - http://www.bohemiancoding.com/sketch -->
                                                 <title>Artboard 29</title>
                                                 <desc>Created with Sketch.</desc>
@@ -268,7 +276,13 @@
                                                 </g>
                                                 </g>
                                                 </svg></span></a></li>
-                                    <li><a  href="https://twitter.com/ClimateDesk"><span class="icons"><svg width="20px" height="20px" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                    <li>
+  <a href="#" class="share__button twitter" rel="nofollow" class="storyshare__icons__twitter storyshare__icons__alignment" onclick="javascript:window.open('https://twitter.com/intent/tweet?url=http:climatedesk-web.staging.quintype.io/{{ story['slug'] }};text={{ storyData['headline'] }};&original_referer=http:climatedesk-web.staging.quintype.io/', '',
+                            'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');
+                    return false;" >
+
+
+                                    <span class="icons"><svg width="20px" height="20px" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 
                                                 <title>Artboard 29 Copy</title>
                                                 <desc>Created with Sketch.</desc>
@@ -281,7 +295,8 @@
                                                 </svg></span></a></li>
                                 </ul>
                             </div>
-                            <div class="articleshare__title">   Everything You Need to Know About Pot’s Environmental Impact </div>
+                            <div class="articleshare__title">     <a href="/{{story['slug']}}">     {{ shorthead(story["headline"]) }} </a>
+                            </div>
 
                         </div>
                     </div>

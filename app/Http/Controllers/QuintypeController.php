@@ -25,10 +25,27 @@ class QuintypeController extends Controller {
         return $this->client->stories($args);
     }
 
+   
+
+
+
+
     public function menuItems() {
         $config = new Config($this->client->config());
         return $config->menuItems();
     }
+
+
+    
+
+        public function authorinfo() {
+        $config = new Config($this->client->config());
+        $abc=$config->author();
+    
+        return $config->author();
+    }
+
+
 
     public function config($args = null) {
         return array_merge($this->client->config(), config("quintype"));

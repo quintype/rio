@@ -12,8 +12,11 @@
                             <div class="titletop_big">{{shorthead(story['headline'])}}</div>
                             <div class="textbottom_left">
                                 {%  if story['metadata']['story-attributes'] %}
+                                
 
-                                    <img src="{{  get_logo(story['metadata']['story-attributes']['partnerpublisher'][0] ) }}" />
+                                    <div class="imagesd">
+                                        <img src="{{  get_logo(story['metadata']['story-attributes']['partnerpublisher'][0] ) }}" />
+                                    </div>
 
                                 {% endif %}
                                 <span><h5 class="textbottom__article__name">{{story["author-name"]}}</h5></span>
@@ -55,9 +58,9 @@
                                     </div>
                                     <div class="textbottom">
                                         {%  if story['metadata']['story-attributes'] %}
-                                            <span class="textbottom__article">
-                                                <img src="{{  get_logo(story['metadata']['story-attributes']['partnerpublisher'][0] ) }}" /> 
-                                            </span>
+                                           <div class="imagesd">
+                                        <img src="{{  get_logo(story['metadata']['story-attributes']['partnerpublisher'][0] ) }}" />
+                                    </div>
                                         {% endif %}
                                         <span><h5 class="textbottom__article__name">{{story["author-name"]}}</h5></span>
                                         <span class="textbottom__article"> <time datetime="">
@@ -104,9 +107,9 @@
                     {% endif %}
                     <div class="textbottom">
                         {%  if story['metadata']['story-attributes'] %}
-                            <span class="textbottom__article">
-                                <img src="{{  get_logo(story['metadata']['story-attributes']['partnerpublisher'][0] ) }}" /> 
-                            </span>
+                           <div class="imagesd">
+                                        <img src="{{  get_logo(story['metadata']['story-attributes']['partnerpublisher'][0] ) }}" />
+                                    </div>
                         {% endif %}
 
                         <span><h5 class="textbottom__article__name">{{story["author-name"]}}</h5></span>

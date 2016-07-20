@@ -52,8 +52,7 @@
         <div><span class="article__tag-heading">{{storyData["sections"][0]["name"]}}</span></div>
         <!-- Stoy Header Close -->
         <h1>{{storyData["headline"]}}</h1>
-
-        <div class='story-element-summary'> {{storyData["summary"]}} </div>
+        
         <div class="textbottom__article storybyline">
             <span  class="textbottom__article__name" >{{storyData["author-name"]}}</span>
             <span class="textbottom__article--share"> <time>
@@ -76,12 +75,12 @@
 
 
         <div class='text author'>
-            <div class='author__left'><img  src="{{ assetPath('main/img4.jpg') }}" /></div>
+            <div class='author__left'><img  src="{{ authordata['avatar-url'] }}" /></div>
             <div class='author__right'>
-                <h5> {{storyData["author-name"]}} </h5>
-                <p>
-                    {{storyData["author-bio"]}}
-                </p>
+                <h5> {{authordata["name"]}} </h5>
+                
+                    {{ authordata['bio'] }}
+                
             </div>
         </div>
 
