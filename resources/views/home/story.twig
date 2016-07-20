@@ -47,9 +47,7 @@
     </div>
 
     <div class="story_container">
-        `
-
-        <div><span class="article__tag-heading">{{storyData["sections"][0]["name"]}}</span></div>
+<div><span class="article__tag-heading">{{storyData["sections"][0]["name"]}}</span></div>
         <!-- Stoy Header Close -->
         <h1>{{storyData["headline"]}}</h1>
         
@@ -75,7 +73,16 @@
 
 
         <div class='author'>
-            <div class='author__left'><img  src="{{ authordata['avatar-url'] }}" /></div>
+            <div class='author__left'>
+
+
+  {%  if authordata['avatar-url'] %}
+<img  src="{{ authordata['avatar-url'] }} " />
+{% else %}
+
+<img src="{{ assetPath('main/default_author.svg') }}"/>
+  {%  endif %}
+            </div>
             <div class='author__right'>
                 <h5> {{authordata["name"]}} </h5>
                 <p>
@@ -120,7 +127,7 @@
         </div>
 
         <div class="storyad">
-            <img  src="{{ assetPath('main/ad.png') }}" />
+          <a href="/section/inquiring-minds">  <img  src="{{ assetPath('main/ad.png') }}" /> </a>
         </div>
 
 
@@ -137,6 +144,7 @@
             <div class="sectiontitle left"><span>FOOD & HEALTH</span></div>
             {% for story in food_stories|slice(0,3) %}
                 <article ><!--  Article1 open-->
+                   <div class="wrap border">
                     <div class="figcontainer">
                         <figure>
                             <a href="/{{story['slug']}}">     <img src="{{focusedImageUrl(story['hero-image-s3-key'],config['image-cdn'], [16,9], story['hero-image-metadata'], {w:400})}}"/>
@@ -153,6 +161,7 @@
                             <span class="textbottom__article"> <time datetime="">{% set timestamp = (story["published-at"]//1000)|round(0, 'floor') %}{{timestamp|date('M d,Y')}}</time></span>
                         </div> <!-- textbottom close -->
                     </div><!-- textwrap close -->
+                    </div>
                 </article>
             {% endfor %}
 

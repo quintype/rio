@@ -44,11 +44,12 @@ class HomeController extends QuintypeController {
         $fields = "id,headline,slug,url,hero-image-s3-key,hero-image-metadata,first-published-at,last-published-at,alternative,published-at,author-name,author-id,sections,story-template,summary,metadata";
         $story = $this->client->storyData(array('slug' => $slug))['story'];
 
-         //echo "<pre>";  print_r($story);
+         // echo "<pre>";  print_r($story);
+        
 
 
         $author_data = $this->client->author($story['author-id']);
-       // echo "<pre>";print_r($author_data);
+        // echo "<pre>";print_r($author_data);
 
 
 

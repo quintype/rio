@@ -268,7 +268,13 @@
     margin-top: em(15);
     &__left{ width:130px; position:relative;float:left;
 
-             img{width:130px; height:130px;  } }
+             img{width:130px; height:130px;  } 
+@include breakpoint ($phone){
+     img{width:70px; height:70px;   }
+     width:80px; 
+}
+
+         }
              &__right{ 
 
                  padding-left:em(15);
@@ -282,8 +288,20 @@
                  p{
                      color:$grey !important;
                      font-family: $sans;
-                     font-size: em(15);
+                     font-size: em(14);
                  }
+
+@include breakpoint ($phone)
+{
+ width:74%;
+     h5{
+        font-size:14px;
+     }
+     p{
+        font-size: 12px;
+     }
+}
+
 
              }
 
@@ -338,14 +356,53 @@
         float: left;
         margin-top: -7px;
         ul {
-
             margin: 0;
             padding-left:em(10);
-        }
+           }
+
+            li svg{
+                width: 25px;
+                height:25px;
+            }
+
+ @include breakpoint ($phone){
+ display:block;
+ margin-top: -3px;
+ul {
+            margin: 0;
+            padding-left:em(5);
+           }
+ }
+
     }
 
 
     .social-share{
-
         li{float:left; padding:0 em(5) 0 em(5);}
+
+        @include breakpoint ($phone){
+
+            li svg{
+                width: 20px;
+                height:20px;
+            }
+        }
     }
+
+    .whatsapp{
+display:none;
+    @include breakpoint ($phone){display:block;}
+    }
+
+    #map:after{
+
+       content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(to bottom, transparent 0%, transparent 0%, rgba(0,0,0,0.7) 100%);
+
+}
+
