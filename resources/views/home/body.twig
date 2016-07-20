@@ -80,7 +80,7 @@
                                         <img src="{{  get_logo(story['metadata']['story-attributes']['partnerpublisher'][0] ) }}" />
                                     </div>
                                 {% endif %}
-                                <span class="textbottom__article__name"><h5 >{{story["author-name"]}}</h5></span>
+                                <span ><h5 class="textbottom__article__name">{{story["author-name"]}} </h5></span>
                                 <span class="textbottom__article"> <time>
                                         {% set timestamp = (story["published-at"] / 1000)|round(0, 'floor') %}{{timestamp|date('M d,Y')}}
 
@@ -304,7 +304,7 @@
                 </article>
             {% endfor %}
 
-            <a  class="more" href="#">Read More >></a>
+            <!-- <a  class="more" href="#">Read More >></a> -->
 
 
         </div><!--  Section Wrap close-->
