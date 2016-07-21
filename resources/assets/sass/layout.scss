@@ -11,8 +11,9 @@ body {
     /* background-color: $light-gray;*/
     margin: 0;
     font-family:$primary-typeface;
-    overflow: auto;
-    -webkit-overflow-scrolling: touch;
+      -webkit-overflow-scrolling: touch;
+     overflow: hidden;
+        overflow-y: auto;
 }
 
 .page {
@@ -30,7 +31,8 @@ body {
     margin-left: auto;
     margin-right: auto;
 
-overflow: auto;
+ overflow: hidden;
+        overflow-y: auto;
     -webkit-overflow-scrolling: touch;
     @include breakpoint($pc){
         border:0px ;
