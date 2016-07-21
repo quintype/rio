@@ -96,6 +96,7 @@
 
         <div class="section_center_ad" placeholder="Advertisement">  AD 300x250</div>
 
+<div class="sectionsleft">
 
         {% for story in section_stories|slice(0,6)  %}                       
             <div class="wrap">
@@ -120,9 +121,11 @@
                     </div>
                     <div class="textbottom">
                         {%  if story['metadata']['story-attributes'] %}
-                            <span class="textbottom__article">
-                                <img src="{{  get_logo(story['metadata']['story-attributes']['partnerpublisher'][0] ) }}" /> 
-                            </span>
+                        <div class="imagesd">
+                                        <img src="{{  get_logo(story['metadata']['story-attributes']['partnerpublisher'][0] ) }}" />
+                                    </div>
+
+                           
                         {% endif %}
                         <span><h5 class="textbottom__article__name">{{story["author-name"]}}</h5></span>
                         <span class="textbottom__article"> <time datetime="">
@@ -133,7 +136,7 @@
             </div>
 
         {% endfor %}
-
+</div>
         <div class="section_right_ad">  AD 300x250</div>
 
 

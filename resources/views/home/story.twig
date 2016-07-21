@@ -31,15 +31,20 @@
 
 
     <div class="story_hero">
+
+ <!--    <div class="story-element-youtube-video">
+    <embed  src="{{dataElement['embed-url']}}">
+</div> -->
+
+
         <div class="story_hero__text">
-
             {{storyData['hero-image-caption']}}
-
-
         </div>
         <figure>
 
-            <img src="{{focusedImageUrl(storyData['hero-image-s3-key'],config['image-cdn'], [16,9], storyData['hero-image-metadata'], {w: 800})}}" class="story-img"/>       </figure>
+            <img src="{{focusedImageUrl(storyData['hero-image-s3-key'],config['image-cdn'], [16,9], storyData['hero-image-metadata'], {w: 800})}}" class="story-img"/>   
+
+        </figure>
 
     </div>
     <div class="sourcefrom">
