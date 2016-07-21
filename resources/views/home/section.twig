@@ -1,14 +1,7 @@
 <div class="content"><!-- content open-->
-
     <section>
-    
+        <h3 class="line-title top-title">{{section['display-name']}}</h3>
    
-
-    <h3 class="line-title top-title">{{section['display-name']}}</h3>
-
-
-        
-
         {% for story in section_stories|slice(0,1)  %}
             <div class="wrap">               <div class="section_left">
                     <a href="/{{story['slug']}}">
@@ -87,6 +80,7 @@
 
         <div class="section_center_ad" placeholder="Advertisement">  AD 300x250</div>
 
+<div class="sectionsleft">
 
         {% for story in section_stories|slice(2,6)  %}                       
             <div class="wrap">
@@ -128,17 +122,13 @@
 
         {% endfor %}
 
-
-        <div class="section_right">
-
+</div>
+        <div class="sectionsright">
+<img class="podcast_img" src="{{ assetPath('main/inquiring-ad-300x250_360.png') }}" />
         </div>
     </section>	
 
-
-    <div class="load-more">
-        <button type="button" id="loadmore" class="load_more">LOAD MORE</button>
-    </div>
-
+  {% include "story/elements/loadmore" %}
 
     <script type="text/javascript">
         $(document).ready(function () {

@@ -65,12 +65,12 @@ class HomeController extends QuintypeController {
 
     public function sectionview($section) {
 
-
+ $fields = "id,headline,slug,url,hero-image-s3-key,hero-image-metadata,first-published-at,last-published-at,alternative,published-at,author-name,author-id,sections,story-template,summary,metadata,hero-image-attribution,cards";
  
         $config = $this->client->config();
         $sections = $config['sections'];
         $cur_section = $sections[array_search($section, array_column($sections, 'slug'), true)];
-        $stories = $this->getStories(array('story-group' => 'top', 'section' => $cur_section['name'], 'limit' => 8));
+        $stories = $this->getStories(array('story-group' => 'top', 'section' => $cur_section['name'], 'limit' => 8, "fields" => $fields));
         // echo"<pre>";   print_r($stories);
         if ($cur_section['name'] != 'Inquiring Minds')
             return view('section', $this->toView(["section" => $cur_section, "section_stories" => $stories]));
