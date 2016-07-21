@@ -541,8 +541,7 @@ section {
 }
 .unique{
     background-color:#eef6fc;
-    margin-bottom: 40px;
-    padding-bottom: 40px;
+    /*padding-bottom: 40px;*/
     position:relative;
     @include breakpoint ($phone){
     margin-bottom: 10px;
@@ -557,8 +556,12 @@ section {
     border:none;
 }
 
+.popular{
+    padding-bottom: 30px;
+}
 
-.uniquesec{ margin-bottom:30px;
+.uniquesec{
+ margin-bottom:30px;
 
  @include breakpoint ($phone){
     margin-bottom: 5px;

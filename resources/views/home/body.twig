@@ -239,7 +239,7 @@
 
             {% for story in breaking_news|slice(0,3) %}
                 <article class="popular"><!--  Article1 open-->
-                    <div class="wrap border">
+                    <div class="wrap">
                         <figure>
                             <a href="/{{story['slug']}}">
                                 <img src="{{focusedImageUrl(story['hero-image-s3-key'], config['image-cdn'], [16,9], story['hero-image-metadata'], {w:400})}}" />
