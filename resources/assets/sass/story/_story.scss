@@ -311,9 +311,7 @@
     .storyad
     {
         width:300px;
-        margin-left:auto;
-        margin-right:auto;
-        margin:em(20) 0 em(0) 0;
+        margin:em(20) auto em(0) auto;
         img{width:100%;}
 
         @include breakpoint ($pc){ width:560px; }

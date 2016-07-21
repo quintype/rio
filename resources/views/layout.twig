@@ -262,16 +262,19 @@ $(".menubar").click(function(event){
   $(".menuitems").toggle();
 });
 
-  $(document).click( function(){
-         $(".menuitems").hide();
-    });
 
 
         $('#search_init,#search_init1').click(function ()
         {
-
+ event.stopPropagation();
             $(".nav-search").toggle();
         });
+
+  $(document).click( function(){
+         $(".menuitems").hide();
+           $(".nav-search").hide();
+    });
+
 
     });
 </script>

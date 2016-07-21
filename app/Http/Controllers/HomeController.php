@@ -24,8 +24,8 @@ class HomeController extends QuintypeController {
         $bulk->execute($this->client);
 
 
-        $a = $bulk->getResponse("top_stories");
-       //  echo "<pre>"; print_r($a);
+        // $a = $bulk->getResponse("breaking_news");
+         // echo "<pre>"; print_r($a);
 
 
 
@@ -45,7 +45,7 @@ class HomeController extends QuintypeController {
         $story = $this->client->storyData(array('slug' => $slug))['story'];
 
          // echo "<pre>";  print_r($story);
-        
+
 
 
         $author_data = $this->client->author($story['author-id']);

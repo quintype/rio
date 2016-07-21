@@ -50,11 +50,11 @@ main {
 
 .logoview{
     width:180px;
-    height:100%;
+    height:28px;
 
     @include breakpoint($phone){
-        width: 120px;
-        height:22px;
+        width: 130px;
+        height:21px;
     }
 }
 
@@ -143,11 +143,7 @@ nav	{
         line-height:20px;
         @include breakpoint ($phone){
             font-size: em(12);
-
-
-
-
-        };
+       };
 
     }
 
@@ -161,8 +157,13 @@ nav	{
 
 
     }
-
-
+ ul li a:hover{
+    color:#18a7b9;
+ }
+ ul li a:active{
+    color:#18a7b9;
+ }
+    
 
     ul :first-child{
         border-top:0px;
@@ -446,6 +447,9 @@ nav	{
     text-transform: capitalize;
     z-index: 1;
     margin-bottom:10px;
+    @include breakpoint($phone){
+        margin-left:15px;
+    }
 }
 
 .articleshare
@@ -523,7 +527,12 @@ section {
 .unique{
     background-color:#eef6fc;
     margin-bottom: 40px;
+    padding-bottom: 40px;
     position:relative;
+    @include breakpoint ($phone){
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+ }
     .wrap{
         background-color:$white;
     }
