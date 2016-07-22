@@ -3,24 +3,29 @@
     <section>
         
          <h3 class="line-title top-title">Search : {{term}}</h3>
-        {% for story in searchresults|slice(0,7)  %}                       
+
+         <div class="sectionsleft">
+
+        {% for story in searchresults|slice(0,7)  %}         
+        
+
             <div class="wrap">
                 <div class="article_left ">
-                    <a href="/{{story['slug']}}">
-                        <div class="figcontainer">
+                      
+                        <div class="figcontainer"><a href="/{{story['slug']}}"> 
                             <figure>
                                 <img src="{{focusedImageUrl(story['hero-image-s3-key'], config['image-cdn'] , [16,9], story['hero-image-metadata'],{w:400} )}}" />
                             </figure>
-                            <div class="sourcetop">{{ story["hero-image-attribution"] }}</div>
+                            <div class="sourcetop">{{ story["hero-image-attribution"] }}</div>   </a>
                         </div>
-                    </a>
+                 
                 </div>
                 <div class="article_right ">
-                    <a href="/{{story['slug']}}">
+                   
 
                         <div class="article__title">
-                            {{shorthead(story['headline'])}}</div>
-                    </a>
+                         <a href="/{{story['slug']}}">    {{shorthead(story['headline'])}}   </a></div>
+                  
                     <div class="article__desciption">
                         {{story["summary"]}}
                     </div>
@@ -43,6 +48,6 @@
 
   {% include "story/elements/loadmore" %}
 
-
+</div>
     </section>	
 

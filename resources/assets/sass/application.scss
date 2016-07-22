@@ -689,6 +689,8 @@ section {
 
 article {
     @include span(4);
+   
+    /*@include gutters(6 1 inside);*/
     /*background-color: $light-gray;*/
     @include aspect-ratio(16,9);
     @include breakpoint($phone) {
@@ -1238,6 +1240,7 @@ article:nth-child(4){
 }
 
 .load-more{
+    display:inline-block;
     position: relative;
     left:25%;
 }

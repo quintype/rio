@@ -29,12 +29,16 @@
 
 
 
+{% if storyData["sections"][0]["name"] == "Video" %}
 
+   {% include "story/elements/youtube" %}
+
+
+
+
+
+{% else %}
     <div class="story_hero">
-
- <!--    <div class="story-element-youtube-video">
-    <embed  src="{{dataElement['embed-url']}}">
-</div> -->
 
 
         <div class="story_hero__text">
@@ -47,9 +51,11 @@
         </figure>
 
     </div>
-    <div class="sourcefrom">
+      <div class="sourcefrom">
         {{ storyData["hero-image-attribution"] }}
     </div>
+    {% endif %}
+  
 
     <div class="story_container">
 <div><span class="article__tag-heading">{{storyData["sections"][0]["name"]}}</span></div>
