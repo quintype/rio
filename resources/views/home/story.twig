@@ -62,12 +62,10 @@
         <div class="textbottom__article storybyline">
             <span class="textbottom__article__name">{{ storyData["author-name"] }}</span>
             <span class="textbottom__article--share"> <time>
-                    {% set timestamp = (storyData["published-at"] / 1000)|round(0, 'floor') %}{{ timestamp|date('M d,Y') }}
+                    {% set timestamp = (storyData["first-published-at"]/ 1000)|round(0, 'floor') %}{{ timestamp|date('M d,Y') }}
 
                 </time></span>
-
-            {% include "story/elements/socialshare" %}
-
+               {% include "story/elements/socialshare" %}
             <!-- <div class='story-element-publisher'>This story was <a href='#'>originally published</a> by The Huffington Post.</div> -->
         </div>
 
