@@ -71,8 +71,12 @@
 
             {% include "story/elements/socialshare" %}
 
-            <!-- <div class='story-element-publisher'>This story was <a href='#'>originally published</a> by The Huffington Post.</div> -->
+
         </div>
+         {%  if storyData['metadata']['story-attributes'] %}
+
+             <div class='story-element-publisher'>This story was <a href='#'>originally published</a> by {{ storyData['metadata']['story-attributes']['partnerpublisher'][0] }}.</div> 
+            {% endif %}
 
 
         {% for card in storyData['cards'] %}
