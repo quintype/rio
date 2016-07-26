@@ -23,10 +23,8 @@
     });
 
 
-
 </script>
 <div class="content top"><!-- content open-->
-
 
 
 {% if storyData["sections"][0]["name"] == "Video" %}
@@ -40,13 +38,12 @@
 {% else %}
     <div class="story_hero">
 
-
         <div class="story_hero__text">
             {{storyData['hero-image-caption']}}
         </div>
         <figure>
 
-            <img src="{{focusedImageUrl(storyData['hero-image-s3-key'],config['image-cdn'], [16,9], storyData['hero-image-metadata'], {w: 800})}}" class="story-img"/>   
+            <img src="{{focusedImageUrl(storyData['hero-image-s3-key'],config['image-cdn'], [16,9], storyData['hero-image-metadata'], {w: 800})}}" class="story-img"/>
 
         </figure>
 
@@ -63,13 +60,15 @@
         <h1>{{storyData["headline"]}}</h1>
         
         <div class="textbottom__article storybyline">
-            <span  class="textbottom__article__name" >{{storyData["author-name"]}}</span>
+            <span class="textbottom__article__name">{{ storyData["author-name"] }}</span>
             <span class="textbottom__article--share"> <time>
-                    {% set timestamp = (storyData["published-at"] / 1000)|round(0, 'floor') %}{{timestamp|date('M d,Y')}}
+                    {% set timestamp = (storyData["first-published-at"]// 1000)|round(0, 'floor') %}{{ timestamp|date('M d,Y') }}
 
                 </time></span>
 
+
             {% include "story/elements/socialshare" %}
+
 
 
         </div>
@@ -107,12 +106,7 @@
         </div>
 
 
-
-
-
-
         {% include "story/story_tags" with {'storyTags': storyData["tags"]} %}
-
 
 
         <div class="ad_big" placeholder="Advertisement">
@@ -138,7 +132,6 @@
             </div>
 
 
-
         </div>
 
         <div class="storyad">
@@ -146,22 +139,7 @@
         </div>
 
 
-
-
-
-
     </div><!-- Stoy Container Close -->
-
-
-
-
-<!-- <div class="your-class">
-  <div>your content</div>
-  <div>your content</div>
-  <div>your content</div>
-</div> -->
-
-
 
 
     <section><!--  Section 5 open-->
@@ -172,24 +150,25 @@
                    <div class="wrap border">
                     <div class="figcontainer">
                         <figure>
-                            <a href="/{{story['slug']}}">     <img src="{{focusedImageUrl(story['hero-image-s3-key'],config['image-cdn'], [16,9], story['hero-image-metadata'], {w:400})}}"/>
+                            <a href="/{{ story['slug'] }}"> <img
+                                        src="{{ focusedImageUrl(story['hero-image-s3-key'],config['image-cdn'], [16,9], story['hero-image-metadata'], {w:400}) }}"/>
                             </a>
                         </figure>
                         <div class="sourcefrom">{{ story["hero-image-attribution"] }}</div>
                     </div>
                     <div class="textwrap">
                         <div class="article__title">
-                            <a href="/{{story['slug']}}">       {{story["headline"]}} </a>
+                            <a href="/{{ story['slug'] }}">       {{ story["headline"] }} </a>
                         </div>
                         <div class="textbottom">
-                            <span> <h5 class="textbottom__article__name">{{story["author-name"]}}</h5></span>
-                            <span class="textbottom__article"> <time datetime="">{% set timestamp = (story["published-at"]//1000)|round(0, 'floor') %}{{timestamp|date('M d,Y')}}</time></span>
+                            <span> <h5 class="textbottom__article__name">{{ story["author-name"] }}</h5></span>
+                            <span class="textbottom__article"> <time
+                                        datetime="">{% set timestamp = (story["first-published-at"]//1000)|round(0, 'floor') %}{{ timestamp|date('M d,Y') }}</time></span>
                         </div> <!-- textbottom close -->
                     </div><!-- textwrap close -->
                     </div>
                 </article>
             {% endfor %}
-
 
 
         </div>
