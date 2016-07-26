@@ -72,9 +72,11 @@
 
 
         </div>
-         {%  if storyData['metadata']['story-attributes'] %}
+      
+         {%  if storyData['metadata']['story-attributes'] and storyData['canonical-url'] %}
 
-             <div class='story-element-publisher'>This story was <a href='#'>originally published</a> by {{ storyData['metadata']['story-attributes']['partnerpublisher'][0] }}.</div> 
+             <div class='story-element-publisher'>This story was <a href="{{  storyData['canonical-url'] }}">originally published</a> by {{ storyData['metadata']['story-attributes']['partnerpublisher'][0] }}.</div> 
+
             {% endif %}
 
 

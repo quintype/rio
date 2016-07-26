@@ -24,7 +24,7 @@ class HomeController extends QuintypeController {
         $bulk->execute($this->client);
 
 
-        // $a = $bulk->getResponse("breaking_news");
+        $a = $bulk->getResponse("breaking_news");
          // echo "<pre>"; print_r($a);
 
 
