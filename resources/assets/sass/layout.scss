@@ -32,7 +32,7 @@ body {
     margin-right: auto;
 
  overflow: hidden;
-        overflow-y: auto;
+        /*overflow-y: auto;*/
     -webkit-overflow-scrolling: touch;
     @include breakpoint($pc){
         border:0px ;
@@ -75,12 +75,27 @@ body {
     clear: both;
 }
 
-
+/*
 $susy: (
 columns: 12,
 container: 1200px,
-gutters: 0,
-gutter-position: inside,
+gutters: 1/12,
+gutter-position: after,
 global-box-sizing: border-box,
 debug: (image: hide)
-);
+);*/
+
+$susy: (columns: 12, gutters: 0.18, debug: (image: show-columns));
+
+
+.flexbox {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+
+  .articles{
+    width: span(4);
+    margin-top: gutter();
+    background-color: red;
+  }
+}

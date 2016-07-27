@@ -54,7 +54,7 @@
                                     </a>
                                     <div class="article__desciption">
                                         {{ shortsummary(story["summary"])}}
-                                    </div>
+                                    </div></div><!-- textwrap close -->
                                     <div class="textbottom">
                                         {%  if story['metadata']['story-attributes'] %}
                                            <div class="imagesd">
@@ -66,7 +66,7 @@
                                                 {% set timestamp = (story["first-published-at"] / 1000)|round(0, 'floor') %}{{timestamp|date('M d,Y')}}
                                             </time></span>
                                     </div> <!-- textbottom close -->
-                                </div><!-- textwrap close -->
+                                
                             
                         </a>
 

@@ -19,7 +19,7 @@ class HomeController extends QuintypeController {
         $bulk->addRequest('weatherstories', (new StoriesRequest('top'))->addParams(["section" => "Weather", "limit" => 3, "fields" => $fields]));
         $bulk->addRequest('videosstories', (new StoriesRequest('top'))->addParams(["section" => "Video", "limit" => 3, "fields" => $fields]));
         $bulk->addRequest('breaking_news', (new StoriesRequest('stack-94'))->addParams(["section" => "Video", "limit" => 3, "fields" => $fields]));
-        $bulk->addRequest('foodhealth', (new StoriesRequest('top'))->addParams(["section" => "Food & Health", "limit" => 3, "fields" => $fields]));
+        $bulk->addRequest('foodhealth', (new StoriesRequest('top'))->addParams(["section" => "Food & Health", "limit" => 4, "fields" => $fields]));
 
         $bulk->execute($this->client);
 
@@ -45,15 +45,10 @@ class HomeController extends QuintypeController {
         $story = $this->client->storyData(array('slug' => $slug))['story'];
 
          // echo "<pre>";  print_r($story);
-
-
-
         $author_data = $this->client->author($story['author-id']);
         // echo "<pre>";print_r($author_data);
 
-
-
-        $bulk->addRequest('foodhealth', (new StoriesRequest('top'))->addParams(["section" => "Food & Health", "limit" => 3, "fields" => $fields]));
+        $bulk->addRequest('foodhealth', (new StoriesRequest('top'))->addParams(["section" => "Food & Health", "limit" => 4, "fields" => $fields]));
         $bulk->execute($this->client);
 
 

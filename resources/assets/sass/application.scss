@@ -283,6 +283,7 @@ nav	{
 
 }
 
+
 .leftcontainer .figcontainer:after {
     content: '';
     position: absolute;
@@ -367,10 +368,11 @@ nav	{
     float:left;
     width:100%;
     @include aspect-ratio(16,9);
-    margin-top:5px;
+    margin-top:12px;
     padding-left:em(6);
      @include breakpoint($phone) {
          padding:em(10);
+margin-top:5px;
     }
 
     .sectionname__display {
@@ -408,7 +410,7 @@ nav	{
     bottom:0;
     color: $white;
     font-weight:$bold;
-    padding-left:20px;
+    padding:5px 0px 15px 20px;
     font-family:$primary-typeface;	
     z-index: 1;
     float: left;
@@ -546,6 +548,7 @@ nav	{
 section {
     margin-top:10px;
     @include clearfix();
+
 }
 .section {
     margin-top:10px;
@@ -572,6 +575,9 @@ section {
 
 .popular{
     padding-bottom: 30px;
+    .textbottom{
+        padding-left:1em;
+    }
 }
 
 .uniquesec{
@@ -662,6 +668,7 @@ section {
     @include span(4);
     padding-top:1.5em;
     padding-bottom:em(10);
+    margin-right: 0;
     color: $white;
     ul{padding:0em; margin:0em;}
     @include breakpoint($phone) {
@@ -670,20 +677,43 @@ section {
         ul{padding:0em; margin:0em;}
 
     }
+
     .textwrap {
         font-size: 12px;
         padding: 0;
+        height: auto !important;
+        position:relative;
+        float: left;
+        
         ul li a{
             padding:5px;
             text-decoration:none;
             display:inline-block;
             letter-spacing: 0.8px;
         }
+
+
+      @include breakpoint($phone){
+height:auto;
+text-align: center !important;
+float:none;
+
+        }  
+        
     }
 
 
 }
 .footerblock:first-child{ padding-top:1em;}
+.footerblock:nth-child(3){
+    
+    padding-left:70px;
+    @include breakpoint($phone) {
+          padding-left:em(2);
+    }
+}
+
+
 
 .footer-short{
     padding:em(10);
@@ -701,10 +731,13 @@ section {
 
 
 article {
-    @include span(4);
-   
+     @include breakpoint($pc) {
+    @include gallery(4);
+    clear:none !important;   
+}
     /*@include gutters(6 1 inside);*/
     /*background-color: $light-gray;*/
+
     @include aspect-ratio(16,9);
     @include breakpoint($phone) {
         @include span(12);
@@ -712,7 +745,7 @@ article {
     }
 
 }
-article:nth-child(1){
+/*article:nth-child(1){
     padding-left:0;
     padding-right:5px;
     @include breakpoint($phone) {
@@ -738,7 +771,7 @@ article:nth-child(4){
         padding:em(2) em(10) em(2) em(10);
     }
     
-}
+}*/
 
 .sourcefrom {
     font-style: italic;
@@ -753,14 +786,23 @@ article:nth-child(4){
 
 
 .textwrap {
-    margin:em(12) 0 em(5) 0;
-
+    margin:em(2) 0 em(5) 0;
+    height: 102px;
+    position:relative;
+    float: left;
     font-family:$primary-typeface;	
     /*background-color: $color5;*/
+
 }
+.short{height: 85px;}
 
 .wrap .textwrap{
     padding:em(12);
+    height: 102px;
+      @include breakpoint($phone){
+height:160px;
+
+        }
 }
 
 .article__title{
@@ -773,7 +815,9 @@ article:nth-child(4){
 
     width: 100%;
     @include breakpoint ($pc)
-    {height:em(70);}
+    {
+        /*height:em(70);*/
+    }
 
 }
 .article__desciption{
@@ -781,12 +825,15 @@ article:nth-child(4){
     font-size: 12px;
     font-weight:$regular;
     padding-bottom:10px;
+    font-family: $sans;
 
    margin-bottom: em(20);
     position:relative;
     float:left;
     @include breakpoint ($pc)
-    {height:em(43);}
+    {
+        /*height:em(43);*/
+    }
 
 }
 
@@ -797,7 +844,7 @@ article:nth-child(4){
     font-size:12px;
     padding:em(10) 0 em(10) 0;
     bottom:0;
-    margin-left:20px;
+    margin-left:10px;
     z-index: $zIndex-2;
     @include aspect-ratio(16,9);
     img{
@@ -813,6 +860,7 @@ article:nth-child(4){
             padding-left: 0;
         }
     }
+  
     .textbottom__article__name{
 
         color: $white;
@@ -831,7 +879,7 @@ article:nth-child(4){
     position:relative;
     float:left;
     font-size:12px;
-    padding:em(10) 0 em(10) 0;
+    padding:em(10) 0 em(20) em(0);
 }
 
 
@@ -895,7 +943,7 @@ article:nth-child(4){
     font-family: $merri;     
     font-size: 13px;
     font-weight: $bold;
-    padding:0 em(10) 0  em(10) ;
+    padding:0 em(10) 0  em(0) ;
     border-right:1px solid $light-gray;
      @include breakpoint($phone){
             font-size: 10px; 
@@ -958,6 +1006,10 @@ article:nth-child(4){
     margin: em(10) 0 em(15) 0;
     text-transform: uppercase;
     vertical-align: middle;
+      @include breakpoint($phone){
+            font-size: 12px; 
+        }
+
 
 }
 
@@ -1011,14 +1063,14 @@ article:nth-child(4){
         font-size: 15px;
         font-weight: $bold;
 
-        height:em(70);
+        /*height:em(70);*/
         font-weight: $bold;
     }
     .article__desciption{
         color: $text;
         font-size: 12px;   
         padding-bottom:10px;
-        height: em(43);
+        /*height: em(43);*/
         position:relative;
         float:left;
     }
@@ -1032,10 +1084,12 @@ article:nth-child(4){
 
     @include span(12);
     @include aspect-ratio(16,9);
+
     /*margin:0em em(10) em(10) 0em;*/
 
     @include breakpoint($small-pc) {
         @include span(6);
+        margin-right: 0;
         padding:0em;
 
     }
@@ -1063,24 +1117,15 @@ article:nth-child(4){
     @include span(12);
     @include aspect-ratio(16,9);
 
- figure {
-        padding-top:49.6%;
-    }
-
-
-  @include breakpoint($phone) {
-        figure {
-        padding-top:56.6%;
-    }
-      }
-
-
-
     @include breakpoint($small-pc) {
         @include span(8);
         padding:0em;
+        margin-right: 0;
         figcontainer{
             height:360px;
+        }
+        figure{
+            padding-top:48.5%;
         }
 
     }
@@ -1123,7 +1168,7 @@ article:nth-child(4){
 
 .ad_big{
     width:em(728) ;
-    height:em(90);
+    height:auto;
     color:$white;
     /*background-color: $light-gray;*/
     text-align:center;
@@ -1134,7 +1179,7 @@ article:nth-child(4){
 
 .ad_mobile{
     width:em(300) ;
-    height:em(250);
+    height:auto;
 
     color:$white;
     /*background-color: $light-gray;*/
@@ -1148,7 +1193,7 @@ article:nth-child(4){
 
 .section_right_ad{
     width:em(300) ;
-    height:em(250);
+    height:auto;
 
     color:$white;
     /*background-color: $light-gray;*/
@@ -1163,7 +1208,7 @@ article:nth-child(4){
 
 .section_center_ad{
     width:em(300) ;
-    height:em(250);
+    height:auto;
     color:$white;
     /*background-color: $light-gray;*/
     text-align:center;
@@ -1241,10 +1286,11 @@ article:nth-child(4){
     border: 1px solid $light-blue;
     background-color: $white;
     color:$light-blue;
-    padding:em(10) em(15) em(10) em(15);
+    padding:em(12) em(25) em(12) em(25);
     font-weight: $bold;
-    font-size: 20px;
+    font-size: em(14);
     margin:em(10);
+    letter-spacing: 1.8px;
     
     @include breakpoint($phone){
         left:0;
@@ -1288,6 +1334,7 @@ article:nth-child(4){
     position:relative;
     float:left;
     margin-top:10px;
+    margin-right: 0;
     @include breakpoint($phone){
         @include span(12);
         padding:10px;
@@ -1311,10 +1358,11 @@ article:nth-child(4){
     position: relative;
     float: left;
     width: 90px;
+    padding-right: 10px;     
+    margin: 0 em(7) 0 em(12);
     border-right: 1px solid #DEDEDE;
-    padding-right: 10px;
     height: 20px;
-    /*margin-top: 2px;*/
+    /*margin-top:;*/
     }
 
     .imagesd img {
@@ -1328,4 +1376,3 @@ article:nth-child(4){
   right: 0;
 
         }
-        

@@ -116,6 +116,7 @@
         font-family: $merri;
         font-weight: $bold;
         font-style: italic;
+        margin-top: em(30);
         @include breakpoint($phone) {
             font-size: 14px;
         }
@@ -293,7 +294,7 @@
 
 @include breakpoint ($phone)
 {
- width:74%;
+ width:73%;
      h5{
         font-size:14px;
      }
