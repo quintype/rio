@@ -154,6 +154,13 @@ class QuintypeClient {
         }, $this->getResponse("/api/v1/stories-by-slug", $params));
     }
 
+   public function relatedStories($story_id) {
+        return array_map(function ($s) {
+            return new Story($s);
+        }, array_slice($this->getResponse("/api/v1/stories/$story_id/related-stories")["related-stories"], 0, 3));
+        //echo "<pre>";
+        //print_r(array_slice($this->getResponse("/api/v1/stories/$story_id/related-stories")["related-stories"], 0, 3));
+    }
 
 
   public function author($params) {

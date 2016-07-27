@@ -56,7 +56,7 @@
         font-weight: $bold;
         color: $grey;
         font-style: italic;
-        margin: em(5) em(0) em(5) em(0);
+        margin: 0.85em em(0) 0.6em em(0);
         @include breakpoint($phone) {
             font-size: 13px;
         }
@@ -67,6 +67,7 @@
         font-weight: $bold;
         color:$grey;
         font-style: italic;
+        margin-bottom: em(20);
         a{ color:#006187;}
         @include breakpoint($phone) {
             font-size: 13px;
@@ -125,7 +126,7 @@
             &:before {
                 content: " ";
                 position: absolute;
-                height: 60%;
+                height: 90%;
                 border-right: em(3) solid $light-blue;
                 left: 1em;
             }
@@ -261,12 +262,11 @@
 /* Author */
 .author{
     width:100%;
-    margin-bottom:em(10);
     position:relative;
     float:left;
     border-top:2px solid $light-gray;
-    padding-top:em(40);
-    margin-top: em(15);
+    padding-top:2em;
+    margin: 2em 0em 1.8em 0;
     &__left{ width:130px; position:relative;float:left;
 
              img{width:130px; height:130px;  } 
@@ -285,11 +285,13 @@
                      padding-top:em(5);
                      color:#026287;
                      padding:em(5) 0 em(5) 0;
+                     text-transform: capitalize;
                  }
                  p{
                      color:$grey !important;
                      font-family: $sans;
                      font-size: em(14);
+
                  }
 
 @include breakpoint ($phone)
@@ -346,22 +348,22 @@
         width: 100%;
         position: relative;
         float:left;
-        margin:em(10) 0 em(10) 0;
+        margin:em(10) 0 em(13) 0;
 
     }
     .storyshare{
 
         position: relative;
         float: left;
-        margin-top: -7px;
+        margin-top: -3px;
         ul {
             margin: 0;
-            padding-left:em(10);
+            padding-left:em(5);
            }
 
             li svg{
-                width: 25px;
-                height:25px;
+                width: 22px;
+                height:22px;
             }
 
  @include breakpoint ($phone){
@@ -409,6 +411,20 @@ display:none;
 
 .textbottom__article__name{
  padding-left:0;
+ font-size: em(16);
+ text-transform: capitalize;
+ border-right: 0px solid #dddddd;
+}
+.textbottom__article--share time{
+    font-size: em(16);
+    margin-top:0px;
+ padding:0;
+    border-right: 0px solid #dddddd;
+        line-height: 19px;
 }
 
+}
+
+.storysectionname{
+margin-top:em(10);
 }

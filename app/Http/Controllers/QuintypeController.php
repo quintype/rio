@@ -26,6 +26,9 @@ class QuintypeController extends Controller {
     }
 
    
+     public function relatedStories($story_id){
+        return $this->client->relatedStories($story_id);
+    }
 
 
 

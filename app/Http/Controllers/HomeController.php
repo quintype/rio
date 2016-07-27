@@ -48,11 +48,15 @@ class HomeController extends QuintypeController {
         $author_data = $this->client->author($story['author-id']);
         // echo "<pre>";print_r($author_data);
 
-        $bulk->addRequest('foodhealth', (new StoriesRequest('top'))->addParams(["section" => "Food & Health", "limit" => 4, "fields" => $fields]));
+        $bulk->addRequest('related_stories', (new StoriesRequest('top'))->addParams(["section" => $story["sections"][0]["name"], "limit" => 4, "fields" => $fields]));
         $bulk->execute($this->client);
+        $abcd=$bulk->getResponse("related_stories");
+
+           // echo "<pre>"; 
+            // print_r($abcd);
 
 
-        return view('story', $this->toView(["storyData" => $story, "food_stories" => $bulk->getResponse("foodhealth"),
+        return view('story', $this->toView(["storyData" => $story, "relatedstories" => $bulk->getResponse("related_stories"),
             "authordata"=>$author_data]));
 
         // return view('story', $this->toView([]));

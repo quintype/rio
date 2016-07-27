@@ -1,17 +1,22 @@
 .statictext{
     padding:1em;
+font-family: $merri; 
     p{ 
         font-family: $merri; 
         padding:em(6) 0 em(6) 0;
         font-size: em(14);
         color:#333333;
+        font-weight: $bold;
+
     }
     .highlight{        
         color: $light-blue;
         text-transform: uppercase;
+        font-family: $merri; 
     }
     @include breakpoint($small-pc) {
         padding:0em;
+        margin-bottom: em(60);
         p{       
             font-size: 16px;
         }
@@ -19,7 +24,18 @@
 
 }
 
+.extrabold{
+    font-weight: $black-weight;
+    i {
+          font-weight: $black-weight; 
+    }
+}
 .about{
+    margin-bottom: em(60);
+  
+    .answer{
+        padding: 0 0 20px 0;
+    }
     .highlights,
     a{        
         color: $question-blue;
@@ -34,9 +50,9 @@
         text-align: center;
         @include breakpoint($small-pc) {
             font-size: 20px;
-            padding-left:2em; 
-            text-align: left;
-
+            padding-left:0em; 
+            text-align: center;
+            font-weight: $bold;
         }
 
 
@@ -46,10 +62,12 @@
         position:relative;
         float:left;
         padding: em(10) 0 em(10) 0;
+        margin-bottom: em(30);
 
         .picture{
             position:relative;
             @include span(3);  
+            margin-right:0;
             text-align: left;
             float:left;
             text-align:center;
@@ -74,6 +92,9 @@
 
             position:relative; 
             float:left;
+            p{
+                font-weight: $regular;
+            }
             @include breakpoint($pc) {
 
                 @include span(9);
@@ -86,14 +107,18 @@
 
 
 
-
 }
 
 
+.allauthors{
+margin:em(30) 0 em(40) 0;
+
+}
 .video{
     height:204px;    
     @include breakpoint($small-pc){
         height:560px;
+        margin-bottom: em(40);
     }
 }
 

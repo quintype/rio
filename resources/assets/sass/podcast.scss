@@ -29,7 +29,7 @@
     padding-right:em(10);
     h5{ letter-spacing: em(1); text-transform: uppercase; display:inline-block;
         padding:em(5) 0 em(5) 0 ;
-        margin:1em 0 1em 0;
+        margin:1em 0 em(25) 0;
         border-bottom:2px solid $orange;
         @include breakpoint($phone) {
             display: none;
@@ -100,7 +100,7 @@
 .author_info{
 
 
-    padding:em(2) 0 em(5) 0;
+    padding:em(20) 0 em(5) 0;
     width:100%;
     position:relative;
     float:left;

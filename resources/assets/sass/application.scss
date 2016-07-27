@@ -415,16 +415,17 @@ margin-top:5px;
     z-index: 1;
     float: left;
     text-align:left;
-    padding-bottom:5%;
+    padding-bottom:7%;
     font-size:em(30);
     line-height: 40px;
+    text-shadow: 2px 2px 4px #333333;
 
     @include breakpoint($phone) {
         bottom:10px;
         font-size:em(16);
         line-height: 20px;
     }
-    .textbottom__article__name{color:$white;}
+    .textbottom__article__name{color:$white; text-transform: capitalize;}
 
 }
 .titletop_small {
@@ -439,6 +440,7 @@ margin-top:5px;
     text-align:left;
     padding-bottom:7%;
     font-size:em(12);
+    text-shadow: 1px 1px 2px #333333;
 }
 
 .sourcetop_left{
@@ -468,6 +470,7 @@ margin-top:5px;
     text-transform: capitalize;
     z-index: 1;
     margin-bottom:10px;
+    letter-spacing: 1.5px;
     @include breakpoint($phone){
         margin-left:15px;
     }
@@ -475,8 +478,8 @@ margin-top:5px;
 
 .uniquesectionname{
     color:$dark-blue;
-    font-size: 16px;
-    padding:5px 0px 5px 0px;
+    font-size: 14px;
+    padding:0px 0px 5px 0px;
     font-weight:$bold;
     letter-spacing: 1.1px;
     text-transform: uppercase;
@@ -555,6 +558,8 @@ section {
 }
 .sectionwrap{
     padding-top:0;
+    position: relative;
+    float: left;
 }
 .unique{
     background-color:#eef6fc;
@@ -575,13 +580,36 @@ section {
 
 .popular{
     padding-bottom: 30px;
-    .textbottom{
+    .wrap .textbottom{
+        padding-left:1.5em;
+    }
+.wrap .textwrap{
+        height:95px;
+    }
+
+}
+
+.wrap{
+ .textbottom{
         padding-left:1em;
     }
 }
 
+.article_right{
+ .textbottom{
+        padding-left:0em;
+    }
+.article__title{
+    font-size: em(16);
+
+}
+
+
+
+}
+
 .uniquesec{
- margin-bottom:30px;
+ margin-bottom:20px;
 
  @include breakpoint ($phone){
     margin-bottom: 5px;
@@ -591,14 +619,16 @@ section {
     color:$heading-blue;
     font-size:18px;
     font-weight:$bold;
-    text-transform:capitalize;
+    
     width:100%; 
     border-bottom: 1px solid $light-gray;
     line-height:0.1em; 
     margin:10px 0 30px 0; 
     text-align:center;
     letter-spacing: 1.5px;
+    text-transform: capitalize;
     span { background:#fff; padding:0 10px 0 0;
+        text-transform:uppercase;
            @include breakpoint($phone){
                padding:0 10px 0 15px;
            }
@@ -641,6 +671,7 @@ section {
 .rightsmall {
     @include span(4 last);
     padding: 0em;
+    margin-bottom: em(15);
     /*background-color: $color5;*/
     @include aspect-ratio(16,9);
     @include breakpoint($phone) {
@@ -787,18 +818,18 @@ article:nth-child(4){
 
 .textwrap {
     margin:em(2) 0 em(5) 0;
-    height: 102px;
+    height: 115px;
     position:relative;
     float: left;
     font-family:$primary-typeface;	
     /*background-color: $color5;*/
 
 }
-.short{height: 85px;}
+.short{height: 105px;}
 
 .wrap .textwrap{
-    padding:em(12);
-    height: 102px;
+    padding:0 em(15) em(15) em(15);
+    height: 115px;
       @include breakpoint($phone){
 height:160px;
 
@@ -842,7 +873,7 @@ height:160px;
     position:absolute;
     float:left;
     font-size:12px;
-    padding:em(10) 0 em(10) 0;
+    padding:em(10) 0 em(20) 0;
     bottom:0;
     margin-left:10px;
     z-index: $zIndex-2;
@@ -868,6 +899,7 @@ height:160px;
         padding-left: em(10);
         padding-right: em(10);
         font-size: 13px;
+        text-transform: capitalize;
 
     }
 
@@ -939,6 +971,7 @@ height:160px;
     position:relative;
     float:left;
     color:$question-blue;
+    text-transform: capitalize;
     display: inline-block;
     font-family: $merri;     
     font-size: 13px;
@@ -964,7 +997,7 @@ height:160px;
     color:$question-blue;
     font-size:18px;
     margin-bottom:10px;
-    padding:em(10) 0 em(10) 0;
+    padding:0 0 em(10) 0;
     float:right;
     text-decoration:underline;
     padding-right:5px;
@@ -976,11 +1009,11 @@ height:160px;
 
 .vedicon img{
     opacity:1;
-    width:40px;
-    height:40px;
+    width:55px;
+    height:55px;
     margin-left:auto;
     margin-right:auto;
-    margin-top:25%;
+    margin-top:21%;
     position:absolute;
 }
 
@@ -1125,7 +1158,7 @@ height:160px;
             height:360px;
         }
         figure{
-            padding-top:48.5%;
+            padding-top:50.5%;
         }
 
     }
@@ -1227,7 +1260,7 @@ height:160px;
     display: none;
 }
 
-.top{ margin-top:em(42); 
+.top{ margin-top:em(32); 
       @include breakpoint($phone){margin-top:em(0);}
 
 }
@@ -1281,6 +1314,7 @@ height:160px;
     display:inline-block;
     position: relative;
     left:25%;
+    margin: em(20) 0 em(20) 0;
 }
 .load_more{
     border: 1px solid $light-blue;
@@ -1307,7 +1341,8 @@ height:160px;
      color:$heading-blue;
     font-size:22px;
     font-weight:$bold;
-        margin: 10px 5px 10px 0px;
+        margin: 20px 5px 15px 0px;
+        letter-spacing: 0.8px;
         @include breakpoint ($phone){
             font-size: 18px;
             margin-left:15px;
@@ -1356,10 +1391,9 @@ height:160px;
 
 .imagesd {
     position: relative;
-    float: left;
-    width: 90px;
+    float: left;    width: 90px;
     padding-right: 10px;     
-    margin: 0 em(7) 0 em(12);
+    margin: 0 em(7) 0 em(7);
     border-right: 1px solid #DEDEDE;
     height: 20px;
     /*margin-top:;*/
