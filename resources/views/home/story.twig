@@ -52,7 +52,7 @@
         {{ storyData["hero-image-attribution"] }}
     </div>
     {% endif %}
-  
+
 
     <div class="story_container">
 <div><span class="article__tag-heading">{{storyData["sections"][0]["name"]}}</span></div>
@@ -87,26 +87,19 @@
             {% include "story/story_elements" with {'storyElements': card['story-elements'] } %}
         {% endfor %}
 
-
-
-
-
         <div class='author'>
             <div class='author__left'>
-
-
-  {%  if authordata['avatar-url'] %}
-<img  src="{{ authordata['avatar-url'] }} " />
+                <h1>{{ storyData['authors']['avatar-url'] }}</h1>
+  {%  if storyData['authors'][0]['avatar-url'] %}
+<img  src="{{ storyData['authors'][0]['avatar-url'] }} "/>
 {% else %}
 
 <img src="{{ assetPath('main/default_author.svg') }}"/>
   {%  endif %}
             </div>
             <div class='author__right'>
-                <h5> {{authordata["name"]}} </h5>
-                <p>
-                    {{ authordata['bio'] }}
-                </p>
+                <h5> {{storyData['authors'][0]['name']}} </h5>
+                <p>{{ storyData['authors'][0]['bio'] }}</p>
             </div>
         </div>
 
@@ -146,7 +139,7 @@
 
     </div><!-- Stoy Container Close -->
 
-
+<div class="story_container">
     <section><!--  Section 5 open-->
         <div class="sectionwrap">
             <div class="sectiontitle left"><span>FOOD & HEALTH</span></div>
@@ -178,3 +171,5 @@
 
         </div>
     </section><!--  Section 5 close-->
+    </div>
+</div>
