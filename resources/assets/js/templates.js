@@ -52,7 +52,7 @@ Twig.extendFunction("shortsummary", function (summary) {
 
 Twig.extendFunction("get_logo", function(key) {
    var data =  {"Atlantic":
-       [{"Logo" : "https://s3.amazonaws.com/third-party-logos/Atlantic-Logo.png",
+       [{"Logo" : "https://s3.amazonaws.com/third-party-logos/atlantic.png",
            "URL": "http://www.theatlantic.com"}],
        "CIR":
            [{"Logo" : "https://s3.amazonaws.com/third-party-logos/CIR-Logo.png",
@@ -76,7 +76,7 @@ Twig.extendFunction("get_logo", function(key) {
            [{"Logo" : "https://s3.amazonaws.com/third-party-logos/HuffPost-US-4xLogos.png",
                "URL": "http://www.huffingtonpost.in"}],
        "Medium":
-           [{"Logo" : "https://s3.amazonaws.com/third-party-logos/Medium-Logo.png",
+           [{"Logo" : "https://s3.amazonaws.com/third-party-logos/medium.png",
                "URL": "https://medium.com"}],
        "MotherJones":
            [{"Logo" : "https://s3.amazonaws.com/third-party-logos/MotherJones-Logo-Horiztonal.png",
