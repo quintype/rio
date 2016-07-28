@@ -27,6 +27,12 @@
 <div class="content top"><!-- content open-->
 
 
+<!-- <div class="your-class">
+  <div>your content</div>
+  <div>your content</div>
+  <div>your content</div>
+</div> -->
+
 {% if storyData["sections"][0]["name"] == "Video" %}
 
    {% include "story/elements/youtube" %}
@@ -37,6 +43,7 @@
 
 {% else %}
     <div class="story_hero">
+
 
         <div class="story_hero__text">
             {{storyData['hero-image-caption']}}

@@ -4,9 +4,8 @@
 
 {% elseif dataElement['subtype'] == "blockquote" %}
     <div class="story-element-blockquote">
-        <blockquote>	{{ dataElement['text'] | raw }}
-        </blockquote>
-    </div>
+        	{{ dataElement['text'] | raw }}
+            </div>
 
 
 {% elseif dataElement['subtype'] == "quote" %}

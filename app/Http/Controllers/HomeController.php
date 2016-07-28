@@ -52,8 +52,11 @@ class HomeController extends QuintypeController {
         $bulk->execute($this->client);
         $abcd=$bulk->getResponse("related_stories");
 
-           // echo "<pre>"; 
-            // print_r($abcd);
+        $pos=array_search($story['id'],$abcd);
+//         echo $pos;
+// echo "<BR>**************".$story['id'];
+//            echo "<pre>"; 
+//             print_r($abcd);
 
 
         return view('story', $this->toView(["storyData" => $story, "relatedstories" => $bulk->getResponse("related_stories"),
