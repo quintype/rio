@@ -44,7 +44,7 @@ main {
     @include breakpoint($phone)
     {
 
-        margin-left:em(5);
+        margin:-2px 0 0 em(2);
     }
 }
 
@@ -53,8 +53,8 @@ main {
     height:28px;
 
     @include breakpoint($phone){
-        width: 130px;
-        height:21px;
+        width: 118px;
+        height:18px;
     }
 }
 
@@ -88,6 +88,20 @@ ul li{
 }
 .patners ul li{ float:left;}
 
+
+.menubar{
+
+@include breakpoint($phone){
+    svg{
+
+height:18px;
+width:18px;
+
+    }
+}
+
+}
+
 nav	{
 
     float:right;
@@ -103,13 +117,14 @@ nav	{
     }
 
 }
+
 .menubarimg{
     display: inline;
     float: left;
     margin-top: 10px;
     cursor:pointer;
     @include breakpoint($phone){
-        margin-left:em(5);
+        
         margin-top:em(14);
 
     }
@@ -227,8 +242,8 @@ nav	{
     @include breakpoint($phone){
         font-size: 9px;
         margin-right:5px;
-        padding:em(5) em(10) em(5) em(10);
-        font-weight: $black-weight;
+        padding:0.8em;
+       
     }
 
 
@@ -245,9 +260,9 @@ nav	{
     cursor:pointer;
     margin-top:-2px;
     @include breakpoint($phone){
-        font-size: 8px;
-        font-weight: $black-weight;
-        padding:em(5) em(10) em(5) em(10);
+        font-size: 9px;
+        padding:0.85em;
+        margin-right: em(7);
     }
 
 
@@ -280,7 +295,7 @@ nav	{
         padding-top:50%;
         @include span(12);
         padding: em(0);
-        margin-bottom:10px;
+        margin-bottom:0.7em;
     }
 
 }
@@ -373,8 +388,8 @@ nav	{
     margin-top:12px;
     padding-left:em(6);
      @include breakpoint($phone) {
-         padding:em(10);
-margin-top:5px;
+         padding:0em 0.625em 0.5em 0.625em;
+margin-top:0px
     }
 
     .sectionname__display {
@@ -412,7 +427,7 @@ margin-top:5px;
     bottom:0;
     color: $white;
     font-weight:$bold;
-    padding:5px 0px 15px 20px;
+    padding:5px 20px 15px 20px;
     font-family:$primary-typeface;	
     z-index: 1;
     float: left;
@@ -423,9 +438,10 @@ margin-top:5px;
     text-shadow: 2px 2px 4px #333333;
 
     @include breakpoint($phone) {
-        bottom:10px;
+        margin-bottom:50px;
         font-size:em(16);
-        line-height: 20px;
+        line-height: 22px;
+        padding:em(10);
     }
     .textbottom__article__name{color:$white; text-transform: capitalize;}
 
@@ -552,8 +568,11 @@ margin-top:5px;
 
 
 section {
+       @include clearfix();
+    @include breakpoint($pc){
     margin-top:10px;
-    @include clearfix();
+     
+    }
 
 }
 .section {
@@ -583,12 +602,19 @@ section {
 
 
 .popular{
+    @include breakpoint($small-pc){
     padding-bottom: 30px;
+
     .wrap .textbottom{
-        padding-left:1.5em;
+        padding-left:1em;
     }
+}    
 .wrap .textwrap{
-        height:95px;
+    @include breakpoint($small-pc){ 
+     height:95px;
+        }
+
+        
     }
 
 }
@@ -638,6 +664,11 @@ section {
            }
 
     }
+
+    @include breakpoint($phone){
+        font-size: em(13);
+               margin:em(10) 0 em(10) 0; 
+           }
 } 
 .patner {
     margin-top:20px;
@@ -735,6 +766,7 @@ section {
 height:auto;
 text-align: center !important;
 float:none;
+padding:0 em(5);
 
         }  
         
@@ -825,22 +857,33 @@ article:nth-child(4){
 
 .textwrap {
     margin:em(2) 0 em(5) 0;
-    height: 115px;
+   
     position:relative;
     float: left;
-    font-family:$primary-typeface;	
+    font-family:$primary-typeface;
+    @include breakpoint($small-pc){	
+     height: 115px;
+        }
     /*background-color: $color5;*/
 
 }
-.short{height: 105px;}
+.short{
+
+    @include breakpoint($small-pc){ 
+     height: 105px;
+        }
+
+    
+}
 
 .wrap .textwrap{
-    padding:0 em(15) em(15) em(15);
-    height: 115px;
-      @include breakpoint($phone){
-height:160px;
+    padding:0 em(15) em(0) em(15);
+    @include breakpoint($small-pc){ 
+     height: 115px;
+     padding:0 em(15) em(15) em(15);
 
         }
+       
 }
 
 .article__title{
@@ -880,12 +923,17 @@ height:160px;
     position:absolute;
     float:left;
     font-size:12px;
-    padding:em(10) 0 em(20) 0;
+    padding:em(10) 0 3em 0;
     bottom:0;
     margin-left:15px;
     z-index: $zIndex-2;
+    height:30px;
     
-   
+
+     @include breakpoint ($phone)
+    {
+        bottom:em(8);
+    }
     
   
     .textbottom__article__name{
@@ -975,6 +1023,7 @@ height:160px;
     font-weight: $bold;
     padding:0 em(10) 0  em(0) ;
     border-right:1px solid $light-gray;
+    margin-top: 1px;
      @include breakpoint($phone){
             font-size: 10px; 
         }
@@ -1026,7 +1075,7 @@ height:160px;
 .article__tag-heading
 {
 
-    font-size: 16px;
+    font-size: em(16);
     font-weight: $bold;   
     letter-spacing: 1.1px;
     padding: em(5) em(10) em(5) em(10);
@@ -1037,7 +1086,7 @@ height:160px;
     text-transform: uppercase;
     vertical-align: middle;
       @include breakpoint($phone){
-            font-size: 12px; 
+            font-size: em(10); 
         }
 
 
@@ -1062,6 +1111,7 @@ height:160px;
         display: inline-block;
         border: 1px solid $grey;
         padding: em(2) em(10);
+        margin-top:em(5);
     }
 
     a {
@@ -1217,7 +1267,7 @@ height:160px;
     font-weight:$bold;
     position:relative;
 
-    margin:em(5) auto em(5) auto;
+    margin:em(16) auto em(16) auto;
     @include breakpoint($pc){display:none;}
 }
 

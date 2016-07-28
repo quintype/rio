@@ -1,7 +1,11 @@
 .statictext{
     padding:1em;
     position: relative;
-    
+
+      @include breakpoint($phone) {
+padding:0px;
+
+      }
 font-family: $merri; 
     p{ 
         font-family: $merri; 

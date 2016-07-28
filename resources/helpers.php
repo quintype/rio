@@ -42,6 +42,10 @@ function shortsummary($summary) {
 }
 
 
+
+
+
+
 function get_logo($key) {
 
     $data = ' {"Atlantic":

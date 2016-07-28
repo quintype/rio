@@ -256,7 +256,9 @@
 
 /* Big Fact*/
 .story-element-bigfact {
-
+position:relative;
+float:left;
+width:100%;
     margin: em(10) 0;
     h2 {
         font-size: em(28);
@@ -314,7 +316,8 @@
 
 @include breakpoint ($phone)
 {
- width:73%;
+ width:72%;
+ padding-left: em(5);
      h5{
         font-size:14px;
      }
@@ -332,7 +335,7 @@
     .storyad
     {
         width:300px;
-        margin:em(20) auto em(0) auto;
+        margin:em(20) auto em(16) auto;
         img{width:100%;}
 
         @include breakpoint ($pc){ width:560px; }
@@ -388,10 +391,12 @@
 
  @include breakpoint ($phone){
  display:block;
- margin-top: -3px;
+ margin-top: 13px;
+ width:100%;
 ul {
             margin: 0;
-            padding-left:em(5);
+            padding-left:em(0);
+            li{ padding:0 1em 0em 0em; }
            }
  }
 
@@ -404,8 +409,8 @@ ul {
         @include breakpoint ($phone){
 
             li svg{
-                width: 20px;
-                height:20px;
+                width: 25px;
+                height:25px;
             }
         }
     }
@@ -431,12 +436,13 @@ display:none;
 
 .textbottom__article__name{
  padding-left:0;
- font-size: em(16);
+ font-size: em(15);
  text-transform: capitalize;
  border-right: 0px solid #dddddd;
+
 }
 .textbottom__article--share time{
-    font-size: em(16);
+    font-size: em(15);
     margin-top:0px;
  padding:0;
     border-right: 0px solid #dddddd;
@@ -447,7 +453,10 @@ display:none;
 }
 
 .storysectionname{
+     @include breakpoint($pc) {
 margin-top:em(10);
+}
+
 }
 .storybottom{
 margin-bottom:em(50);

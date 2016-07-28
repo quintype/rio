@@ -71,7 +71,7 @@
          
         <div class="textbottom__article storybyline">
             <span class="textbottom__article__name">{{ storyData["author-name"] }}</span>
-            <span class="textbottom__article--share"> <time>|  {% set timestamp = (storyData["first-published-at"]// 1000)|round(0, 'floor') %}{{ timestamp|date('M d,Y') }}  |</time></span>
+            <span class="textbottom__article--share"> <time>|  {% set timestamp = (storyData["first-published-at"]// 1000)|round(0, 'floor') %}{{ timestamp|date('M d,Y') }} </time></span>
 
 
             {% include "story/elements/socialshare" %}
@@ -103,7 +103,7 @@
             </div>
             <div class='author__right'>
                 <h5> {{authordata['name']}} </h5>
-                <p>{{ authordata['bio'] }}</p>
+                <p>{{authorbio}}</p>
             </div>
         </div>
 
