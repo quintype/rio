@@ -1,18 +1,21 @@
 .statictext{
     padding:1em;
+    position: relative;
+    
 font-family: $merri; 
     p{ 
         font-family: $merri; 
         padding:em(6) 0 em(6) 0;
         font-size: em(14);
         color:#333333;
-        font-weight: $bold;
+        font-weight: $regular;
 
     }
     .highlight{        
         color: $light-blue;
         text-transform: uppercase;
         font-family: $merri; 
+        font-weight: $bold;
     }
     @include breakpoint($small-pc) {
         padding:0em;
@@ -32,10 +35,16 @@ font-family: $merri;
 }
 .about{
     margin-bottom: em(60);
+     position: relative;
+    
   
     .answer{
         padding: 0 0 20px 0;
+        font-weight: $regular;
     }
+    .highlights{
+     font-weight: $bold;
+         }
     .highlights,
     a{        
         color: $question-blue;
@@ -98,6 +107,8 @@ font-family: $merri;
             @include breakpoint($pc) {
 
                 @include span(9);
+                padding-left:2em;
+
 
             }
 
