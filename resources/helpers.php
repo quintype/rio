@@ -38,7 +38,7 @@ function shortsummary($summary) {
 //  print_r($summary[0]['story-elements']);
 
 
-     return substr($summary, 0, 112);
+     return substr($summary, 0, 100);
 }
 
 

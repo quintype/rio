@@ -33,15 +33,6 @@
   <div>your content</div>
 </div> -->
 
-{% if storyData["sections"][0]["name"] == "Video" %}
-
-   {% include "story/elements/youtube" %}
-
-
-
-
-
-{% else %}
     <div class="story_hero">
 
 
@@ -58,7 +49,7 @@
       <div class="sourcefrom">
         {{ storyData["hero-image-attribution"] }}
     </div>
-    {% endif %}
+
 
 
     <div class="story_container">
