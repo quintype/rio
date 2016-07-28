@@ -46,7 +46,7 @@ class HomeController extends QuintypeController {
 
          // echo "<pre>";  print_r($story);
         $author_data = $this->client->author($story['author-id']);
-        // echo "<pre>";print_r($author_data);
+         // echo "<pre>";print_r($author_data);
 
         $bulk->addRequest('related_stories', (new StoriesRequest('top'))->addParams(["section" => $story["sections"][0]["name"], "limit" => 4, "fields" => $fields]));
         $bulk->execute($this->client);

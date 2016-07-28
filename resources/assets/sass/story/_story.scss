@@ -131,7 +131,7 @@
             &:before {
                 content: " ";
                 position: absolute;
-                height: 90%;
+                height: 97%;
                 border-right: em(3) solid $light-blue;
                 left: 1em;
             }
@@ -441,10 +441,14 @@ display:none;
  padding:0;
     border-right: 0px solid #dddddd;
         line-height: 19px;
+        font-style: italic;
 }
 
 }
 
 .storysectionname{
 margin-top:em(10);
+}
+.storybottom{
+margin-bottom:em(50);
 }
