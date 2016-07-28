@@ -23,7 +23,7 @@ function shortsummary($summary) {
 
 // for($i=0;$i< sizeof($summary);$i++){
 
-//   //echo 
+//   //echo
 
 //    echo  $i."--".sizeof($summary[$i]['story-elements'])."<BR>";
 // for ($k=0;$k<sizeof($summary[$i]['story-elements']);$k++)
@@ -34,7 +34,7 @@ function shortsummary($summary) {
 // }
 
 // }
-   
+
 //  print_r($summary[0]['story-elements']);
 
 
@@ -45,7 +45,7 @@ function shortsummary($summary) {
 function get_logo($key) {
 
     $data = ' {"Atlantic":
-  [{"Logo" : "https://s3.amazonaws.com/third-party-logos/Atlantic-Logo.png",
+  [{"Logo" : "https://s3.amazonaws.com/third-party-logos/atlantic.png",
   "URL": "http://www.theatlantic.com"}],
 "CIR":
   [{"Logo" : "https://s3.amazonaws.com/third-party-logos/CIR-Logo.png",
@@ -69,7 +69,7 @@ function get_logo($key) {
   [{"Logo" : "https://s3.amazonaws.com/third-party-logos/HuffPost-US-4xLogos.png",
   "URL": "http://www.huffingtonpost.in"}],
 "Medium":
-  [{"Logo" : "https://s3.amazonaws.com/third-party-logos/Medium-Logo.png",
+  [{"Logo" : "https://s3.amazonaws.com/third-party-logos/medium.png",
   "URL": "https://medium.com"}],
 "MotherJones":
   [{"Logo" : "https://s3.amazonaws.com/third-party-logos/MotherJones-Logo-Horiztonal.png",
