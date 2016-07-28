@@ -1,0 +1,37 @@
+{% for story in stories %}                       
+  <div class="wrap">
+    <div class="article_left ">
+      <a href="/{{story['slug']}}">
+          <div class="figcontainer">
+              <figure>
+                  <img src="{{focusedImageUrl(story['hero-image-s3-key'] ,config['image-cdn'], [16,9], story['hero-image-metadata'],{w:400} )}}" />
+              </figure>
+              <div class="sourcetop">{{ story['hero-image-attribution'] }}</div>
+          </div>
+      </a>
+    </div>
+    <div class="article_right ">
+      <a href="/{{story['slug']}}">
+        <div class="article__title">{{shorthead(story['headline'])}}</div>
+      </a>
+      {%  if  story['summary'] %}
+        <div class="article__desciption">
+          {{ shortsummary(story['summary'])}}
+        </div>
+      {% endif %}
+      <div class="textbottom">
+        {%  if story['metadata']['story-attributes'] %}
+          <div class="imagesd">
+            <img src="{{  get_logo(story['metadata']['story-attributes']['partnerpublisher'][0] ) }}" />
+          </div>
+        {% endif %}
+        <span><h5 class="textbottom__article__name">{{story['author-name']}}</h5></span>
+        <span class="textbottom__article"> 
+          <time datetime="">
+            {% set timestamp = (story['first-published-at'] / 1000)|round(0, 'floor') %}{{timestamp|date('M d,Y')}}
+          </time>
+        </span>
+      </div> 
+    </div>
+  </div>
+{% endfor %}
