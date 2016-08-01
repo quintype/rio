@@ -66,7 +66,7 @@
 
 
 
-               {% if story["first-published-at"] %}                 
+               {% if storyData["first-published-at"] %}                 
             <span class="textbottom__article--share"> <time>|  
 
             {% set timestamp = (storyData["first-published-at"]// 1000)|round(0, 'floor') %}{{ timestamp|date('M d, Y') }}
