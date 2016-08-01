@@ -89,10 +89,12 @@
                                     </div>
                                 {% endif %}
                                 <span ><h5 class="textbottom__article__name">{{story["author-name"]}} </h5></span>
-                                <span class="textbottom__article"> <time>
+                                <span class="textbottom__article">
+                                    {% if storyData["first-published-at"] %}
+                                    <time>
                                         {% set timestamp = (story["first-published-at"] // 1000)|round(0, 'floor') %}{{timestamp|date('M d,Y')}}
-
                                     </time></span>
+                                {% endif %}
                             </div> <!-- textbottom close -->
                        
                     </div>
@@ -178,8 +180,9 @@
                         <div class="textbottom">
 
                             <span> <h5 class="textbottom__article__name">{{story["author-name"]}}</h5></span>
-
+                            {% if storyData["first-published-at"] %}
                             <span class="textbottom__article"> <time datetime="">{% set timestamp = (story["first-published-at"] // 1000)|round(0, 'floor') %}{{timestamp|date('M d,Y')}}</time></span>
+                            {%  endif %}
                         </div> <!-- textbottom close -->
                     </div><!-- textwrap close -->
 
@@ -219,7 +222,9 @@
                         <div class="textbottom">
 
                             <span> <h5 class="textbottom__article__name">{{story["author-name"]}}</h5></span>
+                            {% if storyData["first-published-at"] %}
                             <span class="textbottom__article"> <time datetime="">{% set timestamp = (story["first-published-at"] //1000)|round(0, 'floor') %}{{timestamp|date('M d,Y')}}</time></span>
+                            {% endif %}
                         </div> <!-- textbottom close -->
                     </div><!-- textwrap close -->
 
@@ -262,8 +267,9 @@
                             <div class="textbottom">
 
                                 <span> <h5 class="textbottom__article__name">{{story["author-name"]}}</h5></span>
-
+                                {% if storyData["first-published-at"] %}
                                 <span class="textbottom__article"> <time datetime="">{% set timestamp = (story["first-published-at"] / 1000)|round(0, 'floor') %}{{timestamp|date('M d,Y')}}</time></span>
+                                {% endif %}
                             </div> <!-- textbottom close -->
                       
                         <div class="articleshare">
@@ -369,7 +375,9 @@
                         <div class="textbottom">
 
                             <span> <h5 class="textbottom__article__name">{{story["author-name"]}}</h5></span>
+                            {% if storyData["first-published-at"] %}
                             <span class="textbottom__article"> <time datetime="">{% set timestamp = (story["first-published-at"] // 1000)|round(0, 'floor') %}{{timestamp|date('M d,Y')}}</time></span>
+                            {%  endif %}
                         </div> <!-- textbottom close -->
                     </div><!-- textwrap close -->
                 </article>

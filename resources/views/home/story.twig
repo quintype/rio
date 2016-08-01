@@ -33,6 +33,12 @@
   <div>your content</div>
 </div> -->
 
+<<<<<<< 2997500c1fda50c3c050ba74b02910602600c1dd
+=======
+   {% include "story/elements/youtube" %}
+
+{% else %}
+>>>>>>> Shireesha : Preview page in itsman is fixed
     <div class="story_hero">
 
 
@@ -56,6 +62,7 @@
 <div class="storysectionname"><span class="article__tag-heading">{{storyData["sections"][0]["name"]}}</span></div>
         <!-- Stoy Header Close -->
         <h1>{{storyData["headline"]}}</h1>
+<<<<<<< 2997500c1fda50c3c050ba74b02910602600c1dd
         
          <div class='story-element-summary'> {{storyData["summary"]}} </div>
 
@@ -63,6 +70,16 @@
         <div class="textbottom__article storybyline">
             <span class="textbottom__article__name">{{ storyData["author-name"] }}</span>
             <span class="textbottom__article--share"> <time>|  {% set timestamp = (storyData["first-published-at"]// 1000)|round(0, 'floor') %}{{ timestamp|date('M d,Y') }} </time></span>
+=======
+
+        <div class="textbottom__article storybyline">
+            <span class="textbottom__article__name">{{ storyData["author-name"] }}</span>
+            <span class="textbottom__article--share"> <time>
+                    {% if storyData["first-published-at"] %}
+                    {% set timestamp = (storyData["first-published-at"]// 1000)|round(0, 'floor') %}{{ timestamp|date('M d,Y') }}
+                    {% endif %}
+                </time></span>
+>>>>>>> Shireesha : Preview page in itsman is fixed
 
 
             {% include "story/elements/socialshare" %}
@@ -70,7 +87,7 @@
 
 
         </div>
-      
+
          {%  if storyData['metadata']['story-attributes'] and storyData['canonical-url'] %}
 
              <div class='story-element-publisher'>This story was <a href="{{  storyData['canonical-url'] }}">originally published</a> by {{ storyData['metadata']['story-attributes']['partnerpublisher'][0] }}.</div> 
@@ -149,6 +166,7 @@
                         </figure>
                         <div class="sourcefrom">{{ story["hero-image-attribution"] }}</div>
                     </div>
+<<<<<<< 2997500c1fda50c3c050ba74b02910602600c1dd
                    <div class="textwrap">
                             
                             <div class="article__title">
@@ -173,6 +191,20 @@
                                     </time></span>
                             </div> <!-- textbottom close -->
                     
+=======
+                    <div class="textwrap">
+                        <div class="article__title">
+                            <a href="/{{ story['slug'] }}">       {{ story["headline"] }} </a>
+                        </div>
+                        <div class="textbottom">
+                            <span> <h5 class="textbottom__article__name">{{ story["author-name"] }}</h5></span>
+                            {% if storyData["first-published-at"] %}
+                            <span class="textbottom__article"> <time
+                                        datetime="">{% set timestamp = (story["first-published-at"]//1000)|round(0, 'floor') %}{{ timestamp|date('M d,Y') }}</time></span>
+                            {% endif %}
+                        </div> <!-- textbottom close -->
+                    </div><!-- textwrap close -->
+>>>>>>> Shireesha : Preview page in itsman is fixed
                     </div>
                 </article>
             {% endfor %}
