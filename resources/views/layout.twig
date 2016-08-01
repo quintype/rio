@@ -6,9 +6,10 @@
         <link rel="stylesheet" type="text/css" href="{{ assetPath("application.css") }}"/>
         <link href="https://d2nx6ydw3e5y5d.cloudfront.net/assets/current.css" media="screen" rel="stylesheet" type="text/css">
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
-        <script type="text/javascript" src="{{ assetPath("application.js") }}"></script>
+ <script type="text/javascript" src="{{ assetPath("application.js") }}"></script>
 
         <script type='text/javascript'>
+        
             var googletag = googletag || {};
             googletag.cmd = googletag.cmd || [];
             (function () {
@@ -242,45 +243,17 @@
 </div> <!-- Footer Close -->
 
 
-
+ 
 <script type="text/javascript">
     var qtConfig = {
         "image-cdn": "{{config("quintype.image-cdn")}}",
         "publisher-name": "{{config("quintype.publisher-name")}}"
     };
 </script>
-
+      
 
 <script src="https://d2nx6ydw3e5y5d.cloudfront.net/assets/current.js" type="text/javascript"></script>
 
-<script type="text/javascript">
-    $(document).ready(function () {
-
-
-
-
-
-$(".menubar").click(function(event){
- event.stopPropagation();
-  $(".menuitems").toggle();
-});
-
-
-
-        $('#search_init,#search_init1').click(function ()
-        {
- event.stopPropagation();
-            $(".nav-search").toggle();
-        });
-
-  $(document).click( function(){
-         $(".menuitems").hide();
-          
-    });
-
-
-    });
-</script>
 <script type="text/javascript">
     app.initQtReady();
 

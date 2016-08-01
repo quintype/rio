@@ -6,18 +6,37 @@ global.app = {
     loadMoreStories: require("./load_more")
 };
 
-require("./jquery.bxSlider");
 
-// require ("./slick.min");
+require("./responsiveslides.min");
 
-// $(document).ready(function(){
-  
-//   $('.your-class').slick({
-//   dots: true,
-//   infinite: true,
-//   speed: 300,
-//   slidesToShow: 1,
-//   adaptiveHeight: true
-// });
+$(document).ready(function(){
+$(".menubar").click(function(event){
+ event.stopPropagation();
+  $(".menuitems").toggle();
+});
 
-// });
+        $('#search_init,#search_init1').click(function ()
+        {
+            
+ event.stopPropagation();
+            $(".nav-search").toggle();
+        });
+
+  $(document).click( function(){
+         $(".menuitems").hide();
+          
+    });
+
+          
+            $(function() {
+    $(".rslides").responsiveSlides(
+
+    	{
+  auto: false,             // Boolean: Animate automatically, true or false
+  pager:true,            // Integer: Speed of the transition, in milliseconds
+  nav: true,      
+}
+);
+  });
+
+    });

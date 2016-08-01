@@ -90,7 +90,8 @@
                                 {% endif %}
                                 <span ><h5 class="textbottom__article__name">{{story["author-name"]}} </h5></span>
                                 <span class="textbottom__article"> <time>
-                                        {% set timestamp = (story["first-published-at"] // 1000)|round(0, 'floor') %}{{timestamp|date('M d,Y')}}
+                                        {% set timestamp = (story["first-published-at"] // 1000)|round(0, 'floor') %}{{timestamp|
+                                        date('d M, Y')}}
 
                                     </time></span>
                             </div> <!-- textbottom close -->
@@ -179,7 +180,7 @@
 
                             <span> <h5 class="textbottom__article__name">{{story["author-name"]}}</h5></span>
 
-                            <span class="textbottom__article"> <time datetime="">{% set timestamp = (story["first-published-at"] // 1000)|round(0, 'floor') %}{{timestamp|date('M d,Y')}}</time></span>
+                            <span class="textbottom__article"> <time datetime="">{% set timestamp = (story["first-published-at"] // 1000)|round(0, 'floor') %}{{timestamp|date('d M, Y')}}</time></span>
                         </div> <!-- textbottom close -->
                     </div><!-- textwrap close -->
 
@@ -219,7 +220,7 @@
                         <div class="textbottom">
 
                             <span> <h5 class="textbottom__article__name">{{story["author-name"]}}</h5></span>
-                            <span class="textbottom__article"> <time datetime="">{% set timestamp = (story["first-published-at"] //1000)|round(0, 'floor') %}{{timestamp|date('M d,Y')}}</time></span>
+                            <span class="textbottom__article"> <time datetime="">{% set timestamp = (story["first-published-at"] //1000)|round(0, 'floor') %}{{timestamp|date('d M, Y')}}</time></span>
                         </div> <!-- textbottom close -->
                     </div><!-- textwrap close -->
 
@@ -263,7 +264,7 @@
 
                                 <span> <h5 class="textbottom__article__name">{{story["author-name"]}}</h5></span>
 
-                                <span class="textbottom__article"> <time datetime="">{% set timestamp = (story["first-published-at"] / 1000)|round(0, 'floor') %}{{timestamp|date('M d,Y')}}</time></span>
+                                <span class="textbottom__article"> <time datetime="">{% set timestamp = (story["first-published-at"] / 1000)|round(0, 'floor') %}{{timestamp|date('d M, Y')}}</time></span>
                             </div> <!-- textbottom close -->
                       
                         <div class="articleshare">
@@ -351,7 +352,7 @@
         <div class="sectionwrap">
             <div class="sectiontitle left"><span>FOOD & HEALTH</span></div>
 
-            {% for story in food_stories|slice(0,4) %}
+            {% for story in food_storiess|slice(0,4) %}
                 <article><!--  Article1 open-->
                     <div class="figcontainer">
 
@@ -369,7 +370,7 @@
                         <div class="textbottom">
 
                             <span> <h5 class="textbottom__article__name">{{story["author-name"]}}</h5></span>
-                            <span class="textbottom__article"> <time datetime="">{% set timestamp = (story["first-published-at"] // 1000)|round(0, 'floor') %}{{timestamp|date('M d,Y')}}</time></span>
+                            <span class="textbottom__article"> <time datetime="">{% set timestamp = (story["first-published-at"] / 1000)|round(0, 'floor') %}{{timestamp|date('d M, Y')}}</time></span>
                         </div> <!-- textbottom close -->
                     </div><!-- textwrap close -->
                 </article>

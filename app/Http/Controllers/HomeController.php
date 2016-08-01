@@ -35,7 +35,7 @@ class HomeController extends QuintypeController {
                     "stories" => $bulk->getResponse("top_stories"),
                     "videos_stories" => $bulk->getResponse("videosstories"),
                     "weather_stories" => $bulk->getResponse("weatherstories"),
-                    "food_stories" => $bulk->getResponse("foodhealth"),
+                    "food_storiess" => $bulk->getResponse("foodhealth"),
                     "breaking_news" => $bulk->getResponse("breaking_news")]));
     }
 
