@@ -69,7 +69,7 @@
                {% if storyData["first-published-at"] %}                 
             <span class="textbottom__article--share"> <time>|  
 
-            {% set timestamp = (storyData["first-published-at"]// 1000)|round(0, 'floor') %}{{ timestamp|date('M d, Y') }}
+            {% set timestamp = (storyData["first-published-at"]// 1000)|round(0, 'floor') %}{{ timestamp|date('d M, Y') }}
 
              </time></span>
  {% endif %}   
