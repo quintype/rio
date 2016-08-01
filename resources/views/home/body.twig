@@ -89,11 +89,11 @@
                                     </div>
                                 {% endif %}
                                 <span ><h5 class="textbottom__article__name">{{story["author-name"]}} </h5></span>
-                                <span class="textbottom__article"> <time>
-                                        {% set timestamp = (story["first-published-at"] // 1000)|round(0, 'floor') %}{{timestamp|
-                                        date('d M, Y')}}
+                                
+                                {% if story["first-published-at"] %}
+                                <span class="textbottom__article"> <time datetime="">{% set timestamp = (story["first-published-at"] / 1000)|round(0, 'floor') %}{{timestamp|date('d M, Y')}}</time></span>
+                                {% endif %}
 
-                                    </time></span>
                             </div> <!-- textbottom close -->
                        
                     </div>
@@ -179,8 +179,12 @@
                         <div class="textbottom">
 
                             <span> <h5 class="textbottom__article__name">{{story["author-name"]}}</h5></span>
+                          
+                                {% if story["first-published-at"] %}
+                                <span class="textbottom__article"> <time datetime="">{% set timestamp = (story["first-published-at"] / 1000)|round(0, 'floor') %}{{timestamp|date('d M, Y')}}</time></span>
+                                {% endif %}
 
-                            <span class="textbottom__article"> <time datetime="">{% set timestamp = (story["first-published-at"] // 1000)|round(0, 'floor') %}{{timestamp|date('d M, Y')}}</time></span>
+
                         </div> <!-- textbottom close -->
                     </div><!-- textwrap close -->
 
@@ -220,7 +224,11 @@
                         <div class="textbottom">
 
                             <span> <h5 class="textbottom__article__name">{{story["author-name"]}}</h5></span>
-                            <span class="textbottom__article"> <time datetime="">{% set timestamp = (story["first-published-at"] //1000)|round(0, 'floor') %}{{timestamp|date('d M, Y')}}</time></span>
+                                {% if story["first-published-at"] %}
+                                <span class="textbottom__article"> <time datetime="">{% set timestamp = (story["first-published-at"] / 1000)|round(0, 'floor') %}{{timestamp|date('d M, Y')}}</time></span>
+                                {% endif %}
+
+
                         </div> <!-- textbottom close -->
                     </div><!-- textwrap close -->
 
@@ -264,7 +272,11 @@
 
                                 <span> <h5 class="textbottom__article__name">{{story["author-name"]}}</h5></span>
 
+                                {% if story["first-published-at"] %}
                                 <span class="textbottom__article"> <time datetime="">{% set timestamp = (story["first-published-at"] / 1000)|round(0, 'floor') %}{{timestamp|date('d M, Y')}}</time></span>
+                                {% endif %}
+
+
                             </div> <!-- textbottom close -->
                       
                         <div class="articleshare">
@@ -370,7 +382,9 @@
                         <div class="textbottom">
 
                             <span> <h5 class="textbottom__article__name">{{story["author-name"]}}</h5></span>
-                            <span class="textbottom__article"> <time datetime="">{% set timestamp = (story["first-published-at"] / 1000)|round(0, 'floor') %}{{timestamp|date('d M, Y')}}</time></span>
+                                {% if story["first-published-at"] %}
+                                <span class="textbottom__article"> <time datetime="">{% set timestamp = (story["first-published-at"] / 1000)|round(0, 'floor') %}{{timestamp|date('d M, Y')}}</time></span>
+                                {% endif %}     
                         </div> <!-- textbottom close -->
                     </div><!-- textwrap close -->
                 </article>

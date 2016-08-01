@@ -12,13 +12,6 @@ SESSION_DRIVER=cookie
 QUEUE_DRIVER=sync
 EOF
 
-# Move this into black knight
-cat > /etc/nginx/sites-enabled/quintype_upstream.conf <<EOF
-upstream quintype_upstream {
-  server sketches.quintype.com;
-}
-EOF
-
 php artisan config:cache
 
 exec /start.sh

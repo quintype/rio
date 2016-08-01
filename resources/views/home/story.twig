@@ -27,13 +27,13 @@
 <div class="content top"><!-- content open-->
 
 
-<!-- 
-<ul class="rslides">
+
+<!-- <ul class="rslides">
   <li><img src="http://images.baklol.com/12_jpeg8d0ee51e9d3465ab6eb08ba0bc75bf47.jpeg" title="test1" alt=""></li>
   <li><img src="http://images.baklol.com/11_jpeg1ca685fc5e04baabb39e65273d0dbfec.jpeg" title="test2" alt=""></li>
   <li><img src="http://images.baklol.com/8_jpeg15618a6119df69cd83b7236941d83516.jpeg" title="test3" alt=""></li>
-</ul>
- -->
+</ul> -->
+
     <div class="story_hero">
 
 
@@ -63,8 +63,16 @@
          
         <div class="textbottom__article storybyline">
             <span class="textbottom__article__name">{{ storyData["author-name"] }}</span>
-            <span class="textbottom__article--share"> <time>|  {% set timestamp = (storyData["first-published-at"]// 1000)|round(0, 'floor') %}{{ timestamp|date('M d, Y') }} </time></span>
 
+
+
+               {% if story["first-published-at"] %}                 
+            <span class="textbottom__article--share"> <time>|  
+
+            {% set timestamp = (storyData["first-published-at"]// 1000)|round(0, 'floor') %}{{ timestamp|date('M d, Y') }}
+
+             </time></span>
+ {% endif %}   
 
             {% include "story/elements/socialshare" %}
 
@@ -168,10 +176,9 @@
                                     </div>
                                 {% endif %}
                                 <span ><h5 class="textbottom__article__name">{{story["author-name"]}} </h5></span>
-                                <span class="textbottom__article"> <time>
-                                        {% set timestamp = (story["first-published-at"] // 1000)|round(0, 'floor') %}{{timestamp|date('d M, Y')}}
-
-                                    </time></span>
+                              {% if story["first-published-at"] %}
+                                <span class="textbottom__article"> <time datetime="">{% set timestamp = (story["first-published-at"] / 1000)|round(0, 'floor') %}{{timestamp|date('d M, Y')}}</time></span>
+                                {% endif %}    
                             </div> <!-- textbottom close -->
                     
                     </div>

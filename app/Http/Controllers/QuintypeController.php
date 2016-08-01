@@ -29,9 +29,7 @@ class QuintypeController extends Controller {
      public function relatedStories($story_id){
         return $this->client->relatedStories($story_id);
     }
-
-
-
+    
 
     public function menuItems() {
         $config = new Config($this->client->config());
