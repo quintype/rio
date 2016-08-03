@@ -16,7 +16,7 @@
                             <figure>
                                 <img src="{{focusedImageUrl(story['hero-image-s3-key'], config['image-cdn'] , [16,9], story['hero-image-metadata'],{w:400} )}}" />
                             </figure>
-                            <div class="sourcetop">{{ story["hero-image-attribution"] }}</div>   </a>
+                            <div class="sourcetop">{{ story["hero-image-attribution"] | raw }}</div>   </a>
                         </div>
                  
                 </div>

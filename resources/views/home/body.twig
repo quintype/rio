@@ -22,7 +22,7 @@
                             <span><h5 class="textbottom__article__name">{{story["author-name"]}}</h5></span>
                         </div> <!-- textbottom close -->
 
-                        <div class="sourcetop_left">{{ story["hero-image-attribution"] }}</div>
+                        <div class="sourcetop_left">{{ story["hero-image-attribution"] | raw }}</div>
 
                         <div style="width:100%;">
                         <figure>
@@ -41,7 +41,7 @@
                         <div class="figcontainer">
                             <h6 class="sectionname__display">{{story['sections'][0]['name']}}</h6>
                             <div class="titletop_small">{{ shorthead(story["headline"]) }}</div>
-                            <div class="sourcetop">{{ story["hero-image-attribution"] }}</div>
+                            <div class="sourcetop">{{ story["hero-image-attribution"] | raw}}</div>
                             <figure>
                                 <img src="{{focusedImageUrl(story['hero-image-s3-key'], config['image-cdn'], [16,9], story['hero-image-metadata'],{w:300})}}" />
 
@@ -68,7 +68,7 @@
                             <figure>
                                 <img src="{{focusedImageUrl(story['hero-image-s3-key'], config['image-cdn'], [16,9], story['hero-image-metadata'], {w: 400})}}" />
                             </figure>
-                            <div class="sourcefrom">{{ story["hero-image-attribution"] }}</div>
+                            <div class="sourcefrom">{{ story["hero-image-attribution"] | raw }}</div>
                         </div>
 
                         <div class="textwrap">
@@ -119,7 +119,7 @@
                     <figure>
                         <span class="sectionname__display">{{story['sections'][0]['name']}}</span>
                         <div class="titletop_small"> {{ shorthead(story["headline"]) }}</div>
-                        <div class="sourcetop">{{ story["hero-image-attribution"] }}</div>
+                        <div class="sourcetop">{{ story["hero-image-attribution"] | raw }}</div>
                         <img src="{{focusedImageUrl(story['hero-image-s3-key'], config['image-cdn'], [16,9], story['hero-image-metadata'], {w:400})}}" />
 
                     </figure>
@@ -168,7 +168,7 @@
                             </a>
                         </figure>
                         <div class="vedicon"><a href="/{{story['slug']}}"> <img src="{{ assetPath('main/video.svg') }}"/> </a></div>
-                        <div class="sourcefrom">{{ story["hero-image-attribution"] }}</div>
+                        <div class="sourcefrom">{{ story["hero-image-attribution"] | raw }}</div>
                     </div>
 
                     <div class="textwrap short">
@@ -214,7 +214,7 @@
                                 <img src="{{focusedImageUrl(story['hero-image-s3-key'], config['image-cdn'], [16,9], story['hero-image-metadata'], {w:400})}}"/>
                             </a>
                         </figure>
-                        <div class="sourcefrom">{{ story["hero-image-attribution"] }}</div>
+                        <div class="sourcefrom">{{ story["hero-image-attribution"] | raw }}</div>
                     </div>
                     <div class="textwrap short">
 
@@ -260,7 +260,7 @@
                                 <img src="{{focusedImageUrl(story['hero-image-s3-key'], config['image-cdn'], [16,9], story['hero-image-metadata'], {w:400})}}" />
                             </a>
                         </figure>
-                        <div class="sourcefrom">{{ story["hero-image-attribution"] }}</div>
+                        <div class="sourcefrom">{{ story["hero-image-attribution"] | raw }}</div>
                         <div class="textwrap">
                         <div class="uniquesectionname">{{story['sections'][0]['name']}} </div>
 
@@ -372,7 +372,7 @@
                             <a href="/{{story['slug']}}">     <img src="{{focusedImageUrl(story['hero-image-s3-key'], config['image-cdn'], [16,9], story['hero-image-metadata'], {w:400})}}"/>
                             </a>
                         </figure>
-                        <div class="sourcefrom">{{ story["hero-image-attribution"] }}</div>
+                        <div class="sourcefrom">{{ story["hero-image-attribution"] | raw }}</div>
                     </div>
                     <div class="textwrap">
 

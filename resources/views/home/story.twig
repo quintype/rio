@@ -38,7 +38,7 @@
 
 
         <div class="story_hero__text">
-            {{storyData['hero-image-caption']}}
+            {{storyData['hero-image-caption'] | raw}}
         </div>
         <figure>
 
@@ -48,7 +48,7 @@
 
     </div>
       <div class="sourcefrom">
-        {{ storyData["hero-image-attribution"] }}
+        {{ storyData["hero-image-attribution"] | raw }}
     </div>
 
 
@@ -156,7 +156,7 @@
                                         src="{{ focusedImageUrl(story['hero-image-s3-key'],config['image-cdn'], [16,9], story['hero-image-metadata'], {w:400}) }}"/>
                             </a>
                         </figure>
-                        <div class="sourcefrom">{{ story["hero-image-attribution"] }}</div>
+                        <div class="sourcefrom">{{ story["hero-image-attribution"] | raw}}</div>
                     </div>
                    <div class="textwrap">
                             
