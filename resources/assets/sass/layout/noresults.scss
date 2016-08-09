@@ -1,0 +1,36 @@
+.noresults{
+  min-height: 200px;
+  margin-bottom: em(100);
+      margin-left: auto;
+    margin-right: auto;
+    width:65%;
+.title{
+    color:$question-blue;
+    padding:20px 20px 0 20px ;
+    font-size:em(30);
+    text-align: center;
+    letter-spacing: 1px;
+    font-weight: 700;
+    font-stretch: condensed;
+    width: 50%;
+    margin: em(50) auto 0 auto;;
+  }
+
+  .text1{
+    font-size: em(16);
+    line-height: em(22);
+    font-weight: 600;
+    color: #7b7b7b;
+    padding:em(15);
+    text-align: center;
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .topbar-search{
+    margin: em(5) auto;
+  }
+  #search-text{
+    float:none;
+  }
+}

@@ -47,7 +47,7 @@ class HomeController extends QuintypeController {
          // echo "<pre>";  print_r($story);
         $author_data = $this->client->author($story['author-id']);
           // echo "<pre>";print_r($author_data);
-$authorbio=strip_tags($author_data['bio']);
+        $authorbio=strip_tags($author_data['bio']);
 
         $bulk->addRequest('related_stories', (new StoriesRequest('top'))->addParams(["section" => $story["sections"][0]["name"], "limit" => 4, "fields" => $fields]));
         $bulk->execute($this->client);
@@ -86,8 +86,15 @@ $authorbio=strip_tags($author_data['bio']);
         //  return view('search', $this->toView([]));
         $query = $request->q;
         $searchedstories = $this->searchStories(array('q' => $query, 'size' => 7));
-        //   print_r($searchedstories);
+        $searchsize=sizeof($searchedstories);
+      
+        if ($searchsize < 1)
+        return view('noresults');
+        else           
         return view('search', $this->toView(["searchresults" => $searchedstories, "term" => $query]));
+
+
+
     }
 
     public function tagsview(Request $request) {
@@ -110,6 +117,15 @@ $authorbio=strip_tags($author_data['bio']);
     public function termsview() {
         return view('terms', $this->toView([]));
     }
+
+      public function errorview() {
+        return view('404');
+    }
+
+
+
+
+
 
 }
 

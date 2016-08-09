@@ -63,3 +63,11 @@ Route::get('/Loadmore', function() {
         return "Ajax Successful";
     }
 });
+
+Route::get('/404', [
+
+    'uses' => 'HomeController@errorview'
+]);
+
+
+
