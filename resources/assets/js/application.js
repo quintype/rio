@@ -32,9 +32,15 @@ $(".menubar").click(function(event){
     $(".rslides").responsiveSlides(
 
     	{
-  auto: false,             // Boolean: Animate automatically, true or false
-  pager:true,            // Integer: Speed of the transition, in milliseconds
-  nav: true,      
+    		auto: false,
+        // pager: true,
+        nav: true,
+        speed: 500,
+        maxwidth: 800,
+        namespace: "centered-btns"
+
+ 
+       
 }
 );
   });
