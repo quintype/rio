@@ -21,7 +21,7 @@
                                 <span><h5 class="textbottom__article__name">{{story["author-name"]}}</h5></span>
                             </div> <!-- textbottom close -->
 
-                            <div class="sourcetop_left">{{ story["hero-image-attribution"] }}</div>
+                            <div class="sourcetop_left">{{ story["hero-image-attribution"] | raw}}</div>
 
 
                             <figure>
@@ -43,7 +43,7 @@
                                     <figure>
                                         <img src="{{focusedImageUrl(story['hero-image-s3-key'],config['image-cdn'], [16,9], story['hero-image-metadata'],{w:400} )}}" />
                                     </figure>
-                                    <div class="sourcefrom">{{ story["hero-image-attribution"] }}</div>
+                                    <div class="sourcefrom">{{ story["hero-image-attribution"] | raw }}</div>
                                 </div>
 
                                 <div class="textwrap">
