@@ -420,7 +420,7 @@ display:none;
     @include breakpoint ($phone){display:block;}
     }
 
-    #map:after{
+    .story-element-embed:after{
 
        content: '';
     position: absolute;
