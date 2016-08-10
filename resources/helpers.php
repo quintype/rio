@@ -42,8 +42,9 @@ function shortsummary($summary) {
 }
 
 
-
-
+function decode64($string) {
+    return base64_decode($string);
+}
 
 
 function get_logo($key) {

@@ -49,6 +49,10 @@ Twig.extendFunction("shortsummary", function (summary) {
     }
 });
 
+Twig.extendFunction("decode64", function(string) {
+   return atob(string);
+});
+
 
 Twig.extendFunction("get_logo", function(key) {
   var data =  {"Atlantic":
