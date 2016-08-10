@@ -1,3 +1,3 @@
 <div id="map">
-  {{dataElement['embed-js'] | decode64 | raw}}
+  {{decode64(dataElement['embed-js']) | raw}}
 </div>
