@@ -55,7 +55,7 @@ class HomeController extends QuintypeController {
 
         $pos=array_search($story['id'],$abcd);
 //         echo $pos;
-// echo "<BR>**************".$story['id'];
+//echo "<BR>**************".$story['metadata']['reference-url'];
 //            echo "<pre>"; 
 //             print_r($abcd);
 
