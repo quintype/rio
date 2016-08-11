@@ -142,7 +142,8 @@ nav	{
     /*top: em(30);*/
     z-index:$zIndex-2;
     display:none;
-    margin-top:18px;
+    margin-top:18px;    
+    z-index: 900;
 
     @include breakpoint($phone){
         margin-left:-6px;
@@ -210,9 +211,14 @@ nav	{
     line-height: 45px;
     ul{
         padding:0;
+
     }
     ul li{
         float:left;
+    }
+    ul:nth-child(1){
+margin-top: -3px;
+
     }
 
     @include breakpoint($tablet){
@@ -652,8 +658,7 @@ section {
 .sectiontitle {	 
     color:$heading-blue;
     font-size:18px;
-    font-weight:$bold;
-    
+    font-weight:$bold;    
     width:100%; 
     border-bottom: 1px solid $light-gray;
     line-height:0.1em; 
@@ -697,6 +702,9 @@ section {
     float:left;
     margin-top:10px;
     margin-bottom:10px;
+    @include breakpoint ($phone){
+        margin-bottom:0;
+    }
 }
 .leftbig {
     @include span(8);
@@ -1116,6 +1124,8 @@ article:nth-child(4){
         border: 1px solid $grey;
         padding: em(2) em(10);
         margin-top:em(5);
+        margin-right:em(5);
+
     }
 
     a {
@@ -1439,6 +1449,7 @@ article:nth-child(4){
     @include breakpoint($phone){
         @include span(12);
         padding:10px;
+         margin-top:0px;
     }
 }
 .sectionsright{

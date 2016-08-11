@@ -27,13 +27,8 @@
 <div class="content top"><!-- content open-->
 
 
-<!-- 
-<ul class="rslides">
-  <li><img src="http://images.baklol.com/12_jpeg8d0ee51e9d3465ab6eb08ba0bc75bf47.jpeg" title="test1" alt=""></li>
-  <li><img src="http://images.baklol.com/11_jpeg1ca685fc5e04baabb39e65273d0dbfec.jpeg" title="test2" alt=""></li>
-  <li><img src="http://images.baklol.com/8_jpeg15618a6119df69cd83b7236941d83516.jpeg" title="test3" alt=""></li>
-</ul>
- -->
+
+
     <div class="story_hero">
 
 
@@ -54,12 +49,21 @@
 
 
     <div class="story_container">
+<!--     <div class="rslides_container">
+    <ul class="rslides">
+  <li><img src="http://images.baklol.com/12_jpeg8d0ee51e9d3465ab6eb08ba0bc75bf47.jpeg" title="test1" alt=""></li>
+  <li><img src="http://images.baklol.com/11_jpeg1ca685fc5e04baabb39e65273d0dbfec.jpeg" title="test2" alt=""></li>
+  <li><img src="http://images.baklol.com/8_jpeg15618a6119df69cd83b7236941d83516.jpeg" title="test3" alt=""></li>
+</ul>
+</div>
+ -->
 <div class="storysectionname"><span class="article__tag-heading">{{storyData["sections"][0]["name"]}}</span></div>
         <!-- Stoy Header Close -->
         <h1>{{storyData["headline"]}}</h1>
         
+         {% if storyData["subheadline"] %}  
          <div class='story-element-summary'> {{storyData["subheadline"]}} </div>
-
+      {% endif %}  
          
         <div class="textbottom__article storybyline">
             <span class="textbottom__article__name">{{ storyData["author-name"] }}</span>
@@ -69,7 +73,7 @@
                {% if storyData["first-published-at"] %}                 
             <span class="textbottom__article--share"> <time>|  
 
-            {% set timestamp = (storyData["first-published-at"]// 1000)|round(0, 'floor') %}{{ timestamp|date('d M, Y') }}
+            {% set timestamp = (storyData["first-published-at"]// 1000)|round(0, 'floor') %}{{ timestamp|date('M j, Y') }}
 
              </time></span>
          {% endif %}   
@@ -142,6 +146,10 @@
 <div class="content storybottom">
     <section > <!--  Section 5 open-->
         <div class="sectionwrap">
+        
+         <h6 class="line-title-story top-title">ABOUT US</h6>
+
+
             <div class="sectiontitle left"><span> MORE FROM {{storyData["sections"][0]["name"]}}</span></div>
             {% for story in relatedstories|slice(0,3) %}
                 <article ><!--  Article1 open-->
