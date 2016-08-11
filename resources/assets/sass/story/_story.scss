@@ -203,7 +203,7 @@
             zoom: 2;
            width:em(12);
            height:em(10); 
-        @include breakpoint($pc) {
+              @include breakpoint($pc) {
             zoom: 3;          
             width: em(12);
             height:em(10);
