@@ -138,6 +138,7 @@
         font-family: $merri;
         font-weight: $bold;
         font-style: italic;
+        margin-left: 0;
         border-left: em(3) solid $light-blue;
 
            /* &:before {
@@ -186,7 +187,7 @@
         font-weight: $bold;
         color: $grey;
         float: left;
-        padding: 1.25em 1.5em;
+        padding: 1.25em 0.5em 1.25em 1.75em;
         font-size: 14px;
 
         p{font-weight:$bold;}
@@ -198,14 +199,14 @@
             left: 0px;
             top: 0;
             background: url("http://xplorethoughts.com/demo/quote.svg")no-repeat center center;
-            background-size: cover;
+            background-size: cover;            
+            zoom: 2;
+           width:em(12);
+           height:em(10); 
+        @include breakpoint($pc) {
+            zoom: 3;          
             width: em(12);
             height:em(10);
-            zoom: 3;
-        @include breakpoint($phone) {
-           height:em(20);
-           height:em(17); 
-
             }
 
         }
