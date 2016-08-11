@@ -25,13 +25,36 @@ function trackStoryElement(event, visible) {
       'story-element-id': event.target.dataset['storyElementId'],
       'story-element-type': event.target.dataset['storyElementType']
     }
-
-    if (event.target.dataset['storyElementAction']) {
-      attributes['story-element-action'] = event.target.dataset['storyElementAction'];
-    }
-
     qlitics('track', 'story-element-view', attributes);
   }
 }
 
-module.exports = setup;
+function trackYouTubeStoryElement(event) {
+  var iframe = event.target.getIframe(),
+      action;
+
+  var storyElement = $(iframe).closest('.story-element-view');
+  var attributes = {
+    'story-content-id': $('.story-view').data('story-content-id'),
+    'story-version-id': $('.story-view').data('story-version-id'),
+    'card-content-id': storyElement.data('card-content-id'),
+    'card-version-id': storyElement.data('card-version-id'),
+    'story-element-id': storyElement.data('story-element-id'),
+    'story-element-type': storyElement.data('story-element-type')
+  }
+  switch(event.data) {
+  case YT.PlayerState.PLAYING: action = 'play';     break;
+  case YT.PlayerState.PAUSED:  action = 'pause';    break;
+  case YT.PlayerState.ENDED:   action = 'complete'; break;
+  }
+  if (action) {
+    attributes['story-element-action'] = action;
+    qlitics('track', 'story-element-view', attributes);
+  }
+}
+
+
+module.exports = {
+  setup: setup,
+  trackYouTubeStoryElement: trackYouTubeStoryElement
+};

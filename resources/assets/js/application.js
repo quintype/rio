@@ -19,17 +19,17 @@ $(".menubar").click(function(event){
 
         $('#search_init,#search_init1').click(function ()
         {
-            
+
  event.stopPropagation();
             $(".nav-search").toggle();
         });
 
   $(document).click( function(){
          $(".menuitems").hide();
-          
+
     });
 
-          
+
             $(function() {
     $(".rslides").responsiveSlides(
 

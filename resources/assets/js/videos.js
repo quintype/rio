@@ -1,5 +1,6 @@
+var analytics = require('./analytics.js');
 function handleYoutubePlayerStateChange(event) {
-  console.log('change');
+  analytics.trackYouTubeStoryElement(event);
 }
 
 function loadEagerPlayers($storyEl) {
@@ -16,6 +17,7 @@ function loadYoutubeLibrary() {
 
 function setupYoutubeVideo() {
   $('[data-youtube-id]').each(function(i, el) {
+    console.log('here')
     var $el = $(el),
         videoId = $el.data('youtubeId'),
         player = {
@@ -30,6 +32,10 @@ function setupYoutubeVideo() {
             }
           }
         };
+    $el
+      .data('player', player)
+      .attr('data-loader', 'youtube')
+      .addClass('eager');
   });
 }
 
