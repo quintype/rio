@@ -68,6 +68,3 @@ Route::get('/404', [
 
     'uses' => 'HomeController@errorview'
 ]);
-
-
-

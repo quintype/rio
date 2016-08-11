@@ -3,7 +3,9 @@ global.app = {
     initQtReady: require("./qt_ready"),
     startHomePreview: require("./home_preview"),
     startStoryPreview: require("./story_preview"),
-    loadMoreStories: require("./load_more")
+    loadMoreStories: require("./load_more"),
+    analytics: require("./analytics.js"),
+    videos: require("./videos.js")
 };
 
 
@@ -39,8 +41,8 @@ $(".menubar").click(function(event){
         maxwidth: 800,
         namespace: "centered-btns"
 
- 
-       
+
+
 }
 );
   });

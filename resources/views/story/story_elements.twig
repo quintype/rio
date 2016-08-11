@@ -1,5 +1,10 @@
 
 {% for element in storyElements %}
+  <div class="story-element-view"
+       data-card-content-id="{{ card['content-id'] }}"
+       data-card-version-id="{{ card['content-version-id'] }}"
+       data-story-element-id="{{ element['id'] }}"
+       data-story-element-type="{{ element['type'] }}">
     {% set elType = element['type'] %}
     {% if elType == "text" %}
         {% include "story/elements/text" with {'dataElement': element } %}
@@ -22,4 +27,5 @@
         {% include "story/elements/images" with {'dataElement': element } %}
 
     {% endif %}
-{% endfor %}	
+  </div>
+{% endfor %}

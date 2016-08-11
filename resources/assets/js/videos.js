@@ -1,0 +1,39 @@
+function handleYoutubePlayerStateChange(event) {
+  console.log('change');
+}
+
+function loadEagerPlayers($storyEl) {
+  $('[data-youtube-id].eager', $storyEl).each(function(i, el) {
+    var player = $(el).data('player');
+    new window.YT.Player(player.id, player.params);
+  });
+}
+
+function loadYoutubeLibrary() {
+    window.onYouTubeIframeAPIReady = loadEagerPlayers;
+    $("#youtube-iframe-api").append("<script src='https://www.youtube.com/iframe_api'></script>");
+}
+
+function setupYoutubeVideo() {
+  $('[data-youtube-id]').each(function(i, el) {
+    var $el = $(el),
+        videoId = $el.data('youtubeId'),
+        player = {
+          id: el,
+          params: {
+            videoId: videoId,
+            playerVars: {
+              autoplay: false
+            },
+            events: {
+              onStateChange: handleYoutubePlayerStateChange
+            }
+          }
+        };
+  });
+}
+
+module.exports = {
+  setupYoutubeVideo: setupYoutubeVideo,
+  loadYoutubeLibrary: loadYoutubeLibrary
+};
