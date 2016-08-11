@@ -47,53 +47,69 @@ function decode64($string) {
 }
 
 
-function get_logo($key) {
+function get_logo($key,$p) {
 
     $data = ' {"Atlantic":
   [{"Logo" : "https://s3.amazonaws.com/third-party-logos/atlantic.png",
-  "URL": "http://www.theatlantic.com"}],
+  "URL": "http://www.theatlantic.com",
+  "Partnername": "Atlantic"
+}],
 "CIR":
   [{"Logo" : "https://s3.amazonaws.com/third-party-logos/CIR-Logo.png",
-  "URL": ""}],
+  "URL": "",
+"Partnername": ""}],
 "CityLab":
   [{"Logo" : "https://s3.amazonaws.com/third-party-logos/CityLab-Logo.png",
-  "URL": "http://www.citylab.com"}],
+  "URL": "http://www.citylab.com",
+"Partnername": "CityLab"}],
 "ClimateDesk":
   [{"Logo" : "https://s3.amazonaws.com/third-party-logos/ClimateDesk_logo.png",
-  "URL": "http://climatedesk.org"}],
+  "URL": "http://climatedesk.org",
+"Partnername": "Climate Desk"}],
 "Fusion":
   [{"Logo" : "https://s3.amazonaws.com/third-party-logos/Fusion-Logo-Horiztonal.png",
-  "URL": "http://fusion.net"}],
+  "URL": "http://fusion.net",
+"Partnername": "Fusion"}],
 "Grist":
   [{"Logo" : "https://s3.amazonaws.com/third-party-logos/Grist-Logo.png",
-  "URL": "https://grist.org"}],
+  "URL": "https://grist.org",
+"Partnername": "Grist"}],
 "Guardian":
   [{"Logo" : "https://s3.amazonaws.com/third-party-logos/Guardian-Logo.png",
-  "URL": "https://www.theguardian.com"}],
+  "URL": "https://www.theguardian.com",
+"Partnername": "The Guardian"}],
 "HuffPost":
   [{"Logo" : "https://s3.amazonaws.com/third-party-logos/HuffPost-US-4xLogos.png",
-  "URL": "http://www.huffingtonpost.in"}],
+  "URL": "http://www.huffingtonpost.in",
+"Partnername": "The Huffington Post"}],
 "Medium":
   [{"Logo" : "https://s3.amazonaws.com/third-party-logos/medium.png",
-  "URL": "https://medium.com"}],
+  "URL": "https://medium.com",
+"Partnername": "Medium"}],
 "MotherJones":
   [{"Logo" : "https://s3.amazonaws.com/third-party-logos/MotherJones-Logo-Horiztonal.png",
-  "URL": "http://www.motherjones.com"}],
+  "URL": "http://www.motherjones.com",
+"Partnername": "Mother Jones"}],
 "NewRepublic":
   [{"Logo" : "https://s3.amazonaws.com/third-party-logos/NewRepublic-Logo.png",
-  "URL": "https://newrepublic.com"}],
+  "URL": "https://newrepublic.com",
+"Partnername": "New Republic"}],
 "NewsWeek":
   [{"Logo" : "https://s3.amazonaws.com/third-party-logos/Newsweek-Logo.png",
-  "URL": "http://www.newsweek.com"}],
+  "URL": "http://www.newsweek.com",
+"Partnername": "Newsweek"}],
 "Reveal":
   [{"Logo" : "https://s3.amazonaws.com/third-party-logos/Reveal-Logo-1.png",
-  "URL": "https://www.revealnews.org"}],
+  "URL": "https://www.revealnews.org",
+"Partnername": "Reveal from the Center for Investigative Reporting"}],
 "Slate":
   [{"Logo" : "https://s3.amazonaws.com/third-party-logos/Slate-Logo.png",
-  "URL": "http://www.slate.com"}],
+  "URL": "http://www.slate.com",
+"Partnername": "Slate"}],
 "Wired":
   [{"Logo" : "https://s3.amazonaws.com/third-party-logos/Wired-Logo.png",
-  "URL": "http://www.wired.com"}]
+  "URL": "http://www.wired.com",
+"Partnername": "Wired"}]
 }';
 
 
@@ -102,7 +118,7 @@ function get_logo($key) {
 //print_r($s);
 
     if ($key != "")
-        echo $s["$key"][0]['Logo'];
+        echo $s["$key"][0]["$p"];
     else
         echo "";
 }

@@ -35,7 +35,7 @@
                     <div class="textbottom">
                         {%  if story['metadata']['story-attributes'] %}
                              <div class="imagesd">
-                                        <img src="{{  get_logo(story['metadata']['story-attributes']['partnerpublisher'][0] ) }}" />
+                                        <img src="{{  get_logo(story['metadata']['story-attributes']['partnerpublisher'][0], 'Logo') }}" />
                                     </div>
                         {% endif %}
                         <span><h5 class="textbottom__article__name">{{story["author-name"]}}</h5></span>
