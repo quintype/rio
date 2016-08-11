@@ -182,7 +182,8 @@ return [
             'focusedImageUrl',
             'get_logo',
             'shorthead',
-            'shortsummary'
+            'shortsummary',
+            'decode64'
         ],
 
         /*

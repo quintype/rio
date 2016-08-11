@@ -362,25 +362,6 @@ margin-top: -3px;
     background: linear-gradient(to bottom, transparent 0%, transparent 80%, rgba(0,0,0,0.7) 100%);
 }
 
-
-
-#map{position:relative;}
-
-
-#map:after{
-
-       content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: linear-gradient(to bottom, transparent 0%, transparent 0%, rgba(0,0,0,0) 100%);
-
-}
-
-
-
 .rightcontainer{
     @include span(3 last);
     @include aspect-ratio(16,9);
