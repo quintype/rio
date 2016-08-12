@@ -12,6 +12,7 @@ function trackStory(event, visible) {
     qlitics('track', 'story-view', {
       'story-content-id': storyContentId,
     });
+    $('.story-view').unbind('inview');
   }
 }
 
@@ -26,6 +27,7 @@ function trackStoryElement(event, visible) {
       'story-element-type': event.target.dataset['storyElementType']
     }
     qlitics('track', 'story-element-view', attributes);
+    $('div.author').bind('inview', unbindStoryElementEvent);
   }
 }
 
@@ -42,17 +44,24 @@ function trackYouTubeStoryElement(event) {
     'story-element-id': storyElement.data('story-element-id'),
     'story-element-type': storyElement.data('story-element-type')
   }
+
   switch(event.data) {
   case YT.PlayerState.PLAYING: action = 'play';     break;
   case YT.PlayerState.PAUSED:  action = 'pause';    break;
   case YT.PlayerState.ENDED:   action = 'complete'; break;
   }
+
   if (action) {
     attributes['story-element-action'] = action;
     qlitics('track', 'story-element-view', attributes);
   }
 }
 
+function unbindStoryElementEvent(event, visible) {
+  if (visible) {
+    $('.story-element-view').unbind('inview');
+  }
+}
 
 module.exports = {
   setup: setup,
