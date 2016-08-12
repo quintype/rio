@@ -3,7 +3,9 @@ global.app = {
     initQtReady: require("./qt_ready"),
     startHomePreview: require("./home_preview"),
     startStoryPreview: require("./story_preview"),
-    loadMoreStories: require("./load_more")
+    loadMoreStories: require("./load_more"),
+    analytics: require("./analytics.js"),
+    videos: require("./videos.js")
 };
 
 
@@ -16,16 +18,16 @@ $(".menubar").click(function(event){
 });
 
         $('#search_init,#search_init1').click(function ()
-        {            
- event.stopPropagation();
+        {
+            event.stopPropagation();
             $(".nav-search").toggle();
         });
 
   $(document).click( function(){
          $(".menuitems").hide();
-          
+
     });
-          
+
             $(function() {
     $(".rslides").responsiveSlides(
 
@@ -37,8 +39,8 @@ $(".menubar").click(function(event){
         maxwidth: 800,
         namespace: "centered-btns"
 
- 
-       
+
+
 }
 );
   });

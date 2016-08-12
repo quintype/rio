@@ -23,12 +23,11 @@ class HomeController extends QuintypeController {
 
         $bulk->execute($this->client);
 
-
         $a = $bulk->getResponse("breaking_news");
-         // echo "<pre>"; print_r($a);
 
         return view('home', $this->toView([
                     "stories" => $bulk->getResponse("top_stories"),
+                    "page" => ["type" => "home"],
                     "videos_stories" => $bulk->getResponse("videosstories"),
                     "weather_stories" => $bulk->getResponse("weatherstories"),
                     "food_storiess" => $bulk->getResponse("foodhealth"),
@@ -50,22 +49,16 @@ class HomeController extends QuintypeController {
         $abcd=$bulk->getResponse("related_stories");
 
         $pos=array_search($story['id'],$abcd);
-//         echo $pos;
-//echo "<BR>**************".$story['metadata']['reference-url'];
-//            echo "<pre>"; 
-//             print_r($abcd);
 
-
-        return view('story', $this->toView(["storyData" => $story, "relatedstories" => $bulk->getResponse("related_stories"),
+        return view('story', $this->toView(["storyData" => $story, "page" => ["type" => "story"], "relatedstories" => $bulk->getResponse("related_stories"),
             "authordata"=>$author_data,"authorbio"=>$authorbio]));
 
-        // return view('story', $this->toView([]));
     }
 
     public function sectionview($section) {
 
  $fields = "id,headline,slug,url,hero-image-s3-key,hero-image-metadata,first-published-at,last-published-at,alternative,published-at,author-name,author-id,sections,story-template,summary,metadata,hero-image-attribution,cards";
- 
+
         $config = $this->client->config();
         $sections = $config['sections'];
         $cur_section = $sections[array_search($section, array_column($sections, 'slug'), true)];
@@ -73,9 +66,9 @@ class HomeController extends QuintypeController {
         $stories = $this->getStories($params);
         // echo"<pre>";   print_r($stories);
         if ($cur_section['name'] != 'Inquiring Minds')
-            return view('section', $this->toView(["section" => $cur_section, "section_stories" => $stories, "params" => $params]));
+            return view('section', $this->toView(["section" => $cur_section, "page" => ["type" => "section"], "section_stories" => $stories, "params" => $params]));
         else
-            return view('podcasts', $this->toView(["section" => $cur_section, "section_stories" => $stories, "params" => $params]));
+            return view('podcasts', $this->toView(["section" => $cur_section, "page" => ["type" => "section"], "section_stories" => $stories, "params" => $params]));
     }
 
     public function searchview(Request $request) {
@@ -83,11 +76,11 @@ class HomeController extends QuintypeController {
         $query = $request->q;
         $searchedstories = $this->searchStories(array('q' => $query, 'size' => 7));
         $searchsize=sizeof($searchedstories);
-      
+
         if ($searchsize < 1)
         return view('noresults');
-        else           
-        return view('search', $this->toView(["searchresults" => $searchedstories, "term" => $query]));
+        else
+            return view('search', $this->toView(["searchresults" => $searchedstories, "page" => ["type" => "search"], "term" => $query]));
 
 
 
@@ -99,29 +92,24 @@ class HomeController extends QuintypeController {
         $a = explode("/", $_SERVER['REQUEST_URI']);
         $tag = $a[sizeof($a) - 1];
         $tagStories = $this->getStories(array('story-group' => 'top', 'tag' => $tag, 'limit' => 7));
-        return view('tags', $this->toView(["tagresults" => $tagStories, "tag" => $tag]));
+        return view('tags', $this->toView(["tagresults" => $tagStories, "page" => ["type" => "topic"], "tag" => $tag]));
     }
 
     public function aboutview() {
-        return view('about', $this->toView([]));
+        return view('about', $this->toView(["page" => ["type" => "about"]]));
     }
 
     public function privacyview() {
-        return view('privacy', $this->toView([]));
+        return view('privacy', $this->toView(["page" => ["type" => "privacy"]]));
     }
 
     public function termsview() {
-        return view('terms', $this->toView([]));
+        return view('terms', $this->toView(["page" => ["type" => "terms"]]));
     }
 
       public function errorview() {
         return view('404');
     }
-
-
-
-
-
 
 }
 

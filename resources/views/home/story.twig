@@ -24,14 +24,8 @@
 
 
 </script>
-<div class="content top"><!-- content open-->
-
-
-
-
+<div class="content top story-view" data-story-content-id="{{ storyData['id'] }}" data-story-version-id="{{ storyData['story-version-id'] }}"><!-- content open-->
     <div class="story_hero">
-
-
         <div class="story_hero__text">
             {{storyData['hero-image-caption'] | raw}}
         </div>
@@ -46,7 +40,7 @@
         {{ storyData["hero-image-attribution"] | raw }}
     </div>
 
-    
+
 
     <div class="story_container">
 <!--     <div class="rslides_container">
@@ -60,25 +54,27 @@
 <div class="storysectionname"><span class="article__tag-heading">{{storyData["sections"][0]["name"]}}</span></div>
         <!-- Stoy Header Close -->
         <h1>{{storyData["headline"]}}</h1>
-        
+
          {% if storyData["subheadline"] %}  
          <div class='story-element-subtitle'><span> {{storyData["subheadline"] | striptags |raw }}  </span></div>
       {% endif %}  
          
+
         <div class="textbottom__article storybyline">
             <span class="textbottom__article__name">{{ storyData["author-name"] }}</span>
 
 
 
-               {% if storyData["first-published-at"] %}                 
-            <span class="textbottom__article--share"> <time>|  
+               {% if storyData["first-published-at"] %}
+            <span class="textbottom__article--share"> <time>|
 
             {% set timestamp = (storyData["first-published-at"]// 1000)|round(0, 'floor') %}{{ timestamp|date('M j, Y') }}
 
              </time></span>
-         {% endif %}   
+         {% endif %}
             {% include "story/elements/socialshare" %}
         </div>
+
       
 
 <div class="publisher_info">
@@ -100,12 +96,12 @@
 
 
         {% for card in storyData['cards'] %}
-            {% include "story/story_elements" with {'storyElements': card['story-elements'] } %}
+            {% include "story/story_elements" with {'storyElements': card['story-elements'], 'card': card} %}
         {% endfor %}
 
         <div class='author'>
             <div class='author__left'>
-               
+
   {%  if authordata['avatar-url'] %}
 <img  src="{{ authordata['avatar-url'] }} "/>
 {% else %}
@@ -158,8 +154,6 @@
 <div class="content storybottom">
     <section > <!--  Section 5 open-->
         <div class="sectionwrap">
-        
-         
 
             <div class="sectiontitle left"><span> MORE FROM {{storyData["sections"][0]["name"]}}</span></div>
             {% for story in relatedstories|slice(0,3) %}
@@ -174,7 +168,7 @@
                         <div class="sourcefrom">{{ story["hero-image-attribution"] | raw}}</div>
                     </div>
                    <div class="textwrap">
-                            
+
                             <div class="article__title">
                                <a href="/{{ story['slug'] }}">  {{  shorthead(story["headline"]) }}</a>
                             </div>
@@ -193,15 +187,23 @@
                                 <span ><h5 class="textbottom__article__name">{{story["author-name"]}} </h5></span>
                               {% if story["first-published-at"] %}
                                 <span class="textbottom__article"> <time datetime="">{% set timestamp = (story["first-published-at"] / 1000)|round(0, 'floor') %}{{timestamp|date('d M, Y')}}</time></span>
-                                {% endif %}    
+                                {% endif %}
                             </div> <!-- textbottom close -->
-                    
+
                     </div>
                 </article>
             {% endfor %}
 
 
         </div>
+	<div id="youtube-iframe-api"></div>
     </section><!--  Section 5 close-->
+    <script>
+       qtReady.push(function() {
+	 app.videos.setupYoutubeVideo();
+	 app.videos.loadYoutubeLibrary();
+	 app.analytics.setup();
+       })
+    </script>
     </div>
 <!-- </div> -->
