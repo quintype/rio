@@ -16,8 +16,7 @@ $(".menubar").click(function(event){
 });
 
         $('#search_init,#search_init1').click(function ()
-        {
-            
+        {            
  event.stopPropagation();
             $(".nav-search").toggle();
         });
@@ -26,7 +25,6 @@ $(".menubar").click(function(event){
          $(".menuitems").hide();
           
     });
-
           
             $(function() {
     $(".rslides").responsiveSlides(

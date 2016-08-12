@@ -45,7 +45,13 @@ Twig.extendFunction("shorthead", function (headline) {
 
 Twig.extendFunction("shortsummary", function (summary) {
     if (summary != null) {
-        return summary.substring(0, 112);
+      if (summary.length>100){
+var description=summary.substring(0, 112)+'...';
+}
+else 
+var description= summary;
+
+        return description;
     }
 });
 

@@ -1,0 +1,17 @@
+
+{% if dataElement['metadata']['type'] == 'slideshow' %}
+
+<div class="rslides_container">
+    <ul class="rslides">
+    {% set elements = dataElement['story-elements'] %}
+ {% for element in elements %}
+ 	 <img src="http://qt-staging-01.imgix.net/{{ element['image-s3-key'] }}">
+ {% endfor %}
+	 
+	</ul>
+</div>
+{% endif %}
+
+
+
+

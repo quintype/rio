@@ -641,19 +641,21 @@ section {
     font-size:18px;
     font-weight:$bold;    
     width:100%; 
-    line-height:1.5em;
+
     border: 0;
     margin:10px 0 30px 0; 
     text-align:center;
     letter-spacing: 1.5px;
     text-transform: capitalize;
+     line-height:0.1em;
+    border-bottom: 1px solid $light-gray;
+
     span { background:#fff; padding:0 10px 0 0;
         text-transform:uppercase;
            @include breakpoint($pc){
                /*padding:0 10px 0 15px;*/
                
-                 line-height:0.1em;
-border-bottom: 1px solid $light-gray;
+  
            }
 
     }
@@ -661,6 +663,8 @@ border-bottom: 1px solid $light-gray;
     @include breakpoint($phone){
         font-size: em(13);
                margin:em(10) 0 em(10) 0; 
+                   line-height:1.5em;
+border:0;
            }
 } 
 .patner {
@@ -1466,7 +1470,10 @@ article:nth-child(4){
   
     height: 30px;
     /*margin-top:;*/
+   
+
     }
+
 
 .imagesd:after {
     content: '';
@@ -1476,6 +1483,9 @@ article:nth-child(4){
     margin-top: -25px;
     height: 20px;
     border-right: 1px solid #DEDEDE;   
+    @include breakpoint ($phone){
+        margin-top: -20px;
+    }
     }
 
     .imagesd img {
@@ -1490,3 +1500,10 @@ article:nth-child(4){
   margin-right: 0px;
 
         }
+
+.storypartner{
+    height:36px !important;
+    @include breakpoint ($phone){
+        height:25px !important;
+    }
+}

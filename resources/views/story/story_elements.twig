@@ -10,7 +10,9 @@
     {% elseif elType == "jsembed" %}
 
         {% include "story/elements/location" with {'dataElement': element } %}
-
+  {% elseif elType  == 'composite' %}
+    {% include 'story/elements/storyslideshow' with {'dataElement': element } %}
+    <!-- <span>teststesdfsdfg******************************</span>> -->
 
     {% elseif elType == "q-and-a" %}
         {% include "story/elements/questionandanswer" with {'dataElement': element } %}

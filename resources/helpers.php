@@ -17,28 +17,13 @@ function shorthead($headline) {
 }
 
 function shortsummary($summary) {
+if (strlen($summary)>100){
+$description=substr($summary, 0, 100)."...";
+}
+else 
+$description= $summary;
 
-// //echo sizeof($summary);
-//   $summary_text="";
-
-// for($i=0;$i< sizeof($summary);$i++){
-
-//   //echo
-
-//    echo  $i."--".sizeof($summary[$i]['story-elements'])."<BR>";
-// for ($k=0;$k<sizeof($summary[$i]['story-elements']);$k++)
-// {
-// echo $summary[$i]['story-elements'][$k]["subtype"]."<BR>";
-// if($summary[$i]['story-elements'][$k]["subtype"]=="summary")
-// $summary_text = $summary[$i]['story-elements'][$k]['text'];
-// }
-
-// }
-
-//  print_r($summary[0]['story-elements']);
-
-
-     return substr($summary, 0, 100);
+     return $description;
 }
 
 

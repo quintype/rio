@@ -62,7 +62,7 @@
         <h1>{{storyData["headline"]}}</h1>
         
          {% if storyData["subheadline"] %}  
-         <div class='story-element-summary'> {{storyData["subheadline"]}} </div>
+         <div class='story-element-subtitle'><span> {{storyData["subheadline"] | striptags |raw }}  </span></div>
       {% endif %}  
          
         <div class="textbottom__article storybyline">
@@ -80,11 +80,23 @@
             {% include "story/elements/socialshare" %}
         </div>
       
-         {%  if storyData['metadata']['story-attributes'] and storyData['metadata']['reference-url'] %}
 
-             <div class='story-element-publisher'>This story was <a href="{{  storyData['metadata']['reference-url'] }}">originally published</a> by {{ get_logo(storyData['metadata']['story-attributes']['partnerpublisher'][0], 'Partnername' ) }}.</div> 
+<div class="publisher_info">
+         {%  if storyData['metadata']['story-attributes'] and storyData['metadata']['reference-url'] %}
+ {%  if storyData['metadata']['story-attributes'] %}
+                        <div class="imagesd storypartner">
+                                        <img src="{{  get_logo(storyData['metadata']['story-attributes']['partnerpublisher'][0], 'Logo' ) }}" /> 
+                                    </div>                           
+                        {% endif %}
+
+             <div class='story-element-publisher'>
+                        
+
+             This story was <a target="_blank" href="{{  storyData['metadata']['reference-url'] }}">originally published</a> by {{ get_logo(storyData['metadata']['story-attributes']['partnerpublisher'][0], 'Partnername' ) }}.</div> 
 
             {% endif %}
+
+            </div>
 
 
         {% for card in storyData['cards'] %}
@@ -137,7 +149,7 @@
         </div>
 
         <div class="storyad">
-          <a href="/section/inquiring-minds">  <img  src="{{ assetPath('main/ad.png') }}" /> </a>
+          <a target="_blank" href="/section/inquiring-minds">  <img  src="{{ assetPath('main/ad.png') }}" /> </a>
         </div>
 
 
