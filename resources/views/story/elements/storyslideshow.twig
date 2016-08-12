@@ -5,7 +5,8 @@
     <ul class="rslides">
     {% set elements = dataElement['story-elements'] %}
  {% for element in elements %}
- 	 <img src="http://qt-staging-01.imgix.net/{{ element['image-s3-key'] }}">
+ 	<li> <img src="http://qt-staging-01.imgix.net/{{ element['image-s3-key'] }}"></li>
+
  {% endfor %}
 	 
 	</ul>

@@ -9,7 +9,9 @@
             {% for story in stories|slice(0,1)  %}
                 <a href="{{story['slug']}}">
                     <div class="figcontainer">
-                        <h6 class="sectionname__display">{{story['sections'][0]['name']}}</h6>
+                    <h6 class="sectionname__display topdesk">{{story['sections'][0]['name']}}</h6>
+                    <div class="topcontentwrap">
+                        <h6 class="sectionname__display topmob">{{story['sections'][0]['name']}}</h6>
                         <div class="titletop_big">{{ shorthead(story["headline"]) }}</div>
                         <div class="textbottom_left">
                             {%  if story['metadata']['story-attributes'] %}
@@ -20,15 +22,17 @@
 
                             {% endif %}
                             <span><h5 class="textbottom__article__name">{{story["author-name"]}}</h5></span>
-                        </div> <!-- textbottom close -->
+                        </div>
 
-                        <div class="sourcetop_left">{{ story["hero-image-attribution"] | raw }}</div>
+                        <div class="sourcetop_left">{{ story["hero-image-attribution"] | raw }}</div>  
+</div>
 
                         <div style="width:100%;">
                         <figure>
                             <img src="{{focusedImageUrl(story['hero-image-s3-key'], config['image-cdn'], [16,9], story['hero-image-metadata'],{w:700} )}}" />
                         </figure>
 </div>
+                  
                     </div>
                 </a>
             {% endfor %}

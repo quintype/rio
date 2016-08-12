@@ -29,20 +29,29 @@ $(".menubar").click(function(event){
     });
 
             $(function() {
-    $(".rslides").responsiveSlides(
-
-    	{
-    		auto: false,
+    $(".rslides").responsiveSlides({
+    	auto: false,
         // pager: true,
         nav: true,
         speed: 500,
         maxwidth: 800,
         namespace: "centered-btns"
+        });
+
+
+// $("#clientsdesk").responsiveSlides({
+//         auto: true,
+//         // pager: true,
+//         nav: true,
+//         speed: 500,
+//         maxwidth: 200
+//         // namespace: "centered-btns"
+//         });
 
 
 
-}
-);
+
+
   });
 
     });

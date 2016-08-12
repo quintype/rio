@@ -295,6 +295,34 @@ margin-top: -3px;
     letter-spacing: em(1.5);
 }
 
+.topdesk{
+display: none;
+@include breakpoint($pc){
+    display: block;
+}
+}
+
+.topmob{
+margin-left: 10px;
+@include breakpoint($pc){
+    display: none;
+}
+}
+.topcontentwrap{
+  position:absolute;
+        bottom:0px;
+        /*background-color:$black-opacity;*/
+        /*width:100%;*/
+        /*font-size: em(14);*/
+        /*padding: em(5) em(15) em(5) em(15);*/
+        /*opacity: .8;*/
+        /*color:$white;*/
+        z-index:$zIndex-1;
+        word-wrap: break-word;
+  
+
+    }
+
 .leftcontainer{
     @include span(9);	
     @include aspect-ratio(16,9);
@@ -414,25 +442,25 @@ margin-top:0px
 
 
 .titletop_big{
-    position: absolute;
-    bottom:0;
+    position: relative;
+    /*bottom:0;*/
     color: $white;
     font-weight:$bold;
     padding:5px 20px 15px 20px;
     font-family:$primary-typeface;	
     z-index: 1;
-    float: left;
+    /*float: left;*/
     text-align:left;
-    padding-bottom:7%;
     font-size:em(30);
     line-height: 40px;
     text-shadow: 2px 2px 4px #333333;
+    margin-top: 30px;
+    
 
     @include breakpoint($phone) {
-        margin-bottom:50px;
-        font-size:em(16);
+        font-size: 1em;
         line-height: 22px;
-        padding:em(10);
+        padding: 0.625em;
     }
     .textbottom__article__name{color:$white; text-transform: capitalize;}
 
@@ -920,7 +948,7 @@ article:nth-child(4){
 
 .textbottom_left{
     width:100%;
-    position:absolute;
+    position:relative;
     float:left;
     font-size:12px;
     padding:em(10) 0 3em 0;
