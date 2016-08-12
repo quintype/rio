@@ -8,6 +8,36 @@
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
 	<script type="text/javascript" src="{{ assetPath("application.js") }}"></script>
 
+	{% if page['story'] == 'story' %}
+	  <title>{{ storyData['story']['headline'] }}</title>
+	  <meta content="{{ storyData['headline'] }}" name="twitter:title" />
+	  <meta content="{{ storyData['summary'] }}" name="description" />
+	  <meta content="{{ storyData['summary'] }}" name="twitter:description" />
+	  <meta content="{{ focusedImageUrl(storyData['hero-image-s3-key'], [16,9], storyData['hero-image-metadata'], {'w': 640, 'q': 60, 'fmt': 'pjpeg', 'auto': 'format'}) }}" name="twitter:image:src" />
+	  <meta content="summary_large_image" name="twitter:card" />
+	  {% set slug = storyData['slug']|split('/') %}
+	  <meta content="" property="fb:app_id" />
+	  <meta content="Climatedesk" property="og:site_name" />
+	  <meta content="{{ route('story', {'type': slug['0'], 'slug': slug['1']}) }}" property="og:url" />
+	  <meta content="article" property="og:type" />
+	  <meta content="{{ storyData['headline'] }}" property="og:title" />
+	  <meta content="{{ storyData['summary'] }}" property="og:description" />
+	  <meta content="{{ focusedImageUrl(storyData['hero-image-s3-key'], [16,9], storyData['hero-image-metadata'], {'w': 640, 'q': 60, 'fmt': 'pjpeg', 'auto': 'format'}) }}" property="og:image" />
+	  <meta content="600" property="og:image:width" />
+	  <meta content="400" property="og:image:height" />
+	  <link href="{{ route('storyData', {'type': slug['0'], 'slug': slug['1']}) }}" rel="canonical" />
+	  <meta property="article:publisher" />
+	  <meta name="twitter:site" />
+	{% else %}
+	  <title>Climatedesk</title>
+	{% endif %}
+	<meta name="twitter:widgets:csp" content="on">
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<link href="/feed" rel="alternate" title="Climatedesk ATOM Feed" type="application/atom+xml"/>
+	<meta content="Climatedesk"
+              name="keywords"/>
+	<meta content="" property="fb:app_id"/>
+	<link rel="shortcut icon" href="">
         <script type='text/javascript'>
 
             var googletag = googletag || {};
