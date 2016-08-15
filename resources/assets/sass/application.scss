@@ -1000,7 +1000,7 @@ article:nth-child(4){
         height:22px;
         width:25%;
         padding-right: 10px;
-        border-right: 1px solid #DEDEDE;
+        /*border-right: 1px solid #DEDEDE;*/
     }
     /*border-right:1px solid #000;*/
     color: $dark-gray;
@@ -1099,11 +1099,18 @@ article:nth-child(4){
 }
 
 
+.tagswrap{
+    position: relative;
+    float: left;
+    width: 100%;
 
+}
 .article__tag-heading
 {
 
     font-size: em(16);
+    position: relative;
+    /*float: left;*/
     font-weight: $bold;   
     letter-spacing: 1.1px;
     padding: em(5) em(10) em(5) em(10);
@@ -1123,6 +1130,9 @@ article:nth-child(4){
 .article__tags {
     display: inline-block;
     margin: em(10) 0 em(5) 0;
+    position: relative;
+    /*float: left;*/
+    width: 100%;
 
     @include breakpoint($pc) {
         margin: em(10) 0 em(5) 0;
@@ -1494,12 +1504,9 @@ article:nth-child(4){
     float: left;  
     width: auto;
     padding-right: 10px;     
-    margin: -7px em(7) 0 em(7);
-  
+    margin: -7px em(7) 0 em(7);  
     height: 30px;
     /*margin-top:;*/
-   
-
     }
 
 
@@ -1535,3 +1542,38 @@ article:nth-child(4){
         height:25px !important;
     }
 }
+
+.imagesds {
+    position: relative;
+    float: left;  
+    width: auto;
+    padding-right: 10px;     
+    margin: -7px em(7) 0 em(7);  
+    height: 30px;
+    /*margin-top:;*/
+    }
+   .imagesds img {
+  display: block;
+  width: auto;
+  height: 100%;
+  position: relative;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin-right: 0px;
+
+        }
+
+.imagesds:after {
+    content: '';
+    position: relative;
+    float: right;
+    right: -9px;   
+    margin-top: 5px;
+    height: 20px;
+    border-right: 1px solid #DEDEDE;   
+    @include breakpoint ($phone){
+        margin-top: -20px;
+    }
+    }

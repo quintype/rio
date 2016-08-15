@@ -44,6 +44,9 @@
         line-height: 40px; 
         margin-top:em(7);
         font-weight:$black-weight;
+        position:relative;
+        float:left;
+
 
         @include breakpoint($phone) {
             font-size: em(20);
@@ -503,6 +506,20 @@ display:none;
  border-right: 0px solid #dddddd;
 
 }
+.textbottom__article__name:after{
+     content: '';
+    position: relative;
+    float: right;
+    right: -9px;   
+    margin-top: 0px;
+    height: 20px;
+    border-right: 1px solid #DEDEDE;   
+    margin-right:10px;
+    @include breakpoint ($phone){
+        margin-top: -20px;
+    }
+}
+
 .textbottom__article--share time{
     font-size: em(15);
     margin-top:0px;

@@ -7,11 +7,11 @@
                     <a href="/{{story['slug']}}">
                         <div class="figcontainer">
 
-                            <h6 class="sectionname__display">{{story['sections'][0]['name']}}</h6>
+                            <h6 class="sectionname__display topdesk">{{story['sections'][0]['name']}}</h6>
+                             <div class="topcontentwrap">
                             <div class="titletop_big">{{shorthead(story['headline'])}}</div>
                             <div class="textbottom_left">
-                                {%  if story['metadata']['story-attributes'] %}
-                                
+                                {%  if story['metadata']['story-attributes'] %}                               
 
                                     <div class="imagesd">
                                         <img src="{{  get_logo(story['metadata']['story-attributes']['partnerpublisher'][0], 'Logo' ) }}" />
@@ -22,7 +22,7 @@
                             </div> <!-- textbottom close -->
 
                             <div class="sourcetop_left">{{ story["hero-image-attribution"] | raw}}</div>
-
+</div>
 
                             <figure>
                                 <img src="{{focusedImageUrl(story['hero-image-s3-key'],config['image-cdn'], [16,9], story['hero-image-metadata'],{w:700} )}}" />

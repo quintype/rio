@@ -37,7 +37,7 @@ function get_logo($key,$p) {
     $data = ' {"Atlantic":
   [{"Logo" : "https://s3.amazonaws.com/third-party-logos/atlantic.png",
   "URL": "http://www.theatlantic.com",
-  "Partnername": "Atlantic"
+  "Partnername": "The Atlantic"
 }],
 "CIR":
   [{"Logo" : "https://s3.amazonaws.com/third-party-logos/CIR-Logo.png",

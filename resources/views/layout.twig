@@ -9,7 +9,7 @@
 	<script type="text/javascript" src="{{ assetPath("application.js") }}"></script>
 
 	{% if page['type'] == 'story' %}
-	  <title>{{ storyData['story']['headline'] }}</title>
+	  <title><span>{{ storyData['story']['headline'] }}</span></title>
 	  <meta content="{{ storyData['headline'] }}" name="twitter:title" />
 	  <meta content="{{ storyData['summary'] }}" name="description" />
 	  <meta content="{{ storyData['summary'] }}" name="twitter:description" />
@@ -117,7 +117,7 @@
                 <div class="logo">
                     <a href="{{ url()}}"> <img class="logoview" src='{{ assetPath("climatedesk_logo.png") }}' /> </a></div>
                 <div class="mob_buttons"> <ul>
-                        <li><a target="_blank" href="#" class="donate">Donate</a></li>
+                       <!--  <li><a target="_blank" href="#" class="donate">Donate</a></li> -->
                         <li><button id="search_init1" class="search_butn">Search</button></li>
                     </ul>
                 </div>
@@ -136,7 +136,7 @@
                         <li class="socialicon"><a target="_blank" href="https://www.facebook.com/theclimatedesk/"><img src="{{ assetPath("icons/facebook_b.svg") }}" /></a></li>
                         <li class="socialicon"><a target="_blank"	href="https://twitter.com/ClimateDesk" ><img src="{{ assetPath("icons/twitter_b.svg") }}" /></a></li>
                         <li class="socialicon"><a	target="_blank"href="https://www.youtube.com/user/ClimateDesk"><img src="{{ assetPath("icons/youtube_b.svg") }}" /></a></li>
-                        <li><a target="_blank" href="#" class="donate">Donate</a></li>
+                       <!--  <li><a target="_blank" href="#" class="donate">Donate</a></li> -->
                         <li><button id="search_init" class="search_butn">Search</button></li>
 
                     </ul></nav>
