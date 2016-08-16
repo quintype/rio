@@ -448,7 +448,7 @@ width:100%;
         float:left;
         margin:1.2em 0 em(13) 0;
         padding-bottom: 15px;
-        border-bottom: 1px solid #eaeaea;
+        /*border-bottom: 1px solid #eaeaea;*/
 
     }
     .storyshare{
@@ -516,7 +516,8 @@ display:none;
     border-right: 1px solid #DEDEDE;   
     margin-right:10px;
     @include breakpoint ($phone){
-        margin-top: -20px;
+        /*margin-top: -20px;*/
+        border-right:0;
     }
 }
 

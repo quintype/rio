@@ -13,12 +13,24 @@ class HomeController extends QuintypeController {
 
     public function index() {
         $bulk = new Bulk();
-
+        // $config = $this->client->config();
         $fields = "id,headline,slug,url,hero-image-s3-key,hero-image-metadata,first-published-at,last-published-at,alternative,published-at,author-name,author-id,sections,story-template,summary,metadata,hero-image-attribution,cards";
         $bulk->addRequest('top_stories', (new StoriesRequest('top'))->addParams(["limit" => 8, "fields" => $fields]));
         $bulk->addRequest('weatherstories', (new StoriesRequest('top'))->addParams(["section" => "Weather", "limit" => 3, "fields" => $fields]));
         $bulk->addRequest('videosstories', (new StoriesRequest('top'))->addParams(["section" => "Video", "limit" => 3, "fields" => $fields]));
-        $bulk->addRequest('breaking_news', (new StoriesRequest('stack-94'))->addParams(["section" => "Video", "limit" => 3, "fields" => $fields]));
+
+            //   $config = $this->client->config();
+            // $sections = $config['sections'];
+
+            // $stacks= $config['stack'];
+            // echo "<pre>";
+            // print_r($stacks);
+
+    // @config.stacks.select { |stack| stack["show-on-all-sections?"] || stack["show-on-locations"].try(:include?, location) }
+
+
+        $bulk->addRequest('breaking_news', (new StoriesRequest('stack-115'))->addParams(["limit" => 3, "fields" => $fields]));
+
         $bulk->addRequest('foodhealth', (new StoriesRequest('top'))->addParams(["section" => "Food & Health", "limit" => 4, "fields" => $fields]));
 
         $bulk->execute($this->client);
