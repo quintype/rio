@@ -37,6 +37,8 @@ class HomeController extends QuintypeController {
 
         $a = $bulk->getResponse("breaking_news");
 
+        // echo "<pre>"; print_r($a);
+
         return view('home', $this->toView([
                     "stories" => $bulk->getResponse("top_stories"),
                     "page" => ["type" => "home"],

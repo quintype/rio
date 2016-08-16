@@ -596,6 +596,7 @@ section {
     padding-top:0;
     position: relative;
     float: left;
+    width: 100%;
 }
 .unique{
     background-color:#eef6fc;
@@ -637,6 +638,7 @@ section {
 .wrap{
  .textbottom{
         padding-left:1.5em;
+            min-height: 46px;
     }
 }
 
