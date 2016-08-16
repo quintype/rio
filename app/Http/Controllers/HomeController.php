@@ -77,7 +77,8 @@ class HomeController extends QuintypeController {
         $params = array('story-group' => 'top', 'section' => $cur_section['name'], 'limit' => 8, "fields" => $fields);
         $stories = $this->getStories($params);
         // echo"<pre>";   print_r($stories);
-        if ($cur_section['name'] != 'Inquiring Minds')
+        // echo $cur_section['name'];
+        if ($cur_section['name'] != 'Inquiring Mind')
             return view('section', $this->toView(["section" => $cur_section, "page" => ["type" => "section"], "section_stories" => $stories, "params" => $params]));
         else
             return view('podcasts', $this->toView(["section" => $cur_section, "page" => ["type" => "section"], "section_stories" => $stories, "params" => $params]));

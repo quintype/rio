@@ -310,13 +310,8 @@ margin-left: 10px;
 }
 .topcontentwrap{
   position:absolute;
-        bottom:0px;
-        /*background-color:$black-opacity;*/
-        /*width:100%;*/
-        /*font-size: em(14);*/
-        /*padding: em(5) em(15) em(5) em(15);*/
-        /*opacity: .8;*/
-        /*color:$white;*/
+        bottom:0px;       
+        width:100%;        
         z-index:$zIndex-1;
         word-wrap: break-word;
   
@@ -626,6 +621,7 @@ section {
 
     .wrap .textbottom{
         padding-left:1.5em;
+        min-height: em(46);
     }
 }    
 .wrap .textwrap{
