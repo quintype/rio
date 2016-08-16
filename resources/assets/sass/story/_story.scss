@@ -504,6 +504,11 @@ display:none;
  font-size: em(15);
  text-transform: capitalize;
  border-right: 0px solid #dddddd;
+  
+     @include breakpoint ($phone){
+      font-size: em(14);
+     
+    }
 
 }
 .textbottom__article__name:after{
@@ -515,10 +520,7 @@ display:none;
     height: 20px;
     border-right: 1px solid #DEDEDE;   
     margin-right:10px;
-    @include breakpoint ($phone){
-        /*margin-top: -20px;*/
-        border-right:0;
-    }
+  
 }
 
 .textbottom__article--share time{

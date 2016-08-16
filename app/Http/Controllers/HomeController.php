@@ -36,7 +36,7 @@ class HomeController extends QuintypeController {
         $bulk->execute($this->client);
 
         $a = $bulk->getResponse("breaking_news");
-
+// echo sizeof($a);
         // echo "<pre>"; print_r($a);
 
         return view('home', $this->toView([
@@ -80,7 +80,7 @@ class HomeController extends QuintypeController {
         $stories = $this->getStories($params);
         // echo"<pre>";   print_r($stories);
         // echo $cur_section['name'];
-        if ($cur_section['name'] != 'Inquiring Mind')
+        if ($cur_section['name'] != 'Inquiring Minds')
             return view('section', $this->toView(["section" => $cur_section, "page" => ["type" => "section"], "section_stories" => $stories, "params" => $params]));
         else
             return view('podcasts', $this->toView(["section" => $cur_section, "page" => ["type" => "section"], "section_stories" => $stories, "params" => $params]));
