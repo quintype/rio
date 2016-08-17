@@ -16,7 +16,7 @@ class HomeController extends QuintypeController {
         // $config = $this->client->config();
         $fields = "id,headline,slug,url,hero-image-s3-key,hero-image-metadata,first-published-at,last-published-at,alternative,published-at,author-name,author-id,sections,story-template,summary,metadata,hero-image-attribution,cards,subheadline";
         $bulk->addRequest('top_stories', (new StoriesRequest('top'))->addParams(["limit" => 8, "fields" => $fields]));
-        $bulk->addRequest('weatherstories', (new StoriesRequest('top'))->addParams(["section" => "Weather", "limit" => 3, "fields" => $fields]));
+        $bulk->addRequest('weatherstories', (new StoriesRequest('top'))->addParams(["section" => "Weather & Climate", "limit" => 3, "fields" => $fields]));
         $bulk->addRequest('videosstories', (new StoriesRequest('top'))->addParams(["section" => "videos", "limit" => 3, "fields" => $fields]));
 
             //   $config = $this->client->config();
@@ -79,7 +79,7 @@ class HomeController extends QuintypeController {
         $params = array('story-group' => 'top', 'section' => $cur_section['name'], 'limit' => 8, "fields" => $fields);
         $stories = $this->getStories($params);
         // echo"<pre>";   print_r($stories);    
-         // echo $cur_section['name'];
+          // echo $cur_section['name'];
         if ($cur_section['name'] != 'Inquiring Minds')
             return view('section', $this->toView(["section" => $cur_section, "page" => ["type" => "section"], "section_stories" => $stories, "params" => $params]));
         else

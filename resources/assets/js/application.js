@@ -9,7 +9,9 @@ global.app = {
 };
 
 
+// require("./jquery.min");
 require("./responsiveslides.min");
+
 
 $(document).ready(function(){
 $(".menubar").click(function(event){
@@ -17,7 +19,7 @@ $(".menubar").click(function(event){
   $(".menuitems").toggle();
 });
 
-        $('#search_init,#search_init1').click(function ()
+        $('#search_init,#search_init1').click(function (event)
         {
             event.stopPropagation();
             $(".nav-search").toggle();
@@ -30,7 +32,7 @@ $(".menubar").click(function(event){
 
             $(function() {
     $(".rslides").responsiveSlides({
-    	auto: false,
+        auto: false,
         // pager: true,
         nav: true,
         speed: 500,
@@ -39,14 +41,14 @@ $(".menubar").click(function(event){
         });
 
 
-// $("#clientsdesk").responsiveSlides({
-//         auto: true,
-//         // pager: true,
-//         nav: true,
-//         speed: 500,
-//         maxwidth: 200
-//         // namespace: "centered-btns"
-//         });
+$("#slider").responsiveSlides({
+        auto: true,
+        // pager: true,
+        // nav: true,
+        speed: 500
+        
+        // namespace: "centered-btns"
+        });
 
 
 
