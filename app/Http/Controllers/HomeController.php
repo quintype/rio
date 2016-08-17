@@ -92,14 +92,13 @@ class HomeController extends QuintypeController {
         $query = $request->q;
         $searchedstories = $this->searchStories(array('q' => $query, 'size' => 7, "fields" => $fields));
         $searchsize=sizeof($searchedstories);
+        $params=(array('q' => $query, 'limit' => 7, "fields" => $fields));
 
 
         if ($searchsize < 1)
         return view('noresults');
         else
-            return view('search', $this->toView(["searchresults" => $searchedstories, "page" => ["type" => "search"], "term" => $query]));
-
-
+            return view('search', $this->toView(["searchresults" => $searchedstories, "page" => ["type" => "search"], "term" => $query, "params" => $params]));
 
     }
 
