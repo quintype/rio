@@ -107,7 +107,8 @@ class HomeController extends QuintypeController {
         $a = explode("/", $_SERVER['REQUEST_URI']);
         $tag = $a[sizeof($a) - 1];
         $tagStories = $this->getStories(array('story-group' => 'top', 'tag' => $tag, 'limit' => 7));
-        return view('tags', $this->toView(["tagresults" => $tagStories, "page" => ["type" => "topic"], "tag" => $tag]));
+        $params = array('story-group' => 'top', 'tag' => $tag, 'limit' => 7);
+        return view('tags', $this->toView(["tagresults" => $tagStories, "page" => ["type" => "topic"], "tag" => $tag, "params" => $params]));
     }
 
     public function aboutview() {
