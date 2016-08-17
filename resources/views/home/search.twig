@@ -30,7 +30,7 @@
                            {{shorthead(story['headline'])}}   </a></div>
                   
                     <div class="article__desciption">
-                        {{story["summary"]}}
+                        {{story["subheadline"] | striptags |raw }}
                     </div>
                     <div class="textbottom">
                         {%  if story['metadata']['story-attributes'] %}

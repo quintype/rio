@@ -14,7 +14,7 @@ class HomeController extends QuintypeController {
     public function index() {
         $bulk = new Bulk();
         // $config = $this->client->config();
-        $fields = "id,headline,slug,url,hero-image-s3-key,hero-image-metadata,first-published-at,last-published-at,alternative,published-at,author-name,author-id,sections,story-template,summary,metadata,hero-image-attribution,cards";
+        $fields = "id,headline,slug,url,hero-image-s3-key,hero-image-metadata,first-published-at,last-published-at,alternative,published-at,author-name,author-id,sections,story-template,summary,metadata,hero-image-attribution,cards,subheadline";
         $bulk->addRequest('top_stories', (new StoriesRequest('top'))->addParams(["limit" => 8, "fields" => $fields]));
         $bulk->addRequest('weatherstories', (new StoriesRequest('top'))->addParams(["section" => "Weather", "limit" => 3, "fields" => $fields]));
         $bulk->addRequest('videosstories', (new StoriesRequest('top'))->addParams(["section" => "Video", "limit" => 3, "fields" => $fields]));
@@ -35,7 +35,7 @@ class HomeController extends QuintypeController {
 
         $bulk->execute($this->client);
 
-        $a = $bulk->getResponse("breaking_news");
+        $a = $bulk->getResponse("top_stories");
 // echo sizeof($a);
         // echo "<pre>"; print_r($a);
 
@@ -50,7 +50,7 @@ class HomeController extends QuintypeController {
 
     public function storyview($category, $y, $m, $d, $slug) {
         $bulk = new Bulk();
-        $fields = "id,headline,slug,url,hero-image-s3-key,hero-image-metadata,first-published-at,last-published-at,alternative,published-at,author-name,author-id,sections,story-template,summary,metadata";
+        $fields = "id,headline,slug,url,hero-image-s3-key,hero-image-metadata,first-published-at,last-published-at,alternative,published-at,author-name,author-id,sections,story-template,summary,metadata,subheadline";
         $story = $this->client->storyData(array('slug' => $slug))['story'];
 
          // echo "<pre>";  print_r($story);
@@ -71,16 +71,16 @@ class HomeController extends QuintypeController {
 
     public function sectionview($section) {
 
- $fields = "id,headline,slug,url,hero-image-s3-key,hero-image-metadata,first-published-at,last-published-at,alternative,published-at,author-name,author-id,sections,story-template,summary,metadata,hero-image-attribution,cards";
+ $fields = "id,headline,slug,url,hero-image-s3-key,hero-image-metadata,first-published-at,last-published-at,alternative,published-at,author-name,author-id,sections,story-template,summary,metadata,hero-image-attribution,cards,subheadline";
 
         $config = $this->client->config();
         $sections = $config['sections'];
         $cur_section = $sections[array_search($section, array_column($sections, 'slug'), true)];
         $params = array('story-group' => 'top', 'section' => $cur_section['name'], 'limit' => 8, "fields" => $fields);
         $stories = $this->getStories($params);
-        // echo"<pre>";   print_r($stories);
-         echo $cur_section['name'];
-        if ($cur_section['name'] != 'Inquiring Mind')
+        // echo"<pre>";   print_r($stories);    
+         // echo $cur_section['name'];
+        if ($cur_section['name'] != 'Inquiring Minds')
             return view('section', $this->toView(["section" => $cur_section, "page" => ["type" => "section"], "section_stories" => $stories, "params" => $params]));
         else
             return view('podcasts', $this->toView(["section" => $cur_section, "page" => ["type" => "section"], "section_stories" => $stories, "params" => $params]));
@@ -88,9 +88,11 @@ class HomeController extends QuintypeController {
 
     public function searchview(Request $request) {
         //  return view('search', $this->toView([]));
+          $fields = "id,headline,slug,url,hero-image-s3-key,hero-image-metadata,first-published-at,last-published-at,alternative,published-at,author-name,author-id,sections,story-template,summary,metadata,hero-image-attribution,cards,subheadline";
         $query = $request->q;
-        $searchedstories = $this->searchStories(array('q' => $query, 'size' => 7));
+        $searchedstories = $this->searchStories(array('q' => $query, 'size' => 7, "fields" => $fields));
         $searchsize=sizeof($searchedstories);
+
 
         if ($searchsize < 1)
         return view('noresults');
@@ -104,9 +106,10 @@ class HomeController extends QuintypeController {
     public function tagsview(Request $request) {
         //$tag = $request->tag;
         //  print_r($request->topic);
+         $fields = "id,headline,slug,url,hero-image-s3-key,hero-image-metadata,first-published-at,last-published-at,alternative,published-at,author-name,author-id,sections,story-template,summary,metadata,hero-image-attribution,cards,subheadline";
         $a = explode("/", $_SERVER['REQUEST_URI']);
         $tag = $a[sizeof($a) - 1];
-        $tagStories = $this->getStories(array('story-group' => 'top', 'tag' => $tag, 'limit' => 7));
+        $tagStories = $this->getStories(array('story-group' => 'top', 'tag' => $tag, 'limit' => 7,"fields" => $fields));
         return view('tags', $this->toView(["tagresults" => $tagStories, "page" => ["type" => "topic"], "tag" => $tag]));
     }
 

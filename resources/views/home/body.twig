@@ -83,7 +83,9 @@
                                 {{  shorthead(story["headline"]) }}
                             </div>
                             <div class="article__desciption">
-                                {{ shortsummary(story["summary"])  }}
+                            {{ story["subheadline"] | striptags | slice(0,100) | raw  }}
+
+                                <!-- {{ shortsummary( story["subheadline"] |raw )  }} -->
                             </div>
  </div><!-- textwrap close -->
                             <div class="textbottom">
@@ -183,6 +185,11 @@
                         </div>
                         <div class="textbottom">
 
+                            {%  if story['metadata']['story-attributes'] %}
+                                    <div class="imagesd">
+                                        <img src="{{  get_logo(story['metadata']['story-attributes']['partnerpublisher'][0], 'Logo', 'Logo' ) }}" />
+                                    </div>
+                                {% endif %}
                             <span> <h5 class="textbottom__article__name">{{story["author-name"]}}</h5></span>
 
                                 {% if story["first-published-at"] %}
@@ -227,6 +234,11 @@
                             <a href="/{{story['slug']}}">   {{ shorthead(story["headline"]) }} </a>
                         </div>
                         <div class="textbottom">
+                             {%  if story['metadata']['story-attributes'] %}
+                                    <div class="imagesd">
+                                        <img src="{{  get_logo(story['metadata']['story-attributes']['partnerpublisher'][0], 'Logo', 'Logo' ) }}" />
+                                    </div>
+                                {% endif %}
 
                             <span> <h5 class="textbottom__article__name">{{story["author-name"]}}</h5></span>
                                 {% if story["first-published-at"] %}
@@ -278,7 +290,12 @@
                             </div>
                               </div><!-- textwrap close -->
                             <div class="textbottom">
-
+                                 {%  if story['metadata']['story-attributes'] %}
+                                    <div class="imagesd">
+                                        <img src="{{  get_logo(story['metadata']['story-attributes']['partnerpublisher'][0], 'Logo', 'Logo' ) }}" />
+                                    </div>
+                                {% endif %}
+                                
                                 <span> <h5 class="textbottom__article__name">{{story["author-name"]}}</h5></span>
 
                                 {% if story["first-published-at"] %}
