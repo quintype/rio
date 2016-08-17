@@ -17,7 +17,7 @@ class HomeController extends QuintypeController {
         $fields = "id,headline,slug,url,hero-image-s3-key,hero-image-metadata,first-published-at,last-published-at,alternative,published-at,author-name,author-id,sections,story-template,summary,metadata,hero-image-attribution,cards,subheadline";
         $bulk->addRequest('top_stories', (new StoriesRequest('top'))->addParams(["limit" => 8, "fields" => $fields]));
         $bulk->addRequest('weatherstories', (new StoriesRequest('top'))->addParams(["section" => "Weather", "limit" => 3, "fields" => $fields]));
-        $bulk->addRequest('videosstories', (new StoriesRequest('top'))->addParams(["section" => "Video", "limit" => 3, "fields" => $fields]));
+        $bulk->addRequest('videosstories', (new StoriesRequest('top'))->addParams(["section" => "videos", "limit" => 3, "fields" => $fields]));
 
             //   $config = $this->client->config();
             // $sections = $config['sections'];

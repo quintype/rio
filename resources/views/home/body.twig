@@ -66,11 +66,12 @@
     <section><!--  Section 2 open-->
         {% for story in stories|slice(4,3)  %}
             <article><!--  Article1 open-->
-                <a href="/{{story['slug']}}">
+                
                     <div class="wrap border">
 
                         <div class="figcontainer">
                             <h6 class="sectionname__display">{{story['sections'][0]['name']}}</h6>
+                            <a href="/{{story['slug']}}">
                             <figure>
                                 <img src="{{focusedImageUrl(story['hero-image-s3-key'], config['image-cdn'], [16,9], story['hero-image-metadata'], {w: 400})}}" />
                             </figure>
@@ -169,19 +170,21 @@
             <div class="sectiontitle left"><span>VIDEOS</span></div>
             {% for story in videos_stories|slice(0,3) %}
                 <article><!--  Article1 open-->
+                    <a href="/{{story['slug']}}">  
+                
                     <div class="figcontainer">
                         <figure>
-                            <a href="/{{story['slug']}}">   <img src="{{focusedImageUrl(story['hero-image-s3-key'], config['image-cdn'], [16,9], story['hero-image-metadata'], {w:400})}}" />
-                            </a>
+                             <img src="{{focusedImageUrl(story['hero-image-s3-key'], config['image-cdn'], [16,9], story['hero-image-metadata'], {w:400})}}" />
+                          
                         </figure>
-                        <div class="vedicon"><a href="/{{story['slug']}}"> <img src="{{ assetPath('main/video.svg') }}"/> </a></div>
+                        <div class="vedicon"> <img src="{{ assetPath('main/video.svg') }}"/></div>
                         <div class="sourcefrom">{{ story["hero-image-attribution"] | raw }}</div>
                     </div>
 
                     <div class="textwrap short">
 
                         <div class="article__title">
-                            <a href="/{{story['slug']}}">    {{ shorthead(story["headline"]) }} </a>
+                            {{ shorthead(story["headline"]) }} 
                         </div>
                         <div class="textbottom">
 
@@ -201,6 +204,7 @@
                     </div><!-- textwrap close -->
 
 
+                  </a>
                 </article>
 
             {% endfor %}
@@ -218,20 +222,20 @@
         <div class="sectionwrap">
             <div class="sectiontitle left"><span>WEATHER</span></div>
             {% for story in weather_stories|slice(0,3) %}
-                <article><!--  Article1 open-->
+             
+                 <article><!--  Article1 open-->
+                 <a href="/{{story['slug']}}">
                     <div class="figcontainer">
-                        <figure>
-
-                            <a href="/{{story['slug']}}">
+                        <figure>                           
                                 <img src="{{focusedImageUrl(story['hero-image-s3-key'], config['image-cdn'], [16,9], story['hero-image-metadata'], {w:400})}}"/>
-                            </a>
+                           
                         </figure>
                         <div class="sourcefrom">{{ story["hero-image-attribution"] | raw }}</div>
                     </div>
                     <div class="textwrap short">
 
                         <div class="article__title">
-                            <a href="/{{story['slug']}}">   {{ shorthead(story["headline"]) }} </a>
+                             {{ shorthead(story["headline"]) }}
                         </div>
                         <div class="textbottom">
                              {%  if story['metadata']['story-attributes'] %}
@@ -244,12 +248,9 @@
                                 {% if story["first-published-at"] %}
                                 <span class="textbottom__article"> <time datetime="">{% set timestamp = (story["first-published-at"] / 1000)|round(0, 'floor') %}{{timestamp|date('M j, Y')}}</time></span>
                                 {% endif %}
-
-
                         </div> <!-- textbottom close -->
                     </div><!-- textwrap close -->
-
-
+                 </a>
                 </article>
             {% endfor %}
 
@@ -295,7 +296,7 @@
                                         <img src="{{  get_logo(story['metadata']['story-attributes']['partnerpublisher'][0], 'Logo', 'Logo' ) }}" />
                                     </div>
                                 {% endif %}
-                                
+
                                 <span> <h5 class="textbottom__article__name">{{story["author-name"]}}</h5></span>
 
                                 {% if story["first-published-at"] %}
@@ -388,20 +389,22 @@
         <div class="sectionwrap">
             <div class="sectiontitle left"><span>FOOD & HEALTH</span></div>
 
-            {% for story in food_storiess|slice(0,4) %}
+            {% for story in food_storiess|slice(0,3) %}  
+             
                 <article><!--  Article1 open-->
+                <a href="/{{story['slug']}}"> 
                     <div class="figcontainer">
 
                         <figure>
-                            <a href="/{{story['slug']}}">     <img src="{{focusedImageUrl(story['hero-image-s3-key'], config['image-cdn'], [16,9], story['hero-image-metadata'], {w:400})}}"/>
-                            </a>
+                             <img src="{{focusedImageUrl(story['hero-image-s3-key'], config['image-cdn'], [16,9], story['hero-image-metadata'], {w:400})}}"/>
+                            
                         </figure>
                         <div class="sourcefrom">{{ story["hero-image-attribution"] | raw }}</div>
                     </div>
                     <div class="textwrap">
 
                         <div class="article__title">
-                            <a href="/{{story['slug']}}">       {{ shorthead(story["headline"]) }} </a>
+                          {{ shorthead(story["headline"]) }} 
                         </div>
                         <div class="textbottom">
 
@@ -411,7 +414,9 @@
                                 {% endif %}
                         </div> <!-- textbottom close -->
                     </div><!-- textwrap close -->
+                       </a>
                 </article>
+              
             {% endfor %}
 
   </div>
