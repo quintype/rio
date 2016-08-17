@@ -56,7 +56,7 @@ class HomeController extends QuintypeController {
          // echo "<pre>";  print_r($story);
         $author_data = $this->client->author($story['author-id']);
           // echo "<pre>";print_r($author_data);
-        $authorbio=strip_tags($author_data['bio']); 
+        $authorbio=strip_tags($author_data['bio']);
 
         $bulk->addRequest('related_stories', (new StoriesRequest('top'))->addParams(["section" => $story["sections"][0]["name"], "limit" => 4, "fields" => $fields]));
         $bulk->execute($this->client);
@@ -78,8 +78,7 @@ class HomeController extends QuintypeController {
         $cur_section = $sections[array_search($section, array_column($sections, 'slug'), true)];
         $params = array('story-group' => 'top', 'section' => $cur_section['name'], 'limit' => 8, "fields" => $fields);
         $stories = $this->getStories($params);
-        // echo"<pre>";   print_r($stories);    
-          // echo $cur_section['name'];
+
         if ($cur_section['name'] != 'Inquiring Minds')
             return view('section', $this->toView(["section" => $cur_section, "page" => ["type" => "section"], "section_stories" => $stories, "params" => $params]));
         else
@@ -92,14 +91,13 @@ class HomeController extends QuintypeController {
         $query = $request->q;
         $searchedstories = $this->searchStories(array('q' => $query, 'size' => 7, "fields" => $fields));
         $searchsize=sizeof($searchedstories);
+        $params=(array('q' => $query, 'limit' => 7, "fields" => $fields));
 
 
         if ($searchsize < 1)
         return view('noresults');
         else
-            return view('search', $this->toView(["searchresults" => $searchedstories, "page" => ["type" => "search"], "term" => $query]));
-
-
+            return view('search', $this->toView(["searchresults" => $searchedstories, "page" => ["type" => "search"], "term" => $query, "params" => $params]));
 
     }
 
@@ -109,8 +107,9 @@ class HomeController extends QuintypeController {
          $fields = "id,headline,slug,url,hero-image-s3-key,hero-image-metadata,first-published-at,last-published-at,alternative,published-at,author-name,author-id,sections,story-template,summary,metadata,hero-image-attribution,cards,subheadline";
         $a = explode("/", $_SERVER['REQUEST_URI']);
         $tag = $a[sizeof($a) - 1];
-        $tagStories = $this->getStories(array('story-group' => 'top', 'tag' => $tag, 'limit' => 7,"fields" => $fields));
-        return view('tags', $this->toView(["tagresults" => $tagStories, "page" => ["type" => "topic"], "tag" => $tag]));
+        $tagStories = $this->getStories(array('story-group' => 'top', 'tag' => $tag, 'limit' => 7));
+        $params = array('story-group' => 'top', 'tag' => $tag, 'limit' => 7);
+        return view('tags', $this->toView(["tagresults" => $tagStories, "page" => ["type" => "topic"], "tag" => $tag, "params" => $params]));
     }
 
     public function aboutview() {
