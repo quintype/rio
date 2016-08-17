@@ -14,9 +14,9 @@
       <a href="/{{story['slug']}}">
         <div class="article__title">{{shorthead(story['headline'])}}</div>
       </a>
-      {%  if  story['summary'] %}
+      {%  if  story["subheadline"] %}
         <div class="article__desciption">
-          {{ shortsummary(story['summary'])}}
+          {{  story["subheadline"] | striptags | slice(0,100) | raw }}
         </div>
       {% endif %}
       <div class="textbottom">

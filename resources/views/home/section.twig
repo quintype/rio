@@ -47,13 +47,13 @@
                                 </div>
 
                                 <div class="textwrap">
-                                    <a href="/{{story['slug']}}">
+                                 
                                         <div class="article__title">
                                             {{shorthead(story['headline'])}}
                                         </div>
-                                    </a>
+                                
                                     <div class="article__desciption mobshow ">
-                                        {{ shortsummary(story["summary"])}}
+                                       {{ story["subheadline"] | striptags | slice(0,100) | raw  }}
                                     </div></div><!-- textwrap close -->
                                     <div class="textbottom">
                                         {%  if story['metadata']['story-attributes'] %}
