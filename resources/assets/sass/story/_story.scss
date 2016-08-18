@@ -46,6 +46,7 @@
         font-weight:$black-weight;
         position:relative;
         float:left;
+        width:100%;
 
 
         @include breakpoint($phone) {
@@ -75,6 +76,7 @@
         margin: 0.7em em(0) 0em em(0);
         position: relative;
         float: left;
+        width:100%;
         @include breakpoint($phone) {
             font-size: 13px;
         }
