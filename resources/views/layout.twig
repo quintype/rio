@@ -9,7 +9,7 @@
 	<script type="text/javascript" src="{{ assetPath("application.js") }}"></script>
 
 	{% if page['type'] == 'story' %}
-	  <title><span>{{ storyData['story']['headline'] }}</span></title>
+	  <title><span>{{ storyData['headline'] }}</span></title>
 	  <meta content="{{ storyData['headline'] }}" name="twitter:title" />
 	  <meta content="{{ storyData['summary'] }}" name="description" />
 	  <meta content="{{ storyData['summary'] }}" name="twitter:description" />

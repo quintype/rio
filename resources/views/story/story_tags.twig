@@ -1,9 +1,8 @@
 <div class="tagswrap"> <span class="article__tag-heading"> Tags </span> </div>
 <div class="article__tags">
-
     <ul>
         {% for tag in storyTags %}
-            <li><a href="/topic/{{tag['slug']}}">{{ tag['name'] }}</a></li>	
+            <li><a href="/topic/{{tag['name']}}">{{ tag['name'] }}</a></li>	
             {% endfor %}
     </ul>
 </div>
