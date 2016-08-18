@@ -14,7 +14,7 @@
                         <h6 class="sectionname__display topmob">{{story['sections'][0]['name']}}</h6>
                         <div class="titletop_big">{{ shorthead(story["headline"]) }}</div>
                         <div class="textbottom_left">
-                            {%  if story['metadata']['story-attributes'] %}
+                         {%  if story['metadata']['story-attributes']['partnerpublisher'][0] %}
 
                                <div class="imagesd">
                                 <img src="{{  get_logo(story['metadata']['story-attributes']['partnerpublisher'][0], 'Logo' ) }}" />
@@ -91,7 +91,7 @@
  </div><!-- textwrap close -->
                             <div class="textbottom">
  
-                                {%  if story['metadata']['story-attributes'] %}
+                               {%  if story['metadata']['story-attributes']['partnerpublisher'][0] %}
                                     <div class="imagesd">
                                         <img src="{{  get_logo(story['metadata']['story-attributes']['partnerpublisher'][0], 'Logo', 'Logo' ) }}" />
                                     </div>
@@ -188,7 +188,7 @@
                         </div>
                         <div class="textbottom">
 
-                            {%  if story['metadata']['story-attributes'] %}
+                             {%  if story['metadata']['story-attributes']['partnerpublisher'][0] %}
                                     <div class="imagesd">
                                         <img src="{{  get_logo(story['metadata']['story-attributes']['partnerpublisher'][0], 'Logo', 'Logo' ) }}" />
                                     </div>
@@ -238,8 +238,8 @@
                              {{ shorthead(story["headline"]) }}
                         </div>
                         <div class="textbottom">
-                             {%  if story['metadata']['story-attributes'] %}
-                                    <div class="imagesd">
+                    {%  if story['metadata']['story-attributes']['partnerpublisher'][0] %}
+                                     <div class="imagesd">
                                         <img src="{{  get_logo(story['metadata']['story-attributes']['partnerpublisher'][0], 'Logo', 'Logo' ) }}" />
                                     </div>
                                 {% endif %}
@@ -291,7 +291,7 @@
                             </div>
                               </div><!-- textwrap close -->
                             <div class="textbottom">
-                                 {%  if story['metadata']['story-attributes'] %}
+                                  {%  if story['metadata']['story-attributes']['partnerpublisher'][0] %}
                                     <div class="imagesd">
                                         <img src="{{  get_logo(story['metadata']['story-attributes']['partnerpublisher'][0], 'Logo', 'Logo' ) }}" />
                                     </div>
@@ -407,7 +407,7 @@
                           {{ shorthead(story["headline"]) }} 
                         </div>
                         <div class="textbottom">
-                             {%  if story['metadata']['story-attributes'] %}
+                              {%  if story['metadata']['story-attributes']['partnerpublisher'][0] %}
                                     <div class="imagesd">
                                         <img src="{{  get_logo(story['metadata']['story-attributes']['partnerpublisher'][0], 'Logo', 'Logo' ) }}" />
                                     </div>

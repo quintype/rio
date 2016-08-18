@@ -11,7 +11,7 @@
                              <div class="topcontentwrap">
                             <div class="titletop_big">{{shorthead(story['headline'])}}</div>
                             <div class="textbottom_left">
-                                {%  if story['metadata']['story-attributes'] %}                               
+                                {%  if story['metadata']['story-attributes']['partnerpublisher'][0] %}                           
 
                                     <div class="imagesd">
                                         <img src="{{  get_logo(story['metadata']['story-attributes']['partnerpublisher'][0], 'Logo' ) }}" />
@@ -56,7 +56,7 @@
                                        {{ story["subheadline"] | striptags | slice(0,100) | raw  }}
                                     </div></div><!-- textwrap close -->
                                     <div class="textbottom">
-                                        {%  if story['metadata']['story-attributes'] %}
+                                       {%  if story['metadata']['story-attributes']['partnerpublisher'][0] %}
                                            <div class="imagesd">
                                         <img class="testimg" src="{{  get_logo(story['metadata']['story-attributes']['partnerpublisher'][0], 'Logo') }}" />
                                     </div>

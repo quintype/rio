@@ -120,7 +120,7 @@
                        {{ story["subheadline"] | striptags | slice(0,100) | raw  }}
                     </div>
                     <div class="textbottom">
-                        {%  if story['metadata']['story-attributes'] %}
+                       {%  if story['metadata']['story-attributes']['partnerpublisher'][0] %}
                         <div class="imagesd">
                                         <img src="{{  get_logo(story['metadata']['story-attributes']['partnerpublisher'][0], 'Logo' ) }}" />
                                     </div>
