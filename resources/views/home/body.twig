@@ -1,10 +1,6 @@
 <div class="content"><!-- content open-->
 
     <section class="top"><!--  Section 2 open-->
-
-
-
-
         <div class="leftcontainer">
             {% for story in stories|slice(0,1)  %}
                 <a href="{{story['slug']}}">
@@ -15,11 +11,9 @@
                         <div class="titletop_big">{{ shorthead(story["headline"]) }}</div>
                         <div class="textbottom_left">
                          {%  if story['metadata']['story-attributes']['partnerpublisher'][0] %}
-
                                <div class="imagesd">
                                 <img src="{{  get_logo(story['metadata']['story-attributes']['partnerpublisher'][0], 'Logo' ) }}" />
                                     </div>
-
                             {% endif %}
                             <span><h5 class="textbottom__article__name">{{story["author-name"]}}</h5></span>
                         </div>
@@ -36,8 +30,6 @@
                     </div>
                 </a>
             {% endfor %}
-
-
         </div>	<!--  Left Container close-->
         <div class="rightcontainer" >
             {% for story in stories|slice(1,3)  %}
@@ -389,7 +381,7 @@
         <div class="sectionwrap">
             <div class="sectiontitle left"><span>FOOD & HEALTH</span></div>
 
-            {% for story in food_storiess|slice(0,4) %}  
+            {% for story in food_storiess|slice(0,3) %}  
              
                 <article><!--  Article1 open-->
                 <a href="/{{story['slug']}}"> 
