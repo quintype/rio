@@ -12,7 +12,7 @@
 	  <meta name="description"  content="{{ storyData['summary'] }}"  />
 	  <meta name="twitter:description" content="{{ storyData['summary'] }}"  />
 	  <meta name="twitter:image:src" content="{{ focusedImageUrl(storyData['hero-image-s3-key'], config['image-cdn'],[16,9],storyData['hero-image-metadata'], {'w': 640, 'q': 60, 'fmt': 'pjpeg', 'auto': 'format'}) }}"  />
-	  <meta content="summary_large_image" name="twitter:card" />
+	  <meta name="twitter:card" content="summary_large_image"  />
 	  {% set slug = storyData['slug']|split('/') %}
 	  <meta content="" property="fb:app_id" />
 	  <meta content="Climate Desk" property="og:site_name"/>	 
