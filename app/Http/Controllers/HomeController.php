@@ -130,5 +130,3 @@ class HomeController extends QuintypeController {
     }
 
 }
-
-?>
