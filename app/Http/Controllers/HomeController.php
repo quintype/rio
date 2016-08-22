@@ -125,8 +125,8 @@ class HomeController extends QuintypeController {
         return view('terms', $this->toView(["page" => ["type" => "terms"]]));
     }
 
-      public function errorview() {
-        return view('404');
-    }
+    //   public function errorview() {
+    //     return view('404');
+    // }
 
 }
