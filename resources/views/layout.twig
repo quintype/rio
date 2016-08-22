@@ -11,8 +11,9 @@
 	  <meta name="twitter:title" content="{{ storyData['headline'] }}"  />
 	  <meta name="description"  content="{{ storyData['summary'] }}"  />
 	  <meta name="twitter:description" content="{{ storyData['summary'] }}"  />
-	  <meta name="twitter:image:src" content="{{ focusedImageUrl(storyData['hero-image-s3-key'], config['image-cdn'],[16,9],storyData['hero-image-metadata'], {'w': 640, 'q': 60, 'fmt': 'pjpeg', 'auto': 'format'}) }}"  />
+	  <meta name="twitter:image:src"  content="{{ focusedImageUrl(storyData['hero-image-s3-key'], config['image-cdn'],[16,9],storyData['hero-image-metadata'], {'w': 640, 'q': 60, 'fmt': 'pjpeg', 'auto': 'format'}) }}"   />
 	  <meta name="twitter:card" content="summary_large_image"  />
+      <meta name="twitter:site" />
 	  {% set slug = storyData['slug']|split('/') %}
 	  <meta content="" property="fb:app_id" />
 	  <meta content="Climate Desk" property="og:site_name"/>	 
@@ -22,9 +23,8 @@
 	  <meta  property="og:image" content="{{ focusedImageUrl(storyData['hero-image-s3-key'],config['image-cdn'], [16,9], storyData['hero-image-metadata'], {'w': 640, 'q': 60, 'fmt': 'pjpeg', 'auto': 'format'}) }}" />
 	  <meta  property="og:image:width" content="600"/>
 	  <meta property="og:image:height" content="400"/>
-
 	  <meta property="article:publisher" />
-	  <meta name="twitter:site" />
+	  
 	{% else %}
 	  <title>Climate Desk</title>
 	{% endif %}
