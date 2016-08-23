@@ -337,6 +337,9 @@ margin-left: 10px;
         @include span(12);
         padding: em(0);
         margin-bottom:0.7em;
+        figure{
+            padding-top:100%;
+        }
     }
 
 }
