@@ -4,14 +4,23 @@
     "keywords": ["framework", "laravel"],
     "license": "MIT",
     "type": "project",
+
+    "repositories": [
+        {
+            "type": "path",
+            "url": "../quintype-seo-php"
+        }
+    ],
+
     "require": {
         "php": ">=5.5.9",
         "laravel/framework": "5.2.*",
         "guzzlehttp/guzzle": "~6.0",
         "rcrowe/twigbridge": "^0.9.2",
-		 "symfony/yaml": "2.0.*"
-    },
-	
+		"symfony/yaml": "2.0.*",
+        "quintype/seo":"@dev",
+        "ryannielson/meta":"1.1.*"
+    },	
 
     "require-dev": {
         "fzaninotto/faker": "~1.4",
