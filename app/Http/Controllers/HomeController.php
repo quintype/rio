@@ -13,18 +13,20 @@ use Quintype\Seo;
 
 class HomeController extends QuintypeController {
 
+    public function __construct(){
+        parent::__construct();
+        $this->meta = new Meta;
+        $this->config = $this->client->config();
+    }
 
     public function index() {
 
-
-
         $bulk = new Bulk();
-        $meta = new Meta;
         // Setting Seo meta tags
-        $config = $this->client->config();
+
         $page = ["type" => "home"];
-        $home = new Seo\Home(array_merge($config, config('quintype')), $page["type"]);
-        $meta->set($home->tags());
+        $home = new Seo\Home(array_merge($this->config, config('quintype')), $page["type"]);
+        $this->meta->set($home->tags());
 
         $fields = "id,headline,slug,url,hero-image-s3-key,hero-image-metadata,first-published-at,last-published-at,alternative,published-at,author-name,author-id,sections,story-template,summary,metadata,hero-image-attribution,cards,subheadline";
 
@@ -39,13 +41,14 @@ class HomeController extends QuintypeController {
         $a = $bulk->getResponse("top_stories");
 
         return view('home', $this->toView([
-                    "stories" => $bulk->getResponse("top_stories"),
-                    "page" => $page,
-                    "meta" => $meta,
-                    "videos_stories" => $bulk->getResponse("videosstories"),
-                    "weather_stories" => $bulk->getResponse("weatherstories"),
-                    "food_storiess" => $bulk->getResponse("foodhealth"),
-                    "breaking_news" => $bulk->getResponse("breaking_news")]));
+            "stories" => $bulk->getResponse("top_stories"),
+            "page" => $page,
+            "meta" => $this->meta,
+            "videos_stories" => $bulk->getResponse("videosstories"),
+            "weather_stories" => $bulk->getResponse("weatherstories"),
+            "food_storiess" => $bulk->getResponse("foodhealth"),
+            "breaking_news" => $bulk->getResponse("breaking_news")]));
+
     }
 
     public function storyview($category, $y, $m, $d, $slug) {
@@ -71,61 +74,106 @@ class HomeController extends QuintypeController {
 
     public function sectionview($section) {
 
- $fields = "id,headline,slug,url,hero-image-s3-key,hero-image-metadata,first-published-at,last-published-at,alternative,published-at,author-name,author-id,sections,story-template,summary,metadata,hero-image-attribution,cards,subheadline";
+        // Setting Seo meta tags
+        $page = ["type" => "section"];
+        $section = new Seo\Section(array_merge($this->config, config('quintype')), $page["type"], $section);
+        $this->meta->set($section->tags());
 
-        $config = $this->client->config();
-        $sections = $config['sections'];
+        $fields = "id,headline,slug,url,hero-image-s3-key,hero-image-metadata,first-published-at,last-published-at,alternative,published-at,author-name,author-id,sections,story-template,summary,metadata,hero-image-attribution,cards,subheadline";
+        $sections = $this->config['sections'];
         $cur_section = $sections[array_search($section, array_column($sections, 'slug'), true)];
         $params = array('story-group' => 'top', 'section' => $cur_section['name'], 'limit' => 8, "fields" => $fields);
         $stories = $this->getStories($params);
 
         if ($cur_section['name'] != 'Inquiring Minds')
-            return view('section', $this->toView(["section" => $cur_section, "page" => ["type" => "section"], "section_stories" => $stories, "params" => $params]));
+            return view('section', $this->toView([
+                "section" => $cur_section,
+                "page" => $page,
+                "meta" => $this->meta,
+                "section_stories" => $stories,
+                "params" => $params]));
         else
-            return view('podcasts', $this->toView(["section" => $cur_section, "page" => ["type" => "section"], "section_stories" => $stories, "params" => $params]));
+            return view('podcasts', $this->toView([
+                "section" => $cur_section,
+                "page" => $page,
+                "meta" => $this->meta,
+                "section_stories" => $stories,
+                "params" => $params]));
+
     }
 
     public function searchview(Request $request) {
-        //  return view('search', $this->toView([]));
-          $fields = "id,headline,slug,url,hero-image-s3-key,hero-image-metadata,first-published-at,last-published-at,alternative,published-at,author-name,author-id,sections,story-template,summary,metadata,hero-image-attribution,cards,subheadline";
+
+        // Setting Seo meta tags
+        $page = ["type" => "search"];
         $query = $request->q;
+        $search = new Seo\Search(array_merge($this->config, config('quintype')), $page["type"], $query);
+        $this->meta->set($search->tags());
+
+        $fields = "id,headline,slug,url,hero-image-s3-key,hero-image-metadata,first-published-at,last-published-at,alternative,published-at,author-name,author-id,sections,story-template,summary,metadata,hero-image-attribution,cards,subheadline";
+
         $searchedstories = $this->searchStories(array('q' => $query, 'size' => 7, "fields" => $fields));
         $searchsize=sizeof($searchedstories);
         $params=(array('q' => $query, 'limit' => 7, "fields" => $fields));
 
 
         if ($searchsize < 1)
-        return view('noresults');
+            return view('noresults');
         else
-            return view('search', $this->toView(["searchresults" => $searchedstories, "page" => ["type" => "search"], "term" => $query, "params" => $params]));
+            return view('search', $this->toView([
+                "searchresults" => $searchedstories,
+                "page" => $page,
+                "meta" => $this->meta,
+                "term" => $query,
+                "params" => $params]));
 
     }
 
     public function tagsview(Request $request) {
-        //$tag = $request->tag;
-        //  print_r($request->topic);
-         $fields = "id,headline,slug,url,hero-image-s3-key,hero-image-metadata,first-published-at,last-published-at,alternative,published-at,author-name,author-id,sections,story-template,summary,metadata,hero-image-attribution,cards,subheadline";
-        $a = explode("/", $_SERVER['REQUEST_URI']);
-        $tag = $a[sizeof($a) - 1];
-        $tagStories = $this->getStories(array('story-group' => 'top', 'tag' => $tag, 'limit' => 7));
-        $params = array('story-group' => 'top', 'tag' => $tag, 'limit' => 7);
-        $tag = urldecode($tag);
-        return view('tags', $this->toView(["tagresults" => $tagStories, "page" => ["type" => "topic"], "tag" => $tag, "params" => $params]));
+       $fields = "id,headline,slug,url,hero-image-s3-key,hero-image-metadata,first-published-at,last-published-at,alternative,published-at,author-name,author-id,sections,story-template,summary,metadata,hero-image-attribution,cards,subheadline";
+       $a = explode("/", $_SERVER['REQUEST_URI']);
+       $tag = $a[sizeof($a) - 1];
+       $tagStories = $this->getStories(array('story-group' => 'top', 'tag' => $tag, 'limit' => 7));
+       $params = array('story-group' => 'top', 'tag' => $tag, 'limit' => 7);
+       $tag = urldecode($tag);
+       return view('tags', $this->toView(["tagresults" => $tagStories, "page" => ["type" => "topic"], "tag" => $tag, "params" => $params]));
+
     }
 
     public function aboutview() {
-        return view('about', $this->toView(["page" => ["type" => "about"]]));
+
+        // Setting Seo meta tags
+        $page = ["type" => "about"];
+        $about = new Seo\StaticPage(array_merge($this->config, config('quintype')), $page["type"], "About");
+        $this->meta->set($about->tags());
+
+        return view('about', $this->toView([
+            "page" => $page,
+            "meta" => $this->meta]));
     }
 
     public function privacyview() {
-        return view('privacy', $this->toView(["page" => ["type" => "privacy"]]));
+
+        // Setting Seo meta tags
+        $page = ["type" => "privacy"];
+        $privacy = new Seo\StaticPage(array_merge($this->config, config('quintype')), $page["type"], "Privacy");
+        $this->meta->set($privacy->tags());
+        return view('privacy', $this->toView([
+            "page" => $page,
+            "meta" => $this->meta]));
     }
 
     public function termsview() {
-        return view('terms', $this->toView(["page" => ["type" => "terms"]]));
+        // Setting Seo meta tags
+        $page = ["type" => "terms"];
+        $terms = new Seo\StaticPage(array_merge($this->config, config('quintype')), $page["type"], "Terms");
+        $this->meta->set($terms->tags());
+        return view('terms', $this->toView([
+            "page" => $page,
+            "meta" => $this->meta]));
     }
 
-      public function errorview() {
+    public function errorview() {
         return view('404');
     }
 
