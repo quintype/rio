@@ -17,6 +17,7 @@ class HomeController extends QuintypeController {
         parent::__construct();
         $this->meta = new Meta;
         $this->config = $this->client->config();
+
     }
 
     public function index() {
@@ -52,13 +53,11 @@ class HomeController extends QuintypeController {
     }
 
     public function storyview($category, $y, $m, $d, $slug) {
+
         $bulk = new Bulk();
         $fields = "id,headline,slug,url,hero-image-s3-key,hero-image-metadata,first-published-at,last-published-at,alternative,published-at,author-name,author-id,sections,story-template,summary,metadata,subheadline";
         $story = $this->client->storyData(array('slug' => $slug))['story'];
-
-         // echo "<pre>";  print_r($story);
         $author_data = $this->client->author($story['author-id']);
-          // echo "<pre>";print_r($author_data);
         $authorbio=strip_tags($author_data['bio']);
 
         $bulk->addRequest('related_stories', (new StoriesRequest('top'))->addParams(["section" => $story["sections"][0]["name"], "limit" => 4, "fields" => $fields]));
@@ -67,8 +66,18 @@ class HomeController extends QuintypeController {
 
         $pos=array_search($story['id'],$abcd);
 
-        return view('story', $this->toView(["storyData" => $story, "page" => ["type" => "story"], "relatedstories" => $bulk->getResponse("related_stories"),
-            "authordata"=>$author_data,"authorbio"=>$authorbio]));
+        // Setting Seo meta tags
+        $page = ["type" => "story"];
+        $stories = new Seo\Story(array_merge($this->config, config('quintype')), $page["type"], $story);
+        $this->meta->set($stories->tags());
+
+        return view('story', $this->toView([
+            "storyData" => $story,
+            "page" => $page,
+            "meta" => $this->meta,
+            "relatedstories" => $bulk->getResponse("related_stories"),
+            "authordata"=>$author_data,
+            "authorbio"=>$authorbio]));
 
     }
 
@@ -130,13 +139,26 @@ class HomeController extends QuintypeController {
     }
 
     public function tagsview(Request $request) {
-       $fields = "id,headline,slug,url,hero-image-s3-key,hero-image-metadata,first-published-at,last-published-at,alternative,published-at,author-name,author-id,sections,story-template,summary,metadata,hero-image-attribution,cards,subheadline";
-       $a = explode("/", $_SERVER['REQUEST_URI']);
-       $tag = $a[sizeof($a) - 1];
-       $tagStories = $this->getStories(array('story-group' => 'top', 'tag' => $tag, 'limit' => 7));
-       $params = array('story-group' => 'top', 'tag' => $tag, 'limit' => 7);
-       $tag = urldecode($tag);
-       return view('tags', $this->toView(["tagresults" => $tagStories, "page" => ["type" => "topic"], "tag" => $tag, "params" => $params]));
+
+
+        $fields = "id,headline,slug,url,hero-image-s3-key,hero-image-metadata,first-published-at,last-published-at,alternative,published-at,author-name,author-id,sections,story-template,summary,metadata,hero-image-attribution,cards,subheadline";
+        $a = explode("/", $_SERVER['REQUEST_URI']);
+        $tag = $a[sizeof($a) - 1];
+        $tagStories = $this->getStories(array('story-group' => 'top', 'tag' => $tag, 'limit' => 7));
+        $params = array('story-group' => 'top', 'tag' => $tag, 'limit' => 7);
+        $tag = urldecode($tag);
+
+        // Setting Seo meta tags
+        $page = ["type" => "tag"];
+        $tags = new Seo\Tag(array_merge($this->config, config('quintype')), $page["type"], $tag);
+        $this->meta->set($tags->tags());
+
+        return view('tags', $this->toView([
+            "tagresults" => $tagStories,
+            "page" => $page,
+            "meta" => $this->meta,
+            "tag" => $tag,
+            "params" => $params]));
 
     }
 
@@ -150,6 +172,7 @@ class HomeController extends QuintypeController {
         return view('about', $this->toView([
             "page" => $page,
             "meta" => $this->meta]));
+
     }
 
     public function privacyview() {
@@ -161,6 +184,7 @@ class HomeController extends QuintypeController {
         return view('privacy', $this->toView([
             "page" => $page,
             "meta" => $this->meta]));
+
     }
 
     public function termsview() {
@@ -171,10 +195,13 @@ class HomeController extends QuintypeController {
         return view('terms', $this->toView([
             "page" => $page,
             "meta" => $this->meta]));
+
     }
 
     public function errorview() {
+
         return view('404');
+
     }
 
 }
