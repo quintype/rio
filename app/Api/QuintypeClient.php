@@ -118,7 +118,7 @@ class QuintypeClient {
 
     public function config() {
         $query = '/api/config';
-        $key = 'swarajya-config';
+        $key = 'climatedesk-config';
         if (Cache::has($key)) {
             $response = Cache::get($key);
         } else {
