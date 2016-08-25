@@ -198,10 +198,8 @@ class HomeController extends QuintypeController {
 
     }
 
-    public function errorview() {
-
-        return view('404');
-
-    }
+    //   public function errorview() {
+    //     return view('404');
+    // }
 
 }

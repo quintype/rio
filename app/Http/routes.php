@@ -64,7 +64,7 @@ Route::get('/Loadmore', function() {
     }
 });
 
-Route::get('/404', [
+// Route::get('/404', [
 
-    'uses' => 'HomeController@errorview'
-]);
+//     'uses' => 'HomeController@errorview'
+// ]);

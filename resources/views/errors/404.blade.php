@@ -1,12 +1,18 @@
+
 <!DOCTYPE html>
 <html>
-    <head>
+    <head>        
         <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
-        <link rel="stylesheet" type="text/css" href="{{ assetPath("application.css") }}"/>
+        <link rel="stylesheet" type="text/css" href="/climatedesk/assets/application-0d9e878dc6.css"/>
         <link href="https://d2nx6ydw3e5y5d.cloudfront.net/assets/current.css" media="screen" rel="stylesheet" type="text/css">
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
-	<script type="text/javascript" src="{{ assetPath("application.js") }}"></script>
-    {{ meta.display([], true)|raw }}
+	<script type="text/javascript" src="/climatedesk/assets/application-7b09f9151b.js"></script>
+    	  <title>Climate Desk</title>
+		<meta name="twitter:widgets:csp" content="on">
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<link href="/feed" rel="alternate" title="Climate Desk ATOM Feed" type="application/atom+xml"/>
+	<meta content="Climate Desk" name="keywords"/>
+	<meta content="" property="fb:app_id"/>
 	<link rel="shortcut icon" href="">
         <script type='text/javascript'>
 
@@ -40,7 +46,7 @@
 	<script>
 	  window.qlitics=window.qlitics||function(){(qlitics.q=qlitics.q||[]).push(arguments);};
 	  qlitics('init');
-	  qlitics('track', 'page-view', {'page-type': "{{ page.type }}" });
+	  qlitics('track', 'page-view', {'page-type': "" });
 	</script>
 	<script async src='/qlitics.js'></script>
 	<!-- End Qlitics Snippet -->
@@ -75,17 +81,14 @@
                     <div class="menuitems">
                         <ul>
 
-                            {% for menuItem in menuItems %}
-                                <li><a href="{{menuItem.url()}}">{{menuItem.title()}}</a></li>
-                                {% endfor %}
-
+                            
                         </ul>
 
                     </div>
 
                 </div>
                 <div class="logo">
-                    <a href="{{ url()}}"> <img class="logoview" src='{{ assetPath("climatedesk_logo.jpg") }}' /> </a></div>
+                    <a href="http://localhost:8000"> <img class="logoview" src='/climatedesk/assets/climatedesk_logo-e437c2b0a6.jpg' /> </a></div>
                 <div class="mob_buttons"> <ul>
                        <!--  <li><a target="_blank" href="#" class="donate">Donate</a></li> -->
                         <li><span id="search_init1" class="search_butn">Search</span></li>
@@ -103,9 +106,9 @@
                 </div>
 
                 <nav><ul>
-                        <li class="socialicon"><a target="_blank" href="https://www.facebook.com/theclimatedesk/"><img src="{{ assetPath("icons/facebook_b.svg") }}" /></a></li>
-                        <li class="socialicon"><a target="_blank"	href="https://twitter.com/ClimateDesk" ><img src="{{ assetPath("icons/twitter_b.svg") }}" /></a></li>
-                        <li class="socialicon"><a	target="_blank"href="https://www.youtube.com/user/ClimateDesk"><img src="{{ assetPath("icons/youtube_b.svg") }}" /></a></li>
+                        <li class="socialicon"><a target="_blank" href="https://www.facebook.com/theclimatedesk/"><img src="/climatedesk/assets/icons/facebook_b-f043ec78df.svg" /></a></li>
+                        <li class="socialicon"><a target="_blank"	href="https://twitter.com/ClimateDesk" ><img src="/climatedesk/assets/icons/twitter_b-ae194ec396.svg" /></a></li>
+                        <li class="socialicon"><a	target="_blank"href="https://www.youtube.com/user/ClimateDesk"><img src="/climatedesk/assets/icons/youtube_b-955bc57653.svg" /></a></li>
                        <!--  <li><a target="_blank" href="#" class="donate">Donate</a></li> -->
                         <li><span id="search_init" class="search_butn">Search</span></li>
 
@@ -114,19 +117,24 @@
         </div> <!-- Header Close-->
         <!--
       <div class="layout-menu">
-        {% block menu %}
-        <ul>
-            {% for menuItem in config.menuItems() %}
-            <li><a href="{{menuItem.url()}}">{{menuItem.title()}}</a></li>
-            {% endfor %}
-          </ul>
-        {% endblock %}
-      </div>
+                <ul>
+                      </ul>
+              </div>
         -->
 
 
 
-    {% block content %}{% endblock %}
+        <div class="content">
+	<div class="notfound">
+		<div class="digit"> 404</div>
+		<div class="text"> Oops.. Page not found ! </div>
+		<div class="text1">
+			The page you are looking for might have been removed, had its name changed, or is temporarily unavailable.
+		 </div>
+		<div class="text1">
+		<a href="/">Return to home page</a>
+		 </div>
+	 </div>
 
 
 
@@ -136,35 +144,35 @@
         <div class="sectiontitle patner"><span>OUR PARTNERS</span></div>
         <div class="patners">
             <ul id="clientsdesk">
-                <li><img src="{{ assetPath('patner-logos/atlantic.png') }}" /></li>
-                <li><img src="{{ assetPath('patner-logos/citylab.png') }}" /></li>
-                <li><img src="{{ assetPath('patner-logos/fusion.png') }}" /></li>
-                <li><img src="{{ assetPath('patner-logos/grist.png') }}" /></li>
-                <li><img src="{{ assetPath('patner-logos/guardian.png') }}" /></li>
-                <li><img src="{{ assetPath('patner-logos/huffpost.png') }}" /></li>
-                <li><img src="{{ assetPath('patner-logos/medium.png') }}" /></li>
-                <li><img src="{{ assetPath('patner-logos/motherjones.png') }}" /></li>
-                <li><img src="{{ assetPath('patner-logos/newrepublic.png') }}" /></li>
-                <li><img src="{{ assetPath('patner-logos/n.png') }}" /></li>
-                <li><img src="{{ assetPath('patner-logos/reveal.png') }}" /></li>
-                <li><img src="{{ assetPath('patner-logos/slate.png') }}" /></li>
-                <li><img src="{{ assetPath('patner-logos/wired.png') }}" /></li>
+                <li><img src="/climatedesk/assets/patner-logos/atlantic-051ff81925.png" /></li>
+                <li><img src="/climatedesk/assets/patner-logos/citylab-bacbcd1281.png" /></li>
+                <li><img src="/climatedesk/assets/patner-logos/fusion-7983fbe119.png" /></li>
+                <li><img src="/climatedesk/assets/patner-logos/grist-ea15668ff0.png" /></li>
+                <li><img src="/climatedesk/assets/patner-logos/guardian-4054aa3030.png" /></li>
+                <li><img src="/climatedesk/assets/patner-logos/huffpost-a36644b407.png" /></li>
+                <li><img src="/climatedesk/assets/patner-logos/medium-bc14f51a15.png" /></li>
+                <li><img src="/climatedesk/assets/patner-logos/motherjones-c143b29407.png" /></li>
+                <li><img src="/climatedesk/assets/patner-logos/newrepublic-1b5e88ded5.png" /></li>
+                <li><img src="/climatedesk/assets/patner-logos/n-e2c6ba1457.png" /></li>
+                <li><img src="/climatedesk/assets/patner-logos/reveal-5e7d6a7c1f.png" /></li>
+                <li><img src="/climatedesk/assets/patner-logos/slate-e170f84ef7.png" /></li>
+                <li><img src="/climatedesk/assets/patner-logos/wired-4df35d0f6a.png" /></li>
             </ul>
                <ul id="slider" >
-                  <li><img src="{{ assetPath('patner-logos/atlantic.png') }}" /></li>
-                  <li><img src="{{ assetPath('patner-logos/citylab.png') }}" /></li>
-                  <li><img src="{{ assetPath('patner-logos/fusion.png') }}" /></li>
-                  <li><img src="{{ assetPath('patner-logos/grist.png') }}" /></li>
-                  <li><img src="{{ assetPath('patner-logos/guardian.png') }}" /></li>
-                  <li><img src="{{ assetPath('patner-logos/huffpost.png') }}" /></li>
-                  <li><img src="{{ assetPath('patner-logos/medium.png') }}" /></li>
-                  <li><img src="{{ assetPath('patner-logos/motherjones.png') }}" /></li>
-                  <li><img src="{{ assetPath('patner-logos/newrepublic.png') }}" /></li>
-                  <li><img src="{{ assetPath('patner-logos/n.png') }}" /></li>
-                  <li><img src="{{ assetPath('patner-logos/reveal.png') }}" /></li>
-                  <li><img src="{{ assetPath('patner-logos/slate.png') }}" /></li>
-                  <li><img src="{{ assetPath('patner-logos/wired.png') }}" /></li>
-              </ul>
+                  <li><img src="/climatedesk/assets/patner-logos/atlantic-051ff81925.png" /></li>
+                  <li><img src="/climatedesk/assets/patner-logos/citylab-bacbcd1281.png" /></li>
+                  <li><img src="/climatedesk/assets/patner-logos/fusion-7983fbe119.png" /></li>
+                  <li><img src="/climatedesk/assets/patner-logos/grist-ea15668ff0.png" /></li>
+                  <li><img src="/climatedesk/assets/patner-logos/guardian-4054aa3030.png" /></li>
+                  <li><img src="/climatedesk/assets/patner-logos/huffpost-a36644b407.png" /></li>
+                  <li><img src="/climatedesk/assets/patner-logos/medium-bc14f51a15.png" /></li>
+                  <li><img src="/climatedesk/assets/patner-logos/motherjones-c143b29407.png" /></li>
+                  <li><img src="/climatedesk/assets/patner-logos/newrepublic-1b5e88ded5.png" /></li>
+                  <li><img src="/climatedesk/assets/patner-logos/n-e2c6ba1457.png" /></li>
+                  <li><img src="/climatedesk/assets/patner-logos/reveal-5e7d6a7c1f.png" /></li>
+                  <li><img src="/climatedesk/assets/patner-logos/slate-e170f84ef7.png" /></li>
+                  <li><img src="/climatedesk/assets/patner-logos/wired-4df35d0f6a.png" /></li>
+              </ul> 
         </div>
     </div>
 </div><!-- content close-->
@@ -174,13 +182,13 @@
         <div class="section">
         <div class="articlewrap">
             <div class="footerblock"><!--  Article1 open-->
-                <img src='{{ assetPath("climatedesk-white.png") }}' />
+                <img src='/climatedesk/assets/climatedesk-white-6e437bf43a.png' />
                 <div class="textwrap">
                     <ul>
-                        <li> <a  href="/about-us">ABOUT US </a></li>
-                        <li> <a  href="/section/inquiring-minds">INQUIRING MINDS </a></li>
-                        <li> <a  href="/privacy-policy">PRIVACY POLICY</a></li>
-                        <li> <a  href="/terms-and-conditions">TERMS OF USE</a></li>
+                        <li> <a target="_blank" href="/about-us">ABOUT US </a></li>
+                        <li> <a target="_blank" href="/section/inquiring-minds">INQUIRING MINDS </a></li>
+                        <li> <a target="_blank" href="/privacy-policy">PRIVACY POLICY</a></li>
+                        <li> <a target="_blank" href="/terms-and-conditions">TERMS OF USE</a></li>
                     </ul>
                 </div><!-- textwrap close -->
 
@@ -252,8 +260,8 @@
 
 <script type="text/javascript">
     var qtConfig = {
-        "image-cdn": "{{config("quintype.image-cdn")}}",
-        "publisher-name": "{{config("quintype.publisher-name")}}"
+        "image-cdn": "http://quintype-01.imgix.net",
+        "publisher-name": "climatedesk"
     };
 </script>
 

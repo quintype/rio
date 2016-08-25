@@ -26,9 +26,11 @@
 </script>
 <div class="content top story-view" data-story-content-id="{{ storyData['id'] }}" data-story-version-id="{{ storyData['story-version-id'] }}"><!-- content open-->
     <div class="story_hero">
+    {% if storyData['hero-image-caption'] %}
         <div class="story_hero__text">
             {{storyData['hero-image-caption'] | raw}}
         </div>
+    {% endif %}
         <figure>
 
             <img src="{{focusedImageUrl(storyData['hero-image-s3-key'],config['image-cdn'], [16,9], storyData['hero-image-metadata'], {w: 800})}}" class="story-img"/>
@@ -144,7 +146,7 @@
         </div>
 
         <div class="storyad">
-          <a target="_blank" href="/section/inquiring-minds">  <img  src="{{ assetPath('main/ad.png') }}" /> </a>
+          <a  href="/section/inquiring-minds">  <img  src="{{ assetPath('main/ad.png') }}" /> </a>
         </div>
 
 
@@ -178,7 +180,7 @@
                             <div class="textbottom">
 
 
-                                {%  if story['metadata']['story-attributes'] %}
+                                 {%  if story['metadata']['story-attributes']['partnerpublisher'][0] %}
                                     <div class="imagesd">
                                         <img src="{{  get_logo(story['metadata']['story-attributes']['partnerpublisher'][0], 'Logo' ) }}" />
                                     </div>
