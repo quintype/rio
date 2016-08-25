@@ -3,6 +3,8 @@
     <section class="top"><!--  Section 2 open-->
         <div class="leftcontainer">
             {% for story in stories|slice(0,1)  %}
+
+
                 <a href="{{story['slug']}}">
                     <div class="figcontainer">
                     <h6 class="sectionname__display topdesk">{{story['sections'][0]['name']}}</h6>
