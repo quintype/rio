@@ -1064,7 +1064,6 @@ article:nth-child(4){
     font-weight: $bold;
     padding:0 em(10) 0  em(0) ;
     border-right:1px solid $light-gray;
-    margin-top: 1px;
      @include breakpoint($phone){
             font-size: 10px; 
         }
@@ -1596,3 +1595,11 @@ article:nth-child(4){
         border-right:0;
     }
     }
+
+.double{
+    float: left;
+}
+
+.noborder{
+    border-right: 0;
+}

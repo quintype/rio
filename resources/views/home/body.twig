@@ -60,9 +60,7 @@
     <section><!--  Section 2 open-->
         {% for story in stories|slice(4,3)  %}
             <article><!--  Article1 open-->
-                
                     <div class="wrap border">
-
                         <div class="figcontainer">
                             <h6 class="sectionname__display">{{story['sections'][0]['name']}}</h6>
                             <a href="/{{story['slug']}}">
@@ -90,10 +88,33 @@
                                         <img src="{{  get_logo(story['metadata']['story-attributes']['partnerpublisher'][0], 'Logo', 'Logo' ) }}" />
                                     </div>
                                 {% endif %}
-                                <span ><h5 class="textbottom__article__name">{{story["author-name"]}} </h5></span>
 
+                                
+                                  {% if story["authors"] | length >1 %}
+                                  <span class="textbottom__article__name noborder">
+                             {% for authornames in story["authors"]  %}
+                                 {{ authornames['name'] }}
+                                 {% if loop.index == (story["authors"] | length ) - 1 %} & {% endif %}
+                                 {% endfor %}
+                             </span>
+
+                                  {% else %}
+                            <span class="textbottom__article__name">
+
+                                {{story["author-name"]}}
+                            </span>
+                                {% endif %} 
+
+                                
                                 {% if story["first-published-at"] %}
-                                <span class="textbottom__article"> <time datetime="">{% set timestamp = (story["first-published-at"] / 1000)|round(0, 'floor') %}{{timestamp|date('M j, Y')}}</time></span>
+                                {% if story["authors"] | length >1 %}
+                                  <span class="textbottom__article double"> <time datetime="">{% set timestamp = (story["first-published-at"] / 1000)|round(0, 'floor') %}{{timestamp|date('M j, Y')}}</time></span>
+                                
+                                {% else %}
+                                  <span class="textbottom__article"> <time datetime="">{% set timestamp = (story["first-published-at"] / 1000)|round(0, 'floor') %}{{timestamp|date('M j, Y')}}</time></span>
+                                {% endif %}
+
+
                                 {% endif %}
 
                             </div> <!-- textbottom close -->

@@ -29,7 +29,7 @@ class HomeController extends QuintypeController {
         $home = new Seo\Home(array_merge($this->config, config('quintype')), $page["type"]);
         $this->meta->set($home->tags());
 
-        $fields = "id,headline,slug,url,hero-image-s3-key,hero-image-metadata,first-published-at,last-published-at,alternative,published-at,author-name,author-id,sections,story-template,summary,metadata,hero-image-attribution,cards,subheadline";
+        $fields = "id,headline,slug,url,hero-image-s3-key,hero-image-metadata,first-published-at,last-published-at,alternative,published-at,author-name,author-id,sections,story-template,summary,metadata,hero-image-attribution,cards,subheadline,authors";
 
         $bulk->addRequest('top_stories', (new StoriesRequest('top'))->addParams(["limit" => 8, "fields" => $fields]));
         $bulk->addRequest('weatherstories', (new StoriesRequest('top'))->addParams(["section" => "Weather & Climate", "limit" => 3, "fields" => $fields]));
@@ -40,6 +40,8 @@ class HomeController extends QuintypeController {
         $bulk->execute($this->client);
 
         $a = $bulk->getResponse("top_stories");
+        // echo"<pre>";print_r($a);
+
 
         return view('home', $this->toView([
             "stories" => $bulk->getResponse("top_stories"),
