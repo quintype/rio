@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "4e12de9cbab600a428f750b5921a2aec",
-    "content-hash": "f2fca74d3433edaceadc97f53e79ae98",
+    "hash": "fe9a9f33f5aaf82ab58db942a1bb14ca",
+    "content-hash": "bb34365de862f246108588b154e96511",
     "packages": [
         {
             "name": "classpreloader/classpreloader",
@@ -479,16 +479,16 @@
         },
         {
             "name": "laravel/framework",
-            "version": "v5.2.44",
+            "version": "v5.2.45",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "f24b7acfb494437ef00bdd062bed61eb21535546"
+                "reference": "2a79f920d5584ec6df7cf996d922a742d11095d1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/f24b7acfb494437ef00bdd062bed61eb21535546",
-                "reference": "f24b7acfb494437ef00bdd062bed61eb21535546",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/2a79f920d5584ec6df7cf996d922a742d11095d1",
+                "reference": "2a79f920d5584ec6df7cf996d922a742d11095d1",
                 "shasum": ""
             },
             "require": {
@@ -605,7 +605,7 @@
                 "framework",
                 "laravel"
             ],
-            "time": "2016-08-23 13:03:29"
+            "time": "2016-08-26 11:44:52"
         },
         {
             "name": "league/flysystem",
@@ -1120,16 +1120,16 @@
         },
         {
             "name": "quintype/seo",
-            "version": "0.0.2",
+            "version": "0.0.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/quintype/quintype-seo-php.git",
-                "reference": "3493361579f1a4b483876fc41129d9c8db42d45c"
+                "reference": "5281cbbe7e8e3e5c7c5f1fe784f1ac428750cae5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/quintype/quintype-seo-php/zipball/3493361579f1a4b483876fc41129d9c8db42d45c",
-                "reference": "3493361579f1a4b483876fc41129d9c8db42d45c",
+                "url": "https://api.github.com/repos/quintype/quintype-seo-php/zipball/5281cbbe7e8e3e5c7c5f1fe784f1ac428750cae5",
+                "reference": "5281cbbe7e8e3e5c7c5f1fe784f1ac428750cae5",
                 "shasum": ""
             },
             "type": "library",
@@ -1139,7 +1139,7 @@
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
-            "time": "2016-08-25 10:34:13"
+            "time": "2016-08-30 07:18:01"
         },
         {
             "name": "rcrowe/twigbridge",
