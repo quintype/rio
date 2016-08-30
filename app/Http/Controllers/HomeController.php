@@ -165,36 +165,36 @@ class HomeController extends QuintypeController {
     public function aboutview() {
 
         // Setting Seo meta tags
-        $page = ["type" => "about"];
-        $about = new Seo\StaticPage(array_merge($this->config, config('quintype')), $page["type"], "About");
+        $about = new Seo\StaticPage("About Us");
         $this->meta->set($about->tags());
 
         return view('about', $this->toView([
-            "page" => $page,
-            "meta" => $this->meta]));
+            "meta" => $this->meta
+            ])
+        );
 
     }
 
     public function privacyview() {
 
         // Setting Seo meta tags
-        $page = ["type" => "privacy"];
-        $privacy = new Seo\StaticPage(array_merge($this->config, config('quintype')), $page["type"], "Privacy");
+        $privacy = new Seo\StaticPage("Privacy Policy");
         $this->meta->set($privacy->tags());
         return view('privacy', $this->toView([
-            "page" => $page,
-            "meta" => $this->meta]));
+            "meta" => $this->meta
+            ])
+        );
 
     }
 
     public function termsview() {
         // Setting Seo meta tags
-        $page = ["type" => "terms"];
-        $terms = new Seo\StaticPage(array_merge($this->config, config('quintype')), $page["type"], "Terms");
+        $terms = new Seo\StaticPage("Terms of use");
         $this->meta->set($terms->tags());
         return view('terms', $this->toView([
-            "page" => $page,
-            "meta" => $this->meta]));
+            "meta" => $this->meta
+            ])
+        );
 
     }
 
