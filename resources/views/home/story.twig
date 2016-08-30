@@ -25,7 +25,22 @@
 
 </script>
 <div class="content top story-view" data-story-content-id="{{ storyData['id'] }}" data-story-version-id="{{ storyData['story-version-id'] }}"><!-- content open-->
+<!-- storyData["sections"][0]["name"] == "Video" &&  -->
+   {% if storyData["story-template"]=="video" %}
+
+    {% for card in storyData['cards'] %}            
+            {% include "story/elements/youtube1" with {'storyElements': card['story-elements'], 'card': card} %}
+    {% endfor %}
+
+
+ 
+    {% else %}
+
     <div class="story_hero">
+     
+     <!-- {% include "story/elements/youtube" with {'dataElement': element } %} -->
+
+
     {% if storyData['hero-image-caption'] %}
         <div class="story_hero__text">
             {{storyData['hero-image-caption'] | raw}}
@@ -42,6 +57,7 @@
         {{ storyData["hero-image-attribution"] | raw }}
     </div>
 
+{% endif %}
 
 
     <div class="story_container">

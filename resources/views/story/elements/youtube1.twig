@@ -1,0 +1,12 @@
+{% set break = false %}
+
+{% for element in storyElements if not break %}
+
+
+
+  	{% if element['type'] == "youtube-video" %}
+  		{% include "story/elements/youtube" with {'dataElement': element } %}
+        {% set break = true %}
+	{% endif %}
+
+{% endfor %}

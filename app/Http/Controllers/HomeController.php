@@ -65,7 +65,7 @@ class HomeController extends QuintypeController {
         $bulk->addRequest('related_stories', (new StoriesRequest('top'))->addParams(["section" => $story["sections"][0]["name"], "limit" => 4, "fields" => $fields]));
         $bulk->execute($this->client);
         $abcd=$bulk->getResponse("related_stories");
-
+        // echo "<pre>"; print_r($abcd);
         $pos=array_search($story['id'],$abcd);
 
         // Setting Seo meta tags

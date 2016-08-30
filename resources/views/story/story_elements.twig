@@ -1,3 +1,5 @@
+  {% set count = 0 %}
+
 
 {% for element in storyElements %}
   <div class="story-element-view"
@@ -11,13 +13,15 @@
         {% elseif elType == "title" %}
         {% include "story/elements/title" with {'dataElement': element } %}
     {% elseif elType == "youtube-video" %}
-        {% include "story/elements/youtube" with {'dataElement': element } %}
+    {% set count = count+1 %}
+     {% if count > 1 %}
+     {% include "story/elements/youtube" with {'dataElement': element } %}
+     {% endif %}
     {% elseif elType == "jsembed" %}
 
         {% include "story/elements/location" with {'dataElement': element } %}
   {% elseif elType  == 'composite' %}
     {% include 'story/elements/storyslideshow' with {'dataElement': element } %}
-    <!-- <span>teststesdfsdfg******************************</span>> -->
 
     {% elseif elType == "q-and-a" %}
         {% include "story/elements/questionandanswer" with {'dataElement': element } %}
