@@ -81,44 +81,9 @@
                                 <!-- {{ shortsummary( story["subheadline"] |raw )  }} -->
                             </div>
  </div><!-- textwrap close -->
-                            <div class="textbottom">
- 
-                               {%  if story['metadata']['story-attributes']['partnerpublisher'][0] %}
-                                    <div class="imagesd">
-                                        <img src="{{  get_logo(story['metadata']['story-attributes']['partnerpublisher'][0], 'Logo', 'Logo' ) }}" />
-                                    </div>
-                                {% endif %}
-
-                                
-                                  {% if story["authors"] | length >1 %}
-                                  <span class="textbottom__article__name noborder">
-                             {% for authornames in story["authors"]  %}
-                                 {{ authornames['name'] }}
-                                 {% if loop.index == (story["authors"] | length ) - 1 %} & {% endif %}
-                                 {% endfor %}
-                             </span>
-
-                                  {% else %}
-                            <span class="textbottom__article__name">
-
-                                {{story["author-name"]}}
-                            </span>
-                                {% endif %} 
-
-                                
-                                {% if story["first-published-at"] %}
-                                {% if story["authors"] | length >1 %}
-                                  <span class="textbottom__article double"> <time datetime="">{% set timestamp = (story["first-published-at"] / 1000)|round(0, 'floor') %}{{timestamp|date('M j, Y')}}</time></span>
-                                
-                                {% else %}
-                                  <span class="textbottom__article"> <time datetime="">{% set timestamp = (story["first-published-at"] / 1000)|round(0, 'floor') %}{{timestamp|date('M j, Y')}}</time></span>
-                                {% endif %}
 
 
-                                {% endif %}
-
-                            </div> <!-- textbottom close -->
-
+ {% include "story/byline" %}
                     </div>
                 </a>
             </article>
@@ -201,21 +166,8 @@
                         <div class="article__title">
                             {{ shorthead(story["headline"]) }} 
                         </div>
-                        <div class="textbottom">
-
-                             {%  if story['metadata']['story-attributes']['partnerpublisher'][0] %}
-                                    <div class="imagesd">
-                                        <img src="{{  get_logo(story['metadata']['story-attributes']['partnerpublisher'][0], 'Logo', 'Logo' ) }}" />
-                                    </div>
-                                {% endif %}
-                            <span> <h5 class="textbottom__article__name">{{story["author-name"]}}</h5></span>
-
-                                {% if story["first-published-at"] %}
-                                <span class="textbottom__article"> <time datetime="">{% set timestamp = (story["first-published-at"] / 1000)|round(0, 'floor') %}{{timestamp|date('M j, Y')}}</time></span>
-                                {% endif %}
-
-
-                        </div> <!-- textbottom close -->
+                    {% include "story/byline" %}
+                    
                     </div><!-- textwrap close -->
 
 
@@ -252,18 +204,7 @@
                         <div class="article__title">
                              {{ shorthead(story["headline"]) }}
                         </div>
-                        <div class="textbottom">
-                    {%  if story['metadata']['story-attributes']['partnerpublisher'][0] %}
-                                     <div class="imagesd">
-                                        <img src="{{  get_logo(story['metadata']['story-attributes']['partnerpublisher'][0], 'Logo', 'Logo' ) }}" />
-                                    </div>
-                                {% endif %}
-
-                            <span> <h5 class="textbottom__article__name">{{story["author-name"]}}</h5></span>
-                                {% if story["first-published-at"] %}
-                                <span class="textbottom__article"> <time datetime="">{% set timestamp = (story["first-published-at"] / 1000)|round(0, 'floor') %}{{timestamp|date('M j, Y')}}</time></span>
-                                {% endif %}
-                        </div> <!-- textbottom close -->
+                        {% include "story/byline" %}
                     </div><!-- textwrap close -->
                  </a>
                 </article>
@@ -303,21 +244,7 @@
                                 <a href="/{{story['slug']}}">     {{ shorthead(story["headline"]) }} </a>
                             </div>
                               </div><!-- textwrap close -->
-                            <div class="textbottom">
-                                  {%  if story['metadata']['story-attributes']['partnerpublisher'][0] %}
-                                    <div class="imagesd">
-                                        <img src="{{  get_logo(story['metadata']['story-attributes']['partnerpublisher'][0], 'Logo', 'Logo' ) }}" />
-                                    </div>
-                                {% endif %}
-
-                                <span> <h5 class="textbottom__article__name">{{story["author-name"]}}</h5></span>
-
-                                {% if story["first-published-at"] %}
-                                <span class="textbottom__article"> <time datetime="">{% set timestamp = (story["first-published-at"] / 1000)|round(0, 'floor') %}{{timestamp|date('M j, Y')}}</time></span>
-                                {% endif %}
-
-
-                            </div> <!-- textbottom close -->
+                              {% include "story/byline" %}
 
                         <div class="articleshare">
 
@@ -419,17 +346,7 @@
                         <div class="article__title">
                           {{ shorthead(story["headline"]) }} 
                         </div>
-                        <div class="textbottom">
-                              {%  if story['metadata']['story-attributes']['partnerpublisher'][0] %}
-                                    <div class="imagesd">
-                                        <img src="{{  get_logo(story['metadata']['story-attributes']['partnerpublisher'][0], 'Logo', 'Logo' ) }}" />
-                                    </div>
-                                {% endif %}
-                            <span> <h5 class="textbottom__article__name">{{story["author-name"]}}</h5></span>
-                                {% if story["first-published-at"] %}
-                                <span class="textbottom__article"> <time datetime="">{% set timestamp = (story["first-published-at"] / 1000)|round(0, 'floor') %}{{timestamp|date('M j, Y')}}</time></span>
-                                {% endif %}
-                        </div> <!-- textbottom close -->
+                       {% include "story/byline" %}
                     </div><!-- textwrap close -->
                        </a>
                 </article>

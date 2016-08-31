@@ -633,7 +633,7 @@ section {
 
     .wrap .textbottom{
         padding-left:1.5em;
-        min-height: 50px;
+        min-height: 65px;
     }
 }    
 .wrap .textwrap{
@@ -649,7 +649,7 @@ section {
 .wrap{
  .textbottom{
         padding-left:1.5em;
-            min-height: 60px;
+            min-height: 65px;
             h5{
                 display: inline-block;
             }
@@ -1520,6 +1520,9 @@ article:nth-child(4){
     margin: -7px em(7) 0 em(7);  
     height: 30px;
     /*margin-top:;*/
+    @include breakpoint ($pc){
+    margin: -7px em(7) 0 em(0);  
+    }
     }
 
 
@@ -1597,7 +1600,10 @@ article:nth-child(4){
     }
 
 .double{
+    position: relative;
     float: left;
+    width: 100%;
+    border-right: 0px;
 }
 
 .noborder{

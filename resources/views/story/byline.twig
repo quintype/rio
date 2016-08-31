@@ -1,0 +1,35 @@
+<div class="textbottom"> 
+   {%  if story['metadata']['story-attributes']['partnerpublisher'][0] %}
+      <div class="imagesd">
+          <img src="{{  get_logo(story['metadata']['story-attributes']['partnerpublisher'][0], 'Logo', 'Logo' ) }}" />
+      </div>
+   {% endif %}
+
+   {% if story["authors"] | length >1 %}
+      <span class="textbottom__article">
+        <time datetime="">
+           {% set timestamp = (story["first-published-at"] / 1000)|round(0, 'floor') %}{{timestamp|date('M j, Y')}}
+        </time>
+      </span>
+
+      <span class="textbottom__article__name double">
+           {% for authornames in story["authors"]  %}
+               {{ authornames['name'] }}
+               {% if loop.index == (story["authors"] | length ) - 1 %} & {% else %} 
+               {% if loop.index != (story["authors"] | length ) %} , {% endif %} {% endif %}
+           {% endfor %}
+      </span>
+      
+    {% else %}
+      <span class="textbottom__article__name">
+          {{story["author-name"]}}
+      </span>
+      <span class="textbottom__article"> 
+          <time datetime="">
+              {% set timestamp = (story["first-published-at"] / 1000)|round(0, 'floor') %}{{timestamp|date('M j, Y')}}
+          </time>
+      </span>
+
+   {% endif %}                 
+
+</div> <!-- textbottom close -->

@@ -55,18 +55,7 @@
                                     <div class="article__desciption mobshow ">
                                        {{ story["subheadline"] | striptags | slice(0,100) | raw  }}
                                     </div></div><!-- textwrap close -->
-                                    <div class="textbottom">
-                                       {%  if story['metadata']['story-attributes']['partnerpublisher'][0] %}
-                                           <div class="imagesd">
-                                        <img class="testimg" src="{{  get_logo(story['metadata']['story-attributes']['partnerpublisher'][0], 'Logo') }}" />
-                                    </div>
-                                        {% endif %}
-                                        <span><h5 class="textbottom__article__name">{{story["author-name"]}}</h5></span>
-                                        <span class="textbottom__article"> <time datetime="">
-                                                {% set timestamp = (story["first-published-at"] / 1000)|round(0, 'floor') %}{{timestamp|date('M j, Y')}}
-                                            </time></span>
-                                    </div> <!-- textbottom close -->
-                                
+                                   {% include "story/byline" %}                                
                             
                         </a>
 
