@@ -35,7 +35,7 @@ class HomeController extends QuintypeController {
         $bulk->addRequest('weatherstories', (new StoriesRequest('top'))->addParams(["section" => "Weather & Climate", "limit" => 3, "fields" => $fields]));
         $bulk->addRequest('videosstories', (new StoriesRequest('top'))->addParams(["section" => "Videos", "limit" => 3, "fields" => $fields]));
         $bulk->addRequest('breaking_news', (new StoriesRequest('stack-115'))->addParams(["limit" => 3, "fields" => $fields]));
-        $bulk->addRequest('foodhealth', (new StoriesRequest('top'))->addParams(["section" => "Food & Health", "limit" => 4, "fields" => $fields]));
+        $bulk->addRequest('foodhealth', (new StoriesRequest('top'))->addParams(["section" => "campaign2016", "limit" => 3, "fields" => $fields]));
 
         $bulk->execute($this->client);
 
@@ -84,7 +84,7 @@ class HomeController extends QuintypeController {
     }
 
     public function sectionview($section) {
-
+        $sectionname = $section;
         // Setting Seo meta tags
         $page = ["type" => "section"];
         $section = new Seo\Section(array_merge($this->config, config('quintype')), $page["type"], $section);
@@ -92,10 +92,10 @@ class HomeController extends QuintypeController {
 
         $fields = "id,headline,slug,url,hero-image-s3-key,hero-image-metadata,first-published-at,last-published-at,alternative,published-at,author-name,author-id,sections,story-template,summary,metadata,hero-image-attribution,cards,subheadline,authors";
         $sections = $this->config['sections'];
-        $cur_section = $sections[array_search($section, array_column($sections, 'slug'), true)];
+        $cur_section = $sections[array_search($sectionname, array_column($sections, 'slug'), true)];
         $params = array('story-group' => 'top', 'section' => $cur_section['name'], 'limit' => 8, "fields" => $fields);
         $stories = $this->getStories($params);
-
+        
         if ($cur_section['name'] != 'Inquiring Minds')
             return view('section', $this->toView([
                 "section" => $cur_section,
