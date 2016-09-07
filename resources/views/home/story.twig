@@ -78,7 +78,11 @@
                                     </div>                           
                         {% endif %}
 
-            <span class="textbottom__article__name">{{ storyData["author-name"] }}</span>
+            <span class="textbottom__article__name"> {% for authornames in storyData["authors"]  %}
+               {{ authornames['name'] }}
+               {% if loop.index == (storyData["authors"] | length ) - 1 %} & {% else %} 
+               {% if loop.index != (storyData["authors"] | length ) %} , {% endif %} {% endif %}
+           {% endfor %}</span>
 
 
 
@@ -117,20 +121,13 @@
         {% endfor %}
 
         <div class='author'>
-            <div class='author__left'>
-
-  {%  if authordata['avatar-url'] %}
-<img  src="{{ authordata['avatar-url'] }} "/>
-{% else %}
-
-<img src="{{ assetPath('main/default_author.svg') }}"/>
-  {%  endif %}
-            </div>
+              {% for author in authordata %}
             <div class='author__right'>
-                <h5> {{authordata['name']}} </h5>
-                <p>{{authorbio}}</p>
+                 <h5> {{ author.name }} </h5>
+                <p>{{ author.bio | striptags }}</p> 
             </div>
-        </div>
+            {% endfor %}
+          </div>
 
 
         {% include "story/story_tags" with {'storyTags': storyData["tags"]} %}

@@ -57,10 +57,20 @@ class HomeController extends QuintypeController {
     public function storyview($category, $y, $m, $d, $slug) {
 
         $bulk = new Bulk();
-        $fields = "id,headline,slug,url,hero-image-s3-key,hero-image-metadata,first-published-at,last-published-at,alternative,published-at,author-name,author-id,sections,story-template,summary,metadata,subheadline";
+        $fields = "id,headline,slug,url,hero-image-s3-key,hero-image-metadata,first-published-at,last-published-at,alternative,published-at,author-name,author-id,sections,story-template,summary,metadata,subheadline,authors";
         $story = $this->client->storyData(array('slug' => $slug))['story'];
-        $author_data = $this->client->author($story['author-id']);
+
+      //   echo sizeof($story['authors']);
+         $finalauthor=array();
+         for ($kk=0;$kk<sizeof($story['authors']);$kk++) {
+        //echo "<BR>"; echo $story['authors'][$kk]['id'];
+        $author_data = $this->client->author($story['authors'][$kk]['id']);
         $authorbio=strip_tags($author_data['bio']);
+        array_push($finalauthor,$author_data);
+       // echo "<pre>"; print_r($author_data);
+          }
+       // echo "<pre>"; print_r($finalauthor);
+
 
         $bulk->addRequest('related_stories', (new StoriesRequest('top'))->addParams(["section" => $story["sections"][0]["name"], "limit" => 4, "fields" => $fields]));
         $bulk->execute($this->client);
@@ -78,8 +88,9 @@ class HomeController extends QuintypeController {
             "page" => $page,
             "meta" => $this->meta,
             "relatedstories" => $bulk->getResponse("related_stories"),
-            "authordata"=>$author_data,
-            "authorbio"=>$authorbio]));
+            "authordata"=>$finalauthor,
+            //"authorbio"=>$authorbio
+            ]));
 
     }
 
