@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "319e5489db7e937924128cb4ac669b15",
-    "content-hash": "f05dfb551b27811749775a636dbe4c7e",
+    "hash": "43cbcecc7439834c891da42155e238c9",
+    "content-hash": "1ed1e6e101702596fa1c34325eb5db8a",
     "packages": [
         {
             "name": "classpreloader/classpreloader",
@@ -1120,16 +1120,16 @@
         },
         {
             "name": "quintype/seo",
-            "version": "0.0.7",
+            "version": "0.0.9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/quintype/quintype-seo-php.git",
-                "reference": "1097a2162c049de044636f699e8c01e145e0a399"
+                "reference": "415dc39300268e37d5c436fcf0dc03f461b6c730"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/quintype/quintype-seo-php/zipball/1097a2162c049de044636f699e8c01e145e0a399",
-                "reference": "1097a2162c049de044636f699e8c01e145e0a399",
+                "url": "https://api.github.com/repos/quintype/quintype-seo-php/zipball/415dc39300268e37d5c436fcf0dc03f461b6c730",
+                "reference": "415dc39300268e37d5c436fcf0dc03f461b6c730",
                 "shasum": ""
             },
             "type": "library",
@@ -1139,7 +1139,7 @@
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
-            "time": "2016-08-30 10:48:00"
+            "time": "2016-09-08 07:02:18"
         },
         {
             "name": "rcrowe/twigbridge",
@@ -1426,7 +1426,7 @@
         },
         {
             "name": "symfony/event-dispatcher",
-            "version": "v3.1.3",
+            "version": "v3.1.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/event-dispatcher.git",
@@ -2130,16 +2130,16 @@
         },
         {
             "name": "twig/twig",
-            "version": "v1.24.1",
+            "version": "v1.24.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/twigphp/Twig.git",
-                "reference": "3566d311a92aae4deec6e48682dc5a4528c4a512"
+                "reference": "33093f6e310e6976baeac7b14f3a6ec02f2d79b7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/twigphp/Twig/zipball/3566d311a92aae4deec6e48682dc5a4528c4a512",
-                "reference": "3566d311a92aae4deec6e48682dc5a4528c4a512",
+                "url": "https://api.github.com/repos/twigphp/Twig/zipball/33093f6e310e6976baeac7b14f3a6ec02f2d79b7",
+                "reference": "33093f6e310e6976baeac7b14f3a6ec02f2d79b7",
                 "shasum": ""
             },
             "require": {
@@ -2187,20 +2187,20 @@
             "keywords": [
                 "templating"
             ],
-            "time": "2016-05-30 09:11:59"
+            "time": "2016-09-01 17:50:53"
         },
         {
             "name": "vlucas/phpdotenv",
-            "version": "v2.3.0",
+            "version": "v2.4.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/vlucas/phpdotenv.git",
-                "reference": "9ca5644c536654e9509b9d257f53c58630eb2a6a"
+                "reference": "3cc116adbe4b11be5ec557bf1d24dc5e3a21d18c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/vlucas/phpdotenv/zipball/9ca5644c536654e9509b9d257f53c58630eb2a6a",
-                "reference": "9ca5644c536654e9509b9d257f53c58630eb2a6a",
+                "url": "https://api.github.com/repos/vlucas/phpdotenv/zipball/3cc116adbe4b11be5ec557bf1d24dc5e3a21d18c",
+                "reference": "3cc116adbe4b11be5ec557bf1d24dc5e3a21d18c",
                 "shasum": ""
             },
             "require": {
@@ -2212,7 +2212,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.3-dev"
+                    "dev-master": "2.4-dev"
                 }
             },
             "autoload": {
@@ -2237,7 +2237,7 @@
                 "env",
                 "environment"
             ],
-            "time": "2016-06-14 14:14:52"
+            "time": "2016-09-01 10:05:43"
         }
     ],
     "packages-dev": [
