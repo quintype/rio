@@ -32,15 +32,18 @@ class HomeController extends QuintypeController {
         $fields = "id,headline,slug,url,hero-image-s3-key,hero-image-metadata,first-published-at,last-published-at,alternative,published-at,author-name,author-id,sections,story-template,summary,metadata,hero-image-attribution,cards,subheadline,authors";
 
         $bulk->addRequest('top_stories', (new StoriesRequest('top'))->addParams(["limit" => 8, "fields" => $fields]));
-        $bulk->addRequest('weatherstories', (new StoriesRequest('top'))->addParams(["section" => "Weather & Climate", "limit" => 3, "fields" => $fields]));
+        $bulk->addRequest('weatherstories', (new StoriesRequest('top'))->addParams(["section" => "Weather & Climate", 
+            "limit" => 4, "fields" => $fields]));
         $bulk->addRequest('videosstories', (new StoriesRequest('top'))->addParams(["section" => "Videos", "limit" => 3, "fields" => $fields]));
         $bulk->addRequest('breaking_news', (new StoriesRequest('stack-115'))->addParams(["limit" => 3, "fields" => $fields]));
         $bulk->addRequest('foodhealth', (new StoriesRequest('top'))->addParams(["section" => "campaign2016", "limit" => 3, "fields" => $fields]));
 
         $bulk->execute($this->client);
 
-        $a = $bulk->getResponse("top_stories");
-        // echo"<pre>";print_r($a);
+        // $a = $bulk->getResponse("weatherstories");
+
+        // echo sizeof($a);
+        //  echo"<pre>";print_r($a);
 
 
         return view('home', $this->toView([
