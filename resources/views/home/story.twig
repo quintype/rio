@@ -78,11 +78,16 @@
                                     </div>                           
                         {% endif %}
 
-            <span class="textbottom__article__name"> {% for authornames in storyData["authors"]  %}
+            <span class="textbottom__article__name">
+	    {% for authornames in storyData["authors"]  %}
                {{ authornames['name'] }}
                {% if loop.index == (storyData["authors"] | length ) - 1 %} & {% else %} 
                {% if loop.index != (storyData["authors"] | length ) %} , {% endif %} {% endif %}
-           {% endfor %}</span>
+            {% endfor %}
+	    {% if storyData["authors"] is empty %}
+	      {{ storyData["author-name"] }}
+	    {% endif %}
+	   </span>
 
 
 
