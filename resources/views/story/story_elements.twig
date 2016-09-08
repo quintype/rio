@@ -1,6 +1,5 @@
   {% set count = 0 %}
 
-
 {% for element in storyElements %}
   <div class="story-element-view"
        data-card-content-id="{{ card['content-id'] }}"
@@ -14,8 +13,12 @@
         {% include "story/elements/title" with {'dataElement': element } %}
     {% elseif elType == "youtube-video" %}
     {% set count = count+1 %}
-     {% if storyData['type'] != 'video' or count > 1 %}
-     {% include "story/elements/youtube" with {'dataElement': element } %}
+     {% if storyData['story-template'] == 'video' %}
+       {% if count > 1 %}
+         {% include "story/elements/youtube" with {'dataElement': element } %}
+       {% endif %}
+     {% else %}
+        {% include "story/elements/youtube" with {'dataElement': element } %}
      {% endif %}
     {% elseif elType == "jsembed" %}
 
