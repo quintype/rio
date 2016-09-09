@@ -3,7 +3,7 @@
     position: relative;
 
       @include breakpoint($phone) {
-padding:0px;
+     padding:em(10);
 
       }
 font-family: $merri; 
@@ -21,6 +21,10 @@ font-family: $merri;
         font-family: $merri; 
         font-weight: $bold;
     }
+    a{        
+        color: $light-blue;
+        font-family: $merri; 
+    }
     @include breakpoint($small-pc) {
         padding:0em;
         margin-bottom: em(60);
@@ -28,6 +32,7 @@ font-family: $merri;
             font-size: 16px;
         }
     }
+
 
 }
 
@@ -49,10 +54,7 @@ font-family: $merri;
     .highlights{
      font-weight: $bold;
          }
-    .highlights,
-    a{        
-        color: $question-blue;
-    }
+
 
     .people_name{
         font-family: $merri;
@@ -150,3 +152,4 @@ margin:em(30) 0 em(40) 0;
        background: transparent url(/climatedesk/assets/main/4.jpg) no-repeat center center;
 
 }
+

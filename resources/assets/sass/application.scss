@@ -702,7 +702,7 @@ section {
 
     @include breakpoint($phone){
         font-size: em(13);
-               margin:em(10) 0 em(10) 0; 
+               margin:em(10) 0 em(10) em(15); 
                    line-height:1.5em;
 border:0;
            }
