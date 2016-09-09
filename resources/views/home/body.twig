@@ -329,8 +329,8 @@
             {% for story in food_storiess|slice(0,3) %}  
              
                 <article><!--  Article1 open-->
-                <a href="/{{story['slug']}}"> 
                     <div class="figcontainer">
+                <a href="/{{story['slug']}}"> 
 
                         <figure>
                              <img src="{{focusedImageUrl(story['hero-image-s3-key'], config['image-cdn'], [16,9], story['hero-image-metadata'], {w:400})}}"/>
@@ -340,12 +340,15 @@
                     </div>
                     <div class="textwrap">
 
+                <a href="/{{story['slug']}}"> 
                         <div class="article__title">
                           {{ shorthead(story["headline"]) }} 
                         </div>
-                       {% include "story/byline" %}
+                       {% include "story/byline" %} 
+                       </a>
                     </div><!-- textwrap close -->
                        </a>
+                    
                 </article>
               
             {% endfor %}

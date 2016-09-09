@@ -54,7 +54,16 @@ font-family: $merri;
     .highlights{
      font-weight: $bold;
          }
-
+    .highlights{        
+        color: $light-blue;
+        /*text-transform: uppercase;*/
+        font-family: $merri; 
+        font-weight: $bold;
+    }
+    a{        
+        color: $light-blue;
+        font-family: $merri; 
+    }
 
     .people_name{
         font-family: $merri;
