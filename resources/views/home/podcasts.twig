@@ -96,39 +96,16 @@
 
 
 
-        <div class="section_center_ad" placeholder="Advertisement">  AD 300x250</div>
+        <!-- <div class="section_center_ad" placeholder="Advertisement">  AD 300x250</div> -->
 
-<div class="sectionsleft">
-
-        {% for story in section_stories|slice(0,6)  %}                       
-            <div class="wrap">
-                <div class="article_left ">
-                    <a href="/{{story['slug']}}">
-                        <div class="figcontainer">
-                            <figure>
-                                <img src="{{focusedImageUrl(story['hero-image-s3-key'] ,config['image-cdn'], [16,9], story['hero-image-metadata'],{w:400} )}}" />
-                            </figure>
-                            <div class="sourcetop">{{ story["hero-image-attribution"] | raw }}</div>
-                        </div>
-                    </a>
-                </div>
-                <div class="article_right ">
-                    <a href="/{{story['slug']}}">
-
-                        <div class="article__title">
-                            {{shorthead(story['headline'])}}</div>
-                    </a>
-                    <div class="article__desciption">
-                       {{ story["subheadline"] | striptags | slice(0,100) | raw  }}
-                    </div>
-                    {% include "story/byline" %}
-                </div>
-            </div>
-
-        {% endfor %}
+<div class="sectionsleft" id="load-more-stories-target">
+  {% include "story/elements/stories_list" with {'stories': section_stories|slice(0,6)} %}
 </div>
-        <div class="section_right_ad">  AD 300x250</div>
+       
+    </section>
+  {% include "story/elements/loadmore" %}
 
-
-    </section>	
+    <script type="text/javascript">
+        qtReady.push(function() { app.loadMoreStories('#loadmore', '#load-more-stories-target', {{ params | json_encode | raw }}); })        
+    </script>
 

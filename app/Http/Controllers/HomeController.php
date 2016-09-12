@@ -103,7 +103,7 @@ class HomeController extends QuintypeController {
         $page = ["type" => "section"];
         $section = new Seo\Section(array_merge($this->config, config('quintype')), $page["type"], $section);
         $this->meta->set($section->tags());
-
+        
         $fields = "id,headline,slug,url,hero-image-s3-key,hero-image-metadata,first-published-at,last-published-at,alternative,published-at,author-name,author-id,sections,story-template,summary,metadata,hero-image-attribution,cards,subheadline,authors";
         $sections = $this->config['sections'];
         $cur_section = $sections[array_search($sectionname, array_column($sections, 'slug'), true)];
