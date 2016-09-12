@@ -17,20 +17,19 @@
                             {% endif %}
                             <span><h5 class="textbottom__article__name">{{story["author-name"]}}</h5></span>
                         </div>
-
                         <div class="sourcetop_left">{{ story["hero-image-attribution"] | raw }}</div>  
-</div>
-
+                    </div>
                         <div style="width:100%;">
-                        <figure>
-                            <img src="{{focusedImageUrl(story['hero-image-s3-key'], config['image-cdn'], [16,9], story['hero-image-metadata'],{w:700} )}}" />
+                        <figure id="hero_image">
+                            <a href="{{story['slug']}}">
+                                <img src="{{focusedImageUrl(story['hero-image-s3-key'], config['image-cdn'], [16,9], story['hero-image-metadata'],{w:700} )}}" />
+                            </a>
                         </figure>
                         </div>
-                  
                     </div>
                 </a>
             {% endfor %}
-        </div>	<!--  Left Container close-->
+        </div>  <!--  Left Container close-->
         <div class="rightcontainer" >
             {% for story in stories|slice(1,3)  %}
                 <div class="rightitem" >
@@ -93,11 +92,6 @@
 
         <div class="leftbig">
             <div class="art19-web-player awp-medium awp-theme-dark-blue" data-series-id="57a44066-708b-488c-99cc-588c98834fee" data-pick-from-series="latest" data-api-url="https://rss.art19.com/"></div>
-
-            <!--
-                <div class="art19-web-player awp-medium awp-theme-dark-blue" data-series-id="57a44066-708b-488c-99cc-588c98834fee" data-pick-from-series="latest" data-api-url="https://rss.art19.com/"></div>
-
-                <iframe src="https://art19.com/shows/inquiring-minds/episodes/e1241e76-2bd1-44cd-8ab6-6435ace2272f/embed?theme=dark-blue" style="width: 100%; height: 220px; border: 0 none;" scrolling="no"></iframe> -->
         </div>
         <div class="rightsmall" >
             {% for story in stories|slice(7,1)  %}

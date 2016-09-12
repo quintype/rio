@@ -185,16 +185,13 @@ nav	{
         width: 100%;
         display: block;
         height:auto;
-
-
     }
  ul li a:hover{
     color:#18a7b9;
  }
  ul li a:active{
     color:#18a7b9;
- }
-    
+ }   
 
     ul :first-child{
         border-top:0px;
@@ -341,6 +338,13 @@ margin-left: 10px;
             padding-top:100%;
         }
     }
+    .sectionname__display{
+        z-index: 3;
+    }
+    #hero_image img{
+        z-index: 2;
+    }
+    
 
 }
 
