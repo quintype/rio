@@ -329,12 +329,12 @@ margin-left: 10px;
     padding: em(0);   
     padding-right: em(2);
     @include breakpoint($phone) {
-        @include aspect-ratio(1,1.1);
+    @include aspect-ratio(1,1);
         padding-top:50%;
         @include span(12);
         padding: em(0);
         margin-bottom:0.7em;
-        figure{
+        figure{      
             padding-top:100%;
         }
     }
