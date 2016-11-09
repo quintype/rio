@@ -90,6 +90,10 @@ Twig.extendFunction("get_logo", function(key,param) {
   [{"Logo" : "https://s3.amazonaws.com/third-party-logos/Guardian-Logo.png",
   "URL": "https://www.theguardian.com",
 "Partnername": "The Guardian"}],
+"HighCountryNews":
+  [{"Logo" : "http://s3.amazonaws.com/third-party-logos/HighCountryNews.png",
+  "URL": "https://www.hcn.org/",
+"Partnername": "High Country News"}],
 "HuffPost":
   [{"Logo" : "https://s3.amazonaws.com/third-party-logos/HuffPost-US-4xLogos.png",
   "URL": "http://www.huffingtonpost.in",
