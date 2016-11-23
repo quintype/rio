@@ -15,7 +15,6 @@ require("./responsiveslides.min");
 
 
 $(document).ready(function(){
-  global.breakingNewsMarquee();
 
   $(".menubar").click(function(event){
    event.stopPropagation();
@@ -51,13 +50,11 @@ $(document).ready(function(){
     });
   });
 
-  global.breakingNewsMarquee = function () {
-    $('.js-breakingnews-marquee').marquee({
-      duration: 19000,
-      startVisible: true,
-      duplicated: true,
-      pauseOnHover: true
-    });
-  }
+  $('.js-breakingnews-marquee').marquee({
+    duration: 19000,
+    startVisible: true,
+    duplicated: true,
+    pauseOnHover: true
+  });
 
 });

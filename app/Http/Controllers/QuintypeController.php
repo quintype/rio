@@ -15,38 +15,38 @@ class QuintypeController extends Controller {
     }
 
     public function toView($args) {
-        return array_merge([
-            "config" => $this->config(),
-            "menuItems" => $this->menuItems()
-                ], $args);
+      return array_merge([
+        "config" => $this->config(),
+        "menuItems" => $this->menuItems(),
+        "breaking_news" => $this->getBreakingNews(),
+      ], $args);
     }
 
     public function getStories($args = null) {
         return $this->client->stories($args);
     }
 
-   
+
      public function relatedStories($story_id){
         return $this->client->relatedStories($story_id);
     }
-    
+
 
     public function menuItems() {
         $config = new Config($this->client->config());
         return $config->menuItems();
     }
 
-
-    
-
-        public function authorinfo() {
-        $config = new Config($this->client->config());
-        $abc=$config->author();
-    
-        return $config->author();
+    public function getBreakingNews(){
+      return $this->client->breakingNews(array('limit' => 5, "fields" => "headline,metadata"));
     }
 
+    public function authorinfo() {
+      $config = new Config($this->client->config());
+      $abc=$config->author();
 
+      return $config->author();
+    }
 
     public function config($args = null) {
         return array_merge($this->client->config(), config("quintype"));

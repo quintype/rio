@@ -14,10 +14,9 @@ use Quintype\Seo;
 class HomeController extends QuintypeController {
 
     public function __construct(){
-        parent::__construct();
-        $this->meta = new Meta;
-        $this->config = $this->client->config();
-
+      parent::__construct();
+      $this->meta = new Meta;
+      $this->config = $this->client->config();
     }
 
     public function index() {
@@ -35,7 +34,6 @@ class HomeController extends QuintypeController {
       $bulk->addRequest('weatherstories', (new StoriesRequest('top'))->addParams(["section" => "Weather & Climate",
           "limit" => 4, "fields" => $fields]));
       $bulk->addRequest('videosstories', (new StoriesRequest('top'))->addParams(["section" => "Videos", "limit" => 3, "fields" => $fields]));
-      $bulk->addRequest('breaking_news', (new StoriesRequest('stack-115'))->addParams(["limit" => 3, "fields" => $fields]));
       $bulk->addRequest('foodhealth', (new StoriesRequest('top'))->addParams(["section" => "campaign2016", "limit" => 3, "fields" => $fields]));
 
       $bulk->execute($this->client);
@@ -47,8 +45,8 @@ class HomeController extends QuintypeController {
         "videos_stories" => $bulk->getResponse("videosstories"),
         "weather_stories" => $bulk->getResponse("weatherstories"),
         "food_storiess" => $bulk->getResponse("foodhealth"),
-        "breaking_news" => $bulk->getResponse("breaking_news")]));
-      }
+      ]));
+    }
 
     public function storyview($category, $y, $m, $d, $slug) {
 
@@ -127,7 +125,6 @@ class HomeController extends QuintypeController {
       $searchedstories = $this->searchStories(array('q' => $query, 'size' => 7, "fields" => $fields));
       $searchsize=sizeof($searchedstories);
       $params=(array('q' => $query, 'limit' => 7, "fields" => $fields));
-
 
       if ($searchsize < 1)
         return view('noresults');

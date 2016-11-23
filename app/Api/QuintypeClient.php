@@ -42,7 +42,7 @@ class Config extends ArrayObject {
 }
 
 class Story extends ArrayObject {
-    
+
 }
 
 class Bulk {
@@ -165,15 +165,12 @@ class QuintypeClient {
 
   public function author($params) {
     return $this->getResponse("/api/author/".$params);
-
-    }
-
-
-
- 
-
-
-
+  }
+  public function breakingNews($params = null) {
+    return array_map(function ($s) {
+      return new Story($s);
+      }, $this->getResponse("/api/v1/breaking-news", $params)['stories']);
+  }
 }
 
 
