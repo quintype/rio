@@ -1,4 +1,3 @@
-
 @import "vendor/susy/susy"; // Susy Grid http://susy.oddbird.net/
 @import "vendor/breakpoint/breakpoint"; //Breakpoint SASS http://breakpoint-sass.com/
 @import "colors";
@@ -10,1405 +9,953 @@
 @import "story/_story";
 @import "static";
 @import "podcast";
-/*@import "slick/slick";
-@import "slick/slick-theme";*/
 @import "slider";
 @import "layout/404";
 @import "layout/noresults";
-
+@import "layout/header";
 @include border-box-sizing;
-
 main {
     @include container;
     background-color: blue;
 }
 
-.header {
-  padding: 1px;;
-  background-color: $white;
-  height: 100px;
-  vertical-align: inherit;
-  line-height: 3px;
-  color: $light-blue;
+ul li {
+  list-style: none;
+  text-decoration: none;
+  font-family: $primary-typeface;
 }
-.logo {
-  float: left;
-  font-size: 1.5rem;
-  line-height: 2.2em;
-  margin-left: 1em;
-  @include breakpoint($phone) {
-    margin: -2px 0 0 em(2);
-  }
-}
-
-.breaking-news {
-  width: 100%;
-  height: 50px;
-  background-color: $base-blue;
-  border-bottom: 5px solid $light-blue;
-  &__title {
-    @include span(3);
-    height: 50px;
-    background-color: $light-blue;
-    color: $white;
-    text-transform: uppercase;
-    font-weight: $bold;
-    letter-spacing: 0.5px;
-    z-index: $zIndex-1;
-    position: relative;
-    @include breakpoint($pc) {
-      @include span(2);
-    }
-    &__text {
-      font-size: 12px;
-      line-height: 1.3;
-      position: absolute;
-      top: 25%;
-      left: 0;
-      right: 0;
-      text-align: center;
-      @include breakpoint($tablet) {
-        font-size: 16px;
-      }
-    }
-  }
-  &__headlines {
-    @include span(9);
-    height: 50px;
-    margin-right: 0;
-    padding: 20px 10px 5px;
-    color: $white;
-    @include breakpoint($pc) {
-      @include span(10);
-      margin-right: 0;
-    }
-  }
-  &__headline {
-    display: inline-block;
-    float: left;
-    padding: 0 20px;
-    position: relative;
-  }
-}
-
-.logoview{
-    width:180px;
-    height:28px;
-
-    @include breakpoint($phone){
-      width: 118px;
-      height:18px;
-    }
-}
-
-ul li{
-    list-style: none;
-    text-decoration:none;
-    font-family:$primary-typeface;
-}
-.menubar{
-
-@include breakpoint($phone){
-    svg{
-
-height:18px;
-width:18px;
-
-    }
-}
-
-}
-
-nav	{
-
-    float:right;
-    display: none;
-    li {
-        float: left;
-        margin-left: 1em;
-        line-height: 3em;
-    }
-    @include breakpoint($pc) {
-
-        display:block;
-    }
-
-}
-
-.menubarimg{
-    display: inline;
-    float: left;
-    margin-top: 10px;
-    cursor:pointer;
-    @include breakpoint($phone){
-
-        margin-top:em(14);
-
-    }
-}
-.menuitems{
-    padding:15px;
-    background-color: $white;
-    width:200px;
-    position:absolute;
-    margin-left:-1px;
-    /*top: em(30);*/
-    z-index:$zIndex-2;
-    display:none;
-    margin-top:18px;
-    z-index: 900;
-
-    @include breakpoint($phone){
-        margin-left:-6px;
-        margin-top:12px;
-    }
-    ul {
-        padding:0;
-    }
-    ul li a{
-        font-family: $sans;
-        padding:em(15) 0 em(15) 0;
-        letter-spacing: 1px;
-        color:#6a6a6a;
-        position:relative;
-        float:left;
-        font-weight: $bold;
-        font-size: 12px;
-        display: block;
-        height:auto;
-        line-height:20px;
-        @include breakpoint ($phone){
-            font-size: em(12);
-       };
-
-    }
-
-    ul li{
-        position:relative;
-        float:left;
-        border-top:1px solid rgba(72,198,214,0.3);
-        width: 100%;
-        display: block;
-        height:auto;
-    }
- ul li a:hover{
-    color:#18a7b9;
- }
- ul li a:active{
-    color:#18a7b9;
- }
-
-    ul :first-child{
-        border-top:0px;
-    }
-
-}
-/*
-.menubarimg:active    .menuitems{
-    display: block;
-}*/
 
 .fill {
-    background-color: $light-blue;
-    color: $white;
-    padding: 4px;
+  background-color: $light-blue;
+  color: $white;
+  padding: 4px;
 }
-
-
-.mob_buttons{
-    /*width:45%;*/
-    float:right;
-    line-height: 45px;
-    ul{
-        padding:0;
-
-    }
-    ul li{
-        float:left;
-    }
-    ul:nth-child(1){
-margin-top: -3px;
-
-    }
-
-    @include breakpoint($tablet){
-        /*width:30%;*/
-    }
-    @include breakpoint($phone){
-        /*width:45%;*/
-    }
-
-
-    @include breakpoint($pc){
-        display:none;
-    }
-
+.mob_buttons {
+  float: right;
+  line-height: 45px;
+  ul {
+    padding: 0;
+  }
+  ul li {
+    float: left;
+  }
+  ul:nth-child(1) {
+    margin-top: -3px;
+  }
+  @include breakpoint($pc) {
+      display: none;
+  }
 }
-
 .donate {
-    background-color: $light-blue;
-    color: $white;
-    font-size:13px;
-    font-weight:$bold;
-    text-transform: uppercase;
-    letter-spacing: 1.5px;
-    padding: 5px 15px 5px 15px;
-
-    @include breakpoint($only-phone-tablets){
-        font-size: 8px;
-        margin-right:8px;
-        padding:em(5) em(10) em(5) em(10);
-    }
-    @include breakpoint($phone){
-        font-size: 9px;
-        margin-right:5px;
-        padding:0.8em;
-
-    }
-
-
+  background-color: $light-blue;
+  color: $white;
+  font-size: 13px;
+  font-weight: $bold;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  padding: 5px 15px 5px 15px;
+  @include breakpoint($only-phone-tablets) {
+    font-size: 8px;
+    margin-right: 8px;
+    padding: em(5) em(10) em(5) em(10);
+  }
+  @include breakpoint($phone) {
+    font-size: 9px;
+    margin-right: 5px;
+    padding: 0.8em;
+  }
 }
 .search_butn {
-    color: $light-blue;
-    background-color: $white;
-    border:1px solid $light-blue;
-    font-size:13px;
-    font-weight:$bold;
-    text-transform: uppercase;
-    letter-spacing: 1.5px;
-    padding: 5px 15px 5px 15px;
-    cursor:pointer;
-    margin-top:-2px;
-    @include breakpoint($phone){
-        font-size: 9px;
-        padding:0.85em;
-        margin-right: em(7);
-    }
-
-
-
+  color: $light-blue;
+  background-color: $white;
+  border: 1px solid $light-blue;
+  font-size: 13px;
+  font-weight: $bold;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  padding: 5px 15px 5px 15px;
+  cursor: pointer;
+  margin-top: -2px;
+  @include breakpoint($phone) {
+    font-size: 9px;
+    padding: 0.85em;
+    margin-right: em(7);
+  }
 }
-
-
-
 .sectionname__display {
-    background-color: $light-blue;
-    color: $white;
-    top: 0;
-    padding: 5px;
-    font-weight: $bold;
-    text-transform: uppercase;
-    z-index: 1;
-    float: left;
-    font-size: 12px;
-    position: absolute;
-    letter-spacing: em(1.5);
+  background-color: $light-blue;
+  color: $white;
+  top: 0;
+  padding: 5px;
+  font-weight: $bold;
+  text-transform: uppercase;
+  z-index: 1;
+  float: left;
+  font-size: 12px;
+  position: absolute;
+  letter-spacing: em(1.5);
 }
-
-.topdesk{
-display: none;
-@include breakpoint($pc){
+.topdesk {
+  display: none;
+  @include breakpoint($pc) {
     display: block;
+  }
 }
-}
-
-.topmob{
-margin-left: 10px;
-@include breakpoint($pc){
+.topmob {
+  margin-left: 10px;
+  @include breakpoint($pc) {
     display: none;
+  }
 }
+.topcontentwrap {
+  position: absolute;
+  bottom: 0px;
+  width: 100%;
+  z-index: $zIndex-1;
+  word-wrap: break-word;
 }
-.topcontentwrap{
-  position:absolute;
-        bottom:0px;
-        width:100%;
-        z-index:$zIndex-1;
-        word-wrap: break-word;
-
-
-    }
-
-.leftcontainer{
-    @include span(9);
-    @include aspect-ratio(16,9);
+.leftcontainer {
+  @include span(9);
+  @include aspect-ratio(16, 9);
+  padding: em(0);
+  padding-right: em(2);
+  @include breakpoint($phone) {
+    @include aspect-ratio(1, 1);
+    padding-top: 50%;
+    @include span(12);
     padding: em(0);
-    padding-right: em(2);
-    @include breakpoint($phone) {
-    @include aspect-ratio(1,1);
-        padding-top:50%;
-        @include span(12);
-        padding: em(0);
-        margin-bottom:0.7em;
-        figure{
-            padding-top:100%;
-        }
+    margin-bottom: 0.7em;
+    figure {
+        padding-top: 100%;
     }
-    .sectionname__display{
-        z-index: 3;
-    }
-    #hero_image img{
-        z-index: 2;
-        object-fit: cover;
-    }
-
-
+  }
+  .sectionname__display {
+    z-index: 3;
+  }
+  #hero_image img {
+    z-index: 2;
+    object-fit: cover;
+  }
 }
-
-
 .leftcontainer .figcontainer:after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: linear-gradient(to bottom, transparent 0%, transparent 70%, rgba(0,0,0,0.7) 100%);
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(to bottom, transparent 0%, transparent 70%, rgba(0, 0, 0, 0.7) 100%);
 }
-
 .section_left .figcontainer:after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: linear-gradient(to bottom, transparent 0%, transparent 70%, rgba(0,0,0,0.7) 100%);
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(to bottom, transparent 0%, transparent 70%, rgba(0, 0, 0, 0.7) 100%);
 }
-
-
 .rightcontainer .figcontainer:after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: linear-gradient(to bottom, transparent 0%, transparent 60%, rgba(0,0,0,0.7) 100%);
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(to bottom, transparent 0%, transparent 60%, rgba(0, 0, 0, 0.7) 100%);
 }
-
 .rightsmall figure:after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: linear-gradient(to bottom, transparent 0%, transparent 60%, rgba(0,0,0,0.7) 100%);
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(to bottom, transparent 0%, transparent 60%, rgba(0, 0, 0, 0.7) 100%);
 }
-
-.article_left  .figcontainer:after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: linear-gradient(to bottom, transparent 0%, transparent 80%, rgba(0,0,0,0.7) 100%);
+.article_left .figcontainer:after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(to bottom, transparent 0%, transparent 80%, rgba(0, 0, 0, 0.7) 100%);
 }
-
-.rightcontainer{
-    @include span(3 last);
-    @include aspect-ratio(16,9);
-    padding:0em;
-    @include breakpoint($phone) {
-        @include span(12);
-    }
-
+.rightcontainer {
+  @include span(3 last);
+  @include aspect-ratio(16, 9);
+  padding: 0em;
+  @include breakpoint($phone) {
+      @include span(12);
+  }
 }
-
-.rightitem{
-    float:left;
-    width:100%;
-    @include aspect-ratio(16,9);
-    margin-top:12px;
-    padding-left:em(6);
-     @include breakpoint($phone) {
-         padding:0em 0.625em 0.5em 0.625em;
-margin-top:0px
-    }
-
-    .sectionname__display {
-        font-size: em(10);
-        letter-spacing: em(1);
-
-    }
-
+.rightitem {
+  float: left;
+  width: 100%;
+  @include aspect-ratio(16, 9);
+  margin-top: 12px;
+  padding-left: em(6);
+  @include breakpoint($phone) {
+      padding: 0em 0.625em 0.5em 0.625em;
+      margin-top: 0px
+  }
+  .sectionname__display {
+      font-size: em(10);
+      letter-spacing: em(1);
+  }
 }
-
-.rightitem:first-child{ margin-top:0;}
-
-
-
-
+.rightitem:first-child {
+  margin-top: 0;
+}
 .sourcetop {
-    color: $white;
-    bottom: 0;
-    padding-right: 5px;
-    font-style: italic;
-    text-transform: capitalize;
-    z-index: 1;
-    float: left;
-    text-align:right;
-    position: absolute;
-    right:0;
-    font-size:10px;
-    height: 25px;
-    opacity: 0.8;
+  color: $white;
+  bottom: 0;
+  padding-right: 5px;
+  font-style: italic;
+  text-transform: capitalize;
+  z-index: 1;
+  float: left;
+  text-align: right;
+  position: absolute;
+  right: 0;
+  font-size: 10px;
+  height: 25px;
+  opacity: 0.8;
 }
-
-
-.titletop_big{
-    position: relative;
-    /*bottom:0;*/
+.titletop_big {
+  position: relative;
+  color: $white;
+  font-weight: $bold;
+  padding: 5px 20px 15px 20px;
+  font-family: $primary-typeface;
+  z-index: 1;
+  text-align: left;
+  font-size: em(30);
+  line-height: 40px;
+  text-shadow: 2px 2px 4px #333333;
+  margin-top: 30px;
+  @include breakpoint($phone) {
+    font-size: 1em;
+    line-height: 22px;
+    padding: 0.625em;
+  }
+  .textbottom__article__name {
     color: $white;
-    font-weight:$bold;
-    padding:5px 20px 15px 20px;
-    font-family:$primary-typeface;
-    z-index: 1;
-    /*float: left;*/
-    text-align:left;
-    font-size:em(30);
-    line-height: 40px;
-    text-shadow: 2px 2px 4px #333333;
-    margin-top: 30px;
-
-
-    @include breakpoint($phone) {
-        font-size: 1em;
-        line-height: 22px;
-        padding: 0.625em;
-    }
-    .textbottom__article__name{color:$white; text-transform: capitalize;}
-
+    text-transform: capitalize;
+  }
 }
 .titletop_small {
-    position: absolute;
-    bottom:5px;
-    color: $white;
-    font-weight:bold;
-    padding: em(5) em(5) em(5) em(10);
-    text-transform: capitalize;
-    z-index: 1;
-    float: left;
-    text-align:left;
-    padding-bottom:7%;
-    font-size:em(12);
-    text-shadow: 1px 1px 2px #333333;
+  position: absolute;
+  bottom: 5px;
+  color: $white;
+  font-weight: bold;
+  padding: em(5) em(5) em(5) em(10);
+  text-transform: capitalize;
+  z-index: 1;
+  float: left;
+  text-align: left;
+  padding-bottom: 7%;
+  font-size: em(12);
+  text-shadow: 1px 1px 2px #333333;
 }
-
-.sourcetop_left{
-    position: absolute;
-    right:0;
-    color: $white;
-    bottom: 10px;
-    padding-right:10px;
-    font-style: italic;
-    text-transform: capitalize;
-    z-index: 1;
-    float: right;
-    text-align:right;
-    font-size:  em(12);
-    opacity: 0.8;
-
-
+.sourcetop_left {
+  position: absolute;
+  right: 0;
+  color: $white;
+  bottom: 10px;
+  padding-right: 10px;
+  font-style: italic;
+  text-transform: capitalize;
+  z-index: 1;
+  float: right;
+  text-align: right;
+  font-size: em(12);
+  opacity: 0.8;
 }
-
 .sectionname__unique {
-    background-color: $light-blue;
-    color: $white;
-    font-size:16px;
-    top: 0;
-    padding: 8px 12px 8px 12px;
-    font-weight: $bold;
-    text-transform: capitalize;
-    z-index: 1;
-    margin-bottom:10px;
-    letter-spacing: 1.5px;
-    @include breakpoint($phone){
-        margin-left:15px;
-    }
+  background-color: $light-blue;
+  color: $white;
+  font-size: 16px;
+  top: 0;
+  padding: 8px 12px 8px 12px;
+  font-weight: $bold;
+  text-transform: capitalize;
+  z-index: 1;
+  margin-bottom: 10px;
+  letter-spacing: 1.5px;
+  @include breakpoint($phone) {
+      margin-left: 15px;
+  }
 }
-
-.uniquesectionname{
-    color:$dark-blue;
-    font-size: 14px;
-    padding:0px 0px 5px 0px;
-    font-weight:$bold;
-    letter-spacing: 1.1px;
-    text-transform: uppercase;
+.uniquesectionname {
+  color: $dark-blue;
+  font-size: 14px;
+  padding: 0px 0px 5px 0px;
+  font-weight: $bold;
+  letter-spacing: 1.1px;
+  text-transform: uppercase;
 }
-
-
-.articleshare
-{
-    display:none;
-    position: absolute;
-    background-color: $question-blue;
-    color:$white;
-    text-align:center;
-    font-size: 18px;
-    line-height: 25px;
-    font-family: $merri;
-    height: 100%;
+.articleshare {
+  display: none;
+  position: absolute;
+  background-color: $question-blue;
+  color: $white;
+  text-align: center;
+  font-size: 18px;
+  line-height: 25px;
+  font-family: $merri;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  opacity: 0.9;
+  padding: em(15);
+  &__icons {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: em(30);
+    margin-bottom: em(60);
+    position: relative;
     width: 100%;
-    top: 0;
-    opacity: 0.9;
-    padding:em(15);
-
-
-
-    &__icons{
-
-        margin-left: auto;
-        margin-right: auto;
-        margin-top:em(30);
-        margin-bottom: em(60);
-        position: relative;
-        width: 100%;
-        float:left;
-        left:30%;
-
-        li{ float:left; }
-    }
-
-
-    &__title{
-        text-align: center;
+    float: left;
+    left: 30%;
+    li {
         float: left;
-        padding:0em 2em 1em 2em;
-
     }
-
-
+  }
+  &__title {
+    text-align: center;
+    float: left;
+    padding: 0em 2em 1em 2em;
+  }
 }
-
-.popular:hover  .articleshare{display: block;}
-
-
-
+.popular:hover .articleshare {
+  display: block;
+}
 .empty {
-    color: $light-blue;
-    background-color: $white;
-    padding: 4px;
-    border:1px solid $light-blue;
+  color: $light-blue;
+  background-color: $white;
+  padding: 4px;
+  border: 1px solid $light-blue;
 }
 .menubar {
-    margin-right:5px;
-    @include breakpoint($phone){
-        width:22px;
-        height:22px;
-        margin-left:12px;
-    }
+  margin-right: 5px;
+  @include breakpoint($phone) {
+    width: 22px;
+    height: 22px;
+    margin-left: 12px;
+  }
 }
-
-
 section {
-       @include clearfix();
-    @include breakpoint($pc){
-    margin-top:10px;
-
-    }
-
+  @include clearfix();
+  @include breakpoint($pc) {
+    margin-top: 10px;
+  }
 }
 .section {
-    margin-top:10px;
+  margin-top: 10px;
 }
-.sectionwrap{
-    padding-top:0;
-    position: relative;
-    float: left;
-    width: 100%;
+.sectionwrap {
+  padding-top: 0;
+  position: relative;
+  float: left;
+  width: 100%;
 }
-.unique{
-    background-color:#eef6fc;
-    /*padding-bottom: 40px;*/
-    position:relative;
-    @include breakpoint ($phone){
+.unique {
+  background-color: #eef6fc;
+  position: relative;
+  @include breakpoint ($phone) {
     margin-bottom: 10px;
     padding-bottom: 10px;
- }
-    .wrap{
-        background-color:$white;
-    }
+  }
+  .wrap {
+    background-color: $white;
+  }
 }
-.nob{
-    padding-top:30px;
-    border:none;
+.nob {
+  padding-top: 30px;
+  border: none;
 }
-
-
-.popular{
-    @include breakpoint($small-pc){
+.popular {
+  @include breakpoint($small-pc) {
     padding-bottom: 30px;
-
-    .wrap .textbottom{
-        padding-left:1.5em;
-        min-height: 65px;
+    .wrap .textbottom {
+      padding-left: 1.5em;
+      min-height: 65px;
     }
+  }
+  .wrap .textwrap {
+    @include breakpoint($small-pc) {
+      height: 95px;
+    }
+  }
 }
-.wrap .textwrap{
-    @include breakpoint($small-pc){
-     height:95px;
-        }
-
-
+.wrap {
+  .textbottom {
+    padding-left: 1.5em;
+    min-height: 65px;
+    h5 {
+      display: inline-block;
     }
-
+  }
 }
-
-.wrap{
- .textbottom{
-        padding-left:1.5em;
-            min-height: 65px;
-            h5{
-                display: inline-block;
-            }
-    }
-}
-
-.article_right{
- .textbottom{
-        padding-left:0em;
-    }
-.article__title{
+.article_right {
+  .textbottom {
+    padding-left: 0em;
+  }
+  .article__title {
     font-size: em(16);
-
+  }
 }
-
-
-
-}
-
-.uniquesec{
- margin-bottom:20px;
-
- @include breakpoint ($phone){
+.uniquesec {
+  margin-bottom: 20px;
+  @include breakpoint ($phone) {
     margin-bottom: 5px;
-     }
+  }
 }
 .sectiontitle {
-    color:$heading-blue;
-    font-size:18px;
-    font-weight:$bold;
-    width:100%;
-
+  color: $heading-blue;
+  font-size: 18px;
+  font-weight: $bold;
+  width: 100%;
+  border: 0;
+  margin: 10px 0 30px 0;
+  text-align: center;
+  letter-spacing: 1.5px;
+  text-transform: capitalize;
+  line-height: 0.1em;
+  border-bottom: 1px solid $light-gray;
+  span {
+    background: #fff;
+    padding: 0 10px 0 0;
+    text-transform: uppercase;
+  }
+  @include breakpoint($phone) {
+    font-size: em(13);
+    margin: em(10) 0 em(10) em(15);
+    line-height: 1.5em;
     border: 0;
-    margin:10px 0 30px 0;
-    text-align:center;
-    letter-spacing: 1.5px;
-    text-transform: capitalize;
-     line-height:0.1em;
-    border-bottom: 1px solid $light-gray;
-
-    span { background:#fff; padding:0 10px 0 0;
-        text-transform:uppercase;
-           @include breakpoint($pc){
-               /*padding:0 10px 0 15px;*/
-
-
-           }
-
-    }
-
-    @include breakpoint($phone){
-        font-size: em(13);
-               margin:em(10) 0 em(10) em(15);
-                   line-height:1.5em;
-border:0;
-           }
+  }
 }
 .patner {
-    margin-top:20px;
-    position: relative;
-    float: left;
-
-    span{ padding:10px; color:#7b7b7b; font-size:18px;}
+  margin-top: 20px;
+  position: relative;
+  float: left;
+  span {
+    padding: 10px;
+    color: #7b7b7b;
+    font-size: 18px;
+  }
 }
-
-.static{
-    margin:em(10) 0 em(10) 0;
-    border-bottom: 1px solid $heading-blue;
-    label { background:inherit; padding:0 10px;  letter-spacing: 1.5px; }
+.static {
+  margin: em(10) 0 em(10) 0;
+  border-bottom: 1px solid $heading-blue;
+  label {
+    background: inherit;
+    padding: 0 10px;
+    letter-spacing: 1.5px;
+  }
 }
-
-
-.left { text-align:left !important;}
-
-.wrap{
-    width:100%;
-    position:relative;
-    float:left;
-    margin-top:10px;
-    margin-bottom:10px;
-    @include breakpoint ($phone){
-        margin-bottom:0;
-    }
+.left {
+  text-align: left !important;
+}
+.wrap {
+  width: 100%;
+  position: relative;
+  float: left;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  @include breakpoint ($phone) {
+    margin-bottom: 0;
+  }
 }
 .leftbig {
-    @include span(8);
-    padding: 0em;
-    /*background-color: $color5;*/
-    padding-right:1em;
-    padding-top:0.4em;
-    @include breakpoint($phone) {
-        @include span(12);
-        padding:em(2) em(10) em(2) em(10);
-    }
+  @include span(8);
+  padding: 0em;
+  padding-right: 1em;
+  padding-top: 0.4em;
+  @include breakpoint($phone) {
+    @include span(12);
+    padding: em(2) em(10) em(2) em(10);
+  }
 }
-
 .rightsmall {
-    @include span(4 last);
-    padding: 0em;
-    margin-bottom: em(15);
-    /*background-color: $color5;*/
-    @include aspect-ratio(16,9);
-    @include breakpoint($phone) {
-        @include span(12);
-         padding:em(2) em(10) em(2) em(10);
-    }
+  @include span(4 last);
+  padding: 0em;
+  margin-bottom: em(15);
+  @include aspect-ratio(16, 9);
+  @include breakpoint($phone) {
+    @include span(12);
+    padding: em(2) em(10) em(2) em(10);
+  }
 }
-
-.rightsmall__title{
-    color: $dark-gray;
-    font-size: em(18);
-    font-weight: $black-weight;
-    padding-bottom:10px;
+.rightsmall__title {
+  color: $dark-gray;
+  font-size: em(18);
+  font-weight: $black-weight;
+  padding-bottom: 10px;
 }
-
-
 .footer {
-    clear: both;
-    /*padding: 1em;*/
-    background-color: #343434;
-    height:auto;
+  clear: both;
+  background-color: #343434;
+  height: auto;
 }
-.footerblock{
-
-    @include span(4);
-    padding-top:1.5em;
-    padding-bottom:em(10);
-    margin-right: 0;
-    color: $white;
-    ul{padding:0em; margin:0em;}
-    @include breakpoint($phone) {
-        @include span(12);
-        text-align:center;
-        ul{padding:0em; margin:0em;}
-
-    }
-
-    .textwrap {
-        font-size: 12px;
-        padding: 0;
-        height: auto !important;
-        position:relative;
-        float: left;
-
-        ul li a{
-            padding:5px;
-            text-decoration:none;
-            display:inline-block;
-            letter-spacing: 0.8px;
-        }
-
-
-      @include breakpoint($phone){
-height:auto;
-text-align: center !important;
-float:none;
-padding:0 em(5);
-
-        }
-
-    }
-
-
-}
-.footerblock:first-child{ padding-top:1em;}
-.footerblock:nth-child(3){
-
-    padding-left:70px;
-    @include breakpoint($phone) {
-          padding-left:em(2);
-    }
-}
-
-
-
-.footer-short{
-    padding:em(10);
-    width: 100%;
-    background-color: $footer-short;
-    color: $white;
+.footerblock {
+  @include span(4);
+  padding-top: 1.5em;
+  padding-bottom: em(10);
+  margin-right: 0;
+  color: $white;
+  ul {
+    padding: 0em;
+    margin: 0em;
+  }
+  @include breakpoint($phone) {
+      @include span(12);
+      text-align: center;
+      ul {
+          padding: 0em;
+          margin: 0em;
+      }
+  }
+  .textwrap {
     font-size: 12px;
-    .content{
-        margin-left: auto;
-        margin-right: auto;
+    padding: 0;
+    height: auto !important;
+    position: relative;
+    float: left;
+    ul li a {
+      padding: 5px;
+      text-decoration: none;
+      display: inline-block;
+      letter-spacing: 0.8px;
     }
-
+    @include breakpoint($phone) {
+      height: auto;
+      text-align: center !important;
+      float: none;
+      padding: 0 em(5);
+    }
+  }
 }
-.border{border: 1px solid $light-gray; }
-
-
+.footerblock:first-child {
+  padding-top: 1em;
+}
+.footerblock:nth-child(3) {
+  padding-left: 70px;
+  @include breakpoint($phone) {
+    padding-left: em(2);
+  }
+}
+.footer-short {
+  padding: em(10);
+  width: 100%;
+  background-color: $footer-short;
+  color: $white;
+  font-size: 12px;
+  .content {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+.border {
+  border: 1px solid $light-gray;
+}
 article {
-     @include breakpoint($pc) {
+  @include breakpoint($pc) {
     @include gallery(4);
-    clear:none !important;
+    clear: none !important;
+  }
+  @include aspect-ratio(16,9);
+  @include breakpoint($phone) {
+    @include span(12);
+    padding: em(2) em(10) em(2) em(10);
+  }
 }
-    /*@include gutters(6 1 inside);*/
-    /*background-color: $light-gray;*/
-
-    @include aspect-ratio(16,9);
-    @include breakpoint($phone) {
-        @include span(12);
-        padding:em(2) em(10) em(2) em(10);
-    }
-
-}
-/*article:nth-child(1){
-    padding-left:0;
-    padding-right:5px;
-    @include breakpoint($phone) {
-         padding:em(2) em(10) em(2) em(10);
-    }
-}
-article:nth-child(2){
-    padding:0;
-    @include breakpoint($phone) {
-        padding:em(2) em(10) em(2) em(10);
-    }}
-article:nth-child(3){
-    padding-right:0;
-    padding-left:5px;
-    @include breakpoint($phone) {
-          padding:em(2) em(10) em(2) em(10);
-    }
-}
-article:nth-child(4){
-    padding-right:0;
-    padding-left:5px;
-    @include breakpoint($phone) {
-        padding:em(2) em(10) em(2) em(10);
-    }
-
-}*/
 
 .sourcefrom {
-    font-style: italic;
-    text-align: right;
-    font-size: $fontsize-smaller;
-    padding-bottom:10px;
-    padding-right:5px;
-    color:$small-heading;
-    opacity: 0.8;
-    height: em(25);
-
+  font-style: italic;
+  text-align: right;
+  font-size: $fontsize-smaller;
+  padding-bottom: 10px;
+  padding-right: 5px;
+  color: $small-heading;
+  opacity: 0.8;
+  height: em(25);
 }
-
-
 .textwrap {
-    margin:em(2) 0 em(5) 0;
+  margin: em(2) 0 em(5) 0;
+  position: relative;
+  float: left;
+  font-family: $primary-typeface;
+  @include breakpoint($small-pc) {
+    height: 115px;
+  }
+}
+.short {
+  @include breakpoint($small-pc) {
+    height: 105px;
+  }
+}
+.wrap .textwrap {
+  padding: 0 em(15) em(0) em(15);
+  @include breakpoint($small-pc) {
+    height: 115px;
+    padding: 0 em(15) em(15) em(15);
+  }
+}
+.article__title {
+  position: relative;
+  float: left;
+  color: $small-heading;
+  font-size: 15px;
+  font-weight: $bold;
+  margin-bottom: em(10);
+  width: 100%;
+}
+.article__desciption {
+  color: $text;
+  font-size: 12px;
+  font-weight: $regular;
+  padding-bottom: 10px;
+  font-family: $sans;
+  margin-bottom: em(20);
+  position: relative;
+  float: left;
+}
+.textbottom_left {
+  width: 100%;
+  position: relative;
+  float: left;
+  font-size: 12px;
+  padding: em(10) 0 3em 0;
+  bottom: 0;
+  margin-left: 15px;
+  z-index: $zIndex-2;
+  height: 30px;
+  @include breakpoint ($phone) {
+    bottom: em(8);
+  }
+  .textbottom__article__name {
+    color: $white;
+    border: 0;
+    padding-left: em(10);
+    padding-right: em(10);
+    font-size: 13px;
+    text-transform: capitalize;
+  }
+}
+.textbottom {
+  width: 100%;
+  position: relative;
+  float: left;
+  font-size: 12px;
+  padding: em(10) 0 em(20) em(0);
+}
+.textbottom__article {
+    padding-right: 5px;
+    line-height: 15px;
+    width: 100%;
+    @include aspect-ratio(16, 9);
+    img {
+      position: relative;
+      float: left;
+      height: 22px;
+      width: 25%;
+      padding-right: 10px;
+    }
+    color: $dark-gray;
+    font-family: $merri;
+    time {
+      font-weight: $bold;
+      letter-spacing: 0.2px;
+      font-size: 13px;
+      padding: 0 em(10) 0 em(10);
+      font-style: italic;
+      @include breakpoint($phone) {
+        font-size: 10px;
+        float: left;
+        margin-top: -1px;
+      }
+    }
+    .textbottom__article--share {
+      float: left;
+      margin-top: -2px;
+    }
+}
+.textbottom__article:last-child {
+  border: none;
+}
+.textbottom__article__name {
+  position: relative;
+  float: left;
+  color: $question-blue;
+  text-transform: capitalize;
+  display: inline-block;
+  font-family: $merri;
+  font-size: 13px;
+  font-weight: $bold;
+  padding: 0 em(10) 0 em(0);
+  border-right: 1px solid $light-gray;
+  @include breakpoint($phone) {
+    font-size: 10px;
+  }
+}
 
-    position:relative;
+.more {
+  color: $question-blue;
+  font-size: 18px;
+  margin-bottom: 10px;
+  padding: 0 0 em(10) 0;
+  float: right;
+  text-decoration: underline;
+  padding-right: 5px;
+  font-family: $merri;
+  font-style: italic;
+  font-weight: $bold;
+}
+.vedicon img {
+  opacity: 1;
+  width: 55px;
+  height: 55px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 21%;
+  position: absolute;
+}
+.figcontainer {
+  position: relative;
+  float: left;
+  width: 100%;
+}
+.tagswrap {
+  position: relative;
+  float: left;
+  width: 100%;
+}
+.article__tag-heading {
+  font-size: em(16);
+  position: relative;
+  font-weight: $bold;
+  letter-spacing: 1.1px;
+  padding: em(5) em(10) em(5) em(10);
+  color: $white;
+  background-color: $light-blue;
+  white-space: nowrap;
+  margin: em(10) 0 em(15) 0;
+  text-transform: uppercase;
+  vertical-align: middle;
+  @include breakpoint($phone) {
+    font-size: em(10);
+  }
+}
+.article__tags {
+  display: inline-block;
+  margin: em(10) 0 em(5) 0;
+  position: relative;
+  width: 100%;
+  @include breakpoint($pc) {
+    margin: em(10) 0 em(5) 0;
+  }
+  ul {
+    margin: 0;
+    padding: 0;
+    display: inline-block;
+    color: $grey;
+    font-size: em(13);
+  }
+  li {
+    display: inline-block;
+    border: 1px solid $grey;
+    padding: em(2) em(10);
+    margin-top: em(5);
+    margin-right: em(5);
+  }
+  a {
+    font-size: em(14);
+    font-family: $sans;
+    cursor: pointer;
+  }
+}
+
+.article {
+  @include span(4);
+  @include aspect-ratio(16, 9);
+  .article__title {
+    position: relative;
     float: left;
-    font-family:$primary-typeface;
-    @include breakpoint($small-pc){
-     height: 115px;
-        }
-    /*background-color: $color5;*/
-
-}
-.short{
-
-    @include breakpoint($small-pc){
-     height: 105px;
-        }
-
-
-}
-
-.wrap .textwrap{
-    padding:0 em(15) em(0) em(15);
-    @include breakpoint($small-pc){
-     height: 115px;
-     padding:0 em(15) em(15) em(15);
-
-        }
-
-}
-
-.article__title{
-    position:relative;
-    float:left;
     color: $small-heading;
     font-size: 15px;
     font-weight: $bold;
-    margin-bottom: em(10);
-
-    width: 100%;
-    @include breakpoint ($pc)
-    {
-        /*height:em(70);*/
-    }
-
-}
-.article__desciption{
+    font-weight: $bold;
+  }
+  .article__desciption {
     color: $text;
     font-size: 12px;
-    font-weight:$regular;
-    padding-bottom:10px;
-    font-family: $sans;
-
-   margin-bottom: em(20);
-    position:relative;
-    float:left;
-    @include breakpoint ($pc)
-    {
-        /*height:em(43);*/
-    }
-
-}
-
-.textbottom_left{
-    width:100%;
-    position:relative;
-    float:left;
-    font-size:12px;
-    padding:em(10) 0 3em 0;
-    bottom:0;
-    margin-left:15px;
-    z-index: $zIndex-2;
-    height:30px;
-
-
-     @include breakpoint ($phone)
-    {
-        bottom:em(8);
-    }
-
-
-    .textbottom__article__name{
-
-        color: $white;
-        border:0;
-        padding-left: em(10);
-        padding-right: em(10);
-        font-size: 13px;
-        text-transform: capitalize;
-
-    }
-
-
-}
-
-.textbottom{
-    width:100%;
-    position:relative;
-    float:left;
-    font-size:12px;
-    padding:em(10) 0 em(20) em(0);
-}
-
-
-
-.textbottom__article{
-    padding-right:5px;
-    /*border-right:1px solid $light-gray;*/
-    line-height: 15px;
-    width:100%;
-    @include aspect-ratio(16,9);
-    img{
-        position: relative;
-        float:left;
-        height:22px;
-        width:25%;
-        padding-right: 10px;
-        /*border-right: 1px solid #DEDEDE;*/
-    }
-    /*border-right:1px solid #000;*/
-    color: $dark-gray;
-
-    font-family: $merri;
-
-
-
-
-
-
-
-
-    time {
-        font-weight:$bold;
-        letter-spacing: 0.2px;
-        font-size: 13px;
-        padding:0 em(10) 0 em(10) ;
-        font-style: italic;
-
-        @include breakpoint($phone){
-            font-size: 10px;
-            float:left;
-            margin-top: -1px;
-
-        }
-
-    }
-
-    .textbottom__article--share{
-        float:left;
-        margin-top:-2px;
-    }
-
-}
-.textbottom__article:last-child {
-    border:none;
-}
-
-.textbottom__article__name{
-    position:relative;
-    float:left;
-    color:$question-blue;
-    text-transform: capitalize;
-    display: inline-block;
-    font-family: $merri;
-    font-size: 13px;
-    font-weight: $bold;
-    padding:0 em(10) 0  em(0) ;
-    border-right:1px solid $light-gray;
-     @include breakpoint($phone){
-            font-size: 10px;
-        }
-
-
-}
-/*
-.article {
-        dflajdlajds;
-        &__byline {
-        sfjasofjakl}
-}
-
-*/
-
-.more{
-    color:$question-blue;
-    font-size:18px;
-    margin-bottom:10px;
-    padding:0 0 em(10) 0;
-    float:right;
-    text-decoration:underline;
-    padding-right:5px;
-    font-family: $merri;
-    font-style: italic;
-    font-weight: $bold;
-}
-
-
-.vedicon img{
-    opacity:1;
-    width:55px;
-    height:55px;
-    margin-left:auto;
-    margin-right:auto;
-    margin-top:21%;
-    position:absolute;
-}
-
-.figcontainer{
-
-    position:relative;
-    float:left;
-    width:100%;
-}
-
-
-.tagswrap{
+    padding-bottom: 10px;
     position: relative;
     float: left;
-    width: 100%;
-
-}
-.article__tag-heading
-{
-
-    font-size: em(16);
-    position: relative;
-    /*float: left;*/
-    font-weight: $bold;
-    letter-spacing: 1.1px;
-    padding: em(5) em(10) em(5) em(10);
-    color: $white;
-    background-color: $light-blue;
-    white-space: nowrap;
-    margin: em(10) 0 em(15) 0;
-    text-transform: uppercase;
-    vertical-align: middle;
-      @include breakpoint($phone){
-            font-size: em(10);
-        }
-
-
-}
-
-.article__tags {
-    display: inline-block;
-    margin: em(10) 0 em(5) 0;
-    position: relative;
-    /*float: left;*/
-    width: 100%;
-
-    @include breakpoint($pc) {
-        margin: em(10) 0 em(5) 0;
-    }
-
-    ul {
-        margin: 0;
-        padding: 0;
-        display: inline-block;
-        color: $grey;
-        font-size: em(13);
-    }
-    li {
-        display: inline-block;
-        border: 1px solid $grey;
-        padding: em(2) em(10);
-        margin-top:em(5);
-        margin-right:em(5);
-
-    }
-
-    a {
-        font-size: em(14);
-        font-family: $sans;
-        cursor: pointer;
-
-    }
-
-
-}
-
-
-
-
-/* Section 2 End*/
-
-
-/*Search,tags,section article design Start*/
-.article
-{
-    @include span(4);
-    @include aspect-ratio(16,9);
-
-    .article__title{
-        position:relative;
-        float:left;
-        color: $small-heading;
-        font-size: 15px;
-        font-weight: $bold;
-
-        /*height:em(70);*/
-        font-weight: $bold;
-    }
-    .article__desciption{
-        color: $text;
-        font-size: 12px;
-        padding-bottom:10px;
-        /*height: em(43);*/
-        position:relative;
-        float:left;
-    }
-
-
+  }
 }
 /*Search,tags,section article design End*/
 
-
-.article_left{
-
+.article_left {
     @include span(12);
-    @include aspect-ratio(16,9);
-
-    /*margin:0em em(10) em(10) 0em;*/
-
+    @include aspect-ratio(16, 9);
     @include breakpoint($small-pc) {
-        @include span(6);
-        margin-right: 0;
-        padding:0em;
-
+      @include span(6);
+      margin-right: 0;
+      padding: 0em;
     }
-
 }
-
-
-.article_right{
-
+.article_right {
+  @include span(12);
+  @include aspect-ratio(16, 9);
+  @include breakpoint($small-pc) {
+    @include span(6);
+    padding: 0 em(5) 0 em(15);
+  }
+}
+.section_left {
+  @include span(12);
+  @include aspect-ratio(16, 9);
+  @include breakpoint($small-pc) {
+    @include span(8);
+    padding: 0em;
+    margin-right: 0;
+    figcontainer {
+      height: 360px;
+    }
+    figure {
+      padding-top: 52.85%;
+    }
+  }
+}
+.section_right {
     @include span(12);
-    @include aspect-ratio(16,9);
-
-
-    @include breakpoint($small-pc) {
-        @include span(6);
-        padding:0 em(5) 0 em(15);
-
+    @include aspect-ratio(16, 9);
+    .wrap {
+        border: 1px solid $light-gray;
     }
-
-}
-
-
-.section_left{
-
-    @include span(12);
-    @include aspect-ratio(16,9);
-
     @include breakpoint($small-pc) {
-        @include span(8);
-        padding:0em;
-        margin-right: 0;
-        figcontainer{
-            height:360px;
-        }
-        figure{
-            padding-top:52.85%;
-        }
-
+        @include span(4);
+        padding: 0em;
+        padding-left: 1.3em;
     }
-
-}
-
-.section_right{
-
-    @include span(12);
-    @include aspect-ratio(16,9);
-
-    .wrap{border:1px solid $light-gray;}
-
-
-    @include breakpoint($small-pc) {
-         @include span(4);
-        padding:0em;
-        padding-left:1.3em;
-
+    @include breakpoint($phone) {
+        padding: 10px;
     }
-
-
-  @include breakpoint($phone) {
-        padding:10px;
-      }
-
 }
-
-.icons{
-    padding-right:em(10);
-
+.icons {
+    padding-right: em(10);
 }
-
-.icontext{
-    float:right;
+.icontext {
+    float: right;
 }
-
-
 /*Advertisement Start*/
 
-.ad_big{
-    width:em(728) ;
-    height:auto;
-    color:$white;
+.ad_big {
+    width: em(728);
+    height: auto;
+    color: $white;
     /*background-color: $light-gray;*/
-    text-align:center;
-    font-weight:$bold;
-    margin:em(25) auto em(25) auto;
-    @include breakpoint($phone){display:none;}
 
-
+    text-align: center;
+    font-weight: $bold;
+    margin: em(25) auto em(25) auto;
+    @include breakpoint($phone) {
+        display: none;
+    }
 }
-
-
-
-.ad_mobile{
-    width:em(300) ;
-    height:auto;
-
-    color:$white;
+.ad_mobile {
+    width: em(300);
+    height: auto;
+    color: $white;
     /*background-color: $light-gray;*/
-    text-align:center;
-    font-weight:$bold;
-    position:relative;
 
-    margin:em(16) auto em(16) auto;
-    @include breakpoint($pc){display:none;}
+    text-align: center;
+    font-weight: $bold;
+    position: relative;
+    margin: em(16) auto em(16) auto;
+    @include breakpoint($pc) {
+        display: none;
+    }
 }
-
-.section_right_ad{
-    width:em(300) ;
-    height:auto;
-
-    color:$white;
+.section_right_ad {
+    width: em(300);
+    height: auto;
+    color: $white;
     /*background-color: $light-gray;*/
-    text-align:center;
-    font-weight:$bold;
-    margin:em(5) auto em(5) auto;
-    float:right;
-    @include breakpoint($phone){display:none;}
+
+    text-align: center;
+    font-weight: $bold;
+    margin: em(5) auto em(5) auto;
+    float: right;
+    @include breakpoint($phone) {
+        display: none;
+    }
 }
-
-
-
-.section_center_ad{
-    width:em(300) ;
-    height:auto;
-    color:$white;
+.section_center_ad {
+    width: em(300);
+    height: auto;
+    color: $white;
     /*background-color: $light-gray;*/
-    text-align:center;
-    font-weight:$bold;
-    margin:em(5) auto em(5) auto;
+
+    text-align: center;
+    font-weight: $bold;
+    margin: em(5) auto em(5) auto;
     position: relative;
     float: left;
-    display:none; /*As there is no ad*/
-    @include breakpoint($pc){display:none;}
+    display: none;
+    /*As there is no ad*/
+
+    @include breakpoint($pc) {
+        display: none;
+    }
 }
-
-
 /*Advertisement End*/
 
-#searchbox{
+#searchbox {
     display: none;
 }
-
-.top{ margin-top:em(32);
-      @include breakpoint($phone){margin-top:em(0);}
-
+.top {
+    margin-top: em(32);
+    @include breakpoint($phone) {
+        margin-top: em(0);
+    }
 }
-
 .nav-search {
     display: none;
     position: absolute;
     top: 7.5%;
     /*padding: .4em .5em 0;*/
+
     width: 100%;
     max-width: em(350);
-    margin-right:10%;
+    margin-right: 10%;
     z-index: 99;
-
-    @include breakpoint($pc) { right: 1em; }
+    @include breakpoint($pc) {
+        right: 1em;
+    }
     .layout-search {
         background-color: $white;
         border-radius: 2px;
-        border:1px solid $light-blue;
+        border: 1px solid $light-blue;
         position: relative;
-
         &:before {
-            content:'';
+            content: '';
             width: 0;
             height: 0;
             border-left: 10px solid transparent;
             border-right: 10px solid transparent;
             border-bottom: 10px solid $light-blue;
-
             position: absolute;
             top: -10px;
             right: 15px;
         }
-        .form-input{
+        .form-input {
             /*height: em(25);*/
+
             font-size: 100%;
             width: 100%;
             padding: 7px;
@@ -1417,70 +964,54 @@ article:nth-child(4){
         }
     }
 }
-
-
-#nores{
-             height: em(25);
-            font-size: 100%;
-            width: 100%;
-            padding: 18px;
-            border: 1px solid $grey;
-
-
+#nores {
+    height: em(25);
+    font-size: 100%;
+    width: 100%;
+    padding: 18px;
+    border: 1px solid $grey;
 }
-
-
-.socialicon{
+.socialicon {
     padding-top: 5px;
 }
-
-.load-more{
-    display:inline-block;
+.load-more {
+    display: inline-block;
     position: relative;
-    left:25%;
+    left: 25%;
     margin: em(20) 0 em(20) 0;
 }
-.load_more{
+.load_more {
     border: 1px solid $light-blue;
     background-color: $white;
-    color:$light-blue;
-    padding:em(12) em(25) em(12) em(25);
+    color: $light-blue;
+    padding: em(12) em(25) em(12) em(25);
     font-weight: $bold;
     font-size: em(14);
-    margin:em(10);
+    margin: em(10);
     letter-spacing: 1.8px;
     cursor: pointer;
-
-    @include breakpoint($phone){
-        left:0;
+    @include breakpoint($phone) {
+        left: 0;
     }
-
-
 }
-
-
 .line-title {
     position: relative;
     overflow: hidden;
     text-transform: uppercase;
-     color:$heading-blue;
-    font-size:22px;
-    font-weight:$bold;
-        margin: 20px 5px 15px 0px;
-        letter-spacing: 0.8px;
-        @include breakpoint ($phone){
-            font-size: 18px;
-            margin-left:15px;
-        }
-
-&-story{
-    font-size: 18px;
-    color:red;
+    color: $heading-blue;
+    font-size: 22px;
+    font-weight: $bold;
+    margin: 20px 5px 15px 0px;
+    letter-spacing: 0.8px;
+    @include breakpoint ($phone) {
+        font-size: 18px;
+        margin-left: 15px;
+    }
+    &-story {
+        font-size: 18px;
+        color: red;
+    }
 }
-
-
-}
-
 .line-title:after {
     position: absolute;
     content: '';
@@ -1489,36 +1020,36 @@ article:nth-child(4){
     border-top: .0625em solid $heading-blue;
     margin-left: .6em;
 }
-.nomar{
-    border:0;
-    margin:0;
+.nomar {
+    border: 0;
+    margin: 0;
 }
-
 /*Section Right and Left Start*/
 
-.sectionsleft{
+.sectionsleft {
     @include span(8);
-    position:relative;
-    float:left;
-    margin-top:10px;
+    position: relative;
+    float: left;
+    margin-top: 10px;
     margin-right: 0;
-    @include breakpoint($phone){
+    @include breakpoint($phone) {
         @include span(12);
-        padding:10px;
-         margin-top:0px;
+        padding: 10px;
+        margin-top: 0px;
     }
 }
-.sectionsright{
+.sectionsright {
     @include span(4);
-     position:relative;
-    float:left;
-    padding-left:1.3em;
-    margin-top:10px;
-     @include breakpoint($phone){
-       display: none;
+    position: relative;
+    float: left;
+    padding-left: 1.3em;
+    margin-top: 10px;
+    @include breakpoint($phone) {
+        display: none;
     }
-    img{width:100%;}
-
+    img {
+        width: 100%;
+    }
 }
 /*Section Right and Left Start*/
 
@@ -1530,12 +1061,11 @@ article:nth-child(4){
     margin: -7px em(7) 0 em(7);
     height: 30px;
     /*margin-top:;*/
-    @include breakpoint ($pc){
-    margin: -7px em(7) 0 em(0);
-    }
-    }
 
-
+    @include breakpoint ($pc) {
+        margin: -7px em(7) 0 em(0);
+    }
+}
 .imagesd:after {
     content: '';
     position: relative;
@@ -1544,31 +1074,27 @@ article:nth-child(4){
     margin-top: -25px;
     height: 20px;
     border-right: 1px solid #DEDEDE;
-    @include breakpoint ($phone){
+    @include breakpoint ($phone) {
         margin-top: -20px;
     }
-    }
-
-    .imagesd img {
-  display: block;
-  width: auto;
-  height: 100%;
-  position: relative;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  margin-right: 0px;
-
-        }
-
-.storypartner{
-    height:36px !important;
-    @include breakpoint ($phone){
-        height:25px !important;
+}
+.imagesd img {
+    display: block;
+    width: auto;
+    height: 100%;
+    position: relative;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin-right: 0px;
+}
+.storypartner {
+    height: 36px !important;
+    @include breakpoint ($phone) {
+        height: 25px !important;
     }
 }
-
 .imagesds {
     position: relative;
     float: left;
@@ -1576,26 +1102,22 @@ article:nth-child(4){
     padding-right: 10px;
     margin: -7px em(7) 0 em(7);
     height: 30px;
-     @include breakpoint ($phone){
-        width:100%;
-        margin:0 0 em(10) 0;
+    @include breakpoint ($phone) {
+        width: 100%;
+        margin: 0 0 em(10) 0;
     }
-
-
-    }
-   .imagesds img {
-  display: block;
-  width: auto;
-  height: 100%;
-  position: relative;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  margin-right: 0px;
-
-        }
-
+}
+.imagesds img {
+    display: block;
+    width: auto;
+    height: 100%;
+    position: relative;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin-right: 0px;
+}
 .imagesds:after {
     content: '';
     position: relative;
@@ -1604,21 +1126,19 @@ article:nth-child(4){
     margin-top: 5px;
     height: 20px;
     border-right: 1px solid #DEDEDE;
-    @include breakpoint ($phone){
-        border-right:0;
+    @include breakpoint ($phone) {
+        border-right: 0;
     }
-    }
-
-.double{
+}
+.double {
     position: relative;
     float: left;
     width: 100%;
     border-right: 0px;
 }
-
-.noborder{
+.noborder {
     border-right: 0;
 }
-.podicon{
-    width:20px;
+.podicon {
+    width: 20px;
 }
