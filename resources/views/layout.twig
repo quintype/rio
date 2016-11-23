@@ -63,33 +63,23 @@
       <script type="text/javascript">var qtReady = qtReady || [];</script>
         <div class="header">
           <div class="content">
-            <div class="menubarimg"><span class="menubar">
-              <svg width="18px" height="16px" viewBox="0 0 18 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-              <!-- Generator: Sketch 41.1 (35376) - http://www.bohemiancoding.com/sketch -->
-              <title>Artboard 2</title>
-              <desc>Created with Sketch.</desc>
-              <defs></defs>
-              <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-              <g id="Artboard-2" fill="#0D84D2">
-                      <g id="Group-Copy" transform="translate(1.000000, 2.000000)">
-                          <rect id="Rectangle-67" x="0" y="5.16666667" width="16" height="1.66666667"></rect>
-                          <rect id="Rectangle-67" x="0" y="0" width="16" height="1.66666667"></rect>
-                          <rect id="Rectangle-67" x="0" y="10.3333333" width="16" height="1.66666667"></rect>
-                      </g>
-                  </g>
-              </g>
-              </svg>
-              </span>
-              <div class="menuitems">
-                <ul>
-                  {% for menuItem in menuItems %}
-                    <li><a href="{{menuItem.url()}}">{{menuItem.title()}}</a></li>
-                  {% endfor %}
-                </ul>
-              </div>
+            <div class="menubarimg mobile-menu">
+              <ul class="menuitems">
+                {% for menuItem in menuItems %}
+                  <li><a href="{{menuItem.url()}}">{{menuItem.title()}}</a></li>
+                {% endfor %}
+              </ul>
             </div>
-            <div class="logo">
-              <a href="#"> <img class="logoview" src='{{ assetPath("q-demo-logo.svg") }}' /></a>
+            <div class="header-logo">
+              <a href="/" title="demo" class="site-logo"></a>
+            </div>
+            <div class="desktop-menu">
+              <ul>
+                {% for menuItem in menuItems | slice(0,4) %}
+                  <li><a href="{{menuItem.url()}}">{{menuItem.title()}}</a></li>
+                {% endfor %}
+                <li>All</li>
+              </ul>
             </div>
             <div class="mob_buttons">
               <ul>
@@ -105,14 +95,15 @@
                 </form>
               </div>
             </div>
-            <nav>
+            <div class="header-social-icon">
               <ul>
-                <li class="socialicon"><a target="_blank" href="https://www.facebook.com/theclimatedesk/"><img src="{{ assetPath("icons/facebook_b.svg") }}" /></a></li>
-                <li class="socialicon"><a target="_blank"	href="https://twitter.com/ClimateDesk" ><img src="{{ assetPath("icons/twitter_b.svg") }}" /></a></li>
-                <li class="socialicon"><a	target="_blank"href="https://www.youtube.com/user/ClimateDesk"><img src="{{ assetPath("icons/youtube.svg") }}" /></a></li>
+                <li class="socialicon"><a target="_blank" href="https://www.facebook.com/quintypeinc/"><img src="{{ assetPath("icons/facebook.svg") }}" /></a></li>
+                <li class="socialicon"><a target="_blank"	href="https://twitter.com/quintype_inc" ><img src="{{ assetPath("icons/twitter.svg") }}" /></a></li>
+                <li class="socialicon"><a	target="_blank" href="https://vimeo.com/user47797477"><img src="{{ assetPath("icons/vimeo.svg") }}" /></a></li>
+                <li class="socialicon"><a target="_blank" href="https://www.linkedin.com/company/quintype-inc"><img src="{{ assetPath("icons/linkedin.svg") }}" /></a></li>
                 <li><span id="search_init" class="search_butn">Search</span></li>
                 </ul>
-            </nav>
+            </div>
           </div>
           {% if breaking_news %}
             <div class="breaking-news">
