@@ -60,128 +60,81 @@
 
     </head>
     <body class='page'>
-        <script type="text/javascript">var qtReady = qtReady || [];</script>
-
-
-        <!-- <div class="ad_big" placeholder="Advertisement"> LEADERBOARD AD 728x90</div> -->
-
-
+      <script type="text/javascript">var qtReady = qtReady || [];</script>
         <div class="header">
-            <div class="content">
-                <div class="menubarimg"><span class="menubar">
-                        <svg width="28px" height="20px" viewBox="0 0 28 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                        <!-- Generator: Sketch 3.8.3 (29802) - http://www.bohemiancoding.com/sketch -->
-                        <title>Artboard 10</title>
-                        <desc>Created with Sketch.</desc>
-                        <defs></defs>
-                        <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                        <g id="Artboard-10" fill="#48C6D6">
-                        <g id="Group-Copy" transform="translate(1.000000, 3.000000)">
-                        <rect id="menubar1" x="0" y="6.5" width="26" height="2"></rect>
-                        <rect id="menubar1" x="0" y="0" width="26" height="2"></rect>
-                        <rect id="menubar1" x="0" y="13" width="26" height="2"></rect>
-
-                        </g>    </g>
-                        </svg>
-
-                    </span>
-
-                    <div class="menuitems">
-                        <ul>
-
-                            {% for menuItem in menuItems %}
-                                <li><a href="{{menuItem.url()}}">{{menuItem.title()}}</a></li>
-                                {% endfor %}
-
-                        </ul>
-
-                    </div>
-
-                </div>
-                <div class="logo">
-                    <a href="{{ url()}}"> <img class="logoview" src='{{ assetPath("climatedesk_logo.jpg") }}' /> </a></div>
-                <div class="mob_buttons"> <ul>
-                       <!--  <li><a target="_blank" href="#" class="donate">Donate</a></li> -->
-                        <li><span id="search_init1" class="search_butn">Search</span></li>
-                    </ul>
-                </div>
-
-                <div class="nav-search" >
-                    <div class="layout-search" id="main-search">
-                        <form class="search-form" role="search" action="/search">
-                            <div class="form-el">
-                                <input type="text" class="form-input" name="q" placeholder="Search for anything..">
-                            </div>
-                        </form>
-                    </div>
-                </div>
-
-                <nav><ul>
-                        <li class="socialicon"><a target="_blank" href="https://www.facebook.com/theclimatedesk/"><img src="{{ assetPath("icons/facebook_b.svg") }}" /></a></li>
-                        <li class="socialicon"><a target="_blank"	href="https://twitter.com/ClimateDesk" ><img src="{{ assetPath("icons/twitter_b.svg") }}" /></a></li>
-                        <li class="socialicon"><a	target="_blank"href="https://www.youtube.com/user/ClimateDesk"><img src="{{ assetPath("icons/youtube.svg") }}" /></a></li>
-                       <!--  <li><a target="_blank" href="#" class="donate">Donate</a></li> -->
-                        <li><span id="search_init" class="search_butn">Search</span></li>
-
-                    </ul></nav>
+          <div class="content">
+            <div class="menubarimg"><span class="menubar">
+              <svg width="28px" height="20px" viewBox="0 0 28 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                  <!-- Generator: Sketch 3.8.3 (29802) - http://www.bohemiancoding.com/sketch -->
+                  <title>Artboard 10</title>
+                  <desc>Created with Sketch.</desc>
+                  <defs></defs>
+                  <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                  <g id="Artboard-10" fill="#48C6D6">
+                  <g id="Group-Copy" transform="translate(1.000000, 3.000000)">
+                  <rect id="menubar1" x="0" y="6.5" width="26" height="2"></rect>
+                  <rect id="menubar1" x="0" y="0" width="26" height="2"></rect>
+                  <rect id="menubar1" x="0" y="13" width="26" height="2"></rect>
+                  </g>    </g>
+                  </svg>
+              </span>
+              <div class="menuitems">
+                <ul>
+                  {% for menuItem in menuItems %}
+                    <li><a href="{{menuItem.url()}}">{{menuItem.title()}}</a></li>
+                  {% endfor %}
+                </ul>
+              </div>
             </div>
+            <div class="logo">
+              <a href="{{ url()}}"> <img class="logoview" src='{{ assetPath("climatedesk_logo.jpg") }}' /> </a>
+            </div>
+            <div class="mob_buttons">
+              <ul>
+                <li><span id="search_init1" class="search_butn">Search</span></li>
+              </ul>
+            </div>
+            <div class="nav-search" >
+              <div class="layout-search" id="main-search">
+                <form class="search-form" role="search" action="/search">
+                  <div class="form-el">
+                      <input type="text" class="form-input" name="q" placeholder="Search for anything..">
+                  </div>
+                </form>
+              </div>
+            </div>
+            <nav>
+              <ul>
+                <li class="socialicon"><a target="_blank" href="https://www.facebook.com/theclimatedesk/"><img src="{{ assetPath("icons/facebook_b.svg") }}" /></a></li>
+                <li class="socialicon"><a target="_blank"	href="https://twitter.com/ClimateDesk" ><img src="{{ assetPath("icons/twitter_b.svg") }}" /></a></li>
+                <li class="socialicon"><a	target="_blank"href="https://www.youtube.com/user/ClimateDesk"><img src="{{ assetPath("icons/youtube.svg") }}" /></a></li>
+                <li><span id="search_init" class="search_butn">Search</span></li>
+                </ul>
+            </nav>
+          </div>
+          {% if breaking_news %}
+            <div class="breaking-news">
+              <div class="content">
+                <div class="breaking-news__title"><h3>Breaking News</h3></div>
+                  <div class="breaking-news__headlines js-breakingnews-marquee">
+                    {% for breaking_story in breaking_news %}
+                      {% if breaking_story['metadata']['linked-story-slug'] %}
+                        <div class="breaking-news__headline">
+                          <a href="/{{breaking_story['metadata']['linked-story-slug']}}">{{breaking_story['headline'] | trim }}</a>
+                        </div>
+                      {% else %}
+                        <div class="breaking-news__headline">
+                          {{breaking_story['headline'] | trim }}
+                        </div>
+                      {% endif %}
+                    {% endfor %}
+                  </div>
+              </div>
+            </div>
+          {% endif %}
         </div> <!-- Header Close-->
-        <!--
-      <div class="layout-menu">
-        {% block menu %}
-        <ul>
-            {% for menuItem in config.menuItems() %}
-            <li><a href="{{menuItem.url()}}">{{menuItem.title()}}</a></li>
-            {% endfor %}
-          </ul>
-        {% endblock %}
-      </div>
-        -->
-
-
-
     {% block content %}{% endblock %}
 
-
-
-
-    <div class="section"><!--  Section 6 open-->
-
-        <div class="sectiontitle patner"><span>OUR PARTNERS</span></div>
-        <div class="patners">
-            <ul id="clientsdesk">
-                <li><img src="{{ assetPath('patner-logos/atlantic.png') }}" /></li>
-                <li><img src="{{ assetPath('patner-logos/citylab.png') }}" /></li>
-                <li><img src="{{ assetPath('patner-logos/fusion.png') }}" /></li>
-                <li><img src="{{ assetPath('patner-logos/grist.png') }}" /></li>
-                <li><img src="{{ assetPath('patner-logos/guardian.png') }}" /></li>     <li><img src="{{ assetPath('patner-logos/high-country-news-bw.png') }}" /></li>
-                <li><img src="{{ assetPath('patner-logos/huffpost.png') }}" /></li>
-                <li><img src="{{ assetPath('patner-logos/medium.png') }}" /></li>
-                <li><img src="{{ assetPath('patner-logos/motherjones.png') }}" /></li>
-                <li><img src="{{ assetPath('patner-logos/newrepublic.png') }}" /></li>
-                <li><img src="{{ assetPath('patner-logos/n.png') }}" /></li>
-                <li><img src="{{ assetPath('patner-logos/reveal.png') }}" /></li>
-                <li><img src="{{ assetPath('patner-logos/slate.png') }}" /></li>
-                <li><img src="{{ assetPath('patner-logos/wired.png') }}" /></li>
-            </ul>
-               <ul id="slider" >
-                  <li><img src="{{ assetPath('patner-logos/atlantic.png') }}" /></li>
-                  <li><img src="{{ assetPath('patner-logos/citylab.png') }}" /></li>
-                  <li><img src="{{ assetPath('patner-logos/fusion.png') }}" /></li>
-                  <li><img src="{{ assetPath('patner-logos/grist.png') }}" /></li>
-                  <li><img src="{{ assetPath('patner-logos/guardian.png') }}" /></li>
-                  <li><img src="{{ assetPath('patner-logos/high-country-news-bw.png') }}" /></li>
-                  <li><img src="{{ assetPath('patner-logos/huffpost.png') }}" /></li>
-                  <li><img src="{{ assetPath('patner-logos/medium.png') }}" /></li>
-                  <li><img src="{{ assetPath('patner-logos/motherjones.png') }}" /></li>
-                  <li><img src="{{ assetPath('patner-logos/newrepublic.png') }}" /></li>
-                  <li><img src="{{ assetPath('patner-logos/n.png') }}" /></li>
-                  <li><img src="{{ assetPath('patner-logos/reveal.png') }}" /></li>
-                  <li><img src="{{ assetPath('patner-logos/slate.png') }}" /></li>
-                  <li><img src="{{ assetPath('patner-logos/wired.png') }}" /></li>
-              </ul>
-        </div>
-    </div>
 </div><!-- content close-->
 
 </div><!-- Container close-->

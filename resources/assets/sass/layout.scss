@@ -1,6 +1,6 @@
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic,700);
 
-$sans: 'Open Sans', Helvetica,Arial, sans-serif; 
+$sans: 'Open Sans', Helvetica,Arial, sans-serif;
 $serif: 'expo-serif-pro', 'gerogia', serif;
 
 $primary-typeface: $sans;
@@ -17,52 +17,43 @@ body {
 }
 
 .page {
-    background: rgba(41,184,229,1);
-    background: -moz-linear-gradient(top, rgba(41,184,229,1) 0%, rgba(179,220,237,1) 0%, rgba(255,255,255,1) 400px, rgba(255,255,255,1) 100%);
-    background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(41,184,229,1)), color-stop(0%, rgba(179,220,237,1)), color-stop(50%, rgba(255,255,255,1)), color-stop(100%, rgba(255,255,255,1)));
-    background: -webkit-linear-gradient(top, rgba(41,184,229,1) 0%, rgba(179,220,237,1) 0%, rgba(255,255,255,1) 400px, rgba(255,255,255,1) 100%);
-    background: -o-linear-gradient(top, rgba(41,184,229,1) 0%, rgba(179,220,237,1) 0%, rgba(255,255,255,1) 400px, rgba(255,255,255,1) 100%);
-    background: -ms-linear-gradient(top, rgba(41,184,229,1) 0%, rgba(179,220,237,1) 0%, rgba(255,255,255,1) 400px, rgba(255,255,255,1) 100%);
-    background: linear-gradient(to bottom, rgba(41,184,229,1) 0%, rgba(179,220,237,1) 0%, rgba(255,255,255,1) 400px, rgba(255,255,255,1) 100%);
-    background-repeat: no-repeat;
+  background: $light-blue;
+  background: -moz-linear-gradient(top, $light-blue 0%, rgba(179,220,237,1) 0%, rgba(255,255,255,1) 400px, rgba(255,255,255,1) 100%);
+  background: -webkit-gradient(left top, left bottom, color-stop(0%, $light-blue), color-stop(0%, rgba(179,220,237,1)), color-stop(50%, rgba(255,255,255,1)), color-stop(100%, rgba(255,255,255,1)));
+  background: -webkit-linear-gradient(top, rgba(41,184,229,1) 0%, rgba(179,220,237,1) 0%, rgba(255,255,255,1) 400px, rgba(255,255,255,1) 100%);
+  background: -o-linear-gradient(top, $light-blue 0%, rgba(179,220,237,1) 0%, rgba(255,255,255,1) 400px, rgba(255,255,255,1) 100%);
+  background: -ms-linear-gradient(top, $light-blue 0%, rgba(179,220,237,1) 0%, rgba(255,255,255,1) 400px, rgba(255,255,255,1) 100%);
+  background: linear-gradient(to bottom, $light-blue 0%, rgba(179,220,237,1) 0%, rgba(255,255,255,1) 400px, rgba(255,255,255,1) 100%);
+  background-repeat: no-repeat;
 }
 
 .content{
-    margin-left: auto;
-    margin-right: auto;
+  margin-left: auto;
+  margin-right: auto;
+  overflow: hidden;
+  -webkit-overflow-scrolling: touch;
 
- overflow: hidden;
-        /*overflow-y: auto;*/
-    -webkit-overflow-scrolling: touch;
+  @include breakpoint($pc){
+      border:0px ;
+      max-width: 66em;
+  }
 
-@include breakpoint($only-phone-tablets){
-        /*padding:0 em(10);*/
-    }
-
-    
-
-    @include breakpoint($pc){
-        border:0px ;
-        max-width: 66em;
-    }
-
-    @include breakpoint($phone){
-        width: 100%;
-        border:1px ;
-
-    }
+  @include breakpoint($phone){
+      width: 100%;
+      border: 1px;
+  }
 
 }
 
 
 .layout-menu {
-    float: left;
-    min-width: 128px;
-    display: none;
+  float: left;
+  min-width: 128px;
+  display: none;
 
-    @media (min-width: 768px) {
-        display: block;
-    }
+  @media (min-width: 768px) {
+      display: block;
+  }
 }
 
 .layout-content {
@@ -71,26 +62,16 @@ body {
 }
 
 @media (min-width: 768px) {
-    .layout-menu {
-        display: block;
-        width: 20%;
-    }
-    .layout-content { width: 80%; }
+  .layout-menu {
+    display: block;
+    width: 20%;
+  }
+  .layout-content { width: 80%; }
 }
 
 .clear {
-    clear: both;
+  clear: both;
 }
-
-/*
-$susy: (
-columns: 12,
-container: 1200px,
-gutters: 1/12,
-gutter-position: after,
-global-box-sizing: border-box,
-debug: (image: hide)
-);*/
 
 $susy: (columns: 12, gutters: 0.18, debug: (image: show-columns));
 

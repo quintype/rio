@@ -16,40 +16,50 @@
 @import "layout/404";
 @import "layout/noresults";
 
-
-
-
 @include border-box-sizing;
-
-
-
-
 
 main {
     @include container;
     background-color: blue;
 }
 
-
 .header {
-    padding: 1px;;
-    background-color: $white;
-    height: 50px;
-    vertical-align: inherit;
-    line-height: 3px;
-    color: $light-blue;
-
+  padding: 1px;;
+  background-color: $white;
+  height: 100px;
+  vertical-align: inherit;
+  line-height: 3px;
+  color: $light-blue;
 }
-.logo { 
-    float: left;
-    font-size: 1.5rem; 
-    line-height: 2.2em;
-    margin-left: 1em;
-    @include breakpoint($phone)
-    {
+.logo {
+  float: left;
+  font-size: 1.5rem;
+  line-height: 2.2em;
+  margin-left: 1em;
+  @include breakpoint($phone) {
+    margin:-2px 0 0 em(2);
+  }
+}
 
-        margin:-2px 0 0 em(2);
-    }
+.breaking-news {
+  width: 100%;
+  height: 50px;
+  background-color: $base-blue;
+  border-bottom: 5px solid $light-blue;
+  &__title {
+    @include span(2);
+    height: 50px;
+    background-color: $light-blue;
+    color: $white;
+    padding: 10px 12px;
+    font-size: 10px;
+    text-transform: uppercase;
+    font-weight: $bold;
+    letter-spacing: 0.5px;
+  }
+  &__items {
+    @include span(10);
+  }
 }
 
 .logoview{
@@ -57,15 +67,15 @@ main {
     height:28px;
 
     @include breakpoint($phone){
-        width: 118px;
-        height:18px;
+      width: 118px;
+      height:18px;
     }
 }
 
 ul li{
     list-style: none;
     text-decoration:none;
-    font-family:$primary-typeface;	
+    font-family:$primary-typeface;
 }
 .patners{
      position: relative;
@@ -77,12 +87,12 @@ ul li{
         height:100px;
         #slider{display:block;  text-align: center; margin: 0 auto; }
         #clientsdesk{display:none;}
-        #slider img { 
-            width:200px; 
-            height:90px; 
-            margin:0px; 
+        #slider img {
+            width:200px;
+            height:90px;
+            margin:0px;
             display:inline-block;
-            text-align: center;  
+            text-align: center;
         }
 
         #slider li {
@@ -122,7 +132,7 @@ nav	{
         float: left;
         margin-left: 1em;
         line-height: 3em;
-    } 
+    }
     @include breakpoint($pc) {
 
         display:block;
@@ -136,7 +146,7 @@ nav	{
     margin-top: 10px;
     cursor:pointer;
     @include breakpoint($phone){
-        
+
         margin-top:em(14);
 
     }
@@ -150,7 +160,7 @@ nav	{
     /*top: em(30);*/
     z-index:$zIndex-2;
     display:none;
-    margin-top:18px;    
+    margin-top:18px;
     z-index: 900;
 
     @include breakpoint($phone){
@@ -168,7 +178,7 @@ nav	{
         position:relative;
         float:left;
         font-weight: $bold;
-        font-size: 12px;    
+        font-size: 12px;
         display: block;
         height:auto;
         line-height:20px;
@@ -191,7 +201,7 @@ nav	{
  }
  ul li a:active{
     color:#18a7b9;
- }   
+ }
 
     ul :first-child{
         border-top:0px;
@@ -244,8 +254,8 @@ margin-top: -3px;
     background-color: $light-blue;
     color: $white;
     font-size:13px;
-    font-weight:$bold; 
-    text-transform: uppercase; 
+    font-weight:$bold;
+    text-transform: uppercase;
     letter-spacing: 1.5px;
     padding: 5px 15px 5px 15px;
 
@@ -258,18 +268,18 @@ margin-top: -3px;
         font-size: 9px;
         margin-right:5px;
         padding:0.8em;
-       
+
     }
 
 
 }
 .search_butn {
     color: $light-blue;
-    background-color: $white;   
-    border:1px solid $light-blue;    
+    background-color: $white;
+    border:1px solid $light-blue;
     font-size:13px;
-    font-weight:$bold; 
-    text-transform: uppercase; 
+    font-weight:$bold;
+    text-transform: uppercase;
     letter-spacing: 1.5px;
     padding: 5px 15px 5px 15px;
     cursor:pointer;
@@ -315,18 +325,18 @@ margin-left: 10px;
 }
 .topcontentwrap{
   position:absolute;
-        bottom:0px;       
-        width:100%;        
+        bottom:0px;
+        width:100%;
         z-index:$zIndex-1;
         word-wrap: break-word;
-  
+
 
     }
 
 .leftcontainer{
-    @include span(9);	
+    @include span(9);
     @include aspect-ratio(16,9);
-    padding: em(0);   
+    padding: em(0);
     padding-right: em(2);
     @include breakpoint($phone) {
     @include aspect-ratio(1,1);
@@ -334,7 +344,7 @@ margin-left: 10px;
         @include span(12);
         padding: em(0);
         margin-bottom:0.7em;
-        figure{      
+        figure{
             padding-top:100%;
         }
     }
@@ -345,7 +355,7 @@ margin-left: 10px;
         z-index: 2;
         object-fit: cover;
     }
-    
+
 
 }
 
@@ -458,7 +468,7 @@ margin-top:0px
     color: $white;
     font-weight:$bold;
     padding:5px 20px 15px 20px;
-    font-family:$primary-typeface;	
+    font-family:$primary-typeface;
     z-index: 1;
     /*float: left;*/
     text-align:left;
@@ -466,7 +476,7 @@ margin-top:0px
     line-height: 40px;
     text-shadow: 2px 2px 4px #333333;
     margin-top: 30px;
-    
+
 
     @include breakpoint($phone) {
         font-size: 1em;
@@ -501,7 +511,7 @@ margin-top:0px
     text-transform: capitalize;
     z-index: 1;
     float: right;
-    text-align:right;   
+    text-align:right;
     font-size:  em(12);
     opacity: 0.8;
 
@@ -601,7 +611,7 @@ section {
        @include clearfix();
     @include breakpoint($pc){
     margin-top:10px;
-     
+
     }
 
 }
@@ -640,13 +650,13 @@ section {
         padding-left:1.5em;
         min-height: 65px;
     }
-}    
+}
 .wrap .textwrap{
-    @include breakpoint($small-pc){ 
+    @include breakpoint($small-pc){
      height:95px;
         }
 
-        
+
     }
 
 }
@@ -681,14 +691,14 @@ section {
     margin-bottom: 5px;
      }
 }
-.sectiontitle {	 
+.sectiontitle {
     color:$heading-blue;
     font-size:18px;
-    font-weight:$bold;    
-    width:100%; 
+    font-weight:$bold;
+    width:100%;
 
     border: 0;
-    margin:10px 0 30px 0; 
+    margin:10px 0 30px 0;
     text-align:center;
     letter-spacing: 1.5px;
     text-transform: capitalize;
@@ -699,19 +709,19 @@ section {
         text-transform:uppercase;
            @include breakpoint($pc){
                /*padding:0 10px 0 15px;*/
-               
-  
+
+
            }
 
     }
 
     @include breakpoint($phone){
         font-size: em(13);
-               margin:em(10) 0 em(10) em(15); 
+               margin:em(10) 0 em(10) em(15);
                    line-height:1.5em;
 border:0;
            }
-} 
+}
 .patner {
     margin-top:20px;
     position: relative;
@@ -722,7 +732,7 @@ border:0;
 
 .static{
     margin:em(10) 0 em(10) 0;
-    border-bottom: 1px solid $heading-blue;  
+    border-bottom: 1px solid $heading-blue;
     label { background:inherit; padding:0 10px;  letter-spacing: 1.5px; }
 }
 
@@ -798,7 +808,7 @@ border:0;
         height: auto !important;
         position:relative;
         float: left;
-        
+
         ul li a{
             padding:5px;
             text-decoration:none;
@@ -813,15 +823,15 @@ text-align: center !important;
 float:none;
 padding:0 em(5);
 
-        }  
-        
+        }
+
     }
 
 
 }
 .footerblock:first-child{ padding-top:1em;}
 .footerblock:nth-child(3){
-    
+
     padding-left:70px;
     @include breakpoint($phone) {
           padding-left:em(2);
@@ -848,7 +858,7 @@ padding:0 em(5);
 article {
      @include breakpoint($pc) {
     @include gallery(4);
-    clear:none !important;   
+    clear:none !important;
 }
     /*@include gutters(6 1 inside);*/
     /*background-color: $light-gray;*/
@@ -885,7 +895,7 @@ article:nth-child(4){
     @include breakpoint($phone) {
         padding:em(2) em(10) em(2) em(10);
     }
-    
+
 }*/
 
 .sourcefrom {
@@ -903,11 +913,11 @@ article:nth-child(4){
 
 .textwrap {
     margin:em(2) 0 em(5) 0;
-   
+
     position:relative;
     float: left;
     font-family:$primary-typeface;
-    @include breakpoint($small-pc){	
+    @include breakpoint($small-pc){
      height: 115px;
         }
     /*background-color: $color5;*/
@@ -915,21 +925,21 @@ article:nth-child(4){
 }
 .short{
 
-    @include breakpoint($small-pc){ 
+    @include breakpoint($small-pc){
      height: 105px;
         }
 
-    
+
 }
 
 .wrap .textwrap{
     padding:0 em(15) em(0) em(15);
-    @include breakpoint($small-pc){ 
+    @include breakpoint($small-pc){
      height: 115px;
      padding:0 em(15) em(15) em(15);
 
         }
-       
+
 }
 
 .article__title{
@@ -937,7 +947,7 @@ article:nth-child(4){
     float:left;
     color: $small-heading;
     font-size: 15px;
-    font-weight: $bold;   
+    font-weight: $bold;
     margin-bottom: em(10);
 
     width: 100%;
@@ -974,14 +984,14 @@ article:nth-child(4){
     margin-left:15px;
     z-index: $zIndex-2;
     height:30px;
-    
+
 
      @include breakpoint ($phone)
     {
         bottom:em(8);
     }
-    
-  
+
+
     .textbottom__article__name{
 
         color: $white;
@@ -1013,7 +1023,7 @@ article:nth-child(4){
     width:100%;
     @include aspect-ratio(16,9);
     img{
-        position: relative; 
+        position: relative;
         float:left;
         height:22px;
         width:25%;
@@ -1023,12 +1033,12 @@ article:nth-child(4){
     /*border-right:1px solid #000;*/
     color: $dark-gray;
 
-    font-family: $merri;  
+    font-family: $merri;
 
 
 
-    
-    
+
+
 
 
 
@@ -1040,7 +1050,7 @@ article:nth-child(4){
         font-style: italic;
 
         @include breakpoint($phone){
-            font-size: 10px; 
+            font-size: 10px;
             float:left;
             margin-top: -1px;
 
@@ -1055,7 +1065,7 @@ article:nth-child(4){
 
 }
 .textbottom__article:last-child {
-    border:none;	
+    border:none;
 }
 
 .textbottom__article__name{
@@ -1064,13 +1074,13 @@ article:nth-child(4){
     color:$question-blue;
     text-transform: capitalize;
     display: inline-block;
-    font-family: $merri;     
+    font-family: $merri;
     font-size: 13px;
     font-weight: $bold;
     padding:0 em(10) 0  em(0) ;
     border-right:1px solid $light-gray;
      @include breakpoint($phone){
-            font-size: 10px; 
+            font-size: 10px;
         }
 
 
@@ -1128,7 +1138,7 @@ article:nth-child(4){
     font-size: em(16);
     position: relative;
     /*float: left;*/
-    font-weight: $bold;   
+    font-weight: $bold;
     letter-spacing: 1.1px;
     padding: em(5) em(10) em(5) em(10);
     color: $white;
@@ -1138,7 +1148,7 @@ article:nth-child(4){
     text-transform: uppercase;
     vertical-align: middle;
       @include breakpoint($phone){
-            font-size: em(10); 
+            font-size: em(10);
         }
 
 
@@ -1205,7 +1215,7 @@ article:nth-child(4){
     }
     .article__desciption{
         color: $text;
-        font-size: 12px;   
+        font-size: 12px;
         padding-bottom:10px;
         /*height: em(43);*/
         position:relative;
@@ -1276,7 +1286,7 @@ article:nth-child(4){
 
     .wrap{border:1px solid $light-gray;}
 
-   
+
     @include breakpoint($small-pc) {
          @include span(4);
         padding:0em;
@@ -1284,7 +1294,7 @@ article:nth-child(4){
 
     }
 
-    
+
   @include breakpoint($phone) {
         padding:10px;
       }
@@ -1310,7 +1320,7 @@ article:nth-child(4){
     /*background-color: $light-gray;*/
     text-align:center;
     font-weight:$bold;
-    margin:em(25) auto em(25) auto;     
+    margin:em(25) auto em(25) auto;
     @include breakpoint($phone){display:none;}
 
 
@@ -1368,14 +1378,14 @@ article:nth-child(4){
     display: none;
 }
 
-.top{ margin-top:em(32); 
+.top{ margin-top:em(32);
       @include breakpoint($phone){margin-top:em(0);}
 
 }
 
 .nav-search {
     display: none;
-    position: absolute;             
+    position: absolute;
     top: 7.5%;
     /*padding: .4em .5em 0;*/
     width: 100%;
@@ -1392,8 +1402,8 @@ article:nth-child(4){
 
         &:before {
             content:'';
-            width: 0; 
-            height: 0; 
+            width: 0;
+            height: 0;
             border-left: 10px solid transparent;
             border-right: 10px solid transparent;
             border-bottom: 10px solid $light-blue;
@@ -1445,7 +1455,7 @@ article:nth-child(4){
     margin:em(10);
     letter-spacing: 1.8px;
     cursor: pointer;
-    
+
     @include breakpoint($phone){
         left:0;
     }
@@ -1486,7 +1496,7 @@ article:nth-child(4){
 }
 .nomar{
     border:0;
-    margin:0; 
+    margin:0;
 }
 
 /*Section Right and Left Start*/
@@ -1504,14 +1514,14 @@ article:nth-child(4){
     }
 }
 .sectionsright{
-    @include span(4);   
+    @include span(4);
      position:relative;
     float:left;
     padding-left:1.3em;
     margin-top:10px;
      @include breakpoint($phone){
        display: none;
-    }  
+    }
     img{width:100%;}
 
 }
@@ -1519,14 +1529,14 @@ article:nth-child(4){
 
 .imagesd {
     position: relative;
-    float: left;  
+    float: left;
     width: auto;
-    padding-right: 10px;     
-    margin: -7px em(7) 0 em(7);  
+    padding-right: 10px;
+    margin: -7px em(7) 0 em(7);
     height: 30px;
     /*margin-top:;*/
     @include breakpoint ($pc){
-    margin: -7px em(7) 0 em(0);  
+    margin: -7px em(7) 0 em(0);
     }
     }
 
@@ -1535,10 +1545,10 @@ article:nth-child(4){
     content: '';
     position: relative;
     float: right;
-    right: -9px;   
+    right: -9px;
     margin-top: -25px;
     height: 20px;
-    border-right: 1px solid #DEDEDE;   
+    border-right: 1px solid #DEDEDE;
     @include breakpoint ($phone){
         margin-top: -20px;
     }
@@ -1566,17 +1576,17 @@ article:nth-child(4){
 
 .imagesds {
     position: relative;
-    float: left;  
+    float: left;
     width: auto;
-    padding-right: 10px;     
-    margin: -7px em(7) 0 em(7);  
+    padding-right: 10px;
+    margin: -7px em(7) 0 em(7);
     height: 30px;
      @include breakpoint ($phone){
         width:100%;
         margin:0 0 em(10) 0;
     }
 
- 
+
     }
    .imagesds img {
   display: block;
@@ -1595,11 +1605,11 @@ article:nth-child(4){
     content: '';
     position: relative;
     float: right;
-    right: -9px;   
+    right: -9px;
     margin-top: 5px;
     height: 20px;
-    border-right: 1px solid #DEDEDE;   
-    @include breakpoint ($phone){       
+    border-right: 1px solid #DEDEDE;
+    @include breakpoint ($phone){
         border-right:0;
     }
     }
