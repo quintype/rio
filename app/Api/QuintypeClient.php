@@ -72,7 +72,26 @@ class Bulk {
     }
 
     public function getResponse($name) {
-        return $this->responses[$name];
+      return $this->checkForAlternates($this->responses[$name]);
+    }
+
+    private function checkForAlternates($stories){
+      foreach ($stories as $story) {
+        if(sizeof($story['alternative']) > 0){
+          if(isset($story['alternative']['home']['default'])){
+            if(isset($story['alternative']['home']['default']['headline'])){
+              $story['headline'] = $story['alternative']['home']['default']['headline'];
+            }
+            if(isset($story['alternative']['home']['default']['hero-image'])){
+              $story['hero-image-metadata'] = $story['alternative']['home']['default']['hero-image']['hero-image-metadata'];
+              $story['hero-image-s3-key'] = $story['alternative']['home']['default']['hero-image']['hero-image-s3-key'];
+              $story['hero-image-caption'] = $story['alternative']['home']['default']['hero-image']['hero-image-caption'];
+              $story['hero-image-attribution'] = $story['alternative']['home']['default']['hero-image']['hero-image-attribution'];
+            }
+          }
+        }
+      }
+      return $stories;
     }
 
 }
@@ -172,5 +191,3 @@ class QuintypeClient {
       }, $this->getResponse("/api/v1/breaking-news", $params)['stories']);
   }
 }
-
-
