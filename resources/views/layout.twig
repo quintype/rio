@@ -82,7 +82,7 @@
               </span>
               <div class="menuitems">
                 <ul>
-                  {% for menuItem in menuItems %}
+                  {% for menuItem in client.menuItems(nestedMenuItems) %}
                     <li><a href="{{menuItem.url()}}">{{menuItem.title()}}</a></li>
                   {% endfor %}
                 </ul>
