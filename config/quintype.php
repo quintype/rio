@@ -1,7 +1,7 @@
 <?php
 
 return [
-  "publisher-name" => "demo1",
+  "publisher-name" => "rio",
   "asset-host" => "http://localhost:8000",
   "api-host" => "http://sketches.quintype.com",
   "image-cdn" => "http://quintype-01.imgix.net",

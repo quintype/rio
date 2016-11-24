@@ -2,7 +2,7 @@ var gulp = require('gulp');
 var util = require('gulp-quintype')
 var del = require('del');
 
-var destination = "public/demo1/assets";
+var destination = "public/rio/assets";
 
 function compileAll() {
   return util.manifestAndWrite(destination, util.merge(
