@@ -12,59 +12,36 @@
  */
 
 Route::get('/', 'HomeController@index');
-
 Route::get('/ping', function () {
     return 'pong';
 });
-
 Route::get('/preview/home', 'PreviewController@home');
 Route::get('/preview/story', 'PreviewController@storyView');
-//Route::get('/section/year/month/date/story_slug', 'PreviewController@home');
 
 Route::get('/{section}/{year}/{month}/{date}/{story_slug}', [
-    'uses' => 'HomeController@storyview'
+    'uses' => 'HomeController@storyview',
 ]);
-
-// Route::get('/section/inquiring-minds', [
-//     'uses' => 'HomeController@podcastview'
-// ]);
-
 Route::get('/section/{section}', [
-    'uses' => 'HomeController@sectionview'
+    'uses' => 'HomeController@sectionview',
 ]);
-
-
 Route::get('/search', [
-
-    'uses' => 'HomeController@searchview'
+    'uses' => 'HomeController@searchview',
 ]);
-
-Route::get('/topic/{tagname}', [
-
-    'uses' => 'HomeController@tagsview'
+Route::get('/topic', [
+    'uses' => 'HomeController@tagsview',
 ]);
-
 Route::get('/privacy-policy', [
-
-    'uses' => 'HomeController@privacyview'
+    'uses' => 'HomeController@privacyview',
 ]);
 Route::get('/about-us', [
-
-    'uses' => 'HomeController@aboutview'
+    'uses' => 'HomeController@aboutview',
 ]);
 Route::get('/terms-and-conditions', [
-
-    'uses' => 'HomeController@termsview'
+    'uses' => 'HomeController@termsview',
 ]);
 
-Route::get('/Loadmore', function() {
-
+Route::get('/Loadmore', function () {
     if (Request::ajax()) {
-        return "Ajax Successful";
+        return 'Ajax Successful';
     }
 });
-
-// Route::get('/404', [
-
-//     'uses' => 'HomeController@errorview'
-// ]);

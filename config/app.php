@@ -206,6 +206,7 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
         'Meta' => RyanNielson\Meta\Meta::class,
+        'Api' => Quintype\Api\Api::class,
 
     ],
 

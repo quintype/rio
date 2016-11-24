@@ -65,7 +65,7 @@
           <div class="content">
             <div class="menubarimg mobile-menu">
               <ul class="menuitems">
-                {% for menuItem in menuItems %}
+                {% for menuItem in client.menuItems(nestedMenuItems) %}
                   <li><a href="{{menuItem.url()}}">{{menuItem.title()}}</a></li>
                 {% endfor %}
               </ul>
@@ -75,7 +75,7 @@
             </div>
             <div class="desktop-menu">
               <ul>
-                {% for menuItem in menuItems | slice(0,4) %}
+                {% for menuItem in client.menuItems(nestedMenuItems) | slice(0,4) %}
                   <li><a href="{{menuItem.url()}}">{{menuItem.title()}}</a></li>
                 {% endfor %}
                 <li>All</li>
