@@ -63,7 +63,7 @@
       <script type="text/javascript">var qtReady = qtReady || [];</script>
         <div class="header">
           <div class="content">
-            <div class="menubarimg mobile-menu">
+            <div class="menubarimg mobile-menu js-menu">
               <ul class="menuitems">
                 {% for menuItem in menuItems %}
                   <li><a href="{{menuItem.url()}}">{{menuItem.title()}}</a></li>
@@ -78,7 +78,13 @@
                 {% for menuItem in menuItems | slice(0,4) %}
                   <li><a href="{{menuItem.url()}}">{{menuItem.title()}}</a></li>
                 {% endfor %}
-                <li>All</li>
+                <li class="desktop-menu__all-text js-menu">All<span class="menubarimg"></span>
+                </li>
+                <ul class="menuitems">
+                  {% for menuItem in menuItems | slice(3) %}
+                    <li><a href="{{menuItem.url()}}">{{menuItem.title()}}</a></li>
+                  {% endfor %}
+                </ul>
               </ul>
             </div>
             <div class="mob_buttons">

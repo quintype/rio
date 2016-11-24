@@ -16,7 +16,7 @@ require("./responsiveslides.min");
 
 $(document).ready(function(){
 
-  $(".menubar").click(function(event){
+  $(".js-menu").click(function(event){
    event.stopPropagation();
     $(".menuitems").toggle();
   });

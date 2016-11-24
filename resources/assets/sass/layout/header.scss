@@ -9,6 +9,7 @@
   float: left;
   position: relative;
   padding-right: 15px;
+  padding-top: 5px;
   &:after {
     content: "";
     border-left: 1px solid $light-gray;
@@ -89,13 +90,14 @@
   }
 }
 .menubarimg {
-  display: inline;
-  float: left;
-  margin-top: 15px;
   cursor: pointer;
-  @include breakpoint($phone) {
-    margin-top: em(14);
-  }
+  background: transparent url(icons/burger-menu.svg) no-repeat center center;
+  width: 25px;
+  height: 25px;
+}
+.mobile-menu {
+  display: block;
+  @include breakpoint($pc) {display: none;}
 }
 .menuitems {
   padding: 15px;
@@ -153,9 +155,9 @@
   width: auto;
   height: auto;
   display: inline;
-  margin-top: 20px;
+  margin-top: 25px;
   ul {
-    padding: 0 0 0 15px;
+    padding: 0 0 0 10px;
   }
   li {
     display: inline;
@@ -165,5 +167,9 @@
     color: $grey;
     text-transform: uppercase;
     letter-spacing: 0.3px;
+  }
+  &__all-text {
+    color: $light-blue !important;
+    padding-right: 65px !important;
   }
 }
