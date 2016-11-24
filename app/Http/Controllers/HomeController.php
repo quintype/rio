@@ -18,15 +18,21 @@ class HomeController extends QuintypeController
     public function index()
     {
         $this->client->addBulkRequest('top_stories', 'top', ['fields' => $this->fields, 'limit' => 8]);
-        $this->client->addBulkRequest('weather_stories', 'top', ['section' => 'Weather & Climate', 'fields' => $this->fields, 'limit' => 4]);
-        $this->client->addBulkRequest('videos_stories', 'top', ['section' => 'Videos', 'fields' => $this->fields, 'limit' => 3]);
-        $this->client->addBulkRequest('food_health', 'top', ['section' => 'campaign2016', 'fields' => $this->fields, 'limit' => 3]);
+        $this->client->addBulkRequest('entertainment', 'top', ['section' => 'Entertainment', 'fields' => $this->fields, 'limit' => 4]);
+        $this->client->addBulkRequest('videos', 'top', ['section' => 'Videos', 'fields' => $this->fields, 'limit' => 3]);
+        $this->client->addBulkRequest('international', 'top', ['section' => 'International', 'fields' => $this->fields, 'limit' => 3]);
+
+        $this->client->buildStacksRequest($this->config["layout"]["stacks"], $this->fields);
+
         $this->client->executeBulk();
 
         $top_stories = $this->client->getBulkResponse('top_stories');
-        $weather_stories = $this->client->getBulkResponse('weather_stories');
-        $videos_stories = $this->client->getBulkResponse('videos_stories');
-        $food_health = $this->client->getBulkResponse('food_health');
+        $entertainment = $this->client->getBulkResponse('entertainment');
+        $videos = $this->client->getBulkResponse('videos');
+        $international = $this->client->getBulkResponse('international');
+
+        $stacks = $this->client->buildStacks($this->config["layout"]["stacks"]);
+        $most_popular = $this->client->getStoriesByStackName("Most Shared", $stacks);
 
         $page = ['type' => 'home'];
         $home = new Seo\Home(array_merge($this->config, config('quintype')), $page['type']);
@@ -36,9 +42,10 @@ class HomeController extends QuintypeController
 
         return view('home', $this->toView([
         'stories' => $this->client->prepareAlternateDetails($top_stories, $alternativePage),
-        'weather_stories' => $this->client->prepareAlternateDetails($weather_stories, $alternativePage),
-        'videos_stories' => $this->client->prepareAlternateDetails($videos_stories, $alternativePage),
-        'food_storiess' => $this->client->prepareAlternateDetails($food_health, $alternativePage),
+        'entertainment' => $this->client->prepareAlternateDetails($entertainment, $alternativePage),
+        'videos' => $this->client->prepareAlternateDetails($videos, $alternativePage),
+        'international' => $this->client->prepareAlternateDetails($international, $alternativePage),
+        'most_popular' => $this->client->prepareAlternateDetails($most_popular, $alternativePage),
         'page' => $page,
         'meta' => $this->meta,
       ]));
