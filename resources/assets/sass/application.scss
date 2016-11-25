@@ -30,22 +30,6 @@ ul li {
   color: $white;
   padding: 4px;
 }
-.mob_buttons {
-  float: right;
-  line-height: 45px;
-  ul {
-    padding: 0;
-  }
-  ul li {
-    float: left;
-  }
-  ul:nth-child(1) {
-    margin-top: -3px;
-  }
-  @include breakpoint($pc) {
-      display: none;
-  }
-}
 .donate {
   background-color: $light-blue;
   color: $white;

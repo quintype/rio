@@ -18,7 +18,7 @@ $(document).ready(function(){
 
   $(".js-menu").click(function(event){
    event.stopPropagation();
-    $(".menuitems").toggle();
+    $(".menuitems").slideToggle("slow");
   });
 
   $('#search_init,#search_init1').click(function (event) {

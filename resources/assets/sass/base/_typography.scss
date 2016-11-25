@@ -2,7 +2,7 @@
 @import url(https://fonts.googleapis.com/css?family=Merriweather:400,400italic,600,600italic,700,800,900);
 
 $merri : 'Merriweather', serif;
-$sans: 'open sans', Helvetica,Arial, sans-serif; 
+$sans: 'open sans', Helvetica,Arial, sans-serif;
 $serif: 'expo-serif-pro', 'gerogia', serif;
 
 $primary-typeface: $sans;
@@ -55,6 +55,7 @@ body {
 h1, h2, h3, h4, h5, h6, p, ul, ol {
     font-weight: normal;
     margin: 0;
+    padding: 0;
 }
 
 h1 {
