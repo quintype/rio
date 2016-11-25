@@ -13,6 +13,7 @@ global.transformTemplates = function (x) {
 require("../../../resources/views/story/elements/socialshare.twig");
 require("../../../resources/views/story/story_elements.twig");
 require("../../../resources/views/story/story_tags.twig");
+require("../../../resources/views/story/byline.twig");
 require("../../../resources/views/story/elements/text.twig");
 require("../../../resources/views/story/elements/youtube.twig");
 require("../../../resources/views/story/elements/location.twig");
@@ -48,7 +49,7 @@ Twig.extendFunction("shortsummary", function (summary) {
       if (summary.length>100){
 var description=summary.substring(0, 112)+'...';
 }
-else 
+else
 var description= summary;
 
         return description;

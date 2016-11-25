@@ -203,4 +203,22 @@ class HomeController extends QuintypeController
         'meta' => $this->meta,
       ]));
     }
+
+    public function authorview($authorId) {
+      $authorDetails = $this->client->getAuthor($authorId);
+      $params =[
+            "author-id" => $authorId,
+            "sort" => "latest-published",
+            "limit" => 3,
+            "fields" => $this->fields
+        ];
+      $authorStories = $this->client->search($params);
+
+      return view("author", $this->toView([
+          "authorDetails" => $authorDetails,
+          "authorStories" => $authorStories,
+          "params" => $params,
+        ])
+      );
+    }
 }
