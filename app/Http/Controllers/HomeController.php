@@ -26,10 +26,11 @@ class HomeController extends QuintypeController
 
         $this->client->executeBulk();
 
-        $top_stories = $this->client->getBulkResponse('top_stories');
-        $entertainment = $this->client->getBulkResponse('entertainment');
-        $videos = $this->client->getBulkResponse('videos');
-        $international = $this->client->getBulkResponse('international');
+        $showAltInPage = 'home';
+        $top_stories = $this->client->getBulkResponse('top_stories', $showAltInPage);
+        $entertainment = $this->client->getBulkResponse('entertainment', $showAltInPage);
+        $videos = $this->client->getBulkResponse('videos', $showAltInPage);
+        $international = $this->client->getBulkResponse('international', $showAltInPage);
 
         $stacks = $this->client->buildStacks($this->config["layout"]["stacks"]);
         $most_popular = $this->client->getStoriesByStackName("Most Shared", $stacks);
@@ -38,14 +39,12 @@ class HomeController extends QuintypeController
         $home = new Seo\Home(array_merge($this->config, config('quintype')), $page['type']);
         $this->meta->set($home->tags());
 
-        $alternativePage = 'home';
-
         return view('home', $this->toView([
-        'stories' => $this->client->prepareAlternateDetails($top_stories, $alternativePage),
-        'entertainment' => $this->client->prepareAlternateDetails($entertainment, $alternativePage),
-        'videos' => $this->client->prepareAlternateDetails($videos, $alternativePage),
-        'international' => $this->client->prepareAlternateDetails($international, $alternativePage),
-        'most_popular' => $this->client->prepareAlternateDetails($most_popular, $alternativePage),
+        'stories' => $top_stories,
+        'entertainment' => $entertainment,
+        'videos' => $videos,
+        'international' => $international,
+        'most_popular' => $most_popular,
         'page' => $page,
         'meta' => $this->meta,
       ]));
@@ -90,7 +89,9 @@ class HomeController extends QuintypeController
           'limit' => 8,
           'fields' => $this->fields,
         ];
-        $stories = $this->client->stories($params);
+
+        $showAltInPage = 'home';
+        $stories = $this->client->stories($params, $showAltInPage);
 
         $page = ['type' => 'section'];
         $sectionMeta = new Seo\Section(array_merge($this->config, config('quintype')), $page['type'], $sectionSlug);
@@ -150,7 +151,8 @@ class HomeController extends QuintypeController
           'tag' => $tag,
           'limit' => 7,
         ];
-        $tagStories = $this->client->stories($params);
+        $showAltInPage = 'home';
+        $tagStories = $this->client->stories($params, $showAltInPage);
         $tag = urldecode($tag);
 
         $page = ['type' => 'tag'];
