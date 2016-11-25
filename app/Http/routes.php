@@ -50,3 +50,5 @@ Route::get('/Loadmore', function () {
         return 'Ajax Successful';
     }
 });
+
+Route::get('/author/{authorId}', 'HomeController@authorview');
