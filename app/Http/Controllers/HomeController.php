@@ -21,6 +21,7 @@ class HomeController extends QuintypeController
         $this->client->addBulkRequest('entertainment', 'top', ['section' => 'Entertainment', 'fields' => $this->fields, 'limit' => 4]);
         $this->client->addBulkRequest('videos', 'top', ['section' => 'Videos', 'fields' => $this->fields, 'limit' => 3]);
         $this->client->addBulkRequest('international', 'top', ['section' => 'International', 'fields' => $this->fields, 'limit' => 3]);
+        $this->client->addBulkRequest('banners', 'top', ['section' => 'Banners', 'fields' => $this->fields, 'limit' => 1]);
 
         $this->client->buildStacksRequest($this->config["layout"]["stacks"], $this->fields);
 
@@ -31,6 +32,7 @@ class HomeController extends QuintypeController
         $entertainment = $this->client->getBulkResponse('entertainment', $showAltInPage);
         $videos = $this->client->getBulkResponse('videos', $showAltInPage);
         $international = $this->client->getBulkResponse('international', $showAltInPage);
+        $banners = $this->client->getBulkResponse('banners', $showAltInPage);
 
         $stacks = $this->client->buildStacks($this->config["layout"]["stacks"]);
         $most_popular = $this->client->getStoriesByStackName("Most Shared", $stacks);
@@ -45,6 +47,7 @@ class HomeController extends QuintypeController
         'videos' => $videos,
         'international' => $international,
         'most_popular' => $most_popular,
+        'banners' => $banners,
         'page' => $page,
         'meta' => $this->meta,
       ]));
