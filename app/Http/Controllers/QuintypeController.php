@@ -17,7 +17,7 @@ class QuintypeController extends Controller
         "config" => $this->config,
         "client" => $this->client,
         "nestedMenuItems" => $this->client->prepareNestedMenu($this->config["layout"]["menu"]),
-        'breaking_news' => $this->client->getBreakingNews(['limit' => 5, 'fields' => 'headline,metadata']),
+        "breaking_news" => $this->client->getBreakingNews(['limit' => 5, 'fields' => 'headline,metadata']),
       ], $args);
     }
 }
