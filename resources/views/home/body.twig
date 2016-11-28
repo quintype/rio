@@ -98,8 +98,11 @@
         <!--  Section 3 open-->
 
         <div class="leftbig">
-            <div class="art19-web-player awp-medium awp-theme-dark-blue" data-series-id="57a44066-708b-488c-99cc-588c98834fee" data-pick-from-series="latest" data-api-url="https://rss.art19.com/"></div>
+          <a href="{{banners[0]['slug']}}">
+            <img src="{{focusedImageUrl(banners[0]['hero-image-s3-key'], config['image-cdn'], [16,9], banners[0]['hero-image-metadata'], {w:720})}}"/>
+          <a>
         </div>
+        
         <div class="rightsmall">
             {% for story in stories | slice(7, 1) %}
                 <a href="/{{story['slug']}}">
