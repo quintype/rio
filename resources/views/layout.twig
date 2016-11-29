@@ -70,7 +70,16 @@
         <div class="desktop-menu">
           <ul>
             {% for menuItem in client.menuItems(nestedMenuItems) | slice(0,4) %}
-            <li class="desktop-menu__open"><a href="{{menuItem.url()}}">{{menuItem.title()}}</a></li>
+            <li class="desktop-menu__open">
+              <a href="{{menuItem.url()}}">{{menuItem.title()}}</a>
+              <ul class="submenu">
+                {% if menuItem['children'] %}
+                  {% for submenu in client.menuItems(menuItem['children']) %}
+                    <li class="submenu__item"><a href="{{submenu.url()}}">{{submenu.title()}}</a></li>
+                  {% endfor %}
+                {% endif %}
+              </ul>
+            </li>
             {% endfor %}
             <li class="desktop-menu__all-text js-menu">
               All
