@@ -3,15 +3,12 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Meta;
-use Quintype\Seo;
 
 class HomeController extends QuintypeController
 {
     public function __construct()
     {
         parent::__construct();
-        $this->meta = new Meta();
         $this->fields = 'id,headline,slug,url,hero-image-s3-key,hero-image-metadata,first-published-at,last-published-at,alternative,published-at,author-name,author-id,sections,story-template,summary,metadata,hero-image-attribution,cards,subheadline,authors';
     }
 
@@ -38,8 +35,8 @@ class HomeController extends QuintypeController
         $most_popular = $this->client->getStoriesByStackName('Most Shared', $stacks);
 
         $page = ['type' => 'home'];
-        $home = new Seo\Home(array_merge($this->config, config('quintype')), $page['type']);
-        $this->meta->set($home->tags());
+        $setSeo = $this->seo->home($page['type']);
+        $this->meta->set($setSeo->prepareTags());
 
         return view('home', $this->toView([
         'stories' => $top_stories,
@@ -69,8 +66,8 @@ class HomeController extends QuintypeController
         }
 
         $page = ['type' => 'story'];
-        $stories = new Seo\Story(array_merge($this->config, config('quintype')), $page['type'], $story);
-        $this->meta->set($stories->tags());
+        $setSeo = $this->seo->story($page['type'], $story);
+        $this->meta->set($setSeo->prepareTags());
 
         return view('story', $this->toView([
           'storyData' => $story,
@@ -88,6 +85,7 @@ class HomeController extends QuintypeController
         if(sizeof($section) > 0){
             $sectionId = $section['id'];
             $sectionName = $section['slug'];
+            $sectionId = $section['id'];
         } else {
           return response()->view('errors/404', $this->toView([]), 404);
         }
@@ -98,6 +96,7 @@ class HomeController extends QuintypeController
                 if ($subSection['parent-id'] == $section['id']) {
                     $sectionId = $subSection['id'];
                     $sectionName = $subSection['slug'];
+                    $sectionId = $subSection['id'];
                 } else {
                     return response()->view('errors/404', $this->toView([]), 404);
                 }
@@ -117,8 +116,8 @@ class HomeController extends QuintypeController
         $stories = $this->client->stories($params, $showAltInPage);
 
         $page = ['type' => 'section'];
-        $sectionMeta = new Seo\Section(array_merge($this->config, config('quintype')), $page['type'], $sectionName);
-        $this->meta->set($sectionMeta->tags());
+        $setSeo = $this->seo->section($page['type'], $sectionName, $sectionId);
+        $this->meta->set($setSeo->prepareTags());
 
         if ($subSectionSlug !== '') {
             return view('sub_section', $this->toView([
@@ -150,8 +149,8 @@ class HomeController extends QuintypeController
         $searchedstories = $this->client->search($params);
 
         $page = ['type' => 'search'];
-        $search = new Seo\Search(array_merge($this->config, config('quintype')), $page['type'], $query);
-        $this->meta->set($search->tags());
+        $setSeo = $this->seo->search($query);
+        $this->meta->set($setSeo->prepareTags());
 
         if (sizeof($searchedstories) < 1) {
             return view('noresults');
@@ -179,8 +178,8 @@ class HomeController extends QuintypeController
         $tag = urldecode($tag);
 
         $page = ['type' => 'tag'];
-        $tags = new Seo\Tag(array_merge($this->config, config('quintype')), $page['type'], $tag);
-        $this->meta->set($tags->tags());
+        $setSeo = $this->seo->tag($tag);
+        $this->meta->set($setSeo->prepareTags());
 
         return view('tags', $this->toView([
         'tagresults' => $tagStories,
@@ -194,8 +193,8 @@ class HomeController extends QuintypeController
     public function aboutview()
     {
         $page = ['type' => 'about'];
-        $about = new Seo\StaticPage('About Us');
-        $this->meta->set($about->tags());
+        $setSeo = $this->seo->staticPage('About Us');
+        $this->meta->set($setSeo->prepareTags());
 
         return view('about', $this->toView([
         'page' => $page,
@@ -206,8 +205,8 @@ class HomeController extends QuintypeController
     public function privacyview()
     {
         $page = ['type' => 'privacy'];
-        $privacy = new Seo\StaticPage('Privacy Policy');
-        $this->meta->set($privacy->tags());
+        $setSeo = $this->seo->staticPage('Privacy Policy');
+        $this->meta->set($setSeo->prepareTags());
 
         return view('privacy', $this->toView([
         'page' => $page,
@@ -218,8 +217,8 @@ class HomeController extends QuintypeController
     public function termsview()
     {
         $page = ['type' => 'terms'];
-        $terms = new Seo\StaticPage('Terms of use');
-        $this->meta->set($terms->tags());
+        $setSeo = $this->seo->staticPage('Terms of use');
+        $this->meta->set($setSeo->prepareTags());
 
         return view('terms', $this->toView([
         'page' => $page,
@@ -238,10 +237,16 @@ class HomeController extends QuintypeController
         ];
         $authorStories = $this->client->search($params);
 
+        $page = ['type' => 'author'];
+        $setSeo = $this->seo->staticPage($authorDetails['name']);
+        $this->meta->set($setSeo->prepareTags());
+
         return view('author', $this->toView([
           'authorDetails' => $authorDetails,
           'authorStories' => $authorStories,
           'params' => $params,
+          'page' => $page,
+          'meta' => $this->meta,
         ])
       );
     }
