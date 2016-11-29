@@ -157,7 +157,6 @@ return [
         App\Providers\RouteServiceProvider::class,
 
         TwigBridge\ServiceProvider::class,
-        RyanNielson\Meta\MetaServiceProvider::class,
 
     ],
 
@@ -207,6 +206,8 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
         'Meta' => RyanNielson\Meta\Meta::class,
         'Api' => Quintype\Api\Api::class,
+        'Meta' => Quintype\Meta\Meta::class,
+        'Seo' => Quintype\Seo\Seo::class
 
     ],
 
