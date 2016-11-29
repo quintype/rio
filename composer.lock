@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "4ad3d16d9cf0a1a29af23ee0f9416781",
-    "content-hash": "03831620f4ebeeaf78f24d8e4818a483",
+    "hash": "42a03f95a31822a5cb1f638d885fbb4b",
+    "content-hash": "3f7cc0929e4b52cd7f3fc4ccd7509975",
     "packages": [
         {
             "name": "classpreloader/classpreloader",
@@ -1129,16 +1129,16 @@
         },
         {
             "name": "quintype/api",
-            "version": "1.4.1",
+            "version": "1.4.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/quintype/quintype-api-php.git",
-                "reference": "4f1491dcbf80e24780ade465e91c363d4d154d71"
+                "reference": "2bd5a43d07019b3592d7581b3bfcf4efab87c6f7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/quintype/quintype-api-php/zipball/4f1491dcbf80e24780ade465e91c363d4d154d71",
-                "reference": "4f1491dcbf80e24780ade465e91c363d4d154d71",
+                "url": "https://api.github.com/repos/quintype/quintype-api-php/zipball/2bd5a43d07019b3592d7581b3bfcf4efab87c6f7",
+                "reference": "2bd5a43d07019b3592d7581b3bfcf4efab87c6f7",
                 "shasum": ""
             },
             "require": {
@@ -1151,7 +1151,7 @@
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
-            "time": "2016-11-25 06:41:14"
+            "time": "2016-11-29 07:49:27"
         },
         {
             "name": "quintype/seo",

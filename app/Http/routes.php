@@ -29,6 +29,11 @@ Route::get('/{section}/{year}/{month}/{date}/{story_slug}', [
 Route::get('/section/{section}', [
     'uses' => 'HomeController@sectionview',
 ]);
+
+Route::get('/section/{section}/{subSection}', [
+    'uses' => 'HomeController@sectionview',
+]);
+
 Route::get('/search', [
     'uses' => 'HomeController@searchview',
 ]);
