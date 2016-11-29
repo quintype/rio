@@ -2,9 +2,9 @@
 
 
 
-    <section> 
+    <section>
 
-       <h3 class="line-title top-title">PODCASTS</h3>
+       <h3 class="line-title top-title">{{subSection['display-name']}}</h3>
 
         <div class="podcast_banner">
      <!-- <img class="podcast_img" src="{{ assetPath('main/inquiring_banner_desktop.png') }}" /> -->
@@ -15,9 +15,9 @@
                 <ul>
                     <li> <a target="_blank"  href="https://itunes.apple.com/us/podcast/inquiring-minds/id711675943?mt=2"> <span class="icons"><img  class="podicon" src="{{ assetPath("icons/subscribe.svg") }}" /></span> Subscribe On Itunes  </a></li>
 
-                    <li> <a target="_blank"  href="https://twitter.com/inquiringshow"> <span class="icons"><img class="podicon" src="{{ assetPath("icons/twitter_b.svg") }}" /></span> Follow Us On Twitter  </a></li>
+                    <li> <a target="_blank"  href="https://twitter.com/inquiringshow"> <span class="icons"><img class="podicon" src="{{ assetPath("icons/twitter.svg") }}" /></span> Follow Us On Twitter  </a></li>
                     <li> <a target="_blank"  href="https://www.facebook.com/inquiringmindspodcast"> <span class="icons">
-                    <img class="podicon" src="{{ assetPath("icons/facebook_b.svg") }}" /></span> Like Us On Facebook  </a></li>
+                    <img class="podicon" src="{{ assetPath("icons/facebook.svg") }}" /></span> Like Us On Facebook  </a></li>
                     <li> <a target="_blank"  href="https://soundcloud.com/inquiringminds"> <span class="icons">
                     <img class="podicon" src="{{ assetPath("icons/soundcloud.svg") }}" /></span> Our Soundcloud Page  </a></li>
                     <li> <a target="_blank"  href="http://feeds.feedburner.com/inquiring-minds"> <span class="icons">     <img class="podicon" src="{{ assetPath("icons/rss.svg") }}" /></span> Subscribe To Rss  </a></li>
@@ -56,7 +56,7 @@
 
                 <div class="author_right">
                     <div class="author_title">INDRE VISKONTAS</div>
-                    <div class="author_position">Inquiring Minds Co-host</div> 
+                    <div class="author_position">Inquiring Minds Co-host</div>
 
                     <p>Indre Viskontas is a neuroscientist and artist. She's published more than 35 original research papers and book chapters on the neural basis of memory and creativity.</p>
 
@@ -70,7 +70,7 @@
 
                 <div class="author_right">
                     <div class="author_title">KISHORE HARI</div>
-                    <div class="author_position">Inquiring Minds Co-host</div> 
+                    <div class="author_position">Inquiring Minds Co-host</div>
                     <p>Kishore Hari is a science educator with more than a decade's experience producing live science events. He's the director of the Bay Area Science Festival based out of UC-San Francisco..</p>
 
                 </div>
@@ -82,7 +82,7 @@
 
                 <div class="author_right">
                     <div class="author_title">ADAM ISAAK</div>
-                    <div class="author_position">Inquiring Minds Producer</div> 
+                    <div class="author_position">Inquiring Minds Producer</div>
 
                     <p>Adam Isaak is a media producer with a decade of experience creating science-focused videos and podcasts. He produces the Inquiring Minds podcast.</p>
 
@@ -101,11 +101,10 @@
 <div class="sectionsleft" id="load-more-stories-target">
   {% include "story/elements/stories_list" with {'stories': section_stories|slice(0,6)} %}
 </div>
-       
+
     </section>
   {% include "story/elements/loadmore" %}
 
     <script type="text/javascript">
-        qtReady.push(function() { app.loadMoreStories('#loadmore', '#load-more-stories-target', {{ params | json_encode | raw }}); })        
+        qtReady.push(function() { app.loadMoreStories('#loadmore', '#load-more-stories-target', {{ params | json_encode | raw }}); })
     </script>
-

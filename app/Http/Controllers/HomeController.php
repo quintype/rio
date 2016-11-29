@@ -23,7 +23,7 @@ class HomeController extends QuintypeController
         $this->client->addBulkRequest('international', 'top', ['section' => 'International', 'fields' => $this->fields, 'limit' => 3]);
         $this->client->addBulkRequest('banners', 'top', ['section' => 'Banners', 'fields' => $this->fields, 'limit' => 1]);
 
-        $this->client->buildStacksRequest($this->config["layout"]["stacks"], $this->fields);
+        $this->client->buildStacksRequest($this->config['layout']['stacks'], $this->fields);
 
         $this->client->executeBulk();
 
@@ -34,8 +34,8 @@ class HomeController extends QuintypeController
         $international = $this->client->getBulkResponse('international', $showAltInPage);
         $banners = $this->client->getBulkResponse('banners', $showAltInPage);
 
-        $stacks = $this->client->buildStacks($this->config["layout"]["stacks"]);
-        $most_popular = $this->client->getStoriesByStackName("Most Shared", $stacks);
+        $stacks = $this->client->buildStacks($this->config['layout']['stacks']);
+        $most_popular = $this->client->getStoriesByStackName('Most Shared', $stacks);
 
         $page = ['type' => 'home'];
         $home = new Seo\Home(array_merge($this->config, config('quintype')), $page['type']);
@@ -81,14 +81,34 @@ class HomeController extends QuintypeController
         ]));
     }
 
-    public function sectionview($sectionSlug)
+    public function sectionview($sectionSlug, $subSectionSlug = '')
     {
         $allSections = $this->config['sections'];
         $section = $this->client->getSectionDetails($sectionSlug, $allSections);
+        if(sizeof($section) > 0){
+            $sectionId = $section['id'];
+            $sectionName = $section['slug'];
+        } else {
+          return response()->view('errors/404', $this->toView([]), 404);
+        }
+
+        if ($subSectionSlug !== '') {
+            $subSection = $this->client->getSectionDetails($subSectionSlug, $allSections);
+            if (sizeof($subSection) > 0) {
+                if ($subSection['parent-id'] == $section['id']) {
+                    $sectionId = $subSection['id'];
+                    $sectionName = $subSection['slug'];
+                } else {
+                    return response()->view('errors/404', $this->toView([]), 404);
+                }
+            } else {
+                return response()->view('errors/404', $this->toView([]), 404);
+            }
+        }
 
         $params = [
           'story-group' => 'top',
-          'section' => $section['name'],
+          'section-id' => $sectionId,
           'limit' => 8,
           'fields' => $this->fields,
         ];
@@ -97,12 +117,12 @@ class HomeController extends QuintypeController
         $stories = $this->client->stories($params, $showAltInPage);
 
         $page = ['type' => 'section'];
-        $sectionMeta = new Seo\Section(array_merge($this->config, config('quintype')), $page['type'], $sectionSlug);
+        $sectionMeta = new Seo\Section(array_merge($this->config, config('quintype')), $page['type'], $sectionName);
         $this->meta->set($sectionMeta->tags());
 
-        if ($section['name'] == 'Inquiring Minds') {
-            return view('podcasts', $this->toView([
-            'section' => $section,
+        if ($subSectionSlug !== '') {
+            return view('sub_section', $this->toView([
+            'subSection' => $subSection,
             'page' => $page,
             'meta' => $this->meta,
             'section_stories' => $stories,
@@ -207,20 +227,21 @@ class HomeController extends QuintypeController
       ]));
     }
 
-    public function authorview($authorId) {
-      $authorDetails = $this->client->getAuthor($authorId);
-      $params =[
-            "author-id" => $authorId,
-            "sort" => "latest-published",
-            "limit" => 3,
-            "fields" => $this->fields
+    public function authorview($authorId)
+    {
+        $authorDetails = $this->client->getAuthor($authorId);
+        $params = [
+            'author-id' => $authorId,
+            'sort' => 'latest-published',
+            'limit' => 3,
+            'fields' => $this->fields,
         ];
-      $authorStories = $this->client->search($params);
+        $authorStories = $this->client->search($params);
 
-      return view("author", $this->toView([
-          "authorDetails" => $authorDetails,
-          "authorStories" => $authorStories,
-          "params" => $params,
+        return view('author', $this->toView([
+          'authorDetails' => $authorDetails,
+          'authorStories' => $authorStories,
+          'params' => $params,
         ])
       );
     }
