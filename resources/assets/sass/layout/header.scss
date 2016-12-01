@@ -158,6 +158,9 @@
       text-transform: uppercase;
       letter-spacing: 0.3px;
       cursor: pointer;
+      &:hover {
+        .submenu { opacity: 1}
+      }
     }
     &__all-text {
       color: $light-blue !important;
@@ -192,5 +195,21 @@
   }
   @include breakpoint($pc) {
       display: none;
+  }
+}
+.submenu {
+  opacity: 0;
+  position: absolute;
+  left: 0;
+  top: 50px;
+  right: 0;
+  z-index: $zIndex-2;
+  width: 100%;
+  background-color: $light-blue;
+
+  &__item {
+    display: inline-block;
+    padding: 30px 20px;
+    color: $white;
   }
 }
