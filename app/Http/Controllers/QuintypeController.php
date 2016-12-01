@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 use Api;
+use Meta;
+use Seo;
 
 class QuintypeController extends Controller
 {
@@ -9,6 +11,8 @@ class QuintypeController extends Controller
     {
         $this->client = new Api(config('quintype.api-host'));
         $this->config = array_merge($this->client->config(), config('quintype'));
+        $this->meta = new Meta();
+        $this->seo = new Seo($this->config);
     }
 
     public function toView($args)
