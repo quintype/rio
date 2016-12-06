@@ -77,7 +77,11 @@
                     <div class="content">
                       <ul>
                       {% for submenu in client.menuItems(menuItem['children']) %}
-                        <li class="submenu__item"><a href="{{submenu.url()}}">{{submenu.title()}}</a></li>
+                        <li class="submenu__item load-stories"
+                            id="sub_menu_{{submenu['item-id']}}"
+                            data-sectionId={{submenu['item-id']}}>
+                          <a href="{{submenu.url()}}">{{submenu.title()}}</a>
+                        </li>
                       {% endfor %}
                       </ul>
                     </div>
@@ -98,6 +102,7 @@
             </li>
           </ul>
         </div>
+
         <div class="mob_buttons">
           <ul>
             <li><span id="search_init1" class="search_butn">Search</span></li>
@@ -144,7 +149,9 @@
         </div>
       </div>
       {% endif %}
+      <div class="sub_section_stories"></div>
     </div>
+
     <!-- Header Close-->
     {% block content %}{% endblock %}
     </div><!-- content close-->
@@ -275,9 +282,18 @@
       };
     </script>
     <script src="https://d2nx6ydw3e5y5d.cloudfront.net/assets/current.js" type="text/javascript"></script>
+
     <script type="text/javascript">
       app.initQtReady();
-
     </script>
+
+    <script type="text/javascript">
+      var targetElement = '.sub_section_stories';
+      var triggerElement = '.load-stories';
+      var fields = "id,headline,slug,url,hero-image-s3-key,hero-image-metadata,first-published-at,last-published-at,alternative,published-at,author-name,author-id,sections,story-template,summary,metadata,hero-image-attribution,cards,subheadline,authors";
+      var params = {"limit": 8, "story-group": "top", "fields": fields}
+      qtReady.push(function() { app.subSectionStories(triggerElement, targetElement, params); })
+    </script>
+
   </body>
 </html>
