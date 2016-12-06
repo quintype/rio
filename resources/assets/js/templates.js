@@ -15,11 +15,12 @@ require("../../../resources/views/story/story_elements.twig");
 require("../../../resources/views/story/story_tags.twig");
 require("../../../resources/views/story/byline.twig");
 require("../../../resources/views/story/elements/text.twig");
-require("../../../resources/views/story/elements/youtube.twig");
-require("../../../resources/views/story/elements/location.twig");
+require("../../../resources/views/story/elements/youtube-video.twig");
+require("../../../resources/views/story/elements/jsembed.twig");
 require("../../../resources/views/story/elements/bigfact.twig");
-require("../../../resources/views/story/elements/images.twig");
-require("../../../resources/views/story/elements/questionandanswer.twig");
+require("../../../resources/views/story/elements/image.twig");
+require("../../../resources/views/story/elements/q-and-a.twig");
+require("../../../resources/views/story/elements/soundcloud-audio.twig");
 
 
 var TEMPLATES = {
