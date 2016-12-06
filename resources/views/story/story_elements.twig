@@ -1,40 +1,11 @@
-  {% set count = 0 %}
-
 {% for element in storyElements %}
+  {% set elType = element['type'] %}
+  {% set elementIncludeFile = 'story/elements/'~elType %}
   <div class="story-element-view"
        data-card-content-id="{{ card['content-id'] }}"
        data-card-version-id="{{ card['content-version-id'] }}"
        data-story-element-id="{{ element['id'] }}"
        data-story-element-type="{{ element['type'] }}">
-    {% set elType = element['type'] %}
-    {% if elType == "text" %}
-        {% include "story/elements/text" with {'dataElement': element } %}
-        {% elseif elType == "title" %}
-        {% include "story/elements/title" with {'dataElement': element } %}
-    {% elseif elType == "youtube-video" %}
-    {% set count = count+1 %}
-     {% if storyData['story-template'] == 'video' %}
-       {% if count > 1 %}
-         {% include "story/elements/youtube" with {'dataElement': element } %}
-       {% endif %}
-     {% else %}
-        {% include "story/elements/youtube" with {'dataElement': element } %}
-     {% endif %}
-    {% elseif elType == "jsembed" %}
-
-        {% include "story/elements/location" with {'dataElement': element } %}
-  {% elseif elType  == 'composite' %}
-    {% include 'story/elements/storyslideshow' with {'dataElement': element } %}
-
-    {% elseif elType == "q-and-a" %}
-        {% include "story/elements/questionandanswer" with {'dataElement': element } %}
-
-    {% elseif elType == "bigfact" %}
-        {% include "story/elements/bigfact" with {'dataElement': element } %}
-
-    {% elseif elType == "image" %}
-        {% include "story/elements/images" with {'dataElement': element } %}
-
-    {% endif %}
+  {% include elementIncludeFile with {'dataElement': element } %}
   </div>
 {% endfor %}

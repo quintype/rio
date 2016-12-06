@@ -1,0 +1,34 @@
+
+{% if dataElement['subtype'] == "image-gallery" %}
+  <div class="story-element-{{dataElement['subtype']}}">
+    {% if dataElement['metadata']['type'] == "slideshow" %}
+      <div class="rslides_container">
+        <ul class="rslides">
+          {% set elements = dataElement['story-elements'] %}
+          {% for element in elements %}
+         <li><img src="{{focusedImageUrl(element['image-s3-key'], config['image-cdn'], [16,9], element['image-metadata'], {w: 900})}}"/></li>
+       {% endfor %}
+       </ul>
+      </div>
+    {% elseif dataElement['metadata']['type'] == "gallery" %}
+     <ul class="">
+        {% set elements = dataElement['story-elements'] %}
+        {% for galleryImage in elements %}
+          <li class="">
+            <figure>
+              <img src="{{focusedImageUrl(galleryImage['image-s3-key'], config['image-cdn'], [16,9], galleryImage['image-metadata'], {w: 260, q: 60, auto: 'format', fm: 'pjpg'})}}"/>
+            </figure>
+          </li>
+        {% endfor %}
+      </ul>
+    {% endif %}
+  </div>
+
+{% elseif dataElement['subtype'] == "references" %}
+  <div class="story-element-{{dataElement['subtype']}}">
+    {% set elements = dataElement['story-elements'] %}
+    {% for element in elements %}
+        {{ element['text'] | raw }}
+    {% endfor %}
+  </div>
+{% endif %}

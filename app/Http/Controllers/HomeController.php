@@ -68,7 +68,7 @@ class HomeController extends QuintypeController
         $page = ['type' => 'story'];
         $setSeo = $this->seo->story($page['type'], $story);
         $this->meta->set($setSeo->prepareTags());
-
+    
         return view('story', $this->toView([
           'storyData' => $story,
           'relatedstories' => $related_stories,
