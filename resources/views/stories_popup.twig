@@ -1,0 +1,7 @@
+{% for story in stories %}
+  <div style="float: left">
+    <figure>
+        <img style="width: 100px" src="{{focusedImageUrl(story['hero-image-s3-key'] ,config['image-cdn'], [16,9], story['hero-image-metadata'],{w:100} )}}" />
+    </figure>
+  </div>
+{% endfor %}

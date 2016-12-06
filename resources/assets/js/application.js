@@ -6,6 +6,7 @@ global.app = {
     startHomePreview: require("./home_preview"),
     startStoryPreview: require("./story_preview"),
     loadMoreStories: require("./load_more"),
+    subSectionStories: require("./sub_section_stories"),
     analytics: require("./analytics.js"),
     videos: require("./videos.js")
 };
