@@ -24,73 +24,68 @@
 
 </script>
 <div class="content top story-view" data-story-content-id="{{ storyData['id'] }}" data-story-version-id="{{ storyData['story-version-id'] }}">
-<!-- content open-->
-<!-- storyData["sections"][0]["name"] == "Video" &&  -->
-{% if storyData["story-template"]=="video" %}
-{% for card in storyData['cards'] %}
-{% include "story/elements/youtube1" with {'storyElements': card['story-elements'], 'card': card} %}
-{% endfor %}
-{% else %}
-<div class="story_hero">
-  <!-- {% include "story/elements/youtube-video" with {'dataElement': element } %} -->
-  {% if storyData['hero-image-caption'] %}
-  <div class="story_hero__text">
-    {{storyData['hero-image-caption'] | raw}}
-  </div>
-  {% endif %}
-  <figure>
-    <img src="{{focusedImageUrl(storyData['hero-image-s3-key'],config['image-cdn'], [16,9], storyData['hero-image-metadata'], {w: 1000})}}" class="story-img"/>
-  </figure>
-</div>
-<div class="sourcefrom">
-  {{ storyData["hero-image-attribution"] | raw }}
-</div>
-{% endif %}
-<div class="story_container">
-  <div class="storysectionname"><span class="article__tag-heading">{{storyData["sections"][0]["name"]}}</span></div>
-  <!-- Stoy Header Close -->
-  <h1>{{storyData["headline"]}}</h1>
-  {% if storyData["subheadline"] %}
-  <div class='story-element-subtitle'><span> {{storyData["subheadline"] | striptags |raw }}  </span></div>
-  {% endif %}
-  <div class="textbottom__article storybyline">
-    {%  if storyData['metadata']['story-attributes']['partnerpublisher'][0] %}
-    <div class="imagesds">
-      <img src="{{  get_logo(storyData['metadata']['story-attributes']['partnerpublisher'][0], 'Logo' ) }}" />
-    </div>
-    {% endif %}
-    <span class="textbottom__article__name">
-    {% for authornames in storyData["authors"]  %}
-    {{ authornames['name'] }}
-    {% if loop.index == (storyData["authors"] | length ) - 1 %} & {% else %}
-    {% if loop.index != (storyData["authors"] | length ) %} , {% endif %} {% endif %}
-    {% endfor %}
-    {% if storyData["authors"] is empty %}
-    {{ storyData["author-name"] }}
-    {% endif %}
-    </span>
-    {% if storyData["first-published-at"] %}
-    <span class="textbottom__article--share"> <time>
-    {% set timestamp = (storyData["first-published-at"]// 1000)|round(0, 'floor') %}{{ timestamp|date('M j, Y') }}
-    </time></span>
-    {% endif %}
-    {% include "story/elements/socialshare" %}
-  </div>
-  <div class="publisher_info">
-    {%  if storyData['metadata']['story-attributes']['partnerpublisher'][0] and storyData['metadata']['reference-url'] %}
-    <!-- {%  if storyData['metadata']['story-attributes'] %}
-      <div class="imagesd storypartner">
-                      <img src="{{  get_logo(storyData['metadata']['story-attributes']['partnerpublisher'][0], 'Logo' ) }}" />
-                  </div>
+<div class="story-header">
+  <div class="story-header__hero-image">
+    <figure>
+      <img src="{{focusedImageUrl(storyData['hero-image-s3-key'],config['image-cdn'], [16,9], storyData['hero-image-metadata'], {w: 1000})}}" class="story-img"/>
+
+      {% if storyData['hero-image-caption'] %}
+      <figcaption>{{storyData['hero-image-caption'] | raw}}</figcaption>
       {% endif %}
-      -->
-    <div class='story-element-publisher'>
-      This story was <a target="_blank" href="{{  storyData['metadata']['reference-url'] }}">originally published</a> by {{ get_logo(storyData['metadata']['story-attributes']['partnerpublisher'][0], 'Partnername' ) }}.
+    </figure>
+
+    <div class="sourcefrom">
+      {{ storyData["hero-image-attribution"] | raw }}
     </div>
-    {% endif %}
   </div>
+  <div class="story-header__content">
+    <div class="story-header__section-name">
+      <span>{{storyData["sections"][0]["name"]}}</span>
+    </div>
+    <h1 class="story-header__story-headline">{{storyData["headline"]}}</h1>
+    {% if storyData["subheadline"] %}
+      <div class='story-header__subtitle'>
+        <span> {{storyData["subheadline"] | striptags |raw }}  </span>
+      </div>
+    {% endif %}
+    <div class="textbottom__article storybyline">
+      {%  if storyData['metadata']['story-attributes']['partnerpublisher'][0] %}
+      <div class="imagesds">
+        <img src="{{  get_logo(storyData['metadata']['story-attributes']['partnerpublisher'][0], 'Logo' ) }}" />
+      </div>
+      {% endif %}
+      <span class="textbottom__article__name">
+      {% for authornames in storyData["authors"]  %}
+      {{ authornames['name'] }}
+      {% if loop.index == (storyData["authors"] | length ) - 1 %} & {% else %}
+      {% if loop.index != (storyData["authors"] | length ) %} , {% endif %} {% endif %}
+      {% endfor %}
+      {% if storyData["authors"] is empty %}
+      {{ storyData["author-name"] }}
+      {% endif %}
+      </span>
+      {% if storyData["first-published-at"] %}
+      <span class="textbottom__article--share"> <time>
+      {% set timestamp = (storyData["first-published-at"]// 1000)|round(0, 'floor') %}{{ timestamp|date('M j, Y') }}
+      </time></span>
+      {% endif %}
+      {% include "story/elements/socialshare" %}
+    </div>
+    <div class="publisher_info">
+      {%  if storyData['metadata']['story-attributes']['partnerpublisher'][0] and storyData['metadata']['reference-url'] %}
+      <div class='story-element-publisher'>
+        This story was <a target="_blank" href="{{  storyData['metadata']['reference-url'] }}">originally published</a> by {{ get_logo(storyData['metadata']['story-attributes']['partnerpublisher'][0], 'Partnername' ) }}.
+      </div>
+      {% endif %}
+    </div>
+  </div>
+</div>
+
+<div class="story-body">
   {% for card in storyData['cards'] %}
-  {% include "story/story_elements" with {'storyElements': card['story-elements'], 'card': card} %}
+    <div class="card card__{{ card['metadata']['attributes']['alignment'][0] }}">
+    {% include "story/card" with {'storyElements': card['story-elements'], 'card': card} %}
+    </div>
   {% endfor %}
   <div class='author'>
     {% for author in authordata %}
@@ -120,9 +115,6 @@
         });
       </script>
     </div>
-  </div>
-  <div class="storyad">
-    <a  href="/section/inquiring-minds">  <img  src="{{ assetPath('main/ad.png') }}" /> </a>
   </div>
 </div>
 <!-- Stoy Container Close -->

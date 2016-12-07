@@ -1,0 +1,19 @@
+.story-element-bigfact {
+  position: relative;
+  float: left;
+  width: 100%;
+  margin: em(10) 0;
+  h2 {
+    font-size: em(28);
+    line-height: 1.6;
+    font-weight: $bold;
+    color: $light-blue;
+  }
+  .context {
+    p {
+      color: $grey;
+      font-size: em(18);
+      font-weight: $bold;
+    }
+  }
+}

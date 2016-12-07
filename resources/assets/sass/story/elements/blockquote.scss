@@ -1,0 +1,37 @@
+.story-element-blockquote {
+  word-wrap: break-word;
+  padding: em(5) 0;
+  position: relative;
+  float: left;
+  margin-top: em(30);
+  @include breakpoint($phone) {
+    font-size: 14px;
+  }
+  blockquote {
+    padding: 0;
+    font-size: em(15);
+    color: $grey;
+    padding-left: 1em;
+    font-family: $merri;
+    font-weight: $bold;
+    font-style: italic;
+    margin-left: 0;
+    width: 100%;
+    border-left: em(3) solid $light-blue;
+  }
+  .attribution {
+    color: $dark-blue;
+    text-transform: capitalize;
+    float: right;
+    padding-right: em(10);
+    font-size: em(14);
+    font-style: italic;
+    font-family: $merri;
+    font-weight: $bold;
+    display: inline-block;
+    margin-bottom: em(10);
+    @include breakpoint($pc) {
+      font-size: em(14);
+    }
+  }
+}

@@ -1,0 +1,15 @@
+.story-element-blurb {
+  font-style: italic;
+  position: relative;
+  color: $dark-blue;
+  font-weight: $bold;
+  float: left;
+  width: 100%;
+  border-top: 1px solid $light-gray;
+  border-bottom: 1px solid $light-gray;
+  margin: em(20) 0 em(20) 0;
+  blockquote {
+    padding-left: 0;
+    margin-left: 0;
+  }
+}

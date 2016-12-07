@@ -1,0 +1,26 @@
+.story-element-image {
+  position: relative;
+  float: left;
+
+  img {
+    width: 100%;
+    height: auto;
+  }
+  &__text {
+    position: relative;
+    bottom: 6px;
+    background-color: rgba($black,0.7);
+    width: 100%;
+    font-size: em(14);
+    padding: em(5) em(15) em(5) em(15);
+    color: $white;
+    z-index: $zIndex-1;
+    word-wrap: break-word;
+    a {
+      font-style: italic;
+    }
+    @include breakpoint($phone) {
+      font-size: 10px;
+    }
+  }
+}

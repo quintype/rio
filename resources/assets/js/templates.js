@@ -11,7 +11,7 @@ global.transformTemplates = function (x) {
 };
 
 require("../../../resources/views/story/elements/socialshare.twig");
-require("../../../resources/views/story/story_elements.twig");
+require("../../../resources/views/story/card.twig");
 require("../../../resources/views/story/story_tags.twig");
 require("../../../resources/views/story/byline.twig");
 require("../../../resources/views/story/elements/text.twig");
@@ -25,7 +25,7 @@ require("../../../resources/views/story/elements/soundcloud-audio.twig");
 
 var TEMPLATES = {
     "home_body": require("../../../resources/views/home/body.twig"),
-    "story": require("../../../resources/views/home/story.twig"),
+    "story": require("../../../resources/views/story/story.twig"),
     "story_tag": require("../../../resources/views/home/story_tags.twig")
 };
 
