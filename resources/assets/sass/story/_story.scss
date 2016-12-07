@@ -153,38 +153,7 @@
 
              }
          }
-         .story-element-references{
-             word-wrap:break-word;
-             text-align:left;
-             font-family: $merri;
-             width:100%;
-             position: relative;
-             float: left;
-             p{
-                 font-family: $merri;
-                 color:#333333;
-                 font-weight:$regular;
-                 font-size:16px;
-                 margin: em(10) 0 em(10) 0;
-                 a{ color:$light-blue;}
-                 @include breakpoint($phone) {
-                     font-size: em(13);
-                 }
 
-             }
-
-
-             b{
-                 font-weight:$bold;
-             }
-         }
-         .story-element-soundcloud-audio{
-             word-wrap:break-word;
-             text-align:left;
-             width:100%;
-             position: relative;
-             float: left;
-         }
 .storysource{
     position: relative;
     float: right;
@@ -498,7 +467,7 @@ width:100%;
         img{width:100%;height:auto;}
 
             &__text{
-        position:absolute;
+        position:relative;
         bottom:6px;
         background-color:$black-opacity;
         width:100%;

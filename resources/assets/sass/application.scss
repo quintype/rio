@@ -14,6 +14,10 @@
 @import "layout/noresults";
 @import "layout/header";
 @include border-box-sizing;
+
+//story
+@import "story/story_elements/composite";
+
 main {
     @include container;
     background-color: blue;
