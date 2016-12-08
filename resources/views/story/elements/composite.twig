@@ -2,7 +2,7 @@
 {% if dataElement['subtype'] == "image-gallery" %}
   <div class="story-element-{{dataElement['subtype']}}">
     {% if dataElement['metadata']['type'] == "slideshow" %}
-      <div class="rslides_container">
+      <div class="rslides_container_image_gallery">
         <ul class="rslides">
           {% set elements = dataElement['story-elements'] %}
           {% for element in elements %}

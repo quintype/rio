@@ -18,6 +18,7 @@
 //story
 @import "story/elements/composite";
 @import "story/elements/bigfact";
+@import "story/elements/quote";
 @import "story/elements/blockquote";
 @import "story/elements/blurb";
 @import "story/elements/image";
@@ -27,7 +28,7 @@
 @import "story/elements/soundcloud";
 @import "story/elements/text";
 @import "story/elements/youtube";
-
+@import "story/elements/references";
 
 main {
     @include container;
