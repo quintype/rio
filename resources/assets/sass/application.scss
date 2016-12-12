@@ -16,6 +16,7 @@
 @include border-box-sizing;
 
 //story
+@import "story/card";
 @import "story/elements/composite";
 @import "story/elements/bigfact";
 @import "story/elements/blockquote";
