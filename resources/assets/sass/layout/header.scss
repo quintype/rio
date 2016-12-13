@@ -4,6 +4,12 @@
   vertical-align: inherit;
   line-height: 3px;
   color: $light-blue;
+    .sub_section_stories {
+      display: none;
+      position: relative;
+      z-index: $zIndex-1;
+      padding-top: 20px;
+    }
 }
 .header-logo {
   display: inline-block;

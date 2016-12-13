@@ -58,13 +58,24 @@ function subSectionStories(triggerElement, targetElement, params) {
         }
     });
 
-    triggerElement.on("mouseleave", function() {
-        clearTimeout(timeoutId);
-        targetElement.hide();
-        targetElement.html("");
-        if (typeof xhr !== 'undefined') {
-            xhr.abort();
+    triggerElement.on("mouseleave", function(e) {
+        if( ! $(e.toElement).hasClass('sub_section_stories') ) {
+          clearTimeout(timeoutId);
+          targetElement.hide();
+          targetElement.html("");
+          if (typeof xhr !== 'undefined') {
+             xhr.abort();
+          }
         }
+    });
+
+    targetElement.on("mouseleave", function() {
+          clearTimeout(timeoutId);
+          targetElement.hide();
+          targetElement.html("");
+          if (typeof xhr !== 'undefined') {
+             xhr.abort();
+          }
     });
 }
 

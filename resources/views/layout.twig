@@ -149,7 +149,7 @@
         </div>
       </div>
       {% endif %}
-      <div class="sub_section_stories"></div>
+      <div class="sub_section_stories js-sub_section_stories" style="padding-top:50px; display:none; position:relative; z-index:9;"></div>
     </div>
 
     <!-- Header Close-->
@@ -278,7 +278,7 @@
     <script type="text/javascript">
       var qtConfig = {
           "image-cdn": "{{config("quintype.image-cdn")}}",
-          "publisher-name": "{{config("quintype.publisher-name")}}"
+          "publisher-name": "{{config("quintype.publisher-name")}}",
           "polltype-host": "{{config['polltype-host']}}"
       };
     </script>
@@ -289,7 +289,7 @@
     </script>
 
     <script type="text/javascript">
-      var targetElement = '.sub_section_stories';
+      var targetElement = '.js-sub_section_stories';
       var triggerElement = '.load-stories';
       var fields = "id,headline,slug,url,hero-image-s3-key,hero-image-metadata,first-published-at,last-published-at,alternative,published-at,author-name,author-id,sections,story-template,summary,metadata,hero-image-attribution,cards,subheadline,authors";
       var params = {"limit": 8, "story-group": "top", "fields": fields}
