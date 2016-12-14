@@ -81,3 +81,68 @@
         height: 100%;
     }
 }
+
+// Transform
+@mixin transform($transforms) {
+	-webkit-transform: $transforms;
+	-moz-transform: $transforms;
+	-ms-transform: $transforms;
+	transform: $transforms;
+}
+
+// Rotate
+@mixin rotate ($deg) {
+	@include transform(rotate(#{$deg}deg));
+}
+
+// Scale
+@mixin scale($scale) {
+	@include transform(scale($scale));
+}
+
+// Scale X
+@mixin scaleX($scale) {
+	@include transform(scaleX($scale));
+}
+
+// Scale Y
+@mixin scaleY($scale) {
+	@include transform(scaleY($scale));
+}
+
+// Translate
+@mixin translate ($x, $y) {
+	@include transform(translate($x, $y));
+}
+
+// Translate X
+@mixin translateX ($x) {
+	@include transform(translateX($x));
+}
+
+// Translate Y
+@mixin translateY ($y) {
+	@include transform(translateY($y));
+}
+
+// Skew
+@mixin skew ($x, $y) {
+	@include transform(skew(#{$x}deg, #{$y}deg));
+}
+
+// Transform Origin
+@mixin transform-origin ($origin) {
+   -webkit-transform-origin: $origin;
+   -moz-transform-origin: $origin;
+	-ms-transform-origin: $origin;
+	transform-origin: $origin;
+}
+
+//transition
+@mixin transition( $val : ease 0.5s ) {
+  -webkit-transition: $val;
+  -moz-transition:$val;
+  -o-transition:$val;
+  -ms-transition:$val;
+  transition:$val;
+}

@@ -37,45 +37,36 @@ function loadStories(params, targetElement) {
     }
 }
 
-function subSectionStories(triggerElement, targetElement, params) {
-    var triggerElement = $(triggerElement);
-    var targetElement = $(targetElement);
+function subSectionStories(parentElement, triggerElement, targetElement, params) {
+    var trigEle = $(triggerElement);
+    var storyLoader;
     var timeoutId;
 
-    triggerElement.on("mouseenter", function() {
-        targetElement.html("");
-        targetElement.show();
-        var sectionId = $("#" + this.id).attr("data-sectionId");
+      //keep first sub tab loaded initially
+      setTimeout(function () {
+          $(parentElement).find(triggerElement+':first-child').trigger('mouseenter');
+      },500);
 
-        if (sectionId) {
-            params = _.merge(params, {
-                "section-id": sectionId
-            });
+    trigEle.on("mouseenter", function() {
+      storyLoader = $(this).parents(parentElement).find(targetElement);
+      storyLoader.html("");
+      storyLoader.show();
 
-            timeoutId = setTimeout(function() {
-                loadStories(params, targetElement);
-            }, 300);
-        }
-    });
+      var sectionId = $("#" + this.id).attr("data-sectionId");
 
-    triggerElement.on("mouseleave", function(e) {
-        if( ! $(e.toElement).hasClass('sub_section_stories') ) {
-          clearTimeout(timeoutId);
-          targetElement.hide();
-          targetElement.html("");
-          if (typeof xhr !== 'undefined') {
-             xhr.abort();
-          }
-        }
-    });
+      if (sectionId) {
+          params = _.merge(params, {
+              "section-id": sectionId
+          });
 
-    targetElement.on("mouseleave", function() {
-          clearTimeout(timeoutId);
-          targetElement.hide();
-          targetElement.html("");
-          if (typeof xhr !== 'undefined') {
-             xhr.abort();
-          }
+          timeoutId = setTimeout(function() {
+              loadStories(params, storyLoader);
+          }, 300);
+      }
+
+      //keep last mouse over sub tab active
+      $(this).parents(parentElement).find(trigEle).removeClass('active');
+      $(this).addClass('active');
     });
 }
 
