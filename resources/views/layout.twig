@@ -80,14 +80,12 @@
                         <ul class="desktop-submenu__container">
                           {% for submenu in client.menuItems(menuItem['children']) %}
                           <li class="desktop-submenu__item js-desktop-submenu__item"
-                              id="sub_menu_{{submenu['item-id']}}"
-                              data-sectionId={{submenu['item-id']}}>
+                              data-section-id={{submenu['item-id']}}>
                             <a href="{{submenu.url()}}">{{submenu.title()}}</a>
                           </li>
                           {% endfor %}
                         </ul>
-                        <span></span>
-                        <div class="submenu-stories js-submenu-stories"></div>
+                        <div class="submenu-stories-container js-submenu-stories-container"></div>
                       </div>
                     </div>
                   </div>
@@ -295,7 +293,7 @@
 
     <script type="text/javascript">
       var parentElement = '.js-desktop-submenu';
-      var targetElement = '.js-submenu-stories';
+      var targetElement = '.js-submenu-stories-container';
       var triggerElement = '.js-desktop-submenu__item';
       var fields = "id,headline,slug,url,hero-image-s3-key,hero-image-metadata,first-published-at,last-published-at,alternative,published-at,author-name,author-id,sections,story-template,summary,metadata,hero-image-attribution,cards,subheadline,authors";
       var params = {"limit": 8, "story-group": "top", "fields": fields}

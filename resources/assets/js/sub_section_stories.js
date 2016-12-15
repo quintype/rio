@@ -9,9 +9,9 @@ function makeRequest(params, start, callback) {
             offset: start
         }), (response) => callback(response["stories"]))
         .done(function(response) {
-            if (alreadyFetchedSections.indexOf(params['section-id']) == -1) {
+            /*if (alreadyFetchedSections.indexOf(params['section-id']) == -1) {
                 alreadyFetchedSections[params['section-id']] = response["stories"];
-            }
+            }*/
         });
 }
 
@@ -25,49 +25,54 @@ function loadStories(params, targetElement) {
     var limit = params.limit || 20;
     var storiesLoaded = params.offset || 0;
 
-    if (!alreadyFetchedSections[params['section-id']]) {
-        makeRequest(params, storiesLoaded, function(stories) {
-            storiesLoaded += limit
-            if (_.size(stories) > 0) {
-                targetElement.append(renderStories(stories));
-            }
-        });
-    } else {
-        targetElement.append(renderStories(alreadyFetchedSections[params['section-id']]));
-    }
+   makeRequest(params, storiesLoaded, function(stories) {
+     storiesLoaded += limit
+     if (_.size(stories) > 0) {
+         targetElement.append(renderStories(stories));
+     }
+   });
 }
 
 function subSectionStories(parentElement, triggerElement, targetElement, params) {
-    var trigEle = $(triggerElement);
-    var storyLoader;
-    var timeoutId;
 
-      //keep first sub tab loaded initially
-      setTimeout(function () {
-          $(parentElement).find(triggerElement+':first-child').trigger('mouseenter');
-      },500);
+  //keep first sub tab loaded initially for every main tab
+  setTimeout(function () {
+      $(parentElement).find(triggerElement).filter(':nth-child(1)').trigger('mouseenter');
+  },500);
 
-    trigEle.on("mouseenter", function() {
-      storyLoader = $(this).parents(parentElement).find(targetElement);
-      storyLoader.html("");
-      storyLoader.show();
+  $(triggerElement).on("mouseenter", function() {
+    var storiesContainer = $(this).parents(parentElement).find(targetElement);
+    var sectionId = $(this).attr("data-section-id");
 
-      var sectionId = $("#" + this.id).attr("data-sectionId");
+    //check if this section story container is exist(check if already Fetched Sections)
+    if(storiesContainer.find('[data-section-container="'+sectionId+'"]').length > 0) {
+      //show only this section story contatiner
+      storiesContainer.find('[data-section-container]').hide();
+      storiesContainer.find('[data-section-container="'+sectionId+'"]').show();
 
-      if (sectionId) {
-          params = _.merge(params, {
-              "section-id": sectionId
-          });
+    } else {
+      //merge tjos 'section-id' property to params object
+      params = _.merge(params, {
+          "section-id": sectionId
+      });
 
-          timeoutId = setTimeout(function() {
-              loadStories(params, storyLoader);
-          }, 300);
-      }
+      //create wrapper container for each section and append
+      storiesContainer.append($('<div>', {'data-section-container': sectionId}));
+      var strSecLoader = storiesContainer.find('[data-section-container="'+sectionId+'"]');
 
-      //keep last mouse over sub tab active
-      $(this).parents(parentElement).find(trigEle).removeClass('active');
-      $(this).addClass('active');
-    });
+      //load stories in this section container
+      loadStories(params, strSecLoader);
+
+      //show only this section story container
+      storiesContainer.find('[data-section-container]').hide();
+      storiesContainer.find('[data-section-container="'+sectionId+'"]').show();
+    }
+
+    //keep last mouse over sub tab active
+    $(this).parents(parentElement).find(triggerElement).removeClass('active');
+    $(this).addClass('active');
+
+  });
 }
 
 module.exports = subSectionStories;
