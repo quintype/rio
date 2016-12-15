@@ -3,7 +3,6 @@
   padding: em(5) 0;
   position: relative;
   float: left;
-  margin-top: em(30);
   @include breakpoint($phone) {
     font-size: 14px;
   }

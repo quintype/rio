@@ -1,0 +1,14 @@
+.story-element-summary {
+  font-style: italic;
+  position: relative;
+  font-weight: $bold;
+  float: left;
+  width: 100%;
+  margin: em(10) 0 em(10) 0;
+    p {
+      font-size: em(16);
+      line-height: 1.6;
+      margin-bottom: em(10);
+      color: $dark-blue;
+    }
+}

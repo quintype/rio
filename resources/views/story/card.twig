@@ -1,11 +1,10 @@
 {% for element in storyElements %}
-  {% set elType = element['type'] %}
-  {% set elementIncludeFile = 'story/elements/'~elType %}
-  <div class="story-element-view"
-       data-card-content-id="{{ card['content-id'] }}"
-       data-card-version-id="{{ card['content-version-id'] }}"
-       data-story-element-id="{{ element['id'] }}"
-       data-story-element-type="{{ element['type'] }}">
-  {% include elementIncludeFile with {'dataElement': element } %}
-  </div>
+    {% set elType = element['type'] %}
+    {% set elementIncludeFile = 'story/elements/'~elType %}
+    {% set elementSubType = storyElements['subtype']%}
+    <div class="story-element-view story-element-{{ elType }} {% if elementSubType %} story-element-{{ elementSubType }} {% endif %}"
+           data-card-content-id="{{ card['content-id'] }}" data-card-version-id="{{ card['content-version-id'] }}"
+           data-story-element-id="{{ element['id'] }}" data-story-element-type="{{ element['type'] }}">
+           {% include elementIncludeFile with {'dataElement': element } %}
+    </div>
 {% endfor %}

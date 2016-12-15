@@ -84,6 +84,7 @@
                         </li>
                       {% endfor %}
                       </ul>
+                     <div class="sub_section_stories"></div>
                     </div>
                   </div>
                 {% endif %}
@@ -149,7 +150,6 @@
         </div>
       </div>
       {% endif %}
-      <div class="sub_section_stories"></div>
     </div>
 
     <!-- Header Close-->
@@ -278,7 +278,7 @@
     <script type="text/javascript">
       var qtConfig = {
           "image-cdn": "{{config("quintype.image-cdn")}}",
-          "publisher-name": "{{config("quintype.publisher-name")}}"
+          "publisher-name": "{{config("quintype.publisher-name")}}",
           "polltype-host": "{{config['polltype-host']}}"
       };
     </script>

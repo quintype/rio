@@ -159,7 +159,7 @@
       letter-spacing: 0.3px;
       cursor: pointer;
       &:hover {
-        .submenu { opacity: 1}
+        .submenu { opacity: 1 }
       }
     }
     &__all-text {
@@ -206,10 +206,25 @@
   z-index: $zIndex-2;
   width: 100%;
   background-color: $light-blue;
-
   &__item {
     display: inline-block;
     padding: 30px 20px;
     color: $white;
+    &:hover{
+      background-color: $dark-gray;
+    }
+  }
+}
+.load-stories.active{
+  display: inline-block;
+  padding: 30px 20px;
+  color: $white;
+  background-color: $dark-gray;
+}
+.sub_section_stories {
+  background-color: $white;
+  &__images {
+  float: left;
+  height: 100px;
   }
 }

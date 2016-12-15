@@ -17,18 +17,20 @@
 
 //story
 @import "story/elements/composite";
-@import "story/elements/bigfact";
-@import "story/elements/quote";
-@import "story/elements/blockquote";
-@import "story/elements/blurb";
 @import "story/elements/image";
 @import "story/elements/jsembed";
 @import "story/elements/polltype";
-@import "story/elements/q-and-a";
 @import "story/elements/soundcloud";
 @import "story/elements/text";
 @import "story/elements/youtube";
 @import "story/elements/references";
+@import "story/elements/title";
+@import "story/elements/elements_subtype/bigfact";
+@import "story/elements/elements_subtype/quote";
+@import "story/elements/elements_subtype/q-and-a";
+@import "story/elements/elements_subtype/blockquote";
+@import "story/elements/elements_subtype/blurb";
+@import "story/elements/elements_subtype/summary";
 
 main {
     @include container;

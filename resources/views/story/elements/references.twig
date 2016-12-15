@@ -1,0 +1,6 @@
+<div class="story-element-{{dataElement['subtype']}}">
+  {% set elements = dataElement['story-elements'] %}
+      {% for element in elements %}
+           {{ element['text'] | raw }}
+      {% endfor %}
+</div>

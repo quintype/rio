@@ -53,7 +53,6 @@ class HomeController extends QuintypeController
     public function storyview($category, $y, $m, $d, $slug)
     {
         $story = $this->client->storyBySlug(['slug' => $slug]);
-
         $this->client->addBulkRequest('related_stories', 'top', ['section' => $story['sections'][0]['name'], 'fields' => $this->fields, 'limit' => 4]);
         $this->client->executeBulk();
         $related_stories = $this->client->getBulkResponse('related_stories');
@@ -68,7 +67,7 @@ class HomeController extends QuintypeController
         $page = ['type' => 'story'];
         $setSeo = $this->seo->story($page['type'], $story);
         $this->meta->set($setSeo->prepareTags());
-    
+
         return view('story', $this->toView([
           'storyData' => $story,
           'relatedstories' => $related_stories,

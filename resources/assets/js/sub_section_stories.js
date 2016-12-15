@@ -60,12 +60,16 @@ function subSectionStories(triggerElement, targetElement, params) {
 
     triggerElement.on("mouseleave", function() {
         clearTimeout(timeoutId);
-        targetElement.hide();
-        targetElement.html("");
         if (typeof xhr !== 'undefined') {
             xhr.abort();
         }
     });
-}
+
+    targetElement.on("mouseleave", function() {
+        clearTimeout(timeoutId);
+        targetElement.hide();
+        targetElement.html("");
+    });
+ }
 
 module.exports = subSectionStories;
