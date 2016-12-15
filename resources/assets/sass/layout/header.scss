@@ -177,7 +177,7 @@
         }
 
       &:hover {
-        background-color: $light-blue;
+        background-color: $blue-gray;
 
         > a {color: $white;}
         .desktop-submenu {
@@ -220,7 +220,7 @@
   &__wrapper {
     padding:20px 0;
     min-height:310px;
-    background-color: $light-blue;
+    background-color: $blue-gray;
     @include translateY(-100%);
     @include transition(transform .4s ease);
   }
@@ -270,6 +270,23 @@
 }
 
 .submenu-stories-container {
+  .section-container {
+    @include clearfix();
+    display:none;
+    /*@include scale(0);
+    @include transition(all .4s ease);
+    opacity:0;
+    height:0;
+    overflow:hidden;*/
+
+    &.active {
+      display:block;
+
+      /*@include scale(1);
+      opacity:1;
+      height:auto;*/
+    }
+  }
   .story {
     @include gallery(1 of 5);
     margin-top:20px;
