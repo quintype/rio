@@ -272,24 +272,31 @@
 .submenu-stories-container {
   .section-container {
     @include clearfix();
-    display:none;
-    /*@include scale(0);
-    @include transition(all .4s ease);
+    position:absolute;
+    left:-800rem;
     opacity:0;
-    height:0;
-    overflow:hidden;*/
+    @include transition(opacity .6s ease);
 
     &.active {
-      display:block;
-
-      /*@include scale(1);
+      position:static;
+      left:auto;
       opacity:1;
-      height:auto;*/
+    }
+
+    &.loaded {
+      .story {
+        @include scale(1);
+        opacity:1;
+      }
     }
   }
   .story {
     @include gallery(1 of 5);
     margin-top:20px;
+
+    @include scale(0);
+    opacity:0;
+    @include transition(all .4s ease);
 
     &__image {
       width:100%;

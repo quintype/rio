@@ -23,6 +23,8 @@ function makeRequest(params, start, callback) {
 function renderStories(stories) {
     return storiesTemplate.render({
         stories: stories
+    },function(){
+      console.log('da');
     });
 }
 
@@ -40,6 +42,11 @@ function loadStories(params, targetElement) {
       targetElement.append('<h6 style="color:#fff;">There are no stories in this section.</h6>'); //todo: this msg needs to be templatized
     }
   });
+
+  //animate stories while loading first time
+  setTimeout(function () {
+    targetElement.addClass('loaded');
+  },1000);
 }
 
 function subSectionStories(parentElement, triggerElement, targetElement, params) {
@@ -73,7 +80,7 @@ function subSectionStories(parentElement, triggerElement, targetElement, params)
       strSecLoader = storiesContainer.find('[data-section-container="'+sectionId+'"]');
 
       //load stories in this section container
-      loadStories(params, strSecLoader)
+      loadStories(params, strSecLoader);
 
       //show only this section story container
       storiesContainer.find('[data-section-container]').removeClass('active');
