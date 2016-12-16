@@ -192,7 +192,7 @@
     &__all-text {
       color: $light-blue !important;
       float:left;
-      padding: 24px 15px;
+      padding: 27px 15px 21px;
       font-size: 13px;
       font-weight: 600;
       text-transform: uppercase;
@@ -284,7 +284,7 @@
     }
 
     &.loaded {
-      .story {
+      .story, .no-results-msg {
         @include scale(1);
         opacity:1;
       }
@@ -293,7 +293,6 @@
   .story {
     @include gallery(1 of 5);
     margin-top:20px;
-
     @include scale(0);
     opacity:0;
     @include transition(all .4s ease);
@@ -322,6 +321,10 @@
     line-height: normal;
     font-style: italic;
     margin: 40px 0;
+    display:inline-block;
+    @include scale(0);
+    opacity:0;
+    @include transition(all .4s ease);
   }
 }
 
