@@ -23,8 +23,6 @@ function makeRequest(params, start, callback) {
 function renderStories(stories) {
     return storiesTemplate.render({
         stories: stories
-    },function(){
-      console.log('da');
     });
 }
 
@@ -33,20 +31,14 @@ function loadStories(params, targetElement) {
   var storiesLoaded = params.offset || 0;
 
   makeRequest(params, storiesLoaded, function(stories) {
-    storiesLoaded += limit
-    if (_.size(stories) > 0) {
-      targetElement.empty();
-      targetElement.append(renderStories(stories));
-    } else {
-      targetElement.empty();
-      targetElement.append('<h6 style="color:#fff;">There are no stories in this section.</h6>'); //todo: this msg needs to be templatized
-    }
-  });
+    storiesLoaded += limit;
+    targetElement.empty().append(renderStories(stories));
 
-  //animate stories while loading first time
-  setTimeout(function () {
-    targetElement.addClass('loaded');
-  },1000);
+    //animate stories while loading first time
+    setTimeout(function () {
+      targetElement.addClass('loaded');
+    },500);
+  });
 }
 
 function subSectionStories(parentElement, triggerElement, targetElement, params) {
