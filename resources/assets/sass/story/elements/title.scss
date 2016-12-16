@@ -1,10 +1,13 @@
 .story-element-title {
   word-wrap: break-word;
   text-align: left;
+  font-weight: $bold;
+  color : $question-blue;
   font-family: $merri;
   width: 100%;
   position: relative;
   float: left;
+  margin: 10px 0px;
   p {
     font-family: $merri;
     font-weight: $regular;
@@ -12,9 +15,6 @@
     @include breakpoint($phone) {
       font-size: em(13);
     }
-  }
-  b {
-    font-weight: $bold;
   }
   &-bullet {
     font-size: 1em;

@@ -25,12 +25,12 @@
 @import "story/elements/youtube";
 @import "story/elements/references";
 @import "story/elements/title";
-@import "story/elements/elements_subtype/bigfact";
-@import "story/elements/elements_subtype/quote";
-@import "story/elements/elements_subtype/q-and-a";
-@import "story/elements/elements_subtype/blockquote";
-@import "story/elements/elements_subtype/blurb";
-@import "story/elements/elements_subtype/summary";
+@import "story/elements/elements_subtypes/bigfact";
+@import "story/elements/elements_subtypes/quote";
+@import "story/elements/elements_subtypes/q-and-a";
+@import "story/elements/elements_subtypes/blockquote";
+@import "story/elements/elements_subtypes/blurb";
+@import "story/elements/elements_subtypes/summary";
 
 main {
     @include container;

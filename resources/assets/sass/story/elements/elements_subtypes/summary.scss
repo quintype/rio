@@ -2,6 +2,7 @@
   font-style: italic;
   position: relative;
   font-weight: $bold;
+  margin-bottom: 20px;
   float: left;
   width: 100%;
   margin: em(10) 0 em(10) 0;
@@ -10,5 +11,11 @@
       line-height: 1.6;
       margin-bottom: em(10);
       color: $dark-blue;
+    }
+    ul li {
+          list-style: none;
+    }
+    ol li {
+         list-style: none;
     }
 }

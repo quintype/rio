@@ -1,7 +1,6 @@
 .story-element-quote {
-  padding: em(10) 0;
   width: 100%;
-  margin: 10px 0 10px 0;
+  margin-bottom: 20px;
   position: relative;
   float: left;
   blockquote {
@@ -48,7 +47,6 @@
     text-align: right;
     @include breakpoint($pc) {
       font-size: em(14);
-      margin-bottom: em(20);
     }
   }
 }

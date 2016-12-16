@@ -1,7 +1,6 @@
 .story-element-image-gallery {
   float: left;
   width: 100%;
-  margin-top: 20px;
   margin-bottom: 20px;
   &__image {
     @include gallery(4 of 12);
@@ -9,8 +8,8 @@
   }
 }
 
-.rslides_container_image_gallery {
-   margin-bottom: 50px;
+.slider_container_image_gallery {
+   margin-bottom: 20px;
    position: relative;
    float: left;
  }

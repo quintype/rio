@@ -19,7 +19,7 @@
     a {
       font-style: italic;
     }
-    @include breakpoint($phone) {
+      @include breakpoint($phone) {
       font-size: 10px;
     }
   }

@@ -1,7 +1,7 @@
 {% for element in storyElements %}
     {% set elType = element['type'] %}
     {% set elementIncludeFile = 'story/elements/'~elType %}
-    {% set elementSubType = storyElements['subtype']%}
+    {% set elementSubType = element['subtype']%}
     <div class="story-element-view story-element-{{ elType }} {% if elementSubType %} story-element-{{ elementSubType }} {% endif %}"
            data-card-content-id="{{ card['content-id'] }}" data-card-version-id="{{ card['content-version-id'] }}"
            data-story-element-id="{{ element['id'] }}" data-story-element-type="{{ element['type'] }}">
