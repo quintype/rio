@@ -56,12 +56,12 @@
       {% endif %}
       <span class="textbottom__article__name">
       {% for authornames in storyData["authors"]  %}
-      {{ authornames['name'] }}
-      {% if loop.index == (storyData["authors"] | length ) - 1 %} & {% else %}
-      {% if loop.index != (storyData["authors"] | length ) %} , {% endif %} {% endif %}
+        {{ authornames['name'] }}
+        {% if loop.index == (storyData["authors"] | length ) - 1 %} & {% else %}
+        {% if loop.index != (storyData["authors"] | length ) %} , {% endif %} {% endif %}
       {% endfor %}
       {% if storyData["authors"] is empty %}
-      {{ storyData["author-name"] }}
+        {{ storyData["author-name"] }}
       {% endif %}
       </span>
       {% if storyData["first-published-at"] %}
@@ -83,7 +83,7 @@
 
 <div class="story-body">
   {% for card in storyData['cards'] %}
-    <div class="card card__{{ card['metadata']['attributes']['alignment'][0] }}">
+    <div class="card {{ card['metadata']['attributes']['alignment'][0] }}">
     {% include "story/card" with {'storyElements': card['story-elements'], 'card': card} %}
     </div>
   {% endfor %}

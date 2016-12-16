@@ -56,7 +56,8 @@
   <body class='page'>
     <script type="text/javascript">var qtReady = qtReady || [];</script>
     <div class="header">
-      <div class="content">
+      <div class="header__top-row">
+        <div class="content">
         <div class="menubarimg mobile-menu js-menu">
           <ul class="menuitems">
             {% for menuItem in client.menuItems(nestedMenuItems) %}
@@ -68,23 +69,24 @@
           <a href="/" title="demo" class="site-logo"></a>
         </div>
         <div class="desktop-menu">
-          <ul>
+          <ul class="desktop-menu__container">
             {% for menuItem in client.menuItems(nestedMenuItems) | slice(0,4) %}
-            <li class="desktop-menu__open">
+            <li class="desktop-menu__item">
               <a href="{{menuItem.url()}}">{{menuItem.title()}}</a>
                 {% if menuItem['children'] %}
-                  <div class="submenu">
-                    <div class="content">
-                      <ul>
-                      {% for submenu in client.menuItems(menuItem['children']) %}
-                        <li class="submenu__item load-stories"
-                            id="sub_menu_{{submenu['item-id']}}"
-                            data-sectionId={{submenu['item-id']}}>
-                          <a href="{{submenu.url()}}">{{submenu.title()}}</a>
-                        </li>
-                      {% endfor %}
-                      </ul>
-                     <div class="sub_section_stories"></div>
+                  <div class="desktop-submenu js-desktop-submenu">
+                    <div class="desktop-submenu__wrapper">
+                      <div class="desktop-submenu__content">
+                        <ul class="desktop-submenu__container">
+                          {% for submenu in client.menuItems(menuItem['children']) %}
+                          <li class="desktop-submenu__item js-desktop-submenu__item"
+                              data-section-id={{submenu['item-id']}}>
+                            <a href="{{submenu.url()}}">{{submenu.title()}}</a>
+                          </li>
+                          {% endfor %}
+                        </ul>
+                        <div class="submenu-stories-container js-submenu-stories-container"></div>
+                      </div>
                     </div>
                   </div>
                 {% endif %}
@@ -127,6 +129,7 @@
             <li><span id="search_init" class="search_butn">Search</span></li>
           </ul>
         </div>
+      </div>
       </div>
       {% if breaking_news %}
       <div class="breaking-news">
@@ -289,11 +292,12 @@
     </script>
 
     <script type="text/javascript">
-      var targetElement = '.sub_section_stories';
-      var triggerElement = '.load-stories';
+      var parentElement = '.js-desktop-submenu';
+      var targetElement = '.js-submenu-stories-container';
+      var triggerElement = '.js-desktop-submenu__item';
       var fields = "id,headline,slug,url,hero-image-s3-key,hero-image-metadata,first-published-at,last-published-at,alternative,published-at,author-name,author-id,sections,story-template,summary,metadata,hero-image-attribution,cards,subheadline,authors";
       var params = {"limit": 8, "story-group": "top", "fields": fields}
-      qtReady.push(function() { app.subSectionStories(triggerElement, targetElement, params); })
+      qtReady.push(function() { app.subSectionStories(parentElement, triggerElement, targetElement, params); })
     </script>
 
   </body>

@@ -16,6 +16,7 @@
 @include border-box-sizing;
 
 //story
+@import "story/card";
 @import "story/elements/composite";
 @import "story/elements/image";
 @import "story/elements/jsembed";
@@ -31,6 +32,10 @@
 @import "story/elements/elements_subtypes/blockquote";
 @import "story/elements/elements_subtypes/blurb";
 @import "story/elements/elements_subtypes/summary";
+
+
+//module
+@import "module/loader";
 
 main {
     @include container;

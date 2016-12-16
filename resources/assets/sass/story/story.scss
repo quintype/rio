@@ -1,5 +1,6 @@
-//TO DO: refactor this code copy of climaedesk tripti 7/12/2016
+//TO DO: refactor this code, its copy of climaedesk tripti 7/12/2016
 .story-header {
+  overflow: hidden;
   &__hero-image {
     position: relative;
     @include aspect-ratio(16, 9);
