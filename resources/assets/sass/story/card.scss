@@ -1,11 +1,19 @@
+.card {
+  overflow: hidden;
+}
 .media-right {
   .story-element-image {
     float: right;
-    width: 400px;
+    // width: 400px;
   }
 }
-.media-left {
+.media-left, .media-right {
   .story-element-image {
     width: 400px;
+    margin-top: 32px;
+    margin-right: 20px;
+  }
+  .story-element-text {
+    float: none;
   }
 }
