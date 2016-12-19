@@ -1,9 +1,15 @@
 .story-element-image-gallery {
-  float: left;
   width: 100%;
   margin-bottom: 20px;
+  @include breakpoint($tablet) {
+      float: left;
+  }
   &__image {
-    @include gallery(4 of 12);
+    @include gallery(12);
+    float: none;
+    @include breakpoint($tablet) {
+       @include gallery(4);
+    }
     figure {margin: 0;}
   }
 }
