@@ -1,7 +1,13 @@
-{% for story in stories %}
-  <div style="float: left">
-    <figure>
-        <img style="width: 100px" src="{{focusedImageUrl(story['hero-image-s3-key'] ,config['image-cdn'], [16,9], story['hero-image-metadata'],{w:100} )}}" />
-    </figure>
+{% if stories|length %}
+  {% for story in stories %}
+  <div class="story">
+    <div class="story__image">
+      <img src="{{focusedImageUrl(story['hero-image-s3-key'] ,config['image-cdn'], [16,9], story['hero-image-metadata'],{w:100} )}}" />
+    </div>
+    <div class="story__title">{{story['headline']}}</div>
   </div>
-{% endfor %}
+  {% endfor %}
+{% else %}
+  <span class="no-results-msg">Oops! there are no stories in this section.</span>
+{% endif %}
+

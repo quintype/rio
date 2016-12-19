@@ -1,18 +1,23 @@
 var _ = require("lodash");
 
 var storiesTemplate = require("../../views/stories_popup.twig");
-var alreadyFetchedSections = [];
-var xhr;
 
 function makeRequest(params, start, callback) {
-    xhr = $.getJSON("/api/v1/stories", _.merge(params, {
-            offset: start
-        }), (response) => callback(response["stories"]))
-        .done(function(response) {
-            if (alreadyFetchedSections.indexOf(params['section-id']) == -1) {
-                alreadyFetchedSections[params['section-id']] = response["stories"];
-            }
-        });
+  $.getJSON("/api/v1/stories", _.merge(params, {
+      offset: start
+  }),
+  function(response){
+    callback(response["stories"]);
+  })
+  .done(function() {
+    //console.log( "success" );
+  })
+  .fail(function() {
+    //console.log( "error" );
+  })
+  .always(function() {
+    //console.log( "complete" );
+  });
 }
 
 function renderStories(stories) {
@@ -22,61 +27,63 @@ function renderStories(stories) {
 }
 
 function loadStories(params, targetElement) {
-    var limit = params.limit || 20;
-    var storiesLoaded = params.offset || 0;
+  var limit = params.limit || 20;
+  var storiesLoaded = params.offset || 0;
 
-    if (!alreadyFetchedSections[params['section-id']]) {
-        makeRequest(params, storiesLoaded, function(stories) {
-            storiesLoaded += limit
-            if (_.size(stories) > 0) {
-                targetElement.append(renderStories(stories));
-            }
-        });
-    } else {
-        targetElement.append(renderStories(alreadyFetchedSections[params['section-id']]));
-    }
+  makeRequest(params, storiesLoaded, function(stories) {
+    storiesLoaded += limit;
+    targetElement.empty().append(renderStories(stories));
+
+    //animate stories while loading first time
+    setTimeout(function () {
+      targetElement.addClass('loaded');
+    },500);
+  });
 }
 
-function subSectionStories(triggerElement, targetElement, params) {
-    var triggerElement = $(triggerElement);
-    var targetElement = $(targetElement);
-    var timeoutId;
+function subSectionStories(parentElement, triggerElement, targetElement, params) {
 
-    triggerElement.on("mouseenter", function() {
-        targetElement.html("");
-        targetElement.show();
-        var sectionId = $("#" + this.id).attr("data-sectionId");
+  //keep first sub tab loaded initially for every main tab
+  setTimeout(function () {
+    $(parentElement).find(triggerElement).filter(':nth-child(1)').trigger('mouseenter');
+  },500);
 
-        if (sectionId) {
-            params = _.merge(params, {
-                "section-id": sectionId
-            });
+  $(triggerElement).on("mouseenter", function() {
+    var storiesContainer = $(this).parents(parentElement).find(targetElement);
+    var sectionId = $(this).attr("data-section-id");
+    var strSecLoader;
 
-            timeoutId = setTimeout(function() {
-                loadStories(params, targetElement);
-            }, 300);
-        }
-    });
+    //check if this section story container is exist(check if already Fetched Sections)
+    if(storiesContainer.find('[data-section-container="'+sectionId+'"]').length > 0) {
+      //show only this section story contatiner
+      storiesContainer.find('[data-section-container]').removeClass('active');
+      storiesContainer.find('[data-section-container="'+sectionId+'"]').addClass('active');
 
-    triggerElement.on("mouseleave", function(e) {
-        if( ! $(e.toElement).hasClass('sub_section_stories') ) {
-          clearTimeout(timeoutId);
-          targetElement.hide();
-          targetElement.html("");
-          if (typeof xhr !== 'undefined') {
-             xhr.abort();
-          }
-        }
-    });
+    } else {
+      //merge tjos 'section-id' property to params object
+      params = _.merge(params, {
+          "section-id": sectionId
+      });
 
-    targetElement.on("mouseleave", function() {
-          clearTimeout(timeoutId);
-          targetElement.hide();
-          targetElement.html("");
-          if (typeof xhr !== 'undefined') {
-             xhr.abort();
-          }
-    });
+      //create wrapper container and loader for each section and append it in realative section
+      $('<div>', {'class': 'section-container', 'data-section-container': sectionId})
+      .append($('<div>', {'class': 'loader', 'data-section-loader': sectionId}))
+      .appendTo(storiesContainer);
+      strSecLoader = storiesContainer.find('[data-section-container="'+sectionId+'"]');
+
+      //load stories in this section container
+      loadStories(params, strSecLoader);
+
+      //show only this section story container
+      storiesContainer.find('[data-section-container]').removeClass('active');
+      storiesContainer.find('[data-section-container="'+sectionId+'"]').addClass('active');
+    }
+
+    //keep last mouse over sub tab active
+    $(this).parents(parentElement).find(triggerElement).removeClass('active');
+    $(this).addClass('active');
+
+  });
 }
 
 module.exports = subSectionStories;

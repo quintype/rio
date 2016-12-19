@@ -29,6 +29,9 @@
 @import "story/elements/text";
 @import "story/elements/youtube";
 
+//module
+@import "module/loader";
+
 
 main {
     @include container;
