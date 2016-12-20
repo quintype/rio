@@ -1,9 +1,8 @@
 .story-element-blockquote {
   word-wrap: break-word;
-  padding: em(5) 0;
   position: relative;
+  margin-bottom: 20px;
   float: left;
-  margin-top: em(30);
   @include breakpoint($phone) {
     font-size: 14px;
   }
@@ -29,7 +28,6 @@
     font-family: $merri;
     font-weight: $bold;
     display: inline-block;
-    margin-bottom: em(10);
     @include breakpoint($pc) {
       font-size: em(14);
     }

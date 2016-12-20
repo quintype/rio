@@ -17,10 +17,16 @@ require("../../../resources/views/story/byline.twig");
 require("../../../resources/views/story/elements/text.twig");
 require("../../../resources/views/story/elements/youtube-video.twig");
 require("../../../resources/views/story/elements/jsembed.twig");
-require("../../../resources/views/story/elements/bigfact.twig");
 require("../../../resources/views/story/elements/image.twig");
-require("../../../resources/views/story/elements/q-and-a.twig");
+require("../../../resources/views/story/elements/slideshow.twig");
+require("../../../resources/views/story/elements/gallery.twig");
 require("../../../resources/views/story/elements/soundcloud-audio.twig");
+require("../../../resources/views/story/elements/elements_subtypes/bigfact.twig");
+require("../../../resources/views/story/elements/elements_subtypes/blockquote.twig");
+require("../../../resources/views/story/elements/elements_subtypes/blurb.twig");
+require("../../../resources/views/story/elements/elements_subtypes/q-and-a.twig");
+require("../../../resources/views/story/elements/elements_subtypes/quote.twig");
+require("../../../resources/views/story/elements/elements_subtypes/summary.twig");
 
 
 var TEMPLATES = {

@@ -1,5 +1,10 @@
-<div class="element-slideshow">
-    <ul>
-        <li><img src=" http://placehold.it/1000x400"></li>
-    </ul>
+<div class="story-element-{{dataElement['subtype']}}">
+      <div class="slider_container_image_gallery">
+        <ul class="rslides">
+          {% set elements = dataElement['story-elements'] %}
+          {% for element in elements %}
+         <li><img src="{{focusedImageUrl(element['image-s3-key'], config['image-cdn'], [16,9], element['image-metadata'], {w: 900})}}"/></li>
+       {% endfor %}
+       </ul>
+      </div>
 </div>
