@@ -1,4 +1,4 @@
-{% for story in stories %}                       
+{% for story in stories %}
   <div class="wrap">
     <div class="article_left ">
       <a href="/{{story['slug']}}">
@@ -16,7 +16,9 @@
       </a>
       {%  if  story["subheadline"] %}
         <div class="article__desciption">
-          {{  story["subheadline"] | striptags | slice(0,100) | raw }}
+          <a href="/{{story['slug']}}">
+             {{  story["summary"] | striptags | slice(0,100) | raw }}
+          </a>
         </div>
       {% endif %}
     </div>

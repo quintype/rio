@@ -1,0 +1,120 @@
+.sub-section-page {
+   @include breakpoint ($tablet) {
+     padding: 0 12px;
+   }
+}
+
+.lead-story {
+  position: relative;
+  overflow: hidden;
+  font-size: 22px;
+  font-weight: $bold;
+  padding: 0 12px;
+     @include breakpoint ($pc) {
+        padding: 0;
+        margin-bottom: 30px;
+      }
+
+   .lead-story-right-container {
+        @include breakpoint ($pc) {
+          @include span(8);
+        }
+
+        .top-story__image-container {
+           margin-bottom: 20px;
+           @include aspect-ratio(16,9);
+           @include breakpoint($pc) {
+              float: right;
+              @include span(first 6);
+           }
+         }
+
+        .top-story__content-container {
+           margin-bottom: 20px;
+           @include breakpoint($pc) {
+             float: left;
+             @include span( last 6);
+           }
+
+           .article__title {
+              font-size: 16px;
+              @include breakpoint($pc) {
+                 font-size: 18px;
+                }
+            }
+           .article__desciption {
+              font-size: 12px;
+              margin-bottom: 20px;
+              @include breakpoint($pc) {
+                  font-size: 14px;
+               }
+            }
+           .author-name-description {
+               font-size: 12px;
+               color: $grey;
+               @include breakpoint($pc) {
+                      font-size: 14px;
+                }
+          }
+      }
+   }
+
+   .lead-story-left-container {
+     display: none;
+     @include breakpoint($pc) {
+       display: block;
+       @include span( last 4);
+       background-color: $grey;
+     }
+   }
+
+}
+.article-grids{
+
+    @include breakpoint($pc) {
+       @include gallery(4);
+       clear: none !important;
+  }
+  @include aspect-ratio(16,9);
+}
+.sample-adds {
+   background-color: $grey;
+   font-size: 16px;
+   width: 300px;
+   height: 250px;
+}
+.sections-right{
+  display: none;
+    @include breakpoint($pc) {
+       display: block;
+       float: right;
+       margin-top: 57px;
+     }
+}
+.sections-add-right {
+   background-color: $grey;
+   font-size: 16px;
+   width: 300px;
+   height: 600px;
+}
+.top-stories__grid {
+   position: relative;
+   overflow: hidden;
+   font-weight: $bold;
+   .grid__article {
+    h4 {
+        font-size: 16px;
+        margin-top: 15px;
+     }
+    p {
+        font-size: 14px;
+        margin-top: 15px;
+      }
+  }
+}
+.title-recent-stories {
+     padding-bottom: 10px;
+     border-bottom: 3px solid $dark-gray;
+     margin-bottom: 20px;
+
+  }
