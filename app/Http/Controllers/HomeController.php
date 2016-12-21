@@ -78,7 +78,7 @@ class HomeController extends QuintypeController
     }
 
     public function sectionview($sectionSlug, $subSectionSlug = '')
-    {
+     {
         $allSections = $this->config['sections'];
         $section = $this->client->getSectionDetails($sectionSlug, $allSections);
         if(sizeof($section) > 0){
@@ -88,7 +88,6 @@ class HomeController extends QuintypeController
         } else {
           return response()->view('errors/404', $this->toView([]), 404);
         }
-
         if ($subSectionSlug !== '') {
             $subSection = $this->client->getSectionDetails($subSectionSlug, $allSections);
             if (sizeof($subSection) > 0) {
@@ -118,7 +117,7 @@ class HomeController extends QuintypeController
         $setSeo = $this->seo->section($page['type'], $sectionName, $sectionId);
         $this->meta->set($setSeo->prepareTags());
 
-        if ($subSectionSlug !== '') {
+        if ($subSectionSlug != '') {
             return view('sub_section', $this->toView([
             'subSection' => $subSection,
             'page' => $page,
