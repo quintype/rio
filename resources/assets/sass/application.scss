@@ -18,7 +18,6 @@
 //story
 @import "story/card";
 @import "story/sub_section";
-@import "story/elements/composite";
 @import "story/elements/image";
 @import "story/elements/jsembed";
 @import "story/elements/polltype";
@@ -28,6 +27,9 @@
 @import "story/elements/references";
 @import "story/elements/title";
 @import "story/elements/elements_subtypes/bigfact";
+@import "story/elements/slideshow";
+@import "story/elements/gallery";
+@import "story/elements/elements_subtypes/jwplayer";
 @import "story/elements/elements_subtypes/quote";
 @import "story/elements/elements_subtypes/q-and-a";
 @import "story/elements/elements_subtypes/blockquote";

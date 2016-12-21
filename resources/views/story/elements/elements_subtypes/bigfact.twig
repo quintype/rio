@@ -1,8 +1,8 @@
 <div class="story-element-{{ dataElement['subtype'] }}">
      {% if dataElement['metadata']['attribution'] != null %}
-        <h2>{{ dataElement['metadata']['attribution'] | raw }}</h2>
+         <h2>{{ dataElement['metadata']['content'] | raw }}</h2>
      {% endif %}
-     <div class="context">
-        <p>{{ dataElement['metadata']['content'] | raw }}</p>
+     <div class="description">
+         <p>{{ dataElement['metadata']['attribution'] | raw }}</p>
      </div>
 </div>
