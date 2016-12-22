@@ -7,7 +7,7 @@
 .lead-story {
   position: relative;
   overflow: hidden;
-  font-size: 22px;
+  font-size: em(22);
   font-weight: $bold;
   padding: 0 12px;
      @include breakpoint ($pc) {
@@ -37,23 +37,23 @@
            }
 
            .article__title {
-              font-size: 16px;
+              font-size: em(16);
               @include breakpoint($pc) {
-                 font-size: 18px;
+                 font-size: em(18);
                 }
             }
            .article__desciption {
-              font-size: 12px;
+              font-size: em(12);
               margin-bottom: 20px;
               @include breakpoint($pc) {
-                  font-size: 14px;
+                  font-size: em(14);
                }
             }
            .author-name-description {
-               font-size: 12px;
+               font-size: em(12);
                color: $grey;
                @include breakpoint($pc) {
-                      font-size: 14px;
+                      font-size: em(14);
                 }
           }
       }
@@ -77,9 +77,9 @@
   }
   @include aspect-ratio(16,9);
 }
-.sample-adds {
+.lead-story__add-box {
    background-color: $grey;
-   font-size: 16px;
+   font-size: em(16);
    width: 300px;
    height: 250px;
 }
@@ -93,7 +93,7 @@
 }
 .sections-add-right {
    background-color: $grey;
-   font-size: 16px;
+   font-size: em(16);
    width: 300px;
    height: 600px;
 }
@@ -103,11 +103,11 @@
    font-weight: $bold;
    .grid__article {
     h4 {
-        font-size: 16px;
+        font-size: em(16);
         margin-top: 15px;
      }
     p {
-        font-size: 14px;
+        font-size: em(14);
         margin-top: 15px;
       }
   }

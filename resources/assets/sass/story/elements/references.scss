@@ -10,10 +10,10 @@
     p {
         font-family: $merri;
         font-weight: $regular;
-        font-size: 16px;
+        font-size: em(13);
         a { color: $light-blue; }
-            @include breakpoint($phone) {
-            font-size: em(13);
+            @include breakpoint($pc) {
+            font-size: em(16);
         }
      }
  }
