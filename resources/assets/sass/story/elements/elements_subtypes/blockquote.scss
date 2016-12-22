@@ -1,0 +1,32 @@
+.story-element-blockquote {
+  word-wrap: break-word;
+  position: relative;
+  margin-bottom: 20px;
+  float: left;
+
+  blockquote {
+    padding: 0;
+    font-size: em(15);
+    color: $grey;
+    padding-left: 1em;
+    font-family: $merri;
+    font-weight: $bold;
+    font-style: italic;
+    margin-left: 0;
+    width: 100%;
+    border-left: em(3) solid $light-blue;
+  }
+
+   .attribution {
+      color: $dark-blue;
+      text-transform: capitalize;
+      float: right;
+      padding-right: em(10);
+      font-size: em(14);
+      font-style: italic;
+      font-family: $merri;
+      font-weight: $bold;
+      display: inline-block;
+    }
+
+}

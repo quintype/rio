@@ -3,25 +3,25 @@
   text-align: left;
   font-family: $merri;
   width: 100%;
+  margin-bottom: 20px;
   position: relative;
   float: left;
   p {
     font-family: $merri;
-    color: #333333;
     font-weight: $regular;
-    font-size: 16px;
-    margin: em(10) 0 em(10) 0;
+    font-size: em(16);
     a {
       color: $light-blue;
     }
     @include breakpoint($phone) {
       font-size: em(13);
-    }
-  }
-  b {
-    font-weight: $bold;
-  }
-  &-bullet {
-    font-size: 1em;
-  }
+     }
+   }
+   ul li {
+         list-style-type: disc;
+         margin-left: 20px;
+   }
+   ol li {
+         list-style-position: inside;
+   }
 }

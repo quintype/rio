@@ -1,41 +1,8 @@
-{% if dataElement['subtype'] == "summary" %}
-
-    <div class='story-element-summary'> {{ dataElement['text'] | raw }} </div>
-
-{% elseif dataElement['subtype'] == "blockquote" %}
-    <div class="story-element-blockquote">
-        	{{ dataElement['text'] | raw }}
-            </div>
-
-
-{% elseif dataElement['subtype'] == "quote" %}
-    <div class="text story-element-quote">
-
-        {{ dataElement['text'] | raw }}
-    </div>
-
-
-{% elseif dataElement['subtype'] == "blurb" %}
-    <div class="text story-element-blurb">
-        {{ dataElement['text'] | raw }}
-    </div>
-{% elseif dataElement['subtype'] == "bigfact" %}
-    <div class="text story-element-bigfact">
-        <h2>{{ dataElement['metadata']['attribution'] | raw }}</h2>
-        <div class="context">
-            <p>{{ dataElement['metadata']['content'] | raw }}</p>
-        </div>
-    </div>
-
-{% elseif dataElement['subtype'] == "q-and-a" %}
-    <div class="text story-element-ques-and-ans">
-        <h5>{{ dataElement['text'] | raw }}</h5>
-        <div class="answer">
-            <p></p>
-        </div>
-    </div>
+{% set elementSubtype = '/story/elements/elements_subtypes/'~dataElement['subtype'] %}
+{% if dataElement['subtype'] != null %}
+   {% include elementSubtype with {'dataElement': dataElement} %}
 {% else %}
-     <div class="story-element-text">
-        {{ dataElement['text'] | raw }}
+    <div class="story-element-{{ dataElement['type'] }}">
+         {{ dataElement['text'] | raw }}
     </div>
 {% endif %}

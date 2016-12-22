@@ -1,5 +1,5 @@
-<div class="story-element__opinion-poll">
+<div class="story-element-{{dataElement['type']}}">
    <div data-polltype-embed-id="{{dataElement['polltype-id']}}" data-polltype-preview={{preview}}>
-     <script async src="{{config['polltype-host'] | replace({'https://': '//', 'http://': '//'}) }}/embed.js"></script>
+      <script async src="{{config['polltype-host'] | replace({'https://': '//', 'http://': '//'}) }}/embed.js"></script>
    </div>
 </div>

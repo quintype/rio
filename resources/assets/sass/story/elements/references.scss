@@ -1,0 +1,19 @@
+
+.story-element-references {
+    word-wrap: break-word;
+    text-align: left;
+    font-family: $merri;
+    width: 100%;
+    position: relative;
+    float: left;
+    margin-bottom: 20px;
+    p {
+        font-family: $merri;
+        font-weight: $regular;
+        font-size: em(13);
+        a { color: $light-blue; }
+            @include breakpoint($pc) {
+            font-size: em(16);
+        }
+     }
+ }

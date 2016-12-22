@@ -1,19 +1,18 @@
 <div class="content"><!-- content open-->
     <section>
         <h3 class="line-title top-title">{{section['display-name']}}</h3>
-   
+
         {% for story in section_stories|slice(0,1)  %}
-            <div class="wrap">               <div class="section_left">
+            <div class="wrap">
+              <div class="section_left">
                     <a href="/{{story['slug']}}">
                         <div class="figcontainer">
-
-                            <h6 class="sectionname__display topdesk">{{story['sections'][0]['name']}}</h6>
-                             <div class="topcontentwrap">
+                        <h6 class="sectionname__display topdesk">{{story['sections'][0]['name']}}</h6>
+                          <div class="topcontentwrap">
                             <div class="titletop_big">{{shorthead(story['headline'])}}</div>
                             <div class="textbottom_left">
-                                {%  if story['metadata']['story-attributes']['partnerpublisher'][0] %}                           
-
-                                    <div class="imagesd">
+                                {%  if story['metadata']['story-attributes']['partnerpublisher'][0] %}
+                                   <div class="imagesd">
                                         <img src="{{  get_logo(story['metadata']['story-attributes']['partnerpublisher'][0], 'Logo' ) }}" />
                                     </div>
 
@@ -22,7 +21,7 @@
                             </div> <!-- textbottom close -->
 
                             <div class="sourcetop_left">{{ story["hero-image-attribution"] | raw}}</div>
-</div>
+                           </div>
 
                             <figure>
                                 <img src="{{focusedImageUrl(story['hero-image-s3-key'],config['image-cdn'], [16,9], story['hero-image-metadata'],{w:700} )}}" />
@@ -37,7 +36,7 @@
                 <div class="wrap nomar">
                     {% for story in section_stories|slice(1,1)  %}
                         <a href="/{{story['slug']}}">
-                            
+
                                 <div class="figcontainer">
 
                                     <figure>
@@ -47,25 +46,23 @@
                                 </div>
 
                                 <div class="textwrap">
-                                 
+
                                         <div class="article__title">
                                             {{shorthead(story['headline'])}}
                                         </div>
-                                
+
                                     <div class="article__desciption mobshow ">
                                        {{ story["subheadline"] | striptags | slice(0,100) | raw  }}
                                     </div></div><!-- textwrap close -->
-                                   {% include "story/byline" %}                                
-                            
+                                   {% include "story/byline" %}
+
                         </a>
 
                     </div>
                 </div>
 
             </div>
-        {% endfor %}	
-
-
+        {% endfor %}
 
       <!--   <div class="section_center_ad" placeholder="Advertisement">  AD 300x250</div> -->
 
@@ -79,5 +76,5 @@
   {% include "story/elements/loadmore" %}
 
     <script type="text/javascript">
-        qtReady.push(function() { app.loadMoreStories('#loadmore', '#load-more-stories-target', {{ params | json_encode | raw }}); })        
+        qtReady.push(function() { app.loadMoreStories('#loadmore', '#load-more-stories-target', {{ params | json_encode | raw }}); })
     </script>

@@ -32,7 +32,7 @@ $(document).ready(function(){
   });
 
   $(function() {
-    $(".rslides").responsiveSlides({
+    $(".js-image-slide-show").responsiveSlides({
       auto: false,
       // pager: true,
       nav: true,
