@@ -9,12 +9,11 @@
     margin-bottom: 20px;
     p {
         font-family: $merri;
-        color: #333333;
         font-weight: $regular;
-        font-size: 16px;
+        font-size: em(13);
         a { color: $light-blue; }
-            @include breakpoint($phone) {
-            font-size: em(13);
+            @include breakpoint($pc) {
+            font-size: em(16);
         }
      }
  }

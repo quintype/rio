@@ -3,9 +3,7 @@
   position: relative;
   margin-bottom: 20px;
   float: left;
-  @include breakpoint($phone) {
-    font-size: 14px;
-  }
+
   blockquote {
     padding: 0;
     font-size: em(15);
@@ -18,18 +16,17 @@
     width: 100%;
     border-left: em(3) solid $light-blue;
   }
-  .attribution {
-    color: $dark-blue;
-    text-transform: capitalize;
-    float: right;
-    padding-right: em(10);
-    font-size: em(14);
-    font-style: italic;
-    font-family: $merri;
-    font-weight: $bold;
-    display: inline-block;
-    @include breakpoint($pc) {
+
+   .attribution {
+      color: $dark-blue;
+      text-transform: capitalize;
+      float: right;
+      padding-right: em(10);
       font-size: em(14);
+      font-style: italic;
+      font-family: $merri;
+      font-weight: $bold;
+      display: inline-block;
     }
-  }
+
 }

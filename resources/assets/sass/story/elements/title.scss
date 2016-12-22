@@ -11,9 +11,9 @@
   p {
     font-family: $merri;
     font-weight: $regular;
-    font-size: 16px;
-    @include breakpoint($phone) {
-      font-size: em(13);
+    font-size: em(13);
+    @include breakpoint($pc) {
+      font-size: em(16);
     }
   }
   &-bullet {

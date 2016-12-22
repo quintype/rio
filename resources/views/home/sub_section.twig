@@ -5,22 +5,7 @@
         <div class="top-stories">
              <div class="lead-story">
                   <div class="lead-story-right-container">
-                     <div class="top-story__content-container">
-                          <a href="/{{section_stories[0]['slug']}}">
-                              <div class="article__title">{{shorthead(section_stories[0]['headline'])}}</div>
-                          </a>
-                          {% if section_stories[0]["summary"] %}
-                              <div class="article__desciption">
-                                  <p>{{section_stories[0]['summary']}}</p>
-                              </div>
-                          {% endif %}
-                            <div class="author-name-description">
-                                 <a href="/author/{{section_stories[0]['author-id']}}">
-                                     by {{section_stories[0]['author-name']}}
-                                 </a>
-                                 <time>on {{ (section_stories[0]['first-published-at'] // 1000)|date('M d, Y')}}</time>
-                           </div>
-                     </div>
+
                       <div class="top-story__image-container">
                           <a href="/{{section_stories[0]['slug']}}">
                               <figure>
@@ -28,9 +13,25 @@
                               </figure>
                           </a>
                       </div>
+                      <div class="top-story__content-container">
+                           <a href="/{{section_stories[0]['slug']}}">
+                               <div class="article__title">{{shorthead(section_stories[0]['headline'])}}</div>
+                           </a>
+                           {% if section_stories[0]["summary"] %}
+                               <div class="article__desciption">
+                                   <p>{{section_stories[0]['summary']}}</p>
+                               </div>
+                           {% endif %}
+                             <div class="author-name-description">
+                                  <a href="/author/{{section_stories[0]['author-id']}}">
+                                      by {{section_stories[0]['author-name']}}
+                                  </a>
+                                  <time>on {{ (section_stories[0]['first-published-at'] // 1000)|date('M d, Y')}}</time>
+                            </div>
+                      </div>
                   </div>
                   <div class="lead-story-left-container">
-                     <div class="sample-adds">
+                     <div class="lead-story__add-box">
                        <h4> Ad Box</h4>
                      </div>
                  </div>

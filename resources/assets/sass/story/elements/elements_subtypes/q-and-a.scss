@@ -3,27 +3,15 @@
   float: left;
   width: 100%;
   margin-bottom: 20px;
-  h5 {
+
+  p {
     font-size: em(16);
     line-height: 1.6;
     margin-bottom: em(10);
     color: $dark-blue;
-    p {
-      font-size: em(16);
-      line-height: 1.6;
-      margin-bottom: em(10);
-      color: $dark-blue;
-    }
-    .question {
-      p {
-        font-size: em(16);
-        line-height: 1.6;
-        color: $dark-blue;
-        font-weight: $bold;
-      }
-    }
   }
-  .answer {
+
+ .answer {
     p {
       color: $grey;
       font-family: $merri;
