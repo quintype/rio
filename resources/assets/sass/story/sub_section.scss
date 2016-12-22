@@ -14,52 +14,50 @@
         padding: 0;
         margin-bottom: 30px;
       }
+ }
 
-   .lead-story-right-container {
-        @include breakpoint ($pc) {
-          @include span(8);
+.top-story__content-container {
+   margin-bottom: 20px;
+   @include breakpoint($pc) {
+     float: left !important;
+     @include span( last 6);
+   }
+   .article__title {
+        font-size: em(10);
+        @include breakpoint($pc) {
+           font-size: em(12);
         }
-
-        .top-story__image-container {
-           margin-bottom: 20px;
-           @include aspect-ratio(16,9);
-           @include breakpoint($pc) {
-              float: right;
-              @include span(first 6);
-           }
-         }
-
-        .top-story__content-container {
-           margin-bottom: 20px;
-           @include breakpoint($pc) {
-             float: left;
-             @include span( last 6);
-           }
-
-           .article__title {
-              font-size: em(16);
-              @include breakpoint($pc) {
-                 font-size: em(18);
-                }
-            }
-           .article__desciption {
-              font-size: em(12);
-              margin-bottom: 20px;
-              @include breakpoint($pc) {
-                  font-size: em(14);
-               }
-            }
-           .author-name-description {
-               font-size: em(12);
-               color: $grey;
-               @include breakpoint($pc) {
-                      font-size: em(14);
-                }
-          }
+      }
+    .article__desciption {
+        font-size: em(10);
+        margin-bottom: 20px;
       }
    }
 
-   .lead-story-left-container {
+ .author-name-description {
+       font-size: em(10);
+       color: $grey;
+       @include breakpoint($pc) {
+          font-size: em(12);
+        }
+    }
+
+ .lead-story-right-container {
+      @include breakpoint ($pc) {
+        @include span(8);
+      }
+  }
+
+  .top-story__image-container {
+     margin-bottom: 20px;
+     @include aspect-ratio(16,9);
+     @include breakpoint($pc) {
+        float: right !important;
+        @include span(first 6);
+     }
+  }
+
+ .lead-story-left-container {
      display: none;
      @include breakpoint($pc) {
        display: block;
@@ -68,7 +66,7 @@
      }
    }
 
-}
+
 .article-grids{
 
     @include breakpoint($pc) {
@@ -83,7 +81,7 @@
    width: 300px;
    height: 250px;
 }
-.sections-right{
+.sections-right {
   display: none;
     @include breakpoint($pc) {
        display: block;
