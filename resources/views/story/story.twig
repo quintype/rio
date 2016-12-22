@@ -82,9 +82,9 @@
 </div>
 
 <div class="story-body">
-  {% for card in storyData['cards'] %}
+  {% for card in storyCards %}
     <div class="card {{ card['metadata']['attributes']['alignment'][0] }}">
-    {% include "story/card" with {'storyElements': card['story-elements'], 'card': card} %}
+      {% include "story/card" with {'storyElements': card['story-elements'] } %}
     </div>
   {% endfor %}
   <div class='author'>

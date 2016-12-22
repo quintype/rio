@@ -64,12 +64,33 @@ class HomeController extends QuintypeController
             array_push($finalauthor, $author_data);
         }
 
+        $cardAttribute = function ($card) {
+            if (array_key_exists('metadata', $card) &&
+                array_key_exists('attributes', $card['metadata']) &&
+                array_key_exists('alignment', $card['metadata']['attributes'])) {
+                if (sizeof($card['story-elements']) <= 2) {
+                    if ($card['story-elements'][0]['type'] != 'text') {
+                        return $card;
+                    } else {
+                        $card['story-elements'] = array_reverse($card['story-elements']);
+
+                        return $card;
+                    }
+                }
+            } else {
+                return $card;
+            }
+        };
+
+        $story['cards'] = array_map($cardAttribute, $story['cards']);
+
         $page = ['type' => 'story'];
         $setSeo = $this->seo->story($page['type'], $story);
         $this->meta->set($setSeo->prepareTags());
 
         return view('story', $this->toView([
           'storyData' => $story,
+          'storyCards' => $story['cards'],
           'relatedstories' => $related_stories,
           'authordata' => $finalauthor,
           'page' => $page,
@@ -81,12 +102,12 @@ class HomeController extends QuintypeController
      {
         $allSections = $this->config['sections'];
         $section = $this->client->getSectionDetails($sectionSlug, $allSections);
-        if(sizeof($section) > 0){
+        if (sizeof($section) > 0) {
             $sectionId = $section['id'];
             $sectionName = $section['slug'];
             $sectionId = $section['id'];
         } else {
-          return response()->view('errors/404', $this->toView([]), 404);
+            return response()->view('errors/404', $this->toView([]), 404);
         }
         if ($subSectionSlug !== '') {
             $subSection = $this->client->getSectionDetails($subSectionSlug, $allSections);
