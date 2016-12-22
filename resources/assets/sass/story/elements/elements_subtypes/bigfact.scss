@@ -4,15 +4,15 @@
   width: 100%;
   margin-bottom: 20px;
   h2 {
-    font-size: 20px;
+    font-size: em(20);
     line-height: 1.6;
     font-weight: $bold;
     color: $light-blue;
   }
-  .context {
+  .bigfact-descrription {
     p {
       color: $grey;
-      font-size: 18px;
+      font-size: em(17);
       font-weight: $bold;
     }
   }

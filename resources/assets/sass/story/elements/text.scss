@@ -9,8 +9,7 @@
   p {
     font-family: $merri;
     font-weight: $regular;
-    color: #404040;
-    font-size: 16px;
+    font-size: em(16);
     a {
       color: $light-blue;
     }

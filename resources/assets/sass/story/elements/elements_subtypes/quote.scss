@@ -3,17 +3,20 @@
   margin-bottom: 20px;
   position: relative;
   float: left;
-  blockquote {
+
+   blockquote {
     margin: 0;
     position: relative;
     font-weight: $bold;
     color: $grey;
     float: left;
     width: 100%;
-    font-size: 14px;
+    font-size: em(14);
+
     p {
       font-weight: $bold;
     }
+
     &:before {
       content: " ";
       display: block;
@@ -36,7 +39,8 @@
       line-height: 28px;
     }
   }
-  .attribution {
+
+ .attribution {
     color: $dark-blue;
     text-transform: capitalize;
     float: right;
@@ -49,4 +53,5 @@
       font-size: em(14);
     }
   }
+
 }

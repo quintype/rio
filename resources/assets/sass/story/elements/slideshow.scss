@@ -5,21 +5,18 @@
    width: 100%;
    figure {margin: 0;}
 
-   .story-element-image-text-slider {
+   .image-slideshow-slider__caption {
         position: absolute;
          bottom: 0px;
          background-color: rgba($black,0.7);
          width: 100%;
-         font-size: 12px;
+         font-size: em(12);
          padding: em(5) em(15) em(5) em(15);
          color: $white;
          z-index: $zIndex-1;
          word-wrap: break-word;
-         a {
-           font-style: italic;
-         }
          @include breakpoint($pc) {
-             font-size: 14px;
+             font-size: em(14);
         }
      }
   }
