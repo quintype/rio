@@ -14,29 +14,24 @@
       }
    }
    .story-element-image-text-gallery {
-         bottom: 23px;
+         bottom: 21px;
          position: relative;
          background-color: rgba($black,0.7);
-         width: 95%;
+         width: 260px;
          font-size: 10px;
+         padding-left: 5px;
          color: $white;
          z-index: $zIndex-1;
          word-wrap: break-word;
            @include breakpoint($pc) {
              font-size: 12px;
-             width: 260px;
+             bottom: 23px;
+             width: 95%;
            }
       }
 }
-.story-element-image-galler__image img {
-  @include aspect-ratio(16,9);
-  height: 220px;
-  float: left;
-  width: 100%;
-  @include breakpoint($pc) {
-      @include aspect-ratio(16,9);
-      height: auto;
-      float: left;
-      width: 100%;
-  }
+.story-element-image-gallery__image img {
+    @include aspect-ratio(16,9);
+    height: 147px;
+    width: 260px;
 }
