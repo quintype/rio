@@ -1,0 +1,37 @@
+.story-element-image-gallery {
+  width: 100%;
+  margin-bottom: 20px;
+  @include breakpoint($pc) {
+     float: left;
+   }
+  &__image {
+    @include gallery(12);
+    float : none;
+    figure { margin: 0; }
+    @include breakpoint($pc) {
+        @include gallery(4);
+        figure { margin: 0; }
+      }
+   }
+   .story-element-image-text-gallery {
+         bottom: 21px;
+         position: relative;
+         background-color: rgba($black,0.7);
+         width: 260px;
+         font-size: 10px;
+         padding-left: 5px;
+         color: $white;
+         z-index: $zIndex-1;
+         word-wrap: break-word;
+           @include breakpoint($pc) {
+             font-size: 12px;
+             bottom: 23px;
+             width: 95%;
+           }
+      }
+}
+.story-element-image-gallery__image img {
+    @include aspect-ratio(16,9);
+    height: 147px;
+    width: 260px;
+}

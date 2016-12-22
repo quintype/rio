@@ -2,9 +2,9 @@
   position: relative;
   float: left;
   width: 100%;
-  margin: em(10) 0;
+  margin-bottom: 20px;
   h2 {
-    font-size: em(28);
+    font-size: 20px;
     line-height: 1.6;
     font-weight: $bold;
     color: $light-blue;
@@ -12,7 +12,7 @@
   .context {
     p {
       color: $grey;
-      font-size: em(18);
+      font-size: 18px;
       font-weight: $bold;
     }
   }

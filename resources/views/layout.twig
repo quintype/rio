@@ -72,7 +72,7 @@
           <ul class="desktop-menu__container">
             {% for menuItem in client.menuItems(nestedMenuItems) | slice(0,4) %}
             <li class="desktop-menu__item">
-              <a href="{{menuItem.url()}}">{{menuItem.title()}}</a>
+              <a href="/section{{menuItem.url()}}">{{menuItem.title()}}</a>
                 {% if menuItem['children'] %}
                   <div class="desktop-submenu js-desktop-submenu">
                     <div class="desktop-submenu__wrapper">
@@ -81,7 +81,7 @@
                           {% for submenu in client.menuItems(menuItem['children']) %}
                           <li class="desktop-submenu__item js-desktop-submenu__item"
                               data-section-id={{submenu['item-id']}}>
-                            <a href="{{submenu.url()}}">{{submenu.title()}}</a>
+                            <a href="/section{{menuItem.url()}}{{submenu.url()}}">{{submenu.title()}}</a>
                           </li>
                           {% endfor %}
                         </ul>

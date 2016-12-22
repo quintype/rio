@@ -17,21 +17,28 @@
 
 //story
 @import "story/card";
-@import "story/elements/composite";
-@import "story/elements/bigfact";
-@import "story/elements/blockquote";
-@import "story/elements/blurb";
+@import "story/sub_section";
 @import "story/elements/image";
 @import "story/elements/jsembed";
 @import "story/elements/polltype";
-@import "story/elements/q-and-a";
 @import "story/elements/soundcloud";
 @import "story/elements/text";
 @import "story/elements/youtube";
+@import "story/elements/references";
+@import "story/elements/title";
+@import "story/elements/elements_subtypes/bigfact";
+@import "story/elements/slideshow";
+@import "story/elements/gallery";
+@import "story/elements/elements_subtypes/jwplayer";
+@import "story/elements/elements_subtypes/quote";
+@import "story/elements/elements_subtypes/q-and-a";
+@import "story/elements/elements_subtypes/blockquote";
+@import "story/elements/elements_subtypes/blurb";
+@import "story/elements/elements_subtypes/summary";
+
 
 //module
 @import "module/loader";
-
 
 main {
     @include container;
