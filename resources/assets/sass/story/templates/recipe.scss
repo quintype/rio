@@ -95,7 +95,7 @@
         ul {
             list-style: none;
             display: flex;
-            flex-direction: column;
+            flex-direction: row;
             flex-wrap: wrap;
             justify-content: space-between;
             @include breakpoint($tablet) {
@@ -107,16 +107,24 @@
                 flex-direction: row;
             }
             li {
-                padding: 7px 0px;
+                margin: 7px 0px;
                 color: $dark-gray;
-                width: 100%;
+                width: 50%;
                 font-style: italic;
                 font-size: em(14);
+                &:nth-child(1),
+                &:nth-child(3) {
+                    border-right: 1px solid $orange;
+                    border-left: 0px;
+                }
                 @include breakpoint($tablet) {
                     width: 50%;
                 }
                 @include breakpoint($pc) {
                     width: 25%;
+                    margin: 0;
+                    padding: 7px 0px;
+                    border-right: 0px solid transparent!important;
                     &:nth-child(2),
                     &:nth-child(3),
                     &:nth-child(4) {
@@ -157,6 +165,7 @@
     &__story-content-story-section {
         margin-top: 10px;
         &__left {
+            padding: 0px 10px;
             margin-bottom: 20px;
             @include breakpoint($pc) {
                 float: left;
@@ -164,11 +173,14 @@
             }
             ul {
                 font-size: fontsize-small;
-                text-align: right;
+                text-align: left;
                 padding-right: 20px;
                 color: $black;
                 font-weight: $bold;
                 line-height: em(30);
+                @include breakpoint($pc) {
+                    text-align: right;
+                }
                 li {
                     font-weight: $regular;
                     color: $dark-gray;
@@ -198,7 +210,9 @@
     }
     &__story-rate-recipe-section {
         &__tab {
-            margin-bottom: 10px;
+            @include breakpoint($pc) {
+                margin-bottom: 10px;
+            }
             ul.tabs {
                 list-style: none;
                 display: flex;
@@ -280,9 +294,8 @@
                     }
                 }
                 .unrated-stars {
-                    
                     display: flex;
-                    width:75px;
+                    width: 75px;
                     .star {
                         font-size: em(14);
                         color: $light-gray;
