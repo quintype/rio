@@ -2,11 +2,11 @@
       <section class="photo-story">
               <div class="photo-story-image-slider js-photo-story-slider">
                        {% for image in photoStoryImages %}
-                       <div>
-                            <figure>
-                                <img src="{{focusedImageUrl(image['image-s3-key'] ,config['image-cdn'], [16,9], image['image-metadata'],{w:500} )}}"/>
-                                <figcaption>{{image['title']}}</figcaption>
-                            </figure>
+                          <div>
+                              <figure>
+                                  <img src="{{focusedImageUrl(image['image-s3-key'] ,config['image-cdn'], [16,9], image['image-metadata'],{w:500} )}}"/>
+                                  <figcaption>{{image['title']}}</figcaption>
+                              </figure>
                           </div>
                       {% endfor %}
               </div>
