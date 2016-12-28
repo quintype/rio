@@ -1,13 +1,12 @@
 .story-element-image {
   position: relative;
   float: left;
+  width: 100%;
   figure { margin: 0; }
-  img {
-    width: 100%;
-    height: auto;
-  }
+  margin-bottom: 20px;
+  @include aspect-ratio(16,9);
   &__caption {
-    bottom: 6px;
+    bottom: 0px;
     position: absolute;
     width: 100%;
     background-color: rgba($black,0.7);
@@ -17,7 +16,7 @@
     z-index: $zIndex-1;
     word-wrap: break-word;
       @include breakpoint($pc) {
-         bottom: 6px;
+         bottom: 0px;
          font-size: em(14);
          color: $white;
          background-color: rgba($black,0.7);

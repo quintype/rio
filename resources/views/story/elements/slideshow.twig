@@ -1,17 +1,13 @@
-<div class="story-element-{{dataElement['subtype']}}">
-   <div class="slider_container_image_gallery">
-        <ul class="image-slideshow-slider js-image-slide-show">
+<div class="story-element-{{dataElement['metadata']['type']}}">
+      <div class="image-slideshow-slider js-story-slider">
             {% set elements = dataElement['story-elements'] %}
-            {% for element in elements %}
-              <li>
-                <figure>
-                   <img src="{{focusedImageUrl(element['image-s3-key'], config['image-cdn'], [16,9], element['image-metadata'], {w: 900})}}"/>
-                </figure>
-                 <div class="image-slideshow-slider__caption">
-                      {{element['title'] | raw}}
-                 </div>
-             </li>
-           {% endfor %}
-       </ul>
-  </div>
+              {% for element in elements %}
+                <div>
+                   <figure>
+                       <img src="{{focusedImageUrl(element['image-s3-key'], config['image-cdn'], [16,9], element['image-metadata'], {w: 900})}}"/>
+                       <figcaption>{{element['title']}}</figcaption>
+                    </figure>
+                </div>
+             {% endfor %}
+      </div>
 </div>
