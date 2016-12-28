@@ -63,7 +63,7 @@ $slick-opacity-not-active: 0.25 !default;
 .slick-prev {
     position: absolute;
     display: block;
-    height: 40px;
+    height: 50px;
     width: 50px;
     z-index: 1;
     line-height: 0px;
@@ -104,7 +104,7 @@ $slick-opacity-not-active: 0.25 !default;
 .slick-next {
   position: absolute;
   display: block;
-  height: 40px;
+  height: 50px;
   width: 50px;
   z-index: 1;
   line-height: 0px;
@@ -123,10 +123,10 @@ $slick-opacity-not-active: 0.25 !default;
 }
 
 .slick-prev {
-    left: -11px;
+    left: 0px;
     [dir="rtl"] & {
         left: auto;
-        right: -11px;
+        right: 0px;
     }
     &:before {
         content: '';
@@ -137,9 +137,9 @@ $slick-opacity-not-active: 0.25 !default;
 }
 
 .slick-next {
-    right: -20px;
+    right: 0px;
     [dir="rtl"] & {
-        left: -20px;
+        left: 0px;
         right: auto;
     }
     &:before {

@@ -82,7 +82,7 @@ class HomeController extends QuintypeController
         };
 
         $story['cards'] = array_map($cardAttribute, $story['cards']);
-        $photoStoryImages = $this->getPhotoStoryImages($story['cards'],$story);
+        $photoStoryImages = $this->getPhotoStoryImages($story['cards'], $story);
         $page = ['type' => 'story'];
         $setSeo = $this->seo->story($page['type'], $story);
         $this->meta->set($setSeo->prepareTags());
@@ -270,7 +270,7 @@ class HomeController extends QuintypeController
       );
     }
 
-    public function getPhotoStoryImages($storiesCards,$story)
+    public function getPhotoStoryImages($storiesCards, $story)
       {
          $photoStoryImage = array();
          $heroImageParameters = array();
@@ -278,7 +278,7 @@ class HomeController extends QuintypeController
          $heroImageParameters['image-s3-key'] = $story['hero-image-s3-key'];
          $heroImageParameters['image-metadata'] = $story['hero-image-metadata'];
          $heroImageParameters['title'] = $story['hero-image-caption'];
-         array_push($photoStoryImage,$heroImageParameters);
+         array_push($photoStoryImage, $heroImageParameters);
          if($story['story-template'] == 'photo') {
              foreach ($storiesCards as $elements => $storyElements) {
                  foreach ($storyElements['story-elements'] as $key => $imageData) {

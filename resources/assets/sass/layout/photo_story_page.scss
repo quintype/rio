@@ -4,11 +4,11 @@
 }
 
 .photo-story-image-slider {
+  @include aspect-ratio(16,9);
   position: relative;
   width: 100%;
   float: left;
   margin: 20px 0;
-  @include aspect-ratio(16,9);
 
   figcaption {
      position: absolute;
@@ -18,10 +18,15 @@
      color: $white;
      padding: em(5) em(15) em(5) em(15);
    }
+
 }
 
 .photo-story-cards {
   position: relative;
   width: 90%;
   margin: auto;
+  @include breakpoint($pc) {
+      width: 80%;
+      margin: auto;
+   }
 }
