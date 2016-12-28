@@ -9,10 +9,14 @@
 @import "story/story";
 @import "static";
 @import "podcast";
+@import "slick/slick-theme";
+@import "slick/slick";
 @import "slider";
 @import "layout/404";
 @import "layout/noresults";
 @import "layout/header";
+@import "layout/photo_story_page";
+@import "layout/video_story_page";
 @include border-box-sizing;
 
 //story

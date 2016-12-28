@@ -56,7 +56,6 @@ class HomeController extends QuintypeController
         $this->client->addBulkRequest('related_stories', 'top', ['section' => $story['sections'][0]['name'], 'fields' => $this->fields, 'limit' => 4]);
         $this->client->executeBulk();
         $related_stories = $this->client->getBulkResponse('related_stories');
-
         $finalauthor = array();
         for ($kk = 0; $kk < sizeof($story['authors']); ++$kk) {
             $author_data = $this->client->getAuthor($story['authors'][$kk]['id']);
@@ -83,19 +82,20 @@ class HomeController extends QuintypeController
         };
 
         $story['cards'] = array_map($cardAttribute, $story['cards']);
-
+        $photoStoryImages = $this->getPhotoStoryImages($story['cards'],$story);
         $page = ['type' => 'story'];
         $setSeo = $this->seo->story($page['type'], $story);
         $this->meta->set($setSeo->prepareTags());
-
         return view('story', $this->toView([
           'storyData' => $story,
           'storyCards' => $story['cards'],
           'relatedstories' => $related_stories,
+          'photoStoryImages' => $photoStoryImages,
           'authordata' => $finalauthor,
           'page' => $page,
           'meta' => $this->meta,
         ]));
+
     }
 
     public function sectionview($sectionSlug, $subSectionSlug = '')
@@ -269,4 +269,28 @@ class HomeController extends QuintypeController
         ])
       );
     }
+
+    public function getPhotoStoryImages($storiesCards,$story)
+      {
+         $photoStoryImage = array();
+         $heroImageParameters = array();
+         $cardsImageParameters = array();
+         $heroImageParameters['image-s3-key'] = $story['hero-image-s3-key'];
+         $heroImageParameters['image-metadata'] = $story['hero-image-metadata'];
+         $heroImageParameters['title'] = $story['hero-image-caption'];
+         array_push($photoStoryImage,$heroImageParameters);
+         if($story['story-template'] == 'photo') {
+             foreach ($storiesCards as $elements => $storyElements) {
+                 foreach ($storyElements['story-elements'] as $key => $imageData) {
+                     if($imageData['type'] == 'image') {
+                     $cardsImageParameters['image-s3-key'] = $imageData['image-s3-key'];
+                     $cardsImageParameters['image-metadata'] = $imageData['image-metadata'];
+                     $cardsImageParameters['title'] = $imageData['title'];
+                     array_push($photoStoryImage, $cardsImageParameters);
+                    }
+                }
+             }
+          }
+          return $photoStoryImage;
+      }
 }

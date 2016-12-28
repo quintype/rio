@@ -1,0 +1,62 @@
+<div class="content top story-view" data-story-content-id="{{ storyData['id'] }}" data-story-version-id="{{ storyData['story-version-id'] }}">
+      <section class="photo-story">
+              <div class="photo-story-image-slider js-photo-story-slider">
+                       {% for image in photoStoryImages %}
+                       <div>
+                            <figure>
+                                <img src="{{focusedImageUrl(image['image-s3-key'] ,config['image-cdn'], [16,9], image['image-metadata'],{w:500} )}}"/>
+                                <figcaption>{{image['title']}}</figcaption>
+                            </figure>
+                          </div>
+                      {% endfor %}
+              </div>
+              <div class="story-header__content">
+                      <div class="story-header__section-name">
+                         <span>{{storyData["sections"][0]["name"]}}</span>
+                      </div>
+                      <h1 class="story-header__story-headline">{{storyData["headline"]}}</h1>
+                      {% if storyData["subheadline"] %}
+                          <div class='story-header__subtitle'>
+                             <span> {{storyData["subheadline"] | striptags |raw }} </span>
+                          </div>
+                     {% endif %}
+                     <div class="textbottom__article storybyline">
+                          {%  if storyData['metadata']['story-attributes']['partnerpublisher'][0] %}
+                          <div class="imagesds">
+                            <img src="{{  get_logo(storyData['metadata']['story-attributes']['partnerpublisher'][0], 'Logo' ) }}" />
+                          </div>
+                         {% endif %}
+                          <span class="textbottom__article__name">
+                          {% for authornames in storyData["authors"]  %}
+                              {{ authornames['name'] }}
+                              {% if loop.index == (storyData["authors"] | length ) - 1 %} & {% else %}
+                              {% if loop.index != (storyData["authors"] | length ) %} , {% endif %} {% endif %}
+                          {% endfor %}
+                          {% if storyData["authors"] is empty %}
+                              {{ storyData["author-name"] }}
+                          {% endif %}
+                          </span>
+                          {% if storyData["first-published-at"] %}
+                            <span class="textbottom__article--share"> <time>
+                              {% set timestamp = (storyData["first-published-at"]// 1000)|round(0, 'floor') %}{{ timestamp|date('M j, Y') }}</time>
+                           </span>
+                          {% endif %}
+                          {% include "story/elements/socialshare" %}
+                   </div>
+                   <div class="publisher_info">
+                        {%  if storyData['metadata']['story-attributes']['partnerpublisher'][0] and storyData['metadata']['reference-url'] %}
+                        <div class='story-element-publisher'>
+                           This story was <a target="_blank" href="{{  storyData['metadata']['reference-url'] }}">originally published</a> by {{ get_logo(storyData['metadata']['story-attributes']['partnerpublisher'][0], 'Partnername' ) }}.
+                        </div>
+                        {% endif %}
+                  </div>
+              </div>
+             <div class="photo-story-cards">
+               {% for card in storyCards %}
+                   <div class="photo-story-card {{ card['metadata']['attributes']['alignment'][0] }}">
+                       {% include "story/card" with {'storyElements': card['story-elements'] } %}
+                   </div>
+               {% endfor %}
+            </div>
+      </section>
+</div>

@@ -1,0 +1,27 @@
+
+.photo-story {
+  position: relative;
+}
+
+.photo-story-image-slider {
+  position: relative;
+  width: 100%;
+  float: left;
+  margin: 20px 0;
+  @include aspect-ratio(16,9);
+
+  figcaption {
+     position: absolute;
+     bottom: 0px;
+     background-color: rgba($black,0.7);
+     width: 100%;
+     color: $white;
+     padding: em(5) em(15) em(5) em(15);
+   }
+}
+
+.photo-story-cards {
+  position: relative;
+  width: 90%;
+  margin: auto;
+}

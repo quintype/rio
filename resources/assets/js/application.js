@@ -1,5 +1,6 @@
 var Twig = require("twig");
     require("jquery.marquee");
+    require("jquery");
 
 global.app = {
     initQtReady: require("./qt_ready"),
@@ -13,7 +14,6 @@ global.app = {
 
 // require("./jquery.min");
 require("./responsiveslides.min");
-
 
 $(document).ready(function(){
 
@@ -31,31 +31,24 @@ $(document).ready(function(){
     $(".menuitems").hide();
   });
 
-  $(function() {
-    $(".js-image-slide-show").responsiveSlides({
-      auto: false,
-      // pager: true,
-      nav: true,
-      speed: 500,
-      maxwidth: 800,
-      namespace: "centered-btns"
+  $('.js-photo-story-slider').slick({
+      slidesToShow: 1,
+      slidesToScroll: 1,
+      arrows: true,
+      autoplay: true
   });
 
-
-  $("#slider").responsiveSlides({
-    auto: true,
-    // pager: true,
-    // nav: true,
-    speed: 500
-    // namespace: "centered-btns"
-    });
+  $('.js-story-slider').slick({
+      slidesToShow: 1,
+      slidesToScroll: 1,
+      arrows: true
   });
 
   $('.js-breakingnews-marquee').marquee({
-    duration: 19000,
-    startVisible: true,
-    duplicated: true,
-    pauseOnHover: true
+      duration: 19000,
+      startVisible: true,
+      duplicated: true,
+      pauseOnHover: true
   });
 
 });
