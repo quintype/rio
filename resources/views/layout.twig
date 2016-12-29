@@ -61,7 +61,7 @@
         <div class="menubarimg mobile-menu js-menu">
           <ul class="menuitems">
             {% for menuItem in client.menuItems(nestedMenuItems) %}
-            <li><a href="{{menuItem.url()}}">{{menuItem.title()}}</a></li>
+            <li><a href="/section{{menuItem.url()}}">{{menuItem.title()}}</a></li>
             {% endfor %}
           </ul>
         </div>
