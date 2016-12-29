@@ -1,137 +1,211 @@
-.section_page {
-
-    .section-heading {
-        text-transform: uppercase;
-        color: $brand-primary;
-        font-size: em(13);
-        border-bottom: em(1) solid;
-        margin-top: 20px;
-        clear: both;
-
-        h4 {
-            font-weight: 400;
-        }
+.layout-template {
+    figure {
+        margin: 0px;
+        padding: 0px;
     }
-
-    .container-left {
-        width: auto;
+    &__top {
+        width: 100%;
+        margin: 20px 0px 10px 0px;
         @include breakpoint($pc) {
-            @include span(8);
-            overflow: auto;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: space-between;
         }
-
-        .simple__arrow {
-            &-down {
-                text-align: center;
-                text-transform: uppercase;
-                color: $brand-primary;
-                margin: em(20) auto;
-            }
-            &-align {
-                margin-right: em(10);
-            }
-        }
-    }
-
-    .section {
-        &__hero-story {
-            position: relative;
-            margin: em(25) 0;
-
-            .section__hero-heading {
-                width: 30em;
-                position: absolute;
-                bottom: 0;
-                margin-left: em(20);
-                margin-bottom: em(20);
-                color: $white;
-            }
-
-            &_heroImage {
-                @include aspect-ratio (16,9);
-            }
-        }
-
-        &__top-story {
-            margin: em(20) auto;
+        &__left {
+            width: 100%;
             @include breakpoint($pc) {
-                @include span(6);
+                width: calc(60% - 20px);
             }
-            h4 {
-                font-size: em(14);
-            }
-
-            &-author {
-                font-size: em(12);
-            }
-
-            &-bold {
-                font-weight: 600;
-            }
-
-            &-images {
-                @include aspect-ratio (16,9);
-            }
-        }
-
-        &__top-stories {
-            border-bottom : em(1) solid $gray-light;
-            overflow: auto;
-            &-heading-dimention {
-                min-height: 100px;
-                padding: em(10) em(10) 0 0;
-            }
-        }
-
-        &__stack--stories {
-            margin: em(20) 0;
-
-            ul {
-                padding: 0;
-
-                li {
-                    margin: em(20) 0;
-                    overflow: auto;
+            &__img-container {
+                position: relative;
+                @include aspect-ratio (16, 9);
+                h1 {
+                    position: absolute;
+                    font-size: em(15);
+                    color: $white;
+                    font-family: $merri;
+                    margin-top: 0px;
+                    text-transform: uppercase;
+                    text-align: center;
+                    position: absolute;
+                    width: auto;
+                    padding: 7px 12px;
+                    background-color: $heading-blue;
+                    letter-spacing: em(2);
                 }
             }
-
-            &-images {
-                @include span(4);
-                @include aspect-ratio (16,9);
+            &__summary {
+                padding: 10px;
+                @include breakpoint($pc) {
+                    padding: 0px;
+                }
+                h3 {
+                    font-family: $merri;
+                    font-size: em(25);
+                    margin-top: 10px;
+                    margin-bottom: 5px;
+                    color: $black;
+                }
+                p {
+                    font-family: $sans;
+                    font-size: em(14);
+                    color: $dark-gray;
+                }
             }
-
-            &-info {
-                @include span(8);
-                padding-left: em(25);
+            &-date {
+                font-family: $sans !important;
+                font-size: em(14)!important;
+                color: darken($light-gray, 20%)!important;
+                font-style: italic !important;
             }
-
-            &-heading h3{
-                font-size: em(17);
-                font-weight: 600;
-                line-height: 1.4;
-            } 
-            &-text p {
-                font-size: em(14);    
-                padding: em(10) 0 em(20);
+        }
+        &__right {
+            width: 100%;
+            padding: 10px;
+            @include breakpoint($pc) {
+                width: 40%;
+                padding: 0px;
             }
-
-        }/* end of stack--stories */
-    } /* end of .section */
-}/* end of .section_page */
-
-/* styling for simple down arrow */
-.arrow-down {
-    height: 13px;
-    display: inline-block;
-    border-right: 1px solid $brand-primary;  
-}
-.arow-head {
-    display: inline-block;
-    width: 10px;
-    height: 10px;
-    border-right: 1px solid  $brand-primary;
-    border-top: 1px solid  $brand-primary;
-    margin-left: -10px;
-    margin-bottom: 1px;
-    transform: rotate(135deg);
+            @include breakpoint($tablet) {
+                display: flex;
+                flex-direction: row;
+                flex-wrap: wrap;
+                justify-content: space-between;
+            }
+            &__row {
+                display: flex;
+                flex-direction: row;
+                flex-wrap: wrap;
+                justify-content: space-between;
+                align-items: flex-start;
+                align-content: flex-start;
+                margin-bottom: 15px;
+                @include breakpoint($tablet) {
+                    width: calc(50% - 10px);
+                }
+                @include breakpoint($pc) {
+                    width: 100%;
+                }
+                &__left {
+                    width: 100%;
+                    @include aspect-ratio (16, 12);
+                    @include breakpoint($pc) {
+                        width: 30%;
+                    }
+                }
+                &__right {
+                    &-heading {
+                        font-family: $merri;
+                        font-size: em(17);
+                        color: $black;
+                        overflow: hidden;
+                        display: -webkit-box;
+                        -webkit-line-clamp: 2;
+                        -webkit-box-orient: vertical;
+                        margin-top: 7px;
+                        @include breakpoint($pc) {
+                            margin-top: 0px;
+                        }
+                    }
+                    &-summary {
+                        font-family: $sans;
+                        font-size: em(13);
+                        color: $dark-gray;
+                        overflow: hidden;
+                        display: -webkit-box;
+                        -webkit-line-clamp: 2;
+                        -webkit-box-orient: vertical;
+                    }
+                    &-date {
+                        font-family: $sans;
+                        font-size: em(12);
+                        color: darken($light-gray, 20%);
+                        font-style: italic;
+                    }
+                    @include breakpoint($pc) {
+                        width: calc(70% - 15px);
+                    }
+                }
+            }
+        }
+    }
+    &__bottom {
+        width: 100%;
+        margin: 30px 0px 30px 0px;
+        padding: 30px 10px 30px 10px;
+        border-top: 1px solid $light-gray;
+        border-bottom: 1px solid $light-gray;
+        @include breakpoint($pc) {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            padding: 30px 0px 30px 0px;
+        }
+        @include breakpoint($tablet) {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+        &__box {
+            position: relative;
+            width: 100%;
+            overflow: hidden;
+            margin: 10px 0px;
+            @include breakpoint($tablet) {
+                width: calc(50% - 10px);
+            }
+            @include breakpoint($pc) {
+                width: calc(25% - 20px);
+                margin: 0px;
+            }
+            &__img-container {
+                @include aspect-ratio (16, 11);
+            }
+            &__img-overlay {
+                position: absolute;
+                top: auto;
+                height: 3em;
+                bottom: 0px;
+                left: 0px;
+                right: 0px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                background-color: rgba(24, 143, 220, 0.39);
+                @include transition( $val: ease 0.5s);
+                @include breakpoint($pc) {
+                    top: 110%;
+                    height: auto;
+                }
+                h4 {
+                    font-family: $merri;
+                    font-size: em(15);
+                    color: $white;
+                    overflow: hidden;
+                    display: -webkit-box;
+                    -webkit-line-clamp: 2;
+                    -webkit-box-orient: vertical;
+                    text-align: center;
+                }
+            }
+            @include breakpoint($pc) {
+                &:hover {
+                    .layout-template__bottom__box__img-overlay {
+                        top: 0px;
+                        h4 {
+                            color: $white;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .load-more {
+        left: 50%;
+        margin: 0px 0px 20px 0px;
+        margin-left: -87px;
+    }
 }
