@@ -99,7 +99,7 @@
               <div class="menuitems">
                 <ul>
                   {% for menuItem in client.menuItems(nestedMenuItems) | slice(4) %}
-                  <li class="menuitems__item"><a href="{{menuItem.url()}}">{{menuItem.title()}}</a></li>
+                  <li class="menuitems__item"><a href="/section{{menuItem.url()}}">{{menuItem.title()}}</a></li>
                   {% endfor %}
                 </ul>
               </div>
