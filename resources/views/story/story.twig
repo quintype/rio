@@ -31,7 +31,6 @@
     <div class="story-header__hero-image">
       <figure>
         <img src="{{focusedImageUrl(storyData['hero-image-s3-key'],config['image-cdn'], [16,9], storyData['hero-image-metadata'], {w: 1000})}}" class="story-img"/>
-
         {% if storyData['hero-image-caption'] %}
         <figcaption>{{storyData['hero-image-caption'] | raw}}</figcaption>
         {% endif %}
