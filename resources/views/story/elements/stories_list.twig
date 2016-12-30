@@ -21,6 +21,9 @@
           </a>
         </div>
       {% endif %}
+      <p class="date-story-list">
+       <span>{{story['author-name']}}</span>{% set timestamp = (story["first-published-at"] / 1000) | round(0, 'floor') %} {{timestamp|date('M j, Y')}}
+      </p>
     </div>
   </div>
 {% endfor %}

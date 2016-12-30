@@ -5,35 +5,36 @@
     }
     &__top {
         width: 100%;
-        margin: 20px 0px 10px 0px;
+        margin: 0px 0px 10px 0px;
         @include breakpoint($pc) {
             display: flex;
             flex-direction: row;
             flex-wrap: wrap;
             justify-content: space-between;
         }
+        h1 {
+            font-size: em(22);
+            color: $light-blue;
+            font-family: $sans;
+            font-weight: $regular2;
+            margin-top: 0px;
+            text-transform: uppercase;
+            letter-spacing: em(1);
+            width: 100%;
+            margin: 20px 0px 15px 0px;
+            padding-left: 15px;
+            @include breakpoint($pc) {
+                padding-left: 0px;
+            }
+        }
         &__left {
             width: 100%;
             @include breakpoint($pc) {
-                width: calc(60% - 20px);
+                width: calc(60% - 25px);
             }
             &__img-container {
                 position: relative;
-                @include aspect-ratio (16, 9);
-                h1 {
-                    position: absolute;
-                    font-size: em(15);
-                    color: $white;
-                    font-family: $merri;
-                    margin-top: 0px;
-                    text-transform: uppercase;
-                    text-align: center;
-                    position: absolute;
-                    width: auto;
-                    padding: 7px 12px;
-                    background-color: $heading-blue;
-                    letter-spacing: em(2);
-                }
+                @include aspect-ratio (23, 11);
             }
             &__summary {
                 padding: 10px;
@@ -41,23 +42,38 @@
                     padding: 0px;
                 }
                 h3 {
-                    font-family: $merri;
+                    font-family: $sans;
                     font-size: em(25);
                     margin-top: 10px;
                     margin-bottom: 5px;
-                    color: $black;
+                    color: darken($dark-gray, 20%);
+                    font-weight: $bold;
                 }
                 p {
                     font-family: $sans;
                     font-size: em(14);
-                    color: $dark-gray;
+                    color: lighten($dark-gray, 10%);
                 }
             }
             &-date {
                 font-family: $sans !important;
-                font-size: em(14)!important;
+                font-size: em(12)!important;
                 color: darken($light-gray, 20%)!important;
-                font-style: italic !important;
+                margin-top: 10px;
+                font-weight: $regular2;
+                span {
+                    &::after {
+                        content: " ";
+                        display: inline-block;
+                        width: 1px;
+                        height: 16px;
+                        top: 3px;
+                        left: 2px;
+                        position: relative;
+                        margin: 0px 5px;
+                        border-right: 1px solid #ddd;
+                    }
+                }
             }
         }
         &__right {
@@ -72,6 +88,7 @@
                 flex-direction: row;
                 flex-wrap: wrap;
                 justify-content: space-between;
+                align-content: flex-start;
             }
             &__row {
                 display: flex;
@@ -80,7 +97,7 @@
                 justify-content: space-between;
                 align-items: flex-start;
                 align-content: flex-start;
-                margin-bottom: 15px;
+                margin-bottom: 25px;
                 @include breakpoint($tablet) {
                     width: calc(50% - 10px);
                 }
@@ -89,16 +106,18 @@
                 }
                 &__left {
                     width: 100%;
-                    @include aspect-ratio (16, 12);
+                    @include aspect-ratio (29, 16);
                     @include breakpoint($pc) {
-                        width: 30%;
+                        width: 35%;
                     }
                 }
                 &__right {
                     &-heading {
-                        font-family: $merri;
-                        font-size: em(17);
-                        color: $black;
+                        font-family: $sans;
+                        font-size: em(14);
+                        color: $dark-gray;
+                        font-weight: $regular2;
+                        line-height: em(24);
                         overflow: hidden;
                         display: -webkit-box;
                         -webkit-line-clamp: 2;
@@ -108,23 +127,28 @@
                             margin-top: 0px;
                         }
                     }
-                    &-summary {
-                        font-family: $sans;
-                        font-size: em(13);
-                        color: $dark-gray;
-                        overflow: hidden;
-                        display: -webkit-box;
-                        -webkit-line-clamp: 2;
-                        -webkit-box-orient: vertical;
-                    }
                     &-date {
                         font-family: $sans;
                         font-size: em(12);
                         color: darken($light-gray, 20%);
-                        font-style: italic;
+                        margin-top: 7px;
+                        font-weight: $regular2;
+                        span {
+                            &::after {
+                                content: " ";
+                                display: inline-block;
+                                width: 1px;
+                                height: 16px;
+                                top: 3px;
+                                left: 2px;
+                                position: relative;
+                                margin: 0px 5px;
+                                border-right: 1px solid #ddd;
+                            }
+                        }
                     }
                     @include breakpoint($pc) {
-                        width: calc(70% - 15px);
+                        width: calc(65% - 15px);
                     }
                 }
             }
@@ -132,73 +156,52 @@
     }
     &__bottom {
         width: 100%;
-        margin: 30px 0px 30px 0px;
-        padding: 30px 10px 30px 10px;
-        border-top: 1px solid $light-gray;
-        border-bottom: 1px solid $light-gray;
-        @include breakpoint($pc) {
-            display: flex;
-            flex-direction: row;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            padding: 30px 0px 30px 0px;
-        }
+        margin: 20px 0px 20px 0px;
+        padding: 10px;
         @include breakpoint($tablet) {
+            padding: 0px;
+        }
+        &__row-mar-fix {
             display: flex;
-            flex-direction: row;
-            justify-content: space-between;
             flex-wrap: wrap;
+            flex-direction: column;
+            align-content: flex-start;
+            justify-content: flex-start;
+            @include breakpoint($tablet) {
+                flex-direction: row;
+                margin-left: 0px;
+                margin-right: 0px;
+            }
+            @include breakpoint($pc) {
+                flex-direction: row;
+                margin-left: -12px;
+                margin-right: -12px;
+            }
         }
         &__box {
-            position: relative;
+            margin-bottom: 20px;
             width: 100%;
-            overflow: hidden;
-            margin: 10px 0px;
             @include breakpoint($tablet) {
-                width: calc(50% - 10px);
+                width: calc(50% - 24px);
+                margin-right: 12px;
+                margin-left: 12px;
             }
             @include breakpoint($pc) {
-                width: calc(25% - 20px);
-                margin: 0px;
+                width: calc(25% - 24px);
+                margin-right: 12px;
+                margin-left: 12px;
             }
             &__img-container {
-                @include aspect-ratio (16, 11);
+                @include aspect-ratio (46, 25);
             }
             &__img-overlay {
-                position: absolute;
-                top: auto;
-                height: 3em;
-                bottom: 0px;
-                left: 0px;
-                right: 0px;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                background-color: rgba(24, 143, 220, 0.39);
-                @include transition( $val: ease 0.5s);
-                @include breakpoint($pc) {
-                    top: 110%;
-                    height: auto;
-                }
                 h4 {
-                    font-family: $merri;
-                    font-size: em(15);
-                    color: $white;
-                    overflow: hidden;
-                    display: -webkit-box;
-                    -webkit-line-clamp: 2;
-                    -webkit-box-orient: vertical;
-                    text-align: center;
-                }
-            }
-            @include breakpoint($pc) {
-                &:hover {
-                    .layout-template__bottom__box__img-overlay {
-                        top: 0px;
-                        h4 {
-                            color: $white;
-                        }
-                    }
+                    font-family: $sans;
+                    font-size: em(14);
+                    color: $dark-gray;
+                    font-weight: $regular2;
+                    line-height: em(24);
+                    margin-top: 7px;
                 }
             }
         }
@@ -207,5 +210,86 @@
         left: 50%;
         margin: 0px 0px 20px 0px;
         margin-left: -87px;
+        color: $light-blue;
+    }
+    .story-listing-loadmore {
+        display: flex;
+        width: 100%;
+        &__bottom-story-list {
+            @include breakpoint($pc) {
+                width: calc(60% - 25px);
+                margin-right: 25px;
+            }
+            .wrap {
+                display: flex;
+                flex-direction: row;
+                flex-wrap: wrap;
+                padding: 10px;
+                @include breakpoint($pc) {
+                    padding: 15px 0px;
+                }
+                .article_left {
+                    width: 100%;
+                    @include breakpoint($tablet) {
+                        width: 40%;
+                        margin-right: 25px;
+                    }
+                    @include breakpoint($pc) {
+                        width: 40%;
+                        margin-right: 25px;
+                    }
+                }
+                .article_right {
+                    width: 100%;
+                    margin: 0px;
+                    padding: 0px;
+                    @include breakpoint($tablet) {
+                        width: calc(60% - 25px);
+                    }
+                    @include breakpoint($pc) {
+                        width: calc(60% - 25px);
+                    }
+                    .article__title {
+                        font-family: $sans;
+                        font-size: em(18);
+                        color: $dark-gray;
+                        font-weight: $regular2;
+                        line-height: em(24);
+                        overflow: hidden;
+                        display: -webkit-box;
+                        -webkit-line-clamp: 2;
+                        -webkit-box-orient: vertical;
+                    }
+                    .date-story-list {
+                        font-family: $sans !important;
+                        font-size: em(14)!important;
+                        color: darken($light-gray, 20%)!important;
+                        margin-top: 15px;
+                        font-weight: $regular2;
+                        span {
+                            &::after {
+                                content: " ";
+                                display: inline-block;
+                                width: 1px;
+                                height: 16px;
+                                top: 3px;
+                                left: 2px;
+                                position: relative;
+                                margin: 0px 5px;
+                                border-right: 1px solid #ddd;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        &__bottom-story-list-rightads {
+            @include breakpoint($pc) {
+                width: 40%;
+            }
+        }
+        .load-clearfix {
+            display: block;
+        }
     }
 }
