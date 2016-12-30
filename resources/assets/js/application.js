@@ -1,6 +1,7 @@
 var Twig = require("twig");
     require("jquery.marquee");
     require("jquery");
+    require("slick");
 
 global.app = {
     initQtReady: require("./qt_ready"),
