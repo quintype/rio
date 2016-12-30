@@ -1,6 +1,7 @@
 var Twig = require("twig");
     require("jquery.marquee");
     require("jquery");
+    require("slick");
 
 global.app = {
     initQtReady: require("./qt_ready"),
@@ -38,7 +39,7 @@ $(document).ready(function(){
       autoplay: true
   });
 
-  $('.js-story-slider').slick({
+  $('.js-slideshow-element').slick({
       slidesToShow: 1,
       slidesToScroll: 1,
       arrows: true

@@ -1,7 +1,7 @@
 <div class="content top story-view" data-story-content-id="{{ storyData['id'] }}" data-story-version-id="{{ storyData['story-version-id'] }}">
       <section class="photo-story">
               <div class="photo-story-image-slider js-photo-story-slider">
-                       {% for image in photoStoryImages %}
+                       {% for image in storyData['photo-slider'] %}
                           <div>
                               <figure>
                                   <img src="{{focusedImageUrl(image['image-s3-key'] ,config['image-cdn'], [16,9], image['image-metadata'],{w:500} )}}"/>

@@ -82,7 +82,9 @@ class HomeController extends QuintypeController
         };
 
         $story['cards'] = array_map($cardAttribute, $story['cards']);
-        $photoStoryImages = $this->getPhotoStoryImages($story['cards'], $story);
+        if($story['story-template'] == 'photo') {
+           $story['photo-slider'] = $this->getPhotoStoryImages($story);
+        }
         $page = ['type' => 'story'];
         $setSeo = $this->seo->story($page['type'], $story);
         $this->meta->set($setSeo->prepareTags());
@@ -90,7 +92,6 @@ class HomeController extends QuintypeController
           'storyData' => $story,
           'storyCards' => $story['cards'],
           'relatedstories' => $related_stories,
-          'photoStoryImages' => $photoStoryImages,
           'authordata' => $finalauthor,
           'page' => $page,
           'meta' => $this->meta,
@@ -270,27 +271,23 @@ class HomeController extends QuintypeController
       );
     }
 
-    public function getPhotoStoryImages($storiesCards, $story)
-      {
-         $photoStoryImage = array();
-         $heroImageParameters = array();
-         $cardsImageParameters = array();
-         $heroImageParameters['image-s3-key'] = $story['hero-image-s3-key'];
-         $heroImageParameters['image-metadata'] = $story['hero-image-metadata'];
-         $heroImageParameters['title'] = $story['hero-image-caption'];
-         array_push($photoStoryImage, $heroImageParameters);
-         if($story['story-template'] == 'photo') {
-             foreach ($storiesCards as $elements => $storyElements) {
-                 foreach ($storyElements['story-elements'] as $key => $imageData) {
-                     if($imageData['type'] == 'image') {
-                     $cardsImageParameters['image-s3-key'] = $imageData['image-s3-key'];
-                     $cardsImageParameters['image-metadata'] = $imageData['image-metadata'];
-                     $cardsImageParameters['title'] = $imageData['title'];
-                     array_push($photoStoryImage, $cardsImageParameters);
-                    }
+    private function getPhotoStoryImages($story)
+    {
+        $photoArray = [
+          ['image-s3-key' => $story['hero-image-s3-key'],
+          'image-metadata' => $story['hero-image-metadata'],
+          'title' => $story['hero-image-caption'], ],
+        ];
+        foreach ($story['cards'] as $card) {
+            foreach ($card['story-elements'] as $key => $element) {
+                if ($element['type'] == 'image') {
+                    array_push($photoArray, ['image-s3-key' => $element['image-s3-key'],
+                    'image-metadata' => $element['image-metadata'],
+                    'title' => $element['title'], ]);
                 }
-             }
-          }
-          return $photoStoryImage;
-      }
+            }
+         }
+         return $photoArray;
+     }
+
 }
