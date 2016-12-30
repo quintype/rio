@@ -137,6 +137,44 @@
     top: 40px;
     padding: 5px 15px;
     width: 200px;
+    @include breakpoint($phone) {
+        left: 0;
+        top: 60px;
+        padding: 5px 15px;
+        width: 100%;
+        background-color: lighten($white, 20%);
+        li {
+            a {
+                display: block;
+                width: 100%;
+                line-height: 40px;
+                color: $dark-gray;
+                &:hover,
+                &:focus {
+                    color: $base-blue;
+                }
+            }
+        }
+    }
+    @include breakpoint($only-phone-tablets) {
+        left: 0;
+        top: 60px;
+        padding: 5px 15px;
+        width: 100%;
+        background-color: lighten($white, 20%);
+        li {
+            a {
+                display: block;
+                width: 100%;
+                line-height: 40px;
+                color: $dark-gray;
+                &:hover,
+                &:focus {
+                    color: $base-blue;
+                }
+            }
+        }
+    }
     &__item {
         position: relative;
         float: left;
