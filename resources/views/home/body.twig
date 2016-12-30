@@ -60,6 +60,7 @@
 
     <section>
         <!--  Section 2 open-->
+        <div class="gallery-fix-div">
         {% for story in stories | slice(4, 3) %}
             <article>
                 <!--  Article1 open-->
@@ -91,16 +92,21 @@
                 </a>
             </article>
         {% endfor %}
+        </div>
     </section>
     <!--  Section 2 close-->
 
     <section>
         <!--  Section 3 open-->
-
+<div class="story2-banner1">
         <div class="leftbig">
-          <a href="{{banners[0]['slug']}}">
-            <img src="{{focusedImageUrl(banners[0]['hero-image-s3-key'], config['image-cdn'], [16,9], banners[0]['hero-image-metadata'], {w:720})}}"/>
-          <a>
+        
+            <figure>
+                 <a href="{{banners[0]['slug']}}">
+            <img src="{{focusedImageUrl(banners[0]['hero-image-s3-key'], config['image-cdn'], [16,4.45], banners[0]['hero-image-metadata'], {w:720})}}"/>
+                   </a>                         
+            </figure> 
+
         </div>
         
         <div class="rightsmall">
@@ -152,6 +158,7 @@
             <div class="sectiontitle left">
                 <span>Videos</span>
             </div>
+            <div class="gallery-fix-div">
             {% for story in videos | slice(0, 3) %}
                 <article>
                     <!--  Article1 open-->
@@ -181,7 +188,7 @@
                 </article>
 
             {% endfor %}
-
+        </div>
         </div>
         <!--  Section Wrap close-->
         <a class="more" href="/section/videos">Read More >></a>
@@ -196,6 +203,7 @@
             <div class="sectiontitle left">
                 <span>Entertainment</span>
             </div>
+            <div class="gallery-fix-div">
             {% for story in entertainment | slice(0, 3) %}
 
                 <article>
@@ -219,6 +227,7 @@
                     </a>
                 </article>
             {% endfor %}
+            </div>
 
         </div>
         <!--  Section Wrap close-->
@@ -375,7 +384,7 @@
                     <div class="sectiontitle left">
                         <span>International</span>
                     </div>
-
+<div class="gallery-fix-div">
                     {% for story in international | slice(0, 3) %}
 
                         <article>
@@ -404,7 +413,7 @@
                         </article>
 
                     {% endfor %}
-
+</div>
                 </div>
 
                 <div class="more textright">

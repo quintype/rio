@@ -58,6 +58,9 @@
         letter-spacing: 0.5px;
         z-index: $zIndex-1;
         position: relative;
+        @include breakpoint($phone) {
+            height: 45px!important;
+        }
         @include breakpoint($pc) {
             @include span(2);
         }
@@ -69,6 +72,9 @@
             left: 0;
             right: 0;
             text-align: center;
+            @include breakpoint($phone) {
+                top: 21%;
+            }
             @include breakpoint($tablet) {
                 font-size: 16px;
             }
