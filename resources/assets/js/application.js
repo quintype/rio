@@ -8,7 +8,8 @@ global.app = {
     loadMoreStories: require("./load_more"),
     subSectionStories: require("./sub_section_stories"),
     analytics: require("./analytics.js"),
-    videos: require("./videos.js")
+    videos: require("./videos.js"),
+    infiniteScroll: require("./infinite-scroll")
 };
 
 // require("./jquery.min");
@@ -16,6 +17,8 @@ require("./responsiveslides.min");
 
 
 $(document).ready(function(){
+
+  global.app.infiniteScroll.infiniteScroll();
 
   $(".js-menu").click(function(event){
    event.stopPropagation();
