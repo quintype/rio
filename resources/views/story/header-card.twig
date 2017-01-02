@@ -1,0 +1,29 @@
+<div class="story-header__content">
+  <div class="story-header__section-name">
+    <span>{{storyData["sections"][0]["name"]}}</span>
+  </div>
+  <h1 class="story-header__story-headline js-story-headline">{{storyData["headline"]}}</h1>
+  {% if storyData["subheadline"] %}
+  <div class='story-header__subtitle'>
+    <span> {{storyData["subheadline"] | striptags |raw }}  </span>
+  </div>
+  {% endif %}
+  <div class="textbottom__article storybyline">
+    <span class="textbottom__article__name">
+    {% for authornames in storyData["authors"]  %}
+    {{ authornames['name'] }}
+    {% if loop.index == (storyData["authors"] | length ) - 1 %} & {% else %}
+    {% if loop.index != (storyData["authors"] | length ) %} , {% endif %} {% endif %}
+    {% endfor %}
+    {% if storyData["authors"] is empty %}
+    {{ storyData["author-name"] }}
+    {% endif %}
+    </span>
+    {% if storyData["first-published-at"] %}
+    <span class="textbottom__article--share"> <time>
+    {% set timestamp = (storyData["first-published-at"]// 1000)|round(0, 'floor') %}{{ timestamp|date('M j, Y') }}
+    </time></span>
+    {% endif %}
+    {% include "story/elements/socialshare" %}
+  </div>
+</div>

@@ -1,6 +1,7 @@
 var Twig = require("twig");
     require("jquery.marquee");
     require("jquery");
+    require('./vendor/jquery.inview');
     require("slick");
 
 global.app = {
@@ -14,12 +15,10 @@ global.app = {
     infiniteScroll: require("./infinite-scroll")
 };
 
-// require("./jquery.min");
+
 require("./responsiveslides.min");
 
 $(document).ready(function(){
-
-  global.app.infiniteScroll.infiniteScroll();
 
   $(".js-menu").click(function(event){
    event.stopPropagation();

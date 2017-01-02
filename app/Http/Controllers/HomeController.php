@@ -53,9 +53,7 @@ class HomeController extends QuintypeController
     public function storyview($category, $y, $m, $d, $slug)
     {
         $story = $this->client->storyBySlug(['slug' => $slug]);
-        $this->client->addBulkRequest('related_stories', 'top', ['section' => $story['sections'][0]['name'], 'fields' => $this->fields, 'limit' => 4]);
         $this->client->executeBulk();
-        $related_stories = $this->client->getBulkResponse('related_stories');
         $finalauthor = array();
         for ($kk = 0; $kk < sizeof($story['authors']); ++$kk) {
             $author_data = $this->client->getAuthor($story['authors'][$kk]['id']);
@@ -82,17 +80,12 @@ class HomeController extends QuintypeController
         };
 
         $story['cards'] = array_map($cardAttribute, $story['cards']);
-        if($story['story-template'] == 'photo') {
-           $photoStoryImages = $this->getPhotoStoryImages($story);
-        }
         $page = ['type' => 'story'];
         $setSeo = $this->seo->story($page['type'], $story);
         $this->meta->set($setSeo->prepareTags());
         return view('story', $this->toView([
           'storyData' => $story,
-          'storyCards' => $story['cards'],
-          'relatedstories' => $related_stories,
-          'photoStoryImages' => $photoStoryImages,
+          'photoStoryImages' => $this->getPhotoStoryImages($story),
           'authordata' => $finalauthor,
           'page' => $page,
           'meta' => $this->meta,
