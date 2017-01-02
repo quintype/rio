@@ -36,7 +36,6 @@
                  </div>
             </div>
             <div class="top-stories__grid">
-                {% if section_stories|length >= 4 %}
                     {% for story in section_stories[1 : 3] %}
                         <article class="article-grids">
                             <a href="/{{story['slug']}}" class="article__image-container">
@@ -51,7 +50,6 @@
                             </div>
                         </article>
                     {% endfor %}
-                {% endif %}
             </div>
         </div>
        {% if section_stories|length > 4 %}
