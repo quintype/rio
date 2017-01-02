@@ -180,6 +180,7 @@
         }
         &__box {
             margin-bottom: 20px;
+            margin-top: 20px;
             width: 100%;
             @include breakpoint($tablet) {
                 width: calc(50% - 24px);
