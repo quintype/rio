@@ -5,15 +5,14 @@
         <div class="top-stories">
              <div class="lead-story">
                   <div class="lead-story-right-container">
-
-                      <div class="top-story__image-container">
+                     <div class="lead-story-image-container">
                           <a href="/{{section_stories[0]['slug']}}">
                               <figure>
-                                  <img src="{{focusedImageUrl(section_stories[0]['hero-image-s3-key'] ,config['image-cdn'], [16,9], section_stories[0]['hero-image-metadata'],{w:550} )}}"/>
+                                  <img src="{{focusedImageUrl(section_stories[0]['hero-image-s3-key'] ,config['image-cdn'], [34,25], section_stories[0]['hero-image-metadata'],{w:550} )}}"/>
                               </figure>
                           </a>
                       </div>
-                      <div class="top-story__content-container">
+                      <div class="lead-story-content-container">
                            <a href="/{{section_stories[0]['slug']}}">
                                <div class="article__title">{{shorthead(section_stories[0]['headline'])}}</div>
                            </a>
@@ -32,43 +31,44 @@
                   </div>
                   <div class="lead-story-left-container">
                      <div class="lead-story__add-box">
-                       <h4> Ad Box</h4>
+                       <img src="http://placehold.it/350x250">
                      </div>
                  </div>
             </div>
             <div class="top-stories__grid">
-                {% for story in section_stories[1 : 3] %}
-                    <article class="article-grids">
-                        <a href="/{{story['slug']}}" class="article__image-container">
-                            <figure>
-                                <img src="{{focusedImageUrl(story['hero-image-s3-key'] ,config['image-cdn'], [16,9], section_stories[0]['hero-image-metadata'],{w:200} )}}"/>
-                            </figure>
-                        </a>
-                        <div class="grid__article">
-                            <a href="/{{story['slug']}}" class="article__content-container">
-                                <h4>{{story['headline']}}</h4>
-                                <p>{{story['summary']}}</p>
+                {% if section_stories|length >= 4 %}
+                    {% for story in section_stories[1 : 3] %}
+                        <article class="article-grids">
+                            <a href="/{{story['slug']}}" class="article__image-container">
+                                <figure>
+                                    <img src="{{focusedImageUrl(story['hero-image-s3-key'] ,config['image-cdn'], [16,9], section_stories[0]['hero-image-metadata'],{w:200} )}}"/>
+                                </figure>
                             </a>
-                        </div>
-                    </article>
-                {% endfor %}
+                            <div class="grid__article">
+                                <a href="/{{story['slug']}}" class="article__content-container">
+                                    <h4>{{story['headline']}}</h4>
+                                </a>
+                            </div>
+                        </article>
+                    {% endfor %}
+                {% endif %}
             </div>
         </div>
-       <div class="bottom-stories">
-              <div class="sectionsleft" id="load-more-stories-target">
-                      <h3 class="title-recent-stories">Recent Stories</h3>
-                      {% include "story/elements/stories_list" with {
-                          'stories': section_stories | slice(4)
-                      } %}
-              </div>
-              <div class="sections-right">
-                  <div class="sections-add-right">
-                         <h4>Add Box</h4>
+       {% if section_stories|length > 4 %}
+           <div class="bottom-stories">
+                  <div class="sectionsleft" id="load-more-stories-target">
+                        {% include "story/elements/stories_list" with {'stories': section_stories | slice(4) } %}
                   </div>
-             </div>
-       </div>
+                  <div class="sections-right">
+                      <div class="sections-add-right">
+                          <img src="http://placehold.it/300x600">
+                      </div>
+                 </div>
+           </div>
+      {% endif %}
     </section>
   </div>
+
 {% include "story/elements/loadmore" %}
 
 <script type="text/javascript">

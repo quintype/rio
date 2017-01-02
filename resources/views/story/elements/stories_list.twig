@@ -11,16 +11,15 @@
       </a>
     </div>
     <div class="article_right ">
-      <a href="/{{story['slug']}}">
-        <div class="article__title">{{shorthead(story['headline'])}}</div>
-      </a>
-      {%  if  story["subheadline"] %}
+        <a href="/{{story['slug']}}">
+          <div class="article__title">{{shorthead(story['headline'])}}</div>
+        </a>
         <div class="article__desciption">
-          <a href="/{{story['slug']}}">
-             {{  story["summary"] | striptags | slice(0,100) | raw }}
-          </a>
+              <a href="/author/{{section_stories[0]['author-id']}}">
+                  by {{story['author-name']}}
+              </a>
+              <time>on {{ (story['first-published-at'] // 1000)|date('M d, Y')}}</time>
         </div>
-      {% endif %}
-    </div>
+      </div>
   </div>
 {% endfor %}
