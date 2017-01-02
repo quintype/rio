@@ -46,7 +46,7 @@
     display: block;
 
     &:before,
-        &:after {
+    &:after {
         content: "";
         display: table;
     }
