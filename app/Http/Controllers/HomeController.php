@@ -82,6 +82,7 @@ class HomeController extends QuintypeController
         };
 
         $story['cards'] = array_map($cardAttribute, $story['cards']);
+        $photoStoryImages = [];
         if($story['story-template'] == 'photo') {
            $photoStoryImages = $this->getPhotoStoryImages($story);
         }
@@ -261,7 +262,6 @@ class HomeController extends QuintypeController
         $page = ['type' => 'author'];
         $setSeo = $this->seo->staticPage($authorDetails['name']);
         $this->meta->set($setSeo->prepareTags());
-
         return view('author', $this->toView([
           'authorDetails' => $authorDetails,
           'authorStories' => $authorStories,
