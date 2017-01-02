@@ -85,6 +85,7 @@ class HomeController extends QuintypeController
         if($story['story-template'] == 'photo') {
            $story['photo-slider'] = $this->getPhotoStoryImages($story);
         }
+        else { $photoStoryImages = []; }
         $page = ['type' => 'story'];
         $setSeo = $this->seo->story($page['type'], $story);
         $this->meta->set($setSeo->prepareTags());

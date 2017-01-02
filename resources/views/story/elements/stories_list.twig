@@ -1,29 +1,25 @@
 {% for story in stories %}
   <div class="wrap">
-    <div class="article_left ">
-      <a href="/{{story['slug']}}">
-          <div class="figcontainer">
-              <figure>
-                  <img src="{{focusedImageUrl(story['hero-image-s3-key'] ,config['image-cdn'], [16,9], story['hero-image-metadata'],{w:400} )}}" />
-              </figure>
-              <div class="sourcetop">{{ story['hero-image-attribution'] | raw }}</div>
-          </div>
-      </a>
-    </div>
-    <div class="article_right ">
-      <a href="/{{story['slug']}}">
-        <div class="article__title">{{shorthead(story['headline'])}}</div>
-      </a>
-      {%  if  story["subheadline"] %}
-        <div class="article__desciption">
+      <div class="article_left ">
+        <a href="/{{story['slug']}}">
+            <div class="figcontainer">
+                <figure>
+                    <img src="{{focusedImageUrl(story['hero-image-s3-key'] ,config['image-cdn'], [16,9], story['hero-image-metadata'],{w:400} )}}" />
+                </figure>
+                <div class="sourcetop">{{ story['hero-image-attribution'] | raw }}</div>
+            </div>
+        </a>
+      </div>
+      <div class="article_right ">
           <a href="/{{story['slug']}}">
-             {{  story["summary"] | striptags | slice(0,100) | raw }}
+            <div class="article__title">{{shorthead(story['headline'])}}</div>
           </a>
-        </div>
-      {% endif %}
-      <p class="date-story-list">
-       <span>{{story['author-name']}}</span>{% set timestamp = (story["first-published-at"] / 1000) | round(0, 'floor') %} {{timestamp|date('M j, Y')}}
-      </p>
-    </div>
+          <div class="article__desciption">
+                <a href="/author/{{section_stories[0]['author-id']}}">
+                    by {{story['author-name']}}
+                </a>
+                <time>on {{ (story['first-published-at'] // 1000)|date('M d, Y')}}</time>
+          </div>
+      </div>
   </div>
 {% endfor %}
