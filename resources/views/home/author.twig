@@ -1,50 +1,34 @@
 <div class="content">
-    <section style="text-align:center">
-        <div class="author-details">
-            <div class="author-image">
-              {% if authorDetails['avatar-url'] %}
-                  <img style="height:250px; border: 5px solid #0065a7" src="{{authorDetails['avatar-url']}}"/>
-              {% else %}
-                  <img style="height:250px; border: 5px solid #0065a7" src="{{ assetPath('main/default_author.svg') }}"/>
-              {% endif %}
+    <div class="author-page">
+        <section class="author-page__image-section">
+            <div class="author-details">
+                <div class="author-image">
+                    {% if authorDetails['avatar-url'] %}
+                    <figure>
+                        <img src="{{authorDetails['avatar-url']}}" />
+                    </figure>
+                    {% else %}
+                    <figure>
+                        <img src="{{ assetPath('main/default_author.svg') }}" />
+                    </figure>
+                    {% endif %}
+                </div>
+                <div class="author-name">
+                    <h2>{{authorDetails['name']}}</h2>
+                    <p>{{ authorDetails['bio'] }}</p>
+                </div>
             </div>
-            <div class="author-name">
-                <h2>{{authorDetails['name']}}</h2>
+        </section>
+        <section class="author-page__stories-section">
+            <div class="author-stories">
+                {% include "story/elements/stories_list_horizontal" with {'stories': authorStories} %}
             </div>
-        </div>
-    </section>
-    <div class="clear"></div>
-    <section>
-        <div class="author-stories">
-            {% for story in authorStories | slice(0, 3) %}
-                <article>
-                    <div class="wrap border">
-                        <a href="/{{story['slug']}}">
-                            <div class="figcontainer">
-                                <h6 class="sectionname__display">{{story['sections'][0]['name']}}</h6>
-                                <figure>
-                                    <img src="{{focusedImageUrl(story['hero-image-s3-key'], config['image-cdn'], [16,9], story['hero-image-metadata'], {w: 400})}}"/>
-                                </figure>
-                                <div class="sourcefrom">{{ story["hero-image-attribution"] | raw }}</div>
-                            </div>
-
-                            <div class="textwrap">
-                                <div class="article__title">
-                                    {{  shorthead(story["headline"]) }}
-                                </div>
-                                <div class="article__desciption">
-                                    {{ story["subheadline"] | striptags | slice(0,100) | raw  }}
-                                </div>
-                            </div>
-                        </a>
-                        {% include "story/byline" %}
-                    </div>
-                </article>
-            {% endfor %}
-        </div>
-    </section>
-    {% include "story/elements/loadmore" %}
+        </section>
+        {% include "story/elements/loadmore" %}
+    </div>
 </div>
 <script type="text/javascript">
-    qtReady.push(function() { app.loadMoreStories('#loadmore', '.author-stories', {{ params | json_encode | raw }}, 'search'); })
+qtReady.push(function() {
+    app.loadMoreStories('#loadmore', '.author-stories', {{ params | json_encode | raw}}, 'search');
+})
 </script>
