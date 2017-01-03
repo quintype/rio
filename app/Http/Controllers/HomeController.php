@@ -56,13 +56,14 @@ class HomeController extends QuintypeController
         $this->client->addBulkRequest('related_stories', 'top', ['section' => $story['sections'][0]['name'], 'fields' => $this->fields, 'limit' => 4]);
         $this->client->executeBulk();
         $related_stories = $this->client->getBulkResponse('related_stories');
-        $finalauthor = array();
+        $sectionNames = $this->getSectionNames($story);
+        $otherAuthor = array();
         for ($kk = 0; $kk < sizeof($story['authors']); ++$kk) {
             $author_data = $this->client->getAuthor($story['authors'][$kk]['id']);
             $authorbio = strip_tags($author_data['bio']);
-            array_push($finalauthor, $author_data);
+            array_push($otherAuthor, $author_data);
         }
-
+        $authorDetails = $this->client->getAuthor($story['author-id']);
         $cardAttribute = function ($card) {
             if (array_key_exists('metadata', $card) &&
                 array_key_exists('attributes', $card['metadata']) &&
@@ -87,6 +88,7 @@ class HomeController extends QuintypeController
            $photoStoryImages = $this->getPhotoStoryImages($story);
         }
         else { $photoStoryImages = []; }
+
         $page = ['type' => 'story'];
         $setSeo = $this->seo->story($page['type'], $story);
         $this->meta->set($setSeo->prepareTags());
@@ -95,9 +97,11 @@ class HomeController extends QuintypeController
           'storyCards' => $story['cards'],
           'relatedstories' => $related_stories,
           'photoStoryImages' => $photoStoryImages,
-          'authordata' => $finalauthor,
+          'otherAuthor' => $otherAuthor,
+          'authorDetails' => $authorDetails,
           'page' => $page,
           'meta' => $this->meta,
+          'sectionNames' =>$sectionNames
         ]));
 
     }
@@ -142,6 +146,9 @@ class HomeController extends QuintypeController
         $setSeo = $this->seo->section($page['type'], $sectionName, $sectionId);
         $this->meta->set($setSeo->prepareTags());
 
+        if(sizeof($stories)<1){
+          return view('noresults',$this->toView([]));
+        }
         if ($subSectionSlug != '') {
             return view('sub_section', $this->toView([
             'subSection' => $subSection,
@@ -292,4 +299,23 @@ class HomeController extends QuintypeController
          return $photoArray;
      }
 
+    public function getSectionNames($story)
+    {
+        $sectionNameArray = array();
+        $sectionNameLastArray = array();
+          if ($story['story-template'] == 'recipe') {
+            foreach ($story['sections'] as $key => $section) {
+              array_push($sectionNameArray, $section['display-name']);
+            }
+            if (sizeof($story['sections']) == 1) {
+              $sectionNames = $sectionNameArray[0];
+            } elseif (sizeof($story['sections']) == 2) {
+              $sectionNames = implode(" and ", $sectionNameArray);
+            } else {
+              $sectionNameLastArray = array_pop($sectionNameArray);
+              $sectionNames = implode(", ", $sectionNameArray). " and ". $sectionNameLastArray;
+            }
+         return $sectionNames;
+        }
+     }
 }
