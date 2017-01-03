@@ -37,7 +37,7 @@ Route::get('/section/{section}/{subSection}', [
 Route::get('/search', [
     'uses' => 'HomeController@searchview',
 ]);
-Route::get('/topic', [
+Route::get('/tag', [
     'uses' => 'HomeController@tagsview',
 ]);
 Route::get('/privacy-policy', [

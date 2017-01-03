@@ -18,7 +18,7 @@
         "symfony/yaml": "2.0.*",
         "quintype/seo": "1.0.0",
         "quintype/meta": "2.0.0",
-        "quintype/api": "1.4.3"
+        "quintype/api": "1.5.0"
     },
 
     "require-dev": {

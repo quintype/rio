@@ -83,7 +83,6 @@ class HomeController extends QuintypeController
         };
 
         $story['cards'] = array_map($cardAttribute, $story['cards']);
-
         $photoStoryImages = [];
         if($story['story-template'] == 'photo') {
            $story['photo-slider'] = $this->getPhotoStoryImages($story);
@@ -95,6 +94,7 @@ class HomeController extends QuintypeController
           'storyData' => $story,
           'storyCards' => $story['cards'],
           'relatedstories' => $related_stories,
+          'photoStoryImages' => $photoStoryImages,
           'otherAuthor' => $otherAuthor,
           'authorDetails' => $authorDetails,
           'page' => $page,
@@ -144,6 +144,9 @@ class HomeController extends QuintypeController
         $setSeo = $this->seo->section($page['type'], $sectionName, $sectionId);
         $this->meta->set($setSeo->prepareTags());
 
+        if(sizeof($stories)<1){
+          return view('noresults',$this->toView([]));
+        }
         if ($subSectionSlug != '') {
             return view('sub_section', $this->toView([
             'subSection' => $subSection,
@@ -192,7 +195,7 @@ class HomeController extends QuintypeController
 
     public function tagsview(Request $request)
     {
-        $tag = $request->topic;
+        $tag = $request->tag;
         $params = [
           'story-group' => 'top',
           'tag' => $tag,
@@ -275,7 +278,7 @@ class HomeController extends QuintypeController
       );
     }
 
-   private function getPhotoStoryImages($story)
+    private function getPhotoStoryImages($story)
     {
         $photoArray = [
           ['image-s3-key' => $story['hero-image-s3-key'],
@@ -313,5 +316,4 @@ class HomeController extends QuintypeController
          return $sectionNames;
         }
      }
-
 }
