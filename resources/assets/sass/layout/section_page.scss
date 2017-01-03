@@ -1,137 +1,296 @@
-.section_page {
-
-    .section-heading {
-        text-transform: uppercase;
-        color: $brand-primary;
-        font-size: em(13);
-        border-bottom: em(1) solid;
-        margin-top: 20px;
-        clear: both;
-
-        h4 {
-            font-weight: 400;
-        }
+.layout-template {
+    figure {
+        margin: 0px;
+        padding: 0px;
     }
-
-    .container-left {
-        width: auto;
+    &__top {
+        width: 100%;
+        margin: 0px 0px 10px 0px;
         @include breakpoint($pc) {
-            @include span(8);
-            overflow: auto;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: space-between;
         }
-
-        .simple__arrow {
-            &-down {
-                text-align: center;
-                text-transform: uppercase;
-                color: $brand-primary;
-                margin: em(20) auto;
-            }
-            &-align {
-                margin-right: em(10);
-            }
-        }
-    }
-
-    .section {
-        &__hero-story {
-            position: relative;
-            margin: em(25) 0;
-
-            .section__hero-heading {
-                width: 30em;
-                position: absolute;
-                bottom: 0;
-                margin-left: em(20);
-                margin-bottom: em(20);
-                color: $white;
-            }
-
-            &_heroImage {
-                @include aspect-ratio (16,9);
-            }
-        }
-
-        &__top-story {
-            margin: em(20) auto;
+        h1 {
+            font-size: em(22);
+            color: $light-blue;
+            font-family: $sans;
+            font-weight: $regular2;
+            margin-top: 0px;
+            text-transform: uppercase;
+            letter-spacing: em(1);
+            width: 100%;
+            margin: 20px 0px 15px 0px;
+            padding-left: 15px;
             @include breakpoint($pc) {
-                @include span(6);
-            }
-            h4 {
-                font-size: em(14);
-            }
-
-            &-author {
-                font-size: em(12);
-            }
-
-            &-bold {
-                font-weight: 600;
-            }
-
-            &-images {
-                @include aspect-ratio (16,9);
+                padding-left: 0px;
             }
         }
-
-        &__top-stories {
-            border-bottom : em(1) solid $gray-light;
-            overflow: auto;
-            &-heading-dimention {
-                min-height: 100px;
-                padding: em(10) em(10) 0 0;
+        &__left {
+            width: 100%;
+            @include breakpoint($pc) {
+                width: calc(60% - 25px);
             }
-        }
-
-        &__stack--stories {
-            margin: em(20) 0;
-
-            ul {
-                padding: 0;
-
-                li {
-                    margin: em(20) 0;
-                    overflow: auto;
+            &__img-container {
+                position: relative;
+                @include aspect-ratio (23, 11);
+            }
+            &__summary {
+                padding: 10px;
+                @include breakpoint($pc) {
+                    padding: 0px;
+                }
+                h3 {
+                    font-family: $sans;
+                    font-size: em(25);
+                    margin-top: 10px;
+                    margin-bottom: 5px;
+                    color: darken($dark-gray, 20%);
+                    font-weight: $bold;
+                }
+                p {
+                    font-family: $sans;
+                    font-size: em(14);
+                    color: lighten($dark-gray, 10%);
                 }
             }
-
-            &-images {
-                @include span(4);
-                @include aspect-ratio (16,9);
+            &-date {
+                font-family: $sans !important;
+                font-size: em(12)!important;
+                color: darken($light-gray, 20%)!important;
+                margin-top: 10px;
+                font-weight: $regular2;
+                span {
+                    &::after {
+                        content: " ";
+                        display: inline-block;
+                        width: 1px;
+                        height: 16px;
+                        top: 3px;
+                        left: 2px;
+                        position: relative;
+                        margin: 0px 5px;
+                        border-right: 1px solid #ddd;
+                    }
+                }
             }
-
-            &-info {
-                @include span(8);
-                padding-left: em(25);
+        }
+        &__right {
+            width: 100%;
+            padding: 10px;
+            @include breakpoint($pc) {
+                width: 40%;
+                padding: 0px;
             }
-
-            &-heading h3{
-                font-size: em(17);
-                font-weight: 600;
-                line-height: 1.4;
-            } 
-            &-text p {
-                font-size: em(14);    
-                padding: em(10) 0 em(20);
+            @include breakpoint($tablet) {
+                display: flex;
+                flex-direction: row;
+                flex-wrap: wrap;
+                justify-content: space-between;
+                align-content: flex-start;
             }
-
-        }/* end of stack--stories */
-    } /* end of .section */
-}/* end of .section_page */
-
-/* styling for simple down arrow */
-.arrow-down {
-    height: 13px;
-    display: inline-block;
-    border-right: 1px solid $brand-primary;  
-}
-.arow-head {
-    display: inline-block;
-    width: 10px;
-    height: 10px;
-    border-right: 1px solid  $brand-primary;
-    border-top: 1px solid  $brand-primary;
-    margin-left: -10px;
-    margin-bottom: 1px;
-    transform: rotate(135deg);
+            &__row {
+                display: flex;
+                flex-direction: row;
+                flex-wrap: wrap;
+                justify-content: space-between;
+                align-items: flex-start;
+                align-content: flex-start;
+                margin-bottom: 25px;
+                @include breakpoint($tablet) {
+                    width: calc(50% - 10px);
+                }
+                @include breakpoint($pc) {
+                    width: 100%;
+                }
+                &__left {
+                    width: 100%;
+                    @include aspect-ratio (29, 16);
+                    @include breakpoint($pc) {
+                        width: 35%;
+                    }
+                }
+                &__right {
+                    &-heading {
+                        font-family: $sans;
+                        font-size: em(14);
+                        color: $dark-gray;
+                        font-weight: $regular2;
+                        line-height: em(24);
+                        overflow: hidden;
+                        display: -webkit-box;
+                        -webkit-line-clamp: 2;
+                        -webkit-box-orient: vertical;
+                        margin-top: 7px;
+                        @include breakpoint($pc) {
+                            margin-top: 0px;
+                        }
+                    }
+                    &-date {
+                        font-family: $sans;
+                        font-size: em(12);
+                        color: darken($light-gray, 20%);
+                        margin-top: 7px;
+                        font-weight: $regular2;
+                        span {
+                            &::after {
+                                content: " ";
+                                display: inline-block;
+                                width: 1px;
+                                height: 16px;
+                                top: 3px;
+                                left: 2px;
+                                position: relative;
+                                margin: 0px 5px;
+                                border-right: 1px solid #ddd;
+                            }
+                        }
+                    }
+                    @include breakpoint($pc) {
+                        width: calc(65% - 15px);
+                    }
+                }
+            }
+        }
+    }
+    &__bottom {
+        width: 100%;
+        margin: 20px 0px 20px 0px;
+        padding: 10px;
+        @include breakpoint($tablet) {
+            padding: 0px;
+        }
+        &__row-mar-fix {
+            display: flex;
+            flex-wrap: wrap;
+            flex-direction: column;
+            align-content: flex-start;
+            justify-content: flex-start;
+            @include breakpoint($tablet) {
+                flex-direction: row;
+                margin-left: 0px;
+                margin-right: 0px;
+            }
+            @include breakpoint($pc) {
+                flex-direction: row;
+                margin-left: -12px;
+                margin-right: -12px;
+            }
+        }
+        &__box {
+            margin-bottom: 20px;
+            margin-top: 20px;
+            width: 100%;
+            @include breakpoint($tablet) {
+                width: calc(50% - 24px);
+                margin-right: 12px;
+                margin-left: 12px;
+            }
+            @include breakpoint($pc) {
+                width: calc(25% - 24px);
+                margin-right: 12px;
+                margin-left: 12px;
+            }
+            &__img-container {
+                @include aspect-ratio (46, 25);
+            }
+            &__img-overlay {
+                h4 {
+                    font-family: $sans;
+                    font-size: em(14);
+                    color: $dark-gray;
+                    font-weight: $regular2;
+                    line-height: em(24);
+                    margin-top: 7px;
+                }
+            }
+        }
+    }
+    .load-more {
+        left: 50%;
+        margin: 0px 0px 20px 0px;
+        margin-left: -87px;
+        color: $light-blue;
+    }
+    .story-listing-loadmore {
+        display: flex;
+        width: 100%;
+        &__bottom-story-list {
+            @include breakpoint($pc) {
+                width: calc(60% - 25px);
+                margin-right: 25px;
+            }
+            .wrap {
+                display: flex;
+                flex-direction: row;
+                flex-wrap: wrap;
+                padding: 10px;
+                @include breakpoint($pc) {
+                    padding: 15px 0px;
+                }
+                .article_left {
+                    width: 100%;
+                    @include breakpoint($tablet) {
+                        width: 40%;
+                        margin-right: 25px;
+                    }
+                    @include breakpoint($pc) {
+                        width: 40%;
+                        margin-right: 25px;
+                    }
+                }
+                .article_right {
+                    width: 100%;
+                    margin: 0px;
+                    padding: 0px;
+                    @include breakpoint($tablet) {
+                        width: calc(60% - 25px);
+                    }
+                    @include breakpoint($pc) {
+                        width: calc(60% - 25px);
+                    }
+                    .article__title {
+                        font-family: $sans;
+                        font-size: em(18);
+                        color: $dark-gray;
+                        font-weight: $regular2;
+                        line-height: em(24);
+                        overflow: hidden;
+                        display: -webkit-box;
+                        -webkit-line-clamp: 2;
+                        -webkit-box-orient: vertical;
+                    }
+                    .date-story-list {
+                        font-family: $sans !important;
+                        font-size: em(14)!important;
+                        color: darken($light-gray, 20%)!important;
+                        margin-top: 15px;
+                        font-weight: $regular2;
+                        span {
+                            &::after {
+                                content: " ";
+                                display: inline-block;
+                                width: 1px;
+                                height: 16px;
+                                top: 3px;
+                                left: 2px;
+                                position: relative;
+                                margin: 0px 5px;
+                                border-right: 1px solid #ddd;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        &__bottom-story-list-rightads {
+            @include breakpoint($pc) {
+                width: 40%;
+            }
+        }
+        .load-clearfix {
+            display: block;
+        }
+    }
 }

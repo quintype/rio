@@ -129,7 +129,7 @@ class HomeController extends QuintypeController
         $params = [
           'story-group' => 'top',
           'section-id' => $sectionId,
-          'limit' => 8,
+          'limit' => 17,
           'fields' => $this->fields,
         ];
 

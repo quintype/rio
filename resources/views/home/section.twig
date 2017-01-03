@@ -1,80 +1,81 @@
-<div class="content"><!-- content open-->
-    <section>
-        <h3 class="line-title top-title">{{section['display-name']}}</h3>
-
-        {% for story in section_stories|slice(0,1)  %}
-            <div class="wrap">
-              <div class="section_left">
-                    <a href="/{{story['slug']}}">
-                        <div class="figcontainer">
-                        <h6 class="sectionname__display topdesk">{{story['sections'][0]['name']}}</h6>
-                          <div class="topcontentwrap">
-                            <div class="titletop_big">{{shorthead(story['headline'])}}</div>
-                            <div class="textbottom_left">
-                                {%  if story['metadata']['story-attributes']['partnerpublisher'][0] %}
-                                   <div class="imagesd">
-                                        <img src="{{  get_logo(story['metadata']['story-attributes']['partnerpublisher'][0], 'Logo' ) }}" />
-                                    </div>
-
-                                {% endif %}
-                                <span><h5 class="textbottom__article__name">{{story["author-name"]}}</h5></span>
-                            </div> <!-- textbottom close -->
-
-                            <div class="sourcetop_left">{{ story["hero-image-attribution"] | raw}}</div>
-                           </div>
-
-                            <figure>
-                                <img src="{{focusedImageUrl(story['hero-image-s3-key'],config['image-cdn'], [16,9], story['hero-image-metadata'],{w:700} )}}" />
-                            </figure>
-
-                        </div>
+<div class="content">
+    <div class="layout-template">
+        <div class="layout-template__top">
+        <h1>{{section['display-name']}}</h1>
+            <div class="layout-template__top__left">
+                <div class="layout-template__top__left__img-container">
+                    
+                    <a href="/{{section_stories[0]['slug']}}">
+                        <figure>
+                            <img src="{{focusedImageUrl(section_stories[0]['hero-image-s3-key'],config['image-cdn'], [23, 11], section_stories[0]['hero-image-metadata'],{w:700} )}}" />
+                        </figure>
                     </a>
                 </div>
-
-            {% endfor %}
-            <div class="section_right"`>
-                <div class="wrap nomar">
-                    {% for story in section_stories|slice(1,1)  %}
+                <div class="layout-template__top__left__summary">
+                    <h3> <a href="/{{section_stories[0]['slug']}}">{{shorthead(section_stories[0]['headline'])}}</a></h3>
+                    <p>{{section_stories[0]['summary']}}</p>
+                    <p class="layout-template__top__left-date">
+                        <span>{{section_stories[0]['author-name']}}</span>{% set timestamp = (section_stories[0]["first-published-at"] / 1000) | round(0, 'floor') %} {{timestamp|date('M j, Y')}}
+                    </p>
+                </div>
+            </div>
+            <div class="layout-template__top__right">
+                {% for story in section_stories|slice(1,4) %}
+                <div class="layout-template__top__right__row">
+                    <div class="layout-template__top__right__row__left">
                         <a href="/{{story['slug']}}">
-
-                                <div class="figcontainer">
-
-                                    <figure>
-                                        <img src="{{focusedImageUrl(story['hero-image-s3-key'],config['image-cdn'], [16,9], story['hero-image-metadata'],{w:400} )}}" />
-                                    </figure>
-                                    <div class="sourcefrom">{{ story["hero-image-attribution"] | raw }}</div>
-                                </div>
-
-                                <div class="textwrap">
-
-                                        <div class="article__title">
-                                            {{shorthead(story['headline'])}}
-                                        </div>
-
-                                    <div class="article__desciption mobshow ">
-                                       {{ story["subheadline"] | striptags | slice(0,100) | raw  }}
-                                    </div></div><!-- textwrap close -->
-                                   {% include "story/byline" %}
-
+                            <figure>
+                                <img src="{{focusedImageUrl(story['hero-image-s3-key'],config['image-cdn'], [29, 16], story['hero-image-metadata'],{w:300} )}}" />
+                            </figure>
                         </a>
-
+                    </div>
+                    <div class="layout-template__top__right__row__right">
+                        <h3 class="layout-template__top__right__row__right-heading">
+                            <a href="/{{story['slug']}}">{{story['headline']}}</a>
+                        </h3>                
+                        <p class="layout-template__top__right__row__right-date">
+                         <span>{{story['author-name']}}</span>{% set timestamp = (story["first-published-at"] / 1000) | round(0, 'floor') %} {{timestamp|date('M j, Y')}}
+                        </p>
                     </div>
                 </div>
-
+                {% endfor %}
             </div>
-        {% endfor %}
-
-      <!--   <div class="section_center_ad" placeholder="Advertisement">  AD 300x250</div> -->
-
-<div class="sectionsleft" id="load-more-stories-target">
-  {% include "story/elements/stories_list" with {'stories': section_stories|slice(2,6)} %}
-</div>
-        <div class="sectionsright">
-<a  href="/section/inquiring-minds"><img class="podcast_img" src="{{ assetPath('main/inquiring-ad-300x250_360.png') }}" /></a>
         </div>
-    </section>
-  {% include "story/elements/loadmore" %}
+        <div class="layout-template__bottom">
+            <div class="layout-template__bottom__row-mar-fix">
+            {% for story in section_stories|slice(5,4) %}
+            <div class="layout-template__bottom__box">
+                <div class="layout-template__bottom__box__img-container">
+                    <a href="/{{story['slug']}}">
+                        <figure>
+                            <img src="{{focusedImageUrl(story['hero-image-s3-key'],config['image-cdn'], [46, 25], story['hero-image-metadata'],{w:350} )}}" />
+                        </figure>
+                    </a>
+                </div>
+                <div class="layout-template__bottom__box__img-overlay">
+                    <h4> <a href="/{{story['slug']}}">{{story['headline']}}</a></h4>
+                </div>
+            </div>
+            {% endfor %}
+            </div>
+        </div>
 
-    <script type="text/javascript">
-        qtReady.push(function() { app.loadMoreStories('#loadmore', '#load-more-stories-target', {{ params | json_encode | raw }}); })
-    </script>
+        <div class="story-listing-loadmore">
+            <div class="story-listing-loadmore__bottom-story-list">
+               <div id="load-more-stories-target" class="load-clearfix"> 
+                {% include "story/elements/stories_list" with {'stories': section_stories|slice(9)} %}
+               </div>
+                {% include "story/elements/loadmore" %}
+            </div>
+
+             
+            <div class="story-listing-loadmore__bottom-story-list-rightads"></div>
+        </div>
+    </div>
+</div>
+<!-- content -->
+<script type="text/javascript">
+qtReady.push(function() {
+    app.loadMoreStories('#loadmore', '#load-more-stories-target', {{params | json_encode | raw}});
+})
+</script>

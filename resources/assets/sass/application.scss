@@ -38,6 +38,9 @@
 @import "story/elements/elements_subtypes/blockquote";
 @import "story/elements/elements_subtypes/blurb";
 @import "story/elements/elements_subtypes/summary";
+
+@import "layout/section_page";
+
 //module
 @import "module/loader";
 main {
@@ -1063,7 +1066,7 @@ article {
     top: 57px;
      margin-right:0px;
     }
-       
+
     @include breakpoint($pc) {
         right: 1em;
     }
