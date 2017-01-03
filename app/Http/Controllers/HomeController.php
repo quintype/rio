@@ -85,7 +85,7 @@ class HomeController extends QuintypeController
         $story['cards'] = array_map($cardAttribute, $story['cards']);
         $photoStoryImages = [];
         if($story['story-template'] == 'photo') {
-           $story['photo-slider'] = $this->getPhotoStoryImages($story);
+           $photoStoryImages = $this->getPhotoStoryImages($story);
         }
 
         $page = ['type' => 'story'];
