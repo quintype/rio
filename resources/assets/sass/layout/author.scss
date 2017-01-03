@@ -48,11 +48,11 @@
                         margin: 0px 35px 0px 0px;
                     }
                     img {
-                        height: 140px;
+                        width: 140px;
                         height: 140px;
                         border-radius: 100%;
                         @include breakpoint($phone) {
-                            height: 120px;
+                            width: 120px;
                             height: 120px;
                         }
                     }
