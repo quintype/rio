@@ -20,7 +20,7 @@ function shortsummary($summary) {
 if (strlen($summary)>100){
 $description=substr($summary, 0, 100)."...";
 }
-else 
+else
 $description= $summary;
 
      return $description;
@@ -110,4 +110,13 @@ function get_logo($key,$p) {
         echo $s["$key"][0]["$p"];
     else
         echo "";
+}
+
+function menuBase($menuType)
+{
+    if ($menuType == 'section') {
+        return '/section/';
+    } else {
+        return '';
+    }
 }

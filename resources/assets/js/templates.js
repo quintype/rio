@@ -140,6 +140,15 @@ Twig.extendFunction("get_logo", function(key,param) {
         return data[key][0][param];
     }
 });
+
+Twig.extendFunction("menuBase", function(menuType) {
+    if (menuType == 'section') {
+        return '/section/';
+    } else {
+        return '';
+    }
+});
+
 Twig.extend(function (Twig) {
     Twig.Template.prototype.importFile = function (file) {
         var url, sub_template;

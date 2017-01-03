@@ -183,7 +183,8 @@ return [
             'get_logo',
             'shorthead',
             'shortsummary',
-            'decode64'
+            'decode64',
+            'menuBase'
         ],
 
         /*

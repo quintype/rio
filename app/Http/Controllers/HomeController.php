@@ -197,7 +197,7 @@ class HomeController extends QuintypeController
 
     public function tagsview(Request $request)
     {
-        $tag = $request->topic;
+        $tag = $request->tag;
         $params = [
           'story-group' => 'top',
           'tag' => $tag,
