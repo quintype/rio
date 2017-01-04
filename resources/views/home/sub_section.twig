@@ -55,7 +55,7 @@
        {% if section_stories|length > 4 %}
            <div class="bottom-stories">
                   <div class="sectionsleft" id="load-more-stories-target">
-                        {% include "story/elements/stories_list" with {'stories': section_stories | slice(4) } %}
+                        {% include "shared/stories_list" with {'stories': section_stories | slice(4) } %}
                   </div>
                   <div class="sections-right">
                       <div class="sections-add-right">

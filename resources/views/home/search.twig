@@ -1,11 +1,11 @@
 <div class="content"><!-- content open-->
-    <section>
-     <h3 class="line-title top-title">Search : {{term}}</h3>
-     <div class="sectionsleft" id="load-more-search-stories-target">
-        {% include "story/elements/stories_list" with {'stories': searchresults} %}
+  <section>
+    <h3 class="line-title top-title">Search : {{term}}</h3>
+    <div class="sectionsleft" id="load-more-search-stories-target">
+      {% include "shared/stories_list" with {'stories': searchresults} %}
     </div>
-    </section>
-    {% set resultsLength = searchresults|length %}
+  </section>
+  {% set resultsLength = searchresults|length %}
 {% if resultsLength == 7  %}
     {% include "story/elements/loadmore" %}
 {% endif %}

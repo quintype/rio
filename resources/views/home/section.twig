@@ -4,7 +4,7 @@
         <h1>{{section['display-name']}}</h1>
             <div class="layout-template__top__left">
                 <div class="layout-template__top__left__img-container">
-                    
+
                     <a href="/{{section_stories[0]['slug']}}">
                         <figure>
                             <img src="{{focusedImageUrl(section_stories[0]['hero-image-s3-key'],config['image-cdn'], [23, 11], section_stories[0]['hero-image-metadata'],{w:700} )}}" />
@@ -32,7 +32,7 @@
                     <div class="layout-template__top__right__row__right">
                         <h3 class="layout-template__top__right__row__right-heading">
                             <a href="/{{story['slug']}}">{{story['headline']}}</a>
-                        </h3>                
+                        </h3>
                         <p class="layout-template__top__right__row__right-date">
                          <a href="/author/{{story['author-id']}}"><span>{{story['author-name']}}</span></a>{% set timestamp = (story["first-published-at"] / 1000) | round(0, 'floor') %} {{timestamp|date('M j, Y')}}
                         </p>
@@ -62,13 +62,13 @@
 
         <div class="story-listing-loadmore">
             <div class="story-listing-loadmore__bottom-story-list">
-               <div id="load-more-stories-target" class="load-clearfix"> 
-                {% include "story/elements/stories_list" with {'stories': section_stories|slice(9)} %}
+               <div id="load-more-stories-target" class="load-clearfix">
+                {% include "shared/stories_list" with {'stories': section_stories|slice(9)} %}
                </div>
                 {% include "story/elements/loadmore" %}
             </div>
 
-             
+
             <div class="story-listing-loadmore__bottom-story-list-rightads"></div>
         </div>
     </div>

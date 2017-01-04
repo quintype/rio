@@ -10,10 +10,24 @@ global.transformTemplates = function (x) {
     })
 };
 
-require("../../../resources/views/story/elements/socialshare.twig");
+//story
+require("../../../resources/views/story/header-card.twig");
+require("../../../resources/views/story/cards.twig");
 require("../../../resources/views/story/card.twig");
-require("../../../resources/views/story/story_tags.twig");
+require("../../../resources/views/story/tags.twig");
 require("../../../resources/views/story/byline.twig");
+require("../../../resources/views/story/ads.twig");
+//templates
+require("../../../resources/views/story/templates/photo.twig");
+require("../../../resources/views/story/templates/video.twig");
+require("../../../resources/views/story/templates/recipe.twig");
+require("../../../resources/views/story/templates/default.twig");
+
+//shared
+require("../../../resources/views/shared/socialshare.twig");
+
+//elements
+require("../../../resources/views/story/elements/composite.twig");
 require("../../../resources/views/story/elements/text.twig");
 require("../../../resources/views/story/elements/youtube-video.twig");
 require("../../../resources/views/story/elements/jsembed.twig");
@@ -21,13 +35,19 @@ require("../../../resources/views/story/elements/image.twig");
 require("../../../resources/views/story/elements/slideshow.twig");
 require("../../../resources/views/story/elements/gallery.twig");
 require("../../../resources/views/story/elements/soundcloud-audio.twig");
+require("../../../resources/views/story/elements/polltype.twig");
+require("../../../resources/views/story/elements/references.twig");
+require("../../../resources/views/story/elements/title.twig");
+require("../../../resources/views/story/elements/external-file.twig");
+
+//element subtypes
 require("../../../resources/views/story/elements/elements_subtypes/bigfact.twig");
 require("../../../resources/views/story/elements/elements_subtypes/blockquote.twig");
 require("../../../resources/views/story/elements/elements_subtypes/blurb.twig");
+require("../../../resources/views/story/elements/elements_subtypes/jwplayer.twig");
 require("../../../resources/views/story/elements/elements_subtypes/q-and-a.twig");
 require("../../../resources/views/story/elements/elements_subtypes/quote.twig");
 require("../../../resources/views/story/elements/elements_subtypes/summary.twig");
-
 
 var TEMPLATES = {
     "home_body": require("../../../resources/views/home/body.twig"),
@@ -67,6 +87,9 @@ Twig.extendFunction("decode64", function(string) {
    return atob(string);
 });
 
+Twig.extendFunction("url", function(string) {
+   return window.location.origin + string;
+});
 
 Twig.extendFunction("get_logo", function(key,param) {
   var data =  {"Atlantic":

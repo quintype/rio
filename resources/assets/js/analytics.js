@@ -1,5 +1,4 @@
 var _ = require("lodash");
-require('./jquery.inview');
 
 function setup() {
   $('.story-view').bind('inview', trackStory);
