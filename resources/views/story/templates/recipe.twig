@@ -62,7 +62,7 @@
                 </div>
             {% endfor %}
 
-            <!-- <div class="story-template__story-rate-recipe-section">
+            <div class="story-template__story-rate-recipe-section">
                 <div class="story-template__story-rate-recipe-section__tab">
                     <ul class="tabs">
                         <li class="tab-item tab-item--active"><a href="javascript:void(0)">Rate This Recipe</a></li>
@@ -72,27 +72,55 @@
                     <div class="story-template__story-rate-recipe-section__tab-content__imagebox">
                         <img src="http://placehold.it/100x100">
                     </div>
-                    <div class="story-template__story-rate-recipe-section__tab-content__ratenow">
+                    <div class="story-template__story-rate-recipe-section__tab-content__ratenow js-rating-widget">
                         <p><span>3 People</span> Rated This Recepie</p>
-                        <span class="unrated-stars">
-                        <span class="star star-rated">★</span>
-                        <span class="star">★</span>
-                        <span class="star">★</span>
-                        <span class="star">★</span>
-                        <span class="star">★</span>
+                        <span class="unrated-stars" id="rating">
+                        <span data-rating="1" class="star">★</span>
+                        <span data-rating="2" class="star">★</span>
+                        <span data-rating="3" class="star">★</span>
+                        <span data-rating="4" class="star">★</span>
+                        <span data-rating="5" class="star">★</span>
                         </span>
                     </div>
                     <div class="story-template__story-rate-recipe-section__tab-content__already-rated">
                         <p>Average Rating</p>
                         <div class="rated-stars">
                             <span class="star-percentage">★★★★★</span>
-                            <span class="star-percentage star-percentage-rated" style="width:70%;">★★★★★</span>
+                            <span class="star-percentage star-percentage-rated" style="width:{{averageRating['average-percentage']}}%;">★★★★★</span>
                         </div>
-                        <span class="rated-value">3.7/5</span>
+                        <span class="rated-value">{{averageRating['average-value']}}</span>
                     </div>
                 </div>
-            </div> -->
+            </div>
         </div>
     </div>
 </div>
 <!-- content -->
+
+<script>
+    var token = '{{ csrf_token() }}';
+    var storyId = '{{storyData['story-content-id']}}';
+    $(".star").click(function(){
+        var rating = $(this).attr("data-rating");
+        this.ratingStars = document.querySelectorAll('#rating span');
+        for (var i = 0; i < rating ; i++) {
+          this.ratingStars[i].classList.add('star-rated');
+        }
+        $(".star").off("click");
+
+        $.ajax({
+         type: "POST",
+         url: "/api/stories/"+storyId+"/votes",
+         data: {'magnitude': rating, '_token': token },
+         success: function (data) {
+           console.log(data);
+         },
+         error: function (data) {
+           console.log('Error:', data);
+         }
+       });
+        // $.post("/api/stories/"+storyId+"/votes", {'magnitude': rating, '_token': token });
+
+
+    });
+</script>

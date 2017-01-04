@@ -87,7 +87,7 @@ class HomeController extends QuintypeController
         if($story['story-template'] == 'photo') {
            $photoStoryImages = $this->getPhotoStoryImages($story);
         }
-
+        $averageRating = array("average-value" => 4.2, "average-percentage" => 84) ;
         $page = ['type' => 'story'];
         $setSeo = $this->seo->story($page['type'], $story);
         $this->meta->set($setSeo->prepareTags());
@@ -98,9 +98,10 @@ class HomeController extends QuintypeController
           'photoStoryImages' => $photoStoryImages,
           'otherAuthor' => $otherAuthor,
           'authorDetails' => $authorDetails,
+          'averageRating' => $averageRating,
           'page' => $page,
           'meta' => $this->meta,
-          'sectionNames' =>$sectionNames
+          'sectionNames' => $sectionNames
         ]));
 
     }

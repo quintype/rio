@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Response;
 use Illuminate\Routing\Controller as BaseController;
 
 class ProxyController extends BaseController
