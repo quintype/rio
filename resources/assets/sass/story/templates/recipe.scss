@@ -1,0 +1,339 @@
+.icon-space {
+    content: " ";
+    display: block;
+    width: 60px;
+    height: 40px;
+    float: left;
+}
+
+.story-template {
+    &__story {
+        &-head {
+            margin-top: 30px;
+            margin-bottom: 30px;
+            p {
+                font-size: $fontsize-small;
+                font-family: $sans;
+                font-weight: $regular;
+                text-align: center;
+                color: $dark-gray;
+                span {
+                    color: $black;
+                    font-weight: $bold;
+                }
+            }
+            h1 {
+                font-family: $merri;
+                font-size: $fontsize-largest;
+                text-align: center;
+                color: $black;
+            }
+        }
+    }
+    &__story-head__author {
+        display: flex;
+        width: 70%;
+        margin: 0 auto;
+        justify-content: flex-start;
+        align-items: center;
+        @include breakpoint($pc) {
+            width: 25%;
+            margin-left: 25%;
+            border-right: 1px solid $light-gray;
+        }
+        .author-pic {
+            width: 4em;
+            height: 4em;
+            margin-right: 10px;
+            img {
+                width: 100%;
+                height: 100%;
+                border-radius: 100%;
+            }
+        }
+        .author-box {
+            &__name {
+                font-size: $fontsize-small;
+                font-family: $sans;
+                font-weight: $regular;
+                color: $dark-gray;
+                text-align: left;
+            }
+            &_detail {
+                font-size: $fontsize-smaller;
+                font-family: $sans;
+                font-weight: $regular;
+                color: $black;
+                text-align: left;
+                &:before {
+                    content: " ";
+                    display: block;
+                    background: transparent url(calendar-icon.png) no-repeat center center;
+                    width: 14px;
+                    height: 16px;
+                    float: left;
+                    margin-right: 6px;
+                }
+            }
+        }
+    }
+    &__story-headimage {
+        img {
+            width: 100%;
+            max-height: 500px;
+            height: auto;
+            object-fit: cover;
+        }
+    }
+    &__story-recipe-preparation-box {
+        border-top: 1px solid $orange;
+        border-bottom: 1px solid $orange;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        margin-top: 15px;
+        margin-bottom: 15px;
+        ul {
+            list-style: none;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            @include breakpoint($tablet) {
+                display: flex;
+                flex-direction: row;
+            }
+            @include breakpoint($pc) {
+                display: flex;
+                flex-direction: row;
+            }
+            li {
+                margin: 7px 0px;
+                color: $dark-gray;
+                width: 50%;
+                font-style: italic;
+                font-size: em(14);
+                &:nth-child(1),
+                &:nth-child(3) {
+                    border-right: 1px solid $orange;
+                    border-left: 0px;
+                }
+                @include breakpoint($tablet) {
+                    width: 50%;
+                }
+                @include breakpoint($pc) {
+                    width: 25%;
+                    margin: 0;
+                    padding: 7px 0px;
+                    border-right: 0px solid transparent!important;
+                    &:nth-child(2),
+                    &:nth-child(3),
+                    &:nth-child(4) {
+                        border-left: 1px solid $light-gray;
+                    }
+                }
+                span {
+                    color: $orange;
+                    font-style: normal;
+                }
+                &:nth-child(1) {
+                    &:before {
+                        @extend .icon-space;
+                        background: transparent url(preparation-icon.svg) no-repeat center center;
+                    }
+                }
+                &:nth-child(2) {
+                    &:before {
+                        @extend .icon-space;
+                        background: transparent url(cook-icon.svg) no-repeat center center;
+                    }
+                }
+                &:nth-child(3) {
+                    &:before {
+                        @extend .icon-space;
+                        background: transparent url(serve-icon.svg) no-repeat center center;
+                    }
+                }
+                &:nth-child(4) {
+                    &:before {
+                        @extend .icon-space;
+                        background: transparent url(difficulty-icon.svg) no-repeat center center;
+                    }
+                }
+            }
+        }
+    }
+    &__story-content-story-section {
+        margin-top: 10px;
+        &__left {
+            padding: 0px 10px;
+            margin-bottom: 20px;
+            @include breakpoint($pc) {
+                float: left;
+                width: 30%;
+            }
+            ul {
+                font-size: fontsize-small;
+                text-align: left;
+                padding-right: 20px;
+                color: $black;
+                font-weight: $bold;
+                line-height: em(30);
+                @include breakpoint($pc) {
+                    text-align: right;
+                }
+                li {
+                    font-weight: $regular;
+                    color: $dark-gray;
+                    font-style: italic;
+                }
+            }
+        }
+        &__right {
+            padding: 0px 10px;
+            margin-bottom: 20px;
+            @include breakpoint($pc) {
+                float: left;
+                width: 70%;
+                padding-left: 30px;
+                border-left: 1px solid $light-gray;
+            }
+            p {
+                font-size: fontsize-small;
+                color: $black;
+                font-weight: $bold;
+                margin-bottom: 15px;
+                line-height: em(25) &:last-child {
+                    margin-bottom: 0px;
+                }
+            }
+        }
+    }
+    &__story-rate-recipe-section {
+        &__tab {
+            @include breakpoint($pc) {
+                margin-bottom: 10px;
+            }
+            ul.tabs {
+                list-style: none;
+                display: flex;
+                width: 100%;
+                border-bottom: 1px solid orange;
+                li.tab-item {
+                    display: inline-flex;
+                    &:before {
+                        content: ' ';
+                        display: block;
+                        width: 10px;
+                    }
+                    a {
+                        font-size: em(13);
+                        color: $black;
+                        text-transform: uppercase;
+                        background-color: $light-gray;
+                        border-left: 1px solid darken($light-gray, 10%);
+                        border-right: 1px solid darken($light-gray, 10%);
+                        border-top: 1px solid darken($light-gray, 10%);
+                        border-bottom: 0px solid darken($light-gray, 10%);
+                        padding: 14px 13px;
+                        &:hover,
+                        &:focus,
+                        &:active {
+                            background-color: $light-gray;
+                        }
+                    }
+                }
+                li.tab-item--active {
+                    a {
+                        color: $black;
+                        background-color: $white;
+                        border: 1px solid #light-gray;
+                        border-left: 1px solid $orange;
+                        border-right: 1px solid $orange;
+                        border-top: 1px solid $orange;
+                        border-bottom: 1px solid $white;
+                        position: relative;
+                        bottom: -1px;
+                        &:hover,
+                        &:focus,
+                        &:active {
+                            background-color: $white;
+                        }
+                    }
+                }
+            }
+        }
+        &__tab-content {
+            display: flex;
+            flex-direction: column;
+            flex-wrap: wrap;
+            padding: 15px;
+            align-items: left;
+            @include breakpoint($pc) {
+                flex-direction: row;
+                align-items: center;
+            }
+            &__imagebox {
+                @include breakpoint($pc) {
+                    padding-right: 30px;
+                }
+                img {
+                    width: 76px;
+                    height: 76px;
+                    border-radius: 100%;
+                }
+            }
+            &__ratenow {
+                @include breakpoint($pc) {
+                    padding-right: 150px;
+                }
+                p {
+                    font-size: em(14);
+                    span {
+                        color: $orange;
+                        font-style: italic;
+                    }
+                }
+                .unrated-stars {
+                    display: flex;
+                    width: 75px;
+                    .star {
+                        font-size: em(14);
+                        color: $light-gray;
+                    }
+                    .star-rated {
+                        color: $gold;
+                    }
+                }
+            }
+            &__already-rated {
+                height: 50px;
+                p {
+                    font-size: em(14);
+                }
+                .rated-stars {
+                    position: relative;
+                    width: 75px;
+                    display: block;
+                    .star-percentage {
+                        position: absolute;
+                        float: left;
+                        color: $light-gray;
+                        width: 100%;
+                        font-size: em(14);
+                        overflow: hidden;
+                    }
+                    .star-percentage-rated {
+                        color: $gold;
+                        overflow: hidden;
+                    }
+                }
+                .rated-value {
+                    font-size: em(12);
+                    padding-left: 78px;
+                    position: absolute;
+                    padding-top: 2px;
+                }
+            }
+        }
+    }
+}

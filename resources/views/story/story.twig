@@ -3,30 +3,32 @@
     {% include "/story/templates/photo" %}
   {% elseif storyData['story-template'] == 'video' %}
     {% include "story/templates/video" with {'storyCards': storyData['cards']} %}
+  {% elseif storyData['story-template'] == 'recipe'  %}
+    {% include "story/templates/recipe" %}
   {% else %}
-  <div class="story-header">
-    <div class="story-header__hero-image">
-      <figure>
-        <img src="{{focusedImageUrl(storyData['hero-image-s3-key'],config['image-cdn'], [16,9], storyData['hero-image-metadata'], {w: 1000})}}" class="story-img"/>
-        {% if storyData['hero-image-caption'] %}
-        <figcaption>{{storyData['hero-image-caption'] | raw}}</figcaption>
-        {% endif %}
-      </figure>
-      <div class="sourcefrom">
-        {{ storyData["hero-image-attribution"] | raw }}
+    <div class="story-header">
+      <div class="story-header__hero-image">
+        <figure>
+          <img src="{{focusedImageUrl(storyData['hero-image-s3-key'],config['image-cdn'], [16,9], storyData['hero-image-metadata'], {w: 1000})}}" class="story-img"/>
+          {% if storyData['hero-image-caption'] %}
+          <figcaption>{{storyData['hero-image-caption'] | raw}}</figcaption>
+          {% endif %}
+        </figure>
+        <div class="sourcefrom">
+          {{ storyData["hero-image-attribution"] | raw }}
+        </div>
       </div>
+      {% include "story/header-card" %}
     </div>
-    {% include "story/header-card" %}
-  </div>
-  <div class="story-body">
-    {% include "story/cards" with {'storyCards': storyData['cards']} %}
-    {% include "story/tags" with {'storyTags': storyData['tags']} %}
-    {% include "story/ads" %}
-  </div>
+    <div class="story-body">
+      {% include "story/cards" with {'storyCards': storyData['cards']} %}
+      {% include "story/tags" with {'storyTags': storyData['tags']} %}
+      {% include "story/ads" %}
+    </div>
   {% endif %}
+</div>
 <script>
   qtReady.push(function() {
     app.infiniteScroll.infiniteScroll();
   })
 </script>
-</div>

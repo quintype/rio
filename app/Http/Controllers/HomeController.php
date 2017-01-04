@@ -54,13 +54,15 @@ class HomeController extends QuintypeController
     {
         $story = $this->client->storyBySlug(['slug' => $slug]);
         $this->client->executeBulk();
-        $finalauthor = array();
+
+        $sectionNames = $this->getSectionNames($story);
+        $otherAuthor = array();
         for ($kk = 0; $kk < sizeof($story['authors']); ++$kk) {
             $author_data = $this->client->getAuthor($story['authors'][$kk]['id']);
             $authorbio = strip_tags($author_data['bio']);
-            array_push($finalauthor, $author_data);
+            array_push($otherAuthor, $author_data);
         }
-
+        $authorDetails = $this->client->getAuthor($story['author-id']);
         $cardAttribute = function ($card) {
             if (array_key_exists('metadata', $card) &&
                 array_key_exists('attributes', $card['metadata']) &&
@@ -80,15 +82,19 @@ class HomeController extends QuintypeController
         };
 
         $story['cards'] = array_map($cardAttribute, $story['cards']);
+
         $page = ['type' => 'story'];
         $setSeo = $this->seo->story($page['type'], $story);
         $this->meta->set($setSeo->prepareTags());
+
         return view('story', $this->toView([
           'storyData' => $story,
           'photoStoryImages' => $this->getPhotoStoryImages($story),
-          'authordata' => $finalauthor,
+          'otherAuthor' => $otherAuthor,
+          'authorDetails' => $authorDetails,
           'page' => $page,
           'meta' => $this->meta,
+          'sectionNames' =>$sectionNames
         ]));
 
     }
@@ -122,7 +128,7 @@ class HomeController extends QuintypeController
         $params = [
           'story-group' => 'top',
           'section-id' => $sectionId,
-          'limit' => 8,
+          'limit' => 17,
           'fields' => $this->fields,
         ];
 
@@ -133,6 +139,9 @@ class HomeController extends QuintypeController
         $setSeo = $this->seo->section($page['type'], $sectionName, $sectionId);
         $this->meta->set($setSeo->prepareTags());
 
+        if(sizeof($stories)<1){
+          return view('noresults',$this->toView([]));
+        }
         if ($subSectionSlug != '') {
             return view('sub_section', $this->toView([
             'subSection' => $subSection,
@@ -181,7 +190,7 @@ class HomeController extends QuintypeController
 
     public function tagsview(Request $request)
     {
-        $tag = $request->topic;
+        $tag = $request->tag;
         $params = [
           'story-group' => 'top',
           'tag' => $tag,
@@ -254,7 +263,6 @@ class HomeController extends QuintypeController
         $page = ['type' => 'author'];
         $setSeo = $this->seo->staticPage($authorDetails['name']);
         $this->meta->set($setSeo->prepareTags());
-
         return view('author', $this->toView([
           'authorDetails' => $authorDetails,
           'authorStories' => $authorStories,
@@ -284,4 +292,23 @@ class HomeController extends QuintypeController
          return $photoArray;
      }
 
+    public function getSectionNames($story)
+    {
+        $sectionNameArray = array();
+        $sectionNameLastArray = array();
+          if ($story['story-template'] == 'recipe') {
+            foreach ($story['sections'] as $key => $section) {
+              array_push($sectionNameArray, $section['display-name']);
+            }
+            if (sizeof($story['sections']) == 1) {
+              $sectionNames = $sectionNameArray[0];
+            } elseif (sizeof($story['sections']) == 2) {
+              $sectionNames = implode(" and ", $sectionNameArray);
+            } else {
+              $sectionNameLastArray = array_pop($sectionNameArray);
+              $sectionNames = implode(", ", $sectionNameArray). " and ". $sectionNameLastArray;
+            }
+         return $sectionNames;
+        }
+     }
 }

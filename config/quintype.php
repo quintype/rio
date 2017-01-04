@@ -3,7 +3,7 @@
 return [
   "publisher-name" => "rio",
   "asset-host" => "http://localhost:8000",
-  "api-host" => "http://demo-rio-web.staging.quintype.io",
-  "image-cdn" => "http://qt-staging-01.imgix.net",
+  "api-host" => "http://sketches.quintype.com",
+  "image-cdn" => "https://images.assettype.com",
   "title" => "Quintype demo"
 ];

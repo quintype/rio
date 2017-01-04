@@ -38,6 +38,10 @@
 @import "story/elements/elements_subtypes/blockquote";
 @import "story/elements/elements_subtypes/blurb";
 @import "story/elements/elements_subtypes/summary";
+@import "story/templates/recipe";
+
+@import "layout/section_page";
+@import "layout/author";
 //module
 @import "module/loader";
 main {
@@ -1048,24 +1052,23 @@ article {
     max-width: em(350);
     margin-right: 10%;
     z-index: 99;
-
     @include breakpoint($phone) {
-         left: auto;
-         z-index: $zIndex-10;
-    right: 0px;
-    top: 57px;
-    margin-right:0px;
+        left: auto;
+        z-index: $zIndex-10;
+        right: 0px;
+        top: 57px;
+        margin-right: 0px;
     }
     @include breakpoint($only-phone-tablets) {
-       left: auto;
+        left: auto;
         z-index: $zIndex-10;
-    right: 0px;
-    top: 57px;
-     margin-right:0px;
+        right: 0px;
+        top: 57px;
+        margin-right: 0px;
     }
-       
     @include breakpoint($pc) {
-        right: 1em;
+        right: 3.3em;
+        top: 57px;
     }
     .layout-search {
         background-color: $white;

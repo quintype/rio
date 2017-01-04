@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "9c979420f0f9edcb6b1ea9ff94f4ea2a",
-    "content-hash": "4d2d584cfff5989631dfd59a4341ec5c",
+    "hash": "39d8e28480759204181cea6230eb175f",
+    "content-hash": "369019e3b8cb93c2ea1340a4de69f939",
     "packages": [
         {
             "name": "classpreloader/classpreloader",
@@ -1129,16 +1129,16 @@
         },
         {
             "name": "quintype/api",
-            "version": "1.4.3",
+            "version": "1.5.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/quintype/quintype-api-php.git",
-                "reference": "c030ac22d8534b39c1174736dae8bae2d616336e"
+                "reference": "6ac31ea7c64aa6c6ebf11bc95e8ef112b572b408"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/quintype/quintype-api-php/zipball/c030ac22d8534b39c1174736dae8bae2d616336e",
-                "reference": "c030ac22d8534b39c1174736dae8bae2d616336e",
+                "url": "https://api.github.com/repos/quintype/quintype-api-php/zipball/6ac31ea7c64aa6c6ebf11bc95e8ef112b572b408",
+                "reference": "6ac31ea7c64aa6c6ebf11bc95e8ef112b572b408",
                 "shasum": ""
             },
             "require": {
@@ -1151,7 +1151,7 @@
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
-            "time": "2016-12-20 11:32:16"
+            "time": "2016-12-31 09:50:53"
         },
         {
             "name": "quintype/meta",
@@ -1295,23 +1295,24 @@
         },
         {
             "name": "swiftmailer/swiftmailer",
-            "version": "v5.4.4",
+            "version": "v5.4.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/swiftmailer/swiftmailer.git",
-                "reference": "545ce9136690cea74f98f86fbb9c92dd9ab1a756"
+                "reference": "cd142238a339459b10da3d8234220963f392540c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/swiftmailer/swiftmailer/zipball/545ce9136690cea74f98f86fbb9c92dd9ab1a756",
-                "reference": "545ce9136690cea74f98f86fbb9c92dd9ab1a756",
+                "url": "https://api.github.com/repos/swiftmailer/swiftmailer/zipball/cd142238a339459b10da3d8234220963f392540c",
+                "reference": "cd142238a339459b10da3d8234220963f392540c",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.3.3"
             },
             "require-dev": {
-                "mockery/mockery": "~0.9.1"
+                "mockery/mockery": "~0.9.1",
+                "symfony/phpunit-bridge": "~3.2"
             },
             "type": "library",
             "extra": {
@@ -1344,7 +1345,7 @@
                 "mail",
                 "mailer"
             ],
-            "time": "2016-11-24 01:01:23"
+            "time": "2016-12-29 10:02:40"
         },
         {
             "name": "symfony/console",
