@@ -15,7 +15,7 @@
                     <h3> <a href="/{{section_stories[0]['slug']}}">{{shorthead(section_stories[0]['headline'])}}</a></h3>
                     <p>{{section_stories[0]['summary']}}</p>
                     <p class="layout-template__top__left-date">
-                        <span>{{section_stories[0]['author-name']}}</span>{% set timestamp = (section_stories[0]["first-published-at"] / 1000) | round(0, 'floor') %} {{timestamp|date('M j, Y')}}
+                        <a href="/author/{{section_stories[0]['author-id']}}"><span>{{section_stories[0]['author-name']}}</span></a>{% set timestamp = (section_stories[0]["first-published-at"] / 1000) | round(0, 'floor') %} {{timestamp|date('M j, Y')}}
                     </p>
                 </div>
             </div>
@@ -34,7 +34,7 @@
                             <a href="/{{story['slug']}}">{{story['headline']}}</a>
                         </h3>                
                         <p class="layout-template__top__right__row__right-date">
-                         <span>{{story['author-name']}}</span>{% set timestamp = (story["first-published-at"] / 1000) | round(0, 'floor') %} {{timestamp|date('M j, Y')}}
+                         <a href="/author/{{story['author-id']}}"><span>{{story['author-name']}}</span></a>{% set timestamp = (story["first-published-at"] / 1000) | round(0, 'floor') %} {{timestamp|date('M j, Y')}}
                         </p>
                     </div>
                 </div>

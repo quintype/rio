@@ -15,7 +15,7 @@
           <div class="article__title">{{shorthead(story['headline'])}}</div>
         </a>
         <div class="article__desciption">
-              <a href="/author/{{section_stories[0]['author-id']}}">
+              <a href="/author/{{story['author-id']}}">
                   by {{story['author-name']}}
               </a>
               <time>on {{ (story['first-published-at'] // 1000)|date('M d, Y')}}</time>
