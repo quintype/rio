@@ -15,7 +15,7 @@
 
             <span class="textbottom__article__name double">
                 {% for authornames in story["authors"] %}
-                    {{ authornames['name'] }}
+                    <a href="/author/{{authornames['author-id']}}">{{ authornames['name'] }}</a>
                     {% if (loop.index) == ((story["authors"] | length) - 1) %}
                         &
                     {% else %}
@@ -27,9 +27,11 @@
             </span>
 
         {% else %}
+            <a href="/author/{{story['author-id']}}">
             <span class="textbottom__article__name">
                 {{story["author-name"]}}
             </span>
+            </a>
             <span class="textbottom__article">
                 <time datetime="">
                     {% set timestamp = (story["first-published-at"] / 1000) | round(0, 'floor') %}{{timestamp|date('M j, Y')}}

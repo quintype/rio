@@ -33,7 +33,7 @@
                               {% if loop.index != (storyData["authors"] | length ) %} , {% endif %} {% endif %}
                           {% endfor %}
                           {% if storyData["authors"] is empty %}
-                              {{ storyData["author-name"] }}
+                              <a href="/author/{{storyData['author-id']}}">{{ storyData["author-name"] }}</a>
                           {% endif %}
                           </span>
                           {% if storyData["first-published-at"] %}
