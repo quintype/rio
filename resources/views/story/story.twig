@@ -6,29 +6,14 @@
   {% elseif storyData['story-template'] == 'recipe'  %}
     {% include "story/templates/recipe" %}
   {% else %}
-    <div class="story-header">
-      <div class="story-header__hero-image">
-        <figure>
-          <img src="{{focusedImageUrl(storyData['hero-image-s3-key'],config['image-cdn'], [16,9], storyData['hero-image-metadata'], {w: 1000})}}" class="story-img"/>
-          {% if storyData['hero-image-caption'] %}
-          <figcaption>{{storyData['hero-image-caption'] | raw}}</figcaption>
-          {% endif %}
-        </figure>
-        <div class="sourcefrom">
-          {{ storyData["hero-image-attribution"] | raw }}
-        </div>
-      </div>
-      {% include "story/header-card" %}
-    </div>
-    <div class="story-body">
-      {% include "story/cards" with {'storyCards': storyData['cards']} %}
-      {% include "story/tags" with {'storyTags': storyData['tags']} %}
-      {% include "story/ads" %}
-    </div>
+    {% include "story/templates/default" %}
   {% endif %}
 </div>
 <script>
   qtReady.push(function() {
+    app.videos.setupYoutubeVideo();
+    app.videos.loadYoutubeLibrary();
+    app.analytics.setup();
     app.infiniteScroll.infiniteScroll();
   })
 </script>

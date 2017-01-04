@@ -2,7 +2,7 @@
 <section>
     <h3 class="line-title top-title"> Tag: {{tag}} </h3>
     <div class="sectionsleft" id="load-more-tag-stories-target">
-      {% include "story/elements/stories_list" with {'stories': tagresults} %}
+      {% include "shared/stories_list" with {'stories': tagresults} %}
     </div>
 </section>
 {% set resultsLength = tagresults|length %}
