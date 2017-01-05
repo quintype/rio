@@ -21,7 +21,6 @@ function loadYoutubeLibrary() {
 
 function setupYoutubeVideo() {
   $('[data-youtube-id]').each(function(i, el) {
-    console.log('here')
     var $el = $(el),
         videoId = $el.data('youtubeId'),
         player = {
