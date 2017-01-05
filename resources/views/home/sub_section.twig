@@ -8,7 +8,7 @@
                      <div class="lead-story-image-container">
                           <a href="/{{section_stories[0]['slug']}}">
                               <figure>
-                                  <img src="{{focusedImageUrl(section_stories[0]['hero-image-s3-key'] ,config['image-cdn'], [34,25], section_stories[0]['hero-image-metadata'],{w:550} )}}"/>
+                                  <img src="{{focusedImageUrl(section_stories[0]['hero-image-s3-key'] ,config['image-cdn'], [7,5], section_stories[0]['hero-image-metadata'],{w:550} )}}"/>
                               </figure>
                           </a>
                       </div>
@@ -50,24 +50,25 @@
                             </div>
                         </article>
                     {% endfor %}
-            </div>
+              </div>
         </div>
        {% if section_stories|length > 4 %}
-           <div class="bottom-stories">
-                  <div class="sectionsleft" id="load-more-stories-target">
-                        {% include "story/elements/stories_list" with {'stories': section_stories | slice(4) } %}
+        <div class="layout-template">
+           <div class="story-listing-loadmore">
+               <div class="story-listing-loadmore__bottom-story-list">
+                  <div id="load-more-stories-target" class="load-clearfix">
+                   {% include "story/elements/stories_list" with {'stories': section_stories|slice(9)} %}
                   </div>
-                  <div class="sections-right">
-                      <div class="sections-add-right">
-                          <img src="http://placehold.it/300x600">
-                      </div>
-                 </div>
+                   {% include "story/elements/loadmore" %}
+               </div>
+               <div class="story-listing-loadmore__bottom-story-list-rightads">
+                 <img src="http://placehold.it/300x600">
+               </div>
            </div>
+        </div>
       {% endif %}
     </section>
   </div>
-
-{% include "story/elements/loadmore" %}
 
 <script type="text/javascript">
     qtReady.push(function() {
