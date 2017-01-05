@@ -1,11 +1,13 @@
 {% for story in stories %}
   <div class="wrap">
-    <div class="article_list_left ">
+    <div class="article_left ">
       <a href="/{{story['slug']}}">
-        <figure>
-            <img src="{{focusedImageUrl(story['hero-image-s3-key'] ,config['image-cdn'], [9,5], story['hero-image-metadata'],{w:400} )}}" />
-        </figure>
-        <div class="sourcetop">{{ story['hero-image-attribution'] | raw }}</div>
+          <div class="figcontainer">
+              <figure>
+                  <img src="{{focusedImageUrl(story['hero-image-s3-key'] ,config['image-cdn'], [16,9], story['hero-image-metadata'],{w:400} )}}" />
+              </figure>
+              <div class="sourcetop">{{ story['hero-image-attribution'] | raw }}</div>
+          </div>
       </a>
     </div>
     <div class="article_right ">

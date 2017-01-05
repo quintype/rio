@@ -1,9 +1,3 @@
-.sub-section-page {
- @include breakpoint ($tablet) {
-   padding: 0 12px;
- }
-}
-
 .lead-story {
 position: relative;
 overflow: hidden;
@@ -121,4 +115,69 @@ padding: 0 12px;
      padding-bottom: 10px;
      border-bottom: 3px solid $dark-gray;
      margin-bottom: 20px;
+}
+
+.story-listing-loadmore {
+    display: flex;
+    width: 100%;
+    &__bottom-story-list {
+        @include breakpoint($pc) {
+            width: calc(60% - 25px);
+            margin-right: 25px;
+        }
+        .wrap {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            padding: 10px;
+            @include breakpoint($pc) {
+                padding: 15px 0px;
+            }
+            .article_left {
+                width: 100%;
+                @include breakpoint($tablet) {
+                    width: 40%;
+                    margin-right: 25px;
+                }
+                @include breakpoint($pc) {
+                    width: 40%;
+                    margin-right: 25px;
+                }
+            }
+            .article_right {
+                width: 100%;
+                margin: 0px;
+                padding: 0px;
+                @include breakpoint($tablet) {
+                    width: calc(60% - 25px);
+                }
+                @include breakpoint($pc) {
+                    width: calc(60% - 25px);
+                }
+                .article__title {
+                    font-family: $sans;
+                    font-size: em(18);
+                    color: $dark-gray;
+                    font-weight: $regular2;
+                    line-height: em(24);
+                    overflow: hidden;
+                    display: -webkit-box;
+                    -webkit-line-clamp: 2;
+                    -webkit-box-orient: vertical;
+                }
+            }
+        }
+    }
+    &__bottom-story-list-rightads {
+         display: none;
+         margin-top: em(20);
+         @include breakpoint($pc) {
+            display: block;
+            padding-left: em(80);
+            width: 40%;
+        }
+    }
+    .load-clearfix {
+        display: block;
+    }
 }
