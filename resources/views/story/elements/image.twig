@@ -2,6 +2,9 @@
   <figure>
      <img src="{{focusedImageUrl(dataElement['image-s3-key'],config['image-cdn'], [16,9], dataElement['image-metadata'], {w: 900})}}"/>
   </figure>
+  <div class="sourcefrom">
+    {{ dataElement["image-attribution"] | raw }}
+  </div>
   {% if dataElement['title'] %}
     <div class="story-element-image__caption">
        {{dataElement['title'] | raw}}

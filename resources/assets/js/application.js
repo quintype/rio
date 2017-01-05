@@ -52,4 +52,6 @@ $(document).ready(function(){
       pauseOnHover: true
   });
 
+  $( '.story-element-text a[href^="http://"]' ).attr( 'target','_blank' );  
+
 });
