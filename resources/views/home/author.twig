@@ -1,34 +1,32 @@
-<div class="content">
-    <div class="author-page">
-        <section class="author-page__image-section">
-            <div class="author-details">
-                <div class="author-image">
-                    {% if authorDetails['avatar-url'] %}
+<div class="author-page">
+    <section class="author-page__image-section">
+        <div class="author-details">
+            <div class="author-image">
+                {% if authorDetails['avatar-url'] %}
                     <figure>
-                        <img src="{{authorDetails['avatar-url']}}" />
+                        <img src="{{authorDetails['avatar-url']}}"/>
                     </figure>
-                    {% else %}
+                {% else %}
                     <figure>
-                        <img src="{{ assetPath('main/default_author.svg') }}" />
+                        <img src="{{ assetPath('main/default_author.svg') }}"/>
                     </figure>
-                    {% endif %}
-                </div>
-                <div class="author-name">
-                    <h2>{{authorDetails['name']}}</h2>
-                    <p>{{ authorDetails['bio'] }}</p>
-                </div>
+                {% endif %}
             </div>
-        </section>
-        <section class="author-page__stories-section">
-            <div class="author-stories">
-                {% include "shared/stories_list_horizontal" with {'stories': authorStories} %}
+            <div class="author-name">
+                <h2>{{authorDetails['name']}}</h2>
+                <p>{{ authorDetails['bio'] }}</p>
             </div>
-        </section>
-        {% include "story/elements/loadmore" %}
-    </div>
+        </div>
+    </section>
+    <section class="author-page__stories-section">
+        <div class="author-stories">
+            {% include "shared/stories_list_horizontal" with {'stories': authorStories} %}
+        </div>
+    </section>
+    {% include "story/elements/loadmore" %}
 </div>
 <script type="text/javascript">
-qtReady.push(function() {
-    app.loadMoreStories('#loadmore', '.author-stories', {{ params | json_encode | raw}}, 'search');
-})
+    qtReady.push(function() {
+        app.loadMoreStories('#loadmore', '.author-stories', {{ params | json_encode | raw}}, 'search');
+    })
 </script>

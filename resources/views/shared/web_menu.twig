@@ -1,0 +1,41 @@
+<div class="desktop-menu">
+  <ul class="desktop-menu__container">
+    {% for menuItem in client.menuItems(nestedMenuItems) | slice(0, 4) %}
+        {% set menuItemUrl = menuBase(menuItem.menuType()) ~ menuItem.url() %}
+        <li class="desktop-menu__item">
+            <a href="{{menuItemUrl}}">{{menuItem.title()}}</a>
+            {% if menuItem['children'] %}
+                <div class="desktop-submenu js-desktop-submenu">
+                    <div class="desktop-submenu__wrapper">
+                        <div class="desktop-submenu__content">
+                            <ul class="desktop-submenu__container">
+                                {% for submenu in client.menuItems(menuItem['children']) %}
+                                    {% set submenuUrl = menuBase(menuItem.menuType()) ~ menuItem.url() ~ "/" ~ submenu.url() %}
+                                    <li class="desktop-submenu__item js-desktop-submenu__item" data-section-id={{submenu['item-id']}}>
+                                        <a href="{{submenuUrl}}">{{submenu.title()}}</a>
+                                    </li>
+                                {% endfor %}
+                            </ul>
+                            <div class="submenu-stories-container js-submenu-stories-container"></div>
+                        </div>
+                    </div>
+                </div>
+            {% endif %}
+        </li>
+    {% endfor %}
+    <li class="desktop-menu__all-text js-menu">
+        All
+        <img src="{{ assetPath('icons/burger-menu.svg') }}">
+        <div class="menuitems">
+            <ul>
+                {% for menuItem in client.menuItems(nestedMenuItems) | slice(4) %}
+                    {% set menuItemUrl = menuBase(menuItem.menuType()) ~ menuItem.url() %}
+                    <li class="menuitems__item">
+                        <a href="{{menuItemUrl}}">{{menuItem.title()}}</a>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </li>
+</ul>
+</div>

@@ -1,0 +1,29 @@
+<div class="header__top-row">
+    <div class="content">
+        {% include "/shared/menu" %}        
+        {% include "/shared/search" %}
+        {% include "/shared/social_links" %}
+    </div>
+</div>
+{% if breaking_news %}
+    <div class="breaking-news">
+        <div class="content">
+            <div class="breaking-news__title">
+                <span class="breaking-news__title__text">Breaking News</span>
+            </div>
+            <div class="breaking-news__headlines js-breakingnews-marquee">
+                {% for breaking_story in breaking_news %}
+                    {% if breaking_story['metadata']['linked-story-slug'] %}
+                        <div class="breaking-news__headline">
+                            <a href="/{{breaking_story['metadata']['linked-story-slug']}}">{{breaking_story['headline'] | trim }}</a>
+                        </div>
+                    {% else %}
+                        <div class="breaking-news__headline">
+                            {{breaking_story['headline'] | trim }}
+                        </div>
+                    {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+{% endif %}
