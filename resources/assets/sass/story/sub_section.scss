@@ -52,7 +52,7 @@ padding: 0 12px;
 
 .lead-story-image-container {
    margin-bottom: em(20);
-   @include aspect-ratio(34,25);
+   @include aspect-ratio(7,5);
    @include breakpoint($pc) {
       float: left;
       @include span(first 6);
