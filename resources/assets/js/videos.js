@@ -11,13 +11,16 @@ function loadEagerPlayers($storyEl) {
 }
 
 function loadYoutubeLibrary() {
+  if (window.YT) {
+    loadEagerPlayers();
+  } else {
     window.onYouTubeIframeAPIReady = loadEagerPlayers;
     $("#youtube-iframe-api").append("<script src='https://www.youtube.com/iframe_api'></script>");
+  }
 }
 
 function setupYoutubeVideo() {
   $('[data-youtube-id]').each(function(i, el) {
-    console.log('here')
     var $el = $(el),
         videoId = $el.data('youtubeId'),
         player = {

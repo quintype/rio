@@ -1,0 +1,7 @@
+<div>
+{% for card in storyCards %}
+  <div class="card {{ card['metadata']['attributes']['alignment'][0] }}">
+    {% include "story/card" with {'storyElements': card['story-elements'] } %}
+  </div>
+{% endfor %}
+</div>

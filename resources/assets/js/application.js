@@ -1,6 +1,7 @@
 var Twig = require("twig");
     require("jquery.marquee");
     require("jquery");
+    require('./vendor/jquery.inview');
     require("slick");
 
 global.app = {
@@ -10,10 +11,11 @@ global.app = {
     loadMoreStories: require("./load_more"),
     subSectionStories: require("./sub_section_stories"),
     analytics: require("./analytics.js"),
-    videos: require("./videos.js")
+    videos: require("./videos.js"),
+    infiniteScroll: require("./infinite-scroll")
 };
 
-// require("./jquery.min");
+
 require("./responsiveslides.min");
 
 $(document).ready(function(){

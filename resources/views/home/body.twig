@@ -1,69 +1,59 @@
-<div class="content">
-    <!-- content open-->
-
-    <section class="top">
-        <!--  Section 2 open-->
-        <div class="leftcontainer">
-            {% for story in stories | slice(0, 1) %}
+<section class="top">
+    <div class="leftcontainer">
+        {% for story in stories | slice(0, 1) %}
+            <a href="{{story['slug']}}">
+                <div class="figcontainer">
+                    <h6 class="sectionname__display topdesk">{{story['sections'][0]['name']}}</h6>
+                    <div class="topcontentwrap">
+                        <h6 class="sectionname__display topmob">{{story['sections'][0]['name']}}</h6>
+                        <div class="titletop_big">{{ shorthead(story["headline"]) }}</div>
+                        <div class="textbottom_left">
+                            {% if story['metadata']['story-attributes']['partnerpublisher'][0] %}
+                                <div class="imagesd">
+                                    <img src="{{  get_logo(story['metadata']['story-attributes']['partnerpublisher'][0], 'Logo' ) }}"/>
+                                </div>
+                            {% endif %}
+                            <span>
+                                <h5 class="textbottom__article__name">
+                                    <a href="/author/{{story['author-id']}}">{{story["author-name"]}}</a>
+                                </h5>
+                            </span>
+                        </div>
+                        <div class="sourcetop_left">{{ story["hero-image-attribution"] | raw }}</div>
+                    </div>
+                    <div style="width:100%;">
+                        <figure id="hero_image">
+                            <a href="{{story['slug']}}">
+                                <img src="{{focusedImageUrl(story['hero-image-s3-key'], config['image-cdn'], [16,9], story['hero-image-metadata'],{w:700} )}}"/>
+                            </a>
+                        </figure>
+                    </div>
+                </div>
+            </a>
+        {% endfor %}
+    </div>
+    <div class="rightcontainer">
+        {% for story in stories | slice(1, 3) %}
+            <div class="rightitem">
                 <a href="{{story['slug']}}">
                     <div class="figcontainer">
-                        <h6 class="sectionname__display topdesk">{{story['sections'][0]['name']}}</h6>
-                        <div class="topcontentwrap">
-                            <h6 class="sectionname__display topmob">{{story['sections'][0]['name']}}</h6>
-                            <div class="titletop_big">{{ shorthead(story["headline"]) }}</div>
-                            <div class="textbottom_left">
-                                {% if story['metadata']['story-attributes']['partnerpublisher'][0] %}
-                                    <div class="imagesd">
-                                        <img src="{{  get_logo(story['metadata']['story-attributes']['partnerpublisher'][0], 'Logo' ) }}"/>
-                                    </div>
-                                {% endif %}
-                                <span>
-                                    <h5 class="textbottom__article__name"><a href="/author/{{story['author-id']}}">{{story["author-name"]}}</a></h5>
-                                </span>
-                            </div>
-                            <div class="sourcetop_left">{{ story["hero-image-attribution"] | raw }}</div>
-                        </div>
-                        <div style="width:100%;">
-                            <figure id="hero_image">
-                                <a href="{{story['slug']}}">
-                                    <img src="{{focusedImageUrl(story['hero-image-s3-key'], config['image-cdn'], [16,9], story['hero-image-metadata'],{w:700} )}}"/>
-                                </a>
-                            </figure>
-                        </div>
+                        <h6 class="sectionname__display">{{story['sections'][0]['name']}}</h6>
+                        <div class="titletop_small">{{ shorthead(story["headline"]) }}</div>
+                        <div class="sourcetop">{{ story["hero-image-attribution"] | raw}}</div>
+                        <figure>
+                            <img src="{{focusedImageUrl(story['hero-image-s3-key'], config['image-cdn'], [16,9], story['hero-image-metadata'],{w:300})}}"/>
+                        </figure>
                     </div>
                 </a>
-            {% endfor %}
-        </div>
-        <!--  Left Container close-->
-        <div class="rightcontainer">
-            {% for story in stories | slice(1, 3) %}
-                <div class="rightitem">
-                    <a href="{{story['slug']}}">
-                        <div class="figcontainer">
-                            <h6 class="sectionname__display">{{story['sections'][0]['name']}}</h6>
-                            <div class="titletop_small">{{ shorthead(story["headline"]) }}</div>
-                            <div class="sourcetop">{{ story["hero-image-attribution"] | raw}}</div>
-                            <figure>
-                                <img src="{{focusedImageUrl(story['hero-image-s3-key'], config['image-cdn'], [16,9], story['hero-image-metadata'],{w:300})}}"/>
+            </div>
+        {% endfor %}
+    </div>
+</section>
 
-                            </figure>
-                        </div>
-                    </a>
-                </div>
-            {% endfor %}
-
-        </div>
-        <!--  Right Container close-->
-
-    </section>
-    <!--  Section 1 close-->
-
-    <section>
-        <!--  Section 2 open-->
-        <div class="gallery-fix-div">
+<section>
+    <div class="gallery-fix-div">
         {% for story in stories | slice(4, 3) %}
             <article>
-                <!--  Article1 open-->
                 <div class="wrap border">
                     <div class="figcontainer">
                         <h6 class="sectionname__display">{{story['sections'][0]['name']}}</h6>
@@ -72,43 +62,36 @@
                                 <img src="{{focusedImageUrl(story['hero-image-s3-key'], config['image-cdn'], [16,9], story['hero-image-metadata'], {w: 400})}}"/>
                             </figure>
                             <div class="sourcefrom">{{ story["hero-image-attribution"] | raw }}</div>
-                        </div>
+                        </a>
+                    </div>
 
-                        <div class="textwrap">
-
+                    <div class="textwrap">
+                        <a href="/{{story['slug']}}">
                             <div class="article__title">
                                 {{  shorthead(story["headline"]) }}
                             </div>
                             <div class="article__desciption">
                                 {{ story["subheadline"] | striptags | slice(0,100) | raw  }}
-
-                                <!-- {{ shortsummary( story["subheadline"] |raw )  }} -->
                             </div>
-                        </div>
-                        <!-- textwrap close -->
-
-                        {% include "story/byline" %}
+                        </a>
                     </div>
-                </a>
+                    {% include "story/byline" %}
+                </div>
             </article>
         {% endfor %}
-        </div>
-    </section>
-    <!--  Section 2 close-->
+    </div>
+</section>
 
-    <section>
-        <!--  Section 3 open-->
-<div class="story2-banner1">
+<section>
+    <div class="story2-banner1">
         <div class="leftbig">
-        
             <figure>
-                 <a href="{{banners[0]['slug']}}">
-            <img src="{{focusedImageUrl(banners[0]['hero-image-s3-key'], config['image-cdn'], [16,4.45], banners[0]['hero-image-metadata'], {w:720})}}"/>
-                   </a>                         
-            </figure> 
-
+                <a href="{{banners[0]['slug']}}">
+                    <img src="{{focusedImageUrl(banners[0]['hero-image-s3-key'], config['image-cdn'], [16,4.45], banners[0]['hero-image-metadata'], {w:720})}}"/>
+                </a>
+            </figure>
         </div>
-        
+
         <div class="rightsmall">
             {% for story in stories | slice(7, 1) %}
                 <a href="/{{story['slug']}}">
@@ -118,143 +101,92 @@
                             {{ shorthead(story["headline"]) }}</div>
                         <div class="sourcetop">{{ story["hero-image-attribution"] | raw }}</div>
                         <img src="{{focusedImageUrl(story['hero-image-s3-key'], config['image-cdn'], [16,9], story['hero-image-metadata'], {w:400})}}"/>
-
                     </figure>
                 </a>
             {% endfor %}
         </div>
-
     </section>
-    <!--  Section 3 close-->
 
     <div class="ad_big" placeholder="Advertisement">
-
-        <!-- /60988533/CLMTDESK_Home_Banner_01 -->
-        <div id='div-gpt-ad-1467975036401-2'>
-            <script type='text/javascript'>
-                googletag.cmd.push(function() {
-                    googletag.display('div-gpt-ad-1467975036401-2');
-                });
-            </script>
-        </div>
-
+        <img src="http://placehold.it/728x90">
     </div>
 
     <div class="ad_mobile" placeholder="Advertisement">
-        <!-- /60988533/CLMTDESK_Home_300x250_01 -->
-        <div id='div-gpt-ad-1467975036401-0' style='height:250px; width:300px;'>
-            <script type='text/javascript'>
-                googletag.cmd.push(function() {
-                    googletag.display('div-gpt-ad-1467975036401-0');
-                });
-            </script>
-        </div>
+        <img src="http://placehold.it/300x250">
     </div>
 
     <section>
-        <!--  Section 4 open-->
-
         <div class="sectionwrap">
             <div class="sectiontitle left">
                 <span>Videos</span>
             </div>
             <div class="gallery-fix-div">
-            {% for story in videos | slice(0, 3) %}
-                <article>
-                    <!--  Article1 open-->
-                    <a href="/{{story['slug']}}">
-
-                        <div class="figcontainer">
-                            <figure>
-                                <img src="{{focusedImageUrl(story['hero-image-s3-key'], config['image-cdn'], [16,9], story['hero-image-metadata'], {w:400})}}"/>
-
-                            </figure>
-                            <div class="vedicon">
-                                <img src="{{ assetPath('main/video.svg') }}"/></div>
-                            <div class="sourcefrom">{{ story["hero-image-attribution"] | raw }}</div>
-                        </div>
-
-                        <div class="textwrap short">
-
-                            <div class="article__title">
-                                {{ shorthead(story["headline"]) }}
+                {% for story in videos | slice(0, 3) %}
+                    <article>
+                        <a href="/{{story['slug']}}">
+                            <div class="figcontainer">
+                                <figure>
+                                    <img src="{{focusedImageUrl(story['hero-image-s3-key'], config['image-cdn'], [16,9], story['hero-image-metadata'], {w:400})}}"/>
+                                </figure>
+                                <div class="vedicon">
+                                    <img src="{{ assetPath('main/video.svg') }}"/></div>
+                                <div class="sourcefrom">{{ story["hero-image-attribution"] | raw }}</div>
                             </div>
-                            {% include "story/byline" %}
-
-                        </div>
-                        <!-- textwrap close -->
-
-                    </a>
-                </article>
-
-            {% endfor %}
+                            <div class="textwrap short">
+                                <div class="article__title">
+                                    {{ shorthead(story["headline"]) }}
+                                </div>
+                                {% include "story/byline" %}
+                            </div>
+                        </a>
+                    </article>
+                {% endfor %}
+            </div>
         </div>
-        </div>
-        <!--  Section Wrap close-->
         <a class="more" href="/section/videos">Read More >></a>
-
     </section>
-    <!--  Section 4 close-->
 
     <section>
-        <!--  Section 5 open-->
-
         <div class="sectionwrap">
             <div class="sectiontitle left">
                 <span>Entertainment</span>
             </div>
             <div class="gallery-fix-div">
-            {% for story in entertainment | slice(0, 3) %}
-
-                <article>
-                    <!--  Article1 open-->
-                    <a href="/{{story['slug']}}">
-                        <div class="figcontainer">
-                            <figure>
-                                <img src="{{focusedImageUrl(story['hero-image-s3-key'], config['image-cdn'], [16,9], story['hero-image-metadata'], {w:400})}}"/>
-
-                            </figure>
-                            <div class="sourcefrom">{{ story["hero-image-attribution"] | raw }}</div>
-                        </div>
-                        <div class="textwrap short">
-
-                            <div class="article__title">
-                                {{ shorthead(story["headline"]) }}
+                {% for story in entertainment | slice(0, 3) %}
+                    <article>
+                        <a href="/{{story['slug']}}">
+                            <div class="figcontainer">
+                                <figure>
+                                    <img src="{{focusedImageUrl(story['hero-image-s3-key'], config['image-cdn'], [16,9], story['hero-image-metadata'], {w:400})}}"/>
+                                </figure>
+                                <div class="sourcefrom">{{ story["hero-image-attribution"] | raw }}</div>
                             </div>
-                            {% include "story/byline" %}
-                        </div>
-                        <!-- textwrap close -->
-                    </a>
-                </article>
-            {% endfor %}
+                            <div class="textwrap short">
+                                <div class="article__title">
+                                    {{ shorthead(story["headline"]) }}
+                                </div>
+                                {% include "story/byline" %}
+                            </div>
+                        </a>
+                    </article>
+                {% endfor %}
             </div>
-
         </div>
-        <!--  Section Wrap close-->
-
         <a class="more" href="/section/entertainment">Read More >></a>
     </section>
-    <!--  Section 5 close-->
-
 </div>
-<!--  content close-->
 
 {% if most_popular.stories | length > 0 %}
-
     <section class="unique">
-        <!--  Section 5 open-->
         <div class="content">
             <div class="sectionwrap nob">
-
                 <div class="uniquesec unique">
                     <span class="sectionname__unique">
                         MOST POPULAR
                     </span>
                 </div>
-
                 {% for story in most_popular.stories | slice(0, 3) %}
                     <article class="popular">
-                        <!--  Article1 open-->
                         <div class="wrap">
                             <figure>
                                 <a href="/{{story['slug']}}">
@@ -263,30 +195,23 @@
                             </figure>
                             <div class="sourcefrom">{{ story["hero-image-attribution"] | raw }}</div>
                             <div class="textwrap">
-                                <div class="uniquesectionname">{{story['sections'][0]['name']}}
-                                </div>
-
+                                <div class="uniquesectionname">{{story['sections'][0]['name']}}</div>
                                 <div class="article__title">
                                     <a href="/{{story['slug']}}">
                                         {{ shorthead(story["headline"]) }}
                                     </a>
                                 </div>
                             </div>
-                            <!-- textwrap close -->
                             {% include "story/byline" %}
-
                             <div class="articleshare">
-
                                 <div class="articleshare__icons">
                                     <ul>
-
                                         <li>
                                             <a onClick="window.open('http://www.facebook.com/sharer.php?p[url]={{ url()}}/{{ story['slug'] }}','sharer', 'toolbar=0,status=0,width=548,height=325');" target="_parent" href="javascript: void(0)">
                                                 <div id="facebooksmall">
                                                     <center>
                                                         <span class="icons">
                                                             <svg width="20px" height="20px" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-
                                                                 <!-- Generator: Sketch 3.8.3 (29802) - http://www.bohemiancoding.com/sketch -->
                                                                 <title>Artboard 29</title>
                                                                 <desc>Created with Sketch.</desc>
@@ -308,9 +233,7 @@
                                                         class="share__button twitter"
                                                         rel="nofollow"
                                                         class="storyshare__icons__twitter storyshare__icons__alignment"
-                                                        onclick="javascript:window.open('https://twitter.com/intent/tweet?url={{ url()}}/{{ story['slug'] }};text={{ storyData['headline'] }};&original_referer={{ url() }}', '',
-                            'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');
-                    return false;">
+                                                        onclick="javascript:window.open('https://twitter.com/intent/tweet?url={{ url()}}/{{ story['slug'] }};text={{ storyData['headline'] }};&original_referer={{ url() }}', '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;">
 
                                                         <span class="icons">
                                                             <svg width="20px" height="20px" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -342,64 +265,37 @@
 
                             </article>
                         {% endfor %}
-                        <!-- <a  class="more" href="#">Read More >></a> -->
                     </div>
-                    <!--  Section Wrap close-->
 
                 </div>
-                <!--  content close-->
-            </section>
-            <!--  Section 5 close-->
-        {% endif %}
-
-        <div class="ad_big" placeholder="Advertisement">
-            <!-- /60988533/CLMTDESK_Home_Banner_02 -->
-            <div id='div-gpt-ad-1467975036401-3'>
-                <script type='text/javascript'>
-                    googletag.cmd.push(function() {
-                        googletag.display('div-gpt-ad-1467975036401-3');
-                    });
-                </script>
             </div>
+        </section>
+    {% endif %}
 
-        </div>
-        <div class="ad_mobile" placeholder="Advertisement">
+    <div class="ad_big" placeholder="Advertisement">
+        <img src="http://placehold.it/728x90">
+    </div>
+    <div class="ad_mobile" placeholder="Advertisement">
+        <img src="http://placehold.it/300x250">
+    </div>
 
-            <!-- /60988533/CLMTDESK_Home_300x250_02 -->
-            <div id='div-gpt-ad-1467975036401-1' style='height:250px; width:300px;'>
-                <script type='text/javascript'>
-                    googletag.cmd.push(function() {
-                        googletag.display('div-gpt-ad-1467975036401-1');
-                    });
-                </script>
-            </div>
-
-        </div>
-
-        <div class="content">
-            <!-- content open-->
-            <section>
-                <!--  Section 5 open-->
-                <div class="sectionwrap">
-                    <div class="sectiontitle left">
-                        <span>International</span>
-                    </div>
-<div class="gallery-fix-div">
+    <div class="content">
+        <section>
+            <div class="sectionwrap">
+                <div class="sectiontitle left">
+                    <span>International</span>
+                </div>
+                <div class="gallery-fix-div">
                     {% for story in international | slice(0, 3) %}
-
                         <article>
-                            <!--  Article1 open-->
                             <div class="figcontainer">
                                 <a href="/{{story['slug']}}">
-
                                     <figure>
                                         <img src="{{focusedImageUrl(story['hero-image-s3-key'], config['image-cdn'], [16,9], story['hero-image-metadata'], {w:400})}}"/>
-
                                     </figure>
                                     <div class="sourcefrom">{{ story["hero-image-attribution"] | raw }}</div>
                                 </div>
                                 <div class="textwrap">
-
                                     <a href="/{{story['slug']}}">
                                         <div class="article__title">
                                             {{ shorthead(story["headline"]) }}
@@ -407,18 +303,15 @@
                                         {% include "story/byline" %}
                                     </a>
                                 </div>
-                                <!-- textwrap close -->
                             </a>
-
                         </article>
-
                     {% endfor %}
-</div>
                 </div>
+            </div>
+            <div class="more textright">
+                <a href="/section/international">Read More</a>>>
+            </div>
+        </section>
+    </div>
 
-                <div class="more textright">
-                    <a href="/section/international">Read More</a>>></div>
-
-            </section>
-            <!--  Section 5 close-->
-            <div class="clear"></div>
+    <div class="clear"></div>

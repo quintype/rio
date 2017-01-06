@@ -1,7 +1,7 @@
 var _ = require("lodash");
 
-var storiesTemplate = require("../../views/story/elements/stories_list.twig");
-var storiesTemplateHorizontal = require("../../views/story/elements/stories_list_horizontal.twig");
+var storiesTemplate = require("../../views/shared/stories_list.twig");
+var storiesTemplateHorizontal = require("../../views/shared/stories_list_horizontal.twig");
 
 var foo = false;
 function loadStories(params, start, callback, api) {
