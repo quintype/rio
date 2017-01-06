@@ -1,81 +1,88 @@
-<div class="content">
-    <div class="layout-template">
-        <div class="layout-template__top">
+<div class="layout-template">
+    <div class="layout-template__top">
         <h1>{{section['display-name']}}</h1>
-            <div class="layout-template__top__left">
-                <div class="layout-template__top__left__img-container">
-                    
-                    <a href="/{{section_stories[0]['slug']}}">
-                        <figure>
-                            <img src="{{focusedImageUrl(section_stories[0]['hero-image-s3-key'],config['image-cdn'], [23, 11], section_stories[0]['hero-image-metadata'],{w:700} )}}" />
-                        </figure>
-                    </a>
-                </div>
-                <div class="layout-template__top__left__summary">
-                    <h3> <a href="/{{section_stories[0]['slug']}}">{{shorthead(section_stories[0]['headline'])}}</a></h3>
-                    <p>{{section_stories[0]['summary']}}</p>
-                    <p class="layout-template__top__left-date">
-                        <a href="/author/{{section_stories[0]['author-id']}}"><span>{{section_stories[0]['author-name']}}</span></a>{% set timestamp = (section_stories[0]["first-published-at"] / 1000) | round(0, 'floor') %} {{timestamp|date('M j, Y')}}
-                    </p>
-                </div>
+        <div class="layout-template__top__left">
+            <div class="layout-template__top__left__img-container">
+
+                <a href="/{{section_stories[0]['slug']}}">
+                    <figure>
+                        <img src="{{focusedImageUrl(section_stories[0]['hero-image-s3-key'],config['image-cdn'], [23, 11], section_stories[0]['hero-image-metadata'],{w:700} )}}"/>
+                    </figure>
+                </a>
             </div>
-            <div class="layout-template__top__right">
-                {% for story in section_stories|slice(1,4) %}
+            <div class="layout-template__top__left__summary">
+                <h3>
+                    <a href="/{{section_stories[0]['slug']}}">{{shorthead(section_stories[0]['headline'])}}</a>
+                </h3>
+                <p>{{section_stories[0]['summary']}}</p>
+                <p class="layout-template__top__left-date">
+                    <a href="/author/{{section_stories[0]['author-id']}}">
+                        <span>{{section_stories[0]['author-name']}}</span>
+                    </a>{% set timestamp = (section_stories[0]["first-published-at"] / 1000) | round(0, 'floor') %}
+                    {{timestamp|date('M j, Y')}}
+                </p>
+            </div>
+        </div>
+        <div class="layout-template__top__right">
+            {% for story in section_stories | slice(1, 4) %}
                 <div class="layout-template__top__right__row">
                     <div class="layout-template__top__right__row__left">
                         <a href="/{{story['slug']}}">
                             <figure>
-                                <img src="{{focusedImageUrl(story['hero-image-s3-key'],config['image-cdn'], [29, 16], story['hero-image-metadata'],{w:300} )}}" />
+                                <img src="{{focusedImageUrl(story['hero-image-s3-key'],config['image-cdn'], [29, 16], story['hero-image-metadata'],{w:300} )}}"/>
                             </figure>
                         </a>
                     </div>
                     <div class="layout-template__top__right__row__right">
                         <h3 class="layout-template__top__right__row__right-heading">
                             <a href="/{{story['slug']}}">{{story['headline']}}</a>
-                        </h3>                
+                        </h3>
                         <p class="layout-template__top__right__row__right-date">
-                         <a href="/author/{{story['author-id']}}"><span>{{story['author-name']}}</span></a>{% set timestamp = (story["first-published-at"] / 1000) | round(0, 'floor') %} {{timestamp|date('M j, Y')}}
+                            <a href="/author/{{story['author-id']}}">
+                                <span>{{story['author-name']}}</span>
+                            </a>{% set timestamp = (story["first-published-at"] / 1000) | round(0, 'floor') %}
+                            {{timestamp|date('M j, Y')}}
                         </p>
                     </div>
                 </div>
-                {% endfor %}
-            </div>
-        </div>
-        <div class="layout-template__bottom">
-            <div class="layout-template__bottom__row-mar-fix">
-            {% for story in section_stories|slice(5,4) %}
-            <div class="layout-template__bottom__box">
-                <div class="layout-template__bottom__box__img-container">
-                    <a href="/{{story['slug']}}">
-                        <figure>
-                            <img src="{{focusedImageUrl(story['hero-image-s3-key'],config['image-cdn'], [46, 25], story['hero-image-metadata'],{w:350} )}}" />
-                        </figure>
-                    </a>
-                </div>
-                <div class="layout-template__bottom__box__img-overlay">
-                    <h4> <a href="/{{story['slug']}}">{{story['headline']}}</a></h4>
-                </div>
-            </div>
             {% endfor %}
+        </div>
+    </div>
+    <div class="layout-template__bottom">
+        <div class="layout-template__bottom__row-mar-fix">
+            {% for story in section_stories | slice(5, 4) %}
+                <div class="layout-template__bottom__box">
+                    <div class="layout-template__bottom__box__img-container">
+                        <a href="/{{story['slug']}}">
+                            <figure>
+                                <img src="{{focusedImageUrl(story['hero-image-s3-key'],config['image-cdn'], [46, 25], story['hero-image-metadata'],{w:350} )}}"/>
+                            </figure>
+                        </a>
+                    </div>
+                    <div class="layout-template__bottom__box__img-overlay">
+                        <h4>
+                            <a href="/{{story['slug']}}">{{story['headline']}}</a>
+                        </h4>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <div class="story-listing-loadmore">
+        <div class="story-listing-loadmore__bottom-story-list">
+            <div id="load-more-stories-target" class="load-clearfix">
+                {% include "shared/stories_list" with {'stories': section_stories | slice(9)} %}
             </div>
+            {% include "story/elements/loadmore" %}
         </div>
 
-        <div class="story-listing-loadmore">
-            <div class="story-listing-loadmore__bottom-story-list">
-               <div id="load-more-stories-target" class="load-clearfix"> 
-                {% include "story/elements/stories_list" with {'stories': section_stories|slice(9)} %}
-               </div>
-                {% include "story/elements/loadmore" %}
-            </div>
-
-             
-            <div class="story-listing-loadmore__bottom-story-list-rightads"></div>
-        </div>
+        <div class="story-listing-loadmore__bottom-story-list-rightads"></div>
     </div>
 </div>
 <!-- content -->
 <script type="text/javascript">
-qtReady.push(function() {
-    app.loadMoreStories('#loadmore', '#load-more-stories-target', {{params | json_encode | raw}});
-})
+    qtReady.push(function() {
+        app.loadMoreStories('#loadmore', '#load-more-stories-target', {{params | json_encode | raw}});
+    })
 </script>
