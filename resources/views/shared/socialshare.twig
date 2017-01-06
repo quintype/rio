@@ -1,12 +1,10 @@
 <span class="storyshare">
     <ul class="social-share">
         <li>
-<!-- 
-<a onClick="window.open('http://www.facebook.com/sharer.php?p[url]=http:climatedesk-web.staging.quintype.io/{{ storyData['slug'] }}','sharer', 'toolbar=0,status=0,width=548,height=325');" target="_parent" href="javascript: void(0)"> -->
 <a href="#" rel="nofollow" class="share__button facebook" onclick="javascript:window.open('http://facebook.com/sharer.php?u='+location.href+'','title.',
       'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600'); return false;" >
 
-<div id="facebooksmall"><center><span class="fa fa-facebook" > 
+<div id="facebooksmall"><center><span class="fa fa-facebook" >
 
                 <!-- svg code for the facebook rounded icon -->
                 <svg  viewBox="0 0 80 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -56,11 +54,11 @@
 
 
 
-  <a href="#" rel="nofollow" class="twitter-share-button" onclick="javascript:window.open('https://twitter.com/intent/tweet?url={{ url() }}/{{ storyData['slug'] }};text={{ storyData['headline'] }};&original_referer={{ url() }}','',
+  <a href="#" rel="nofollow" class="twitter-share-button" onclick="javascript:window.open('https://twitter.com/intent/tweet?url={{ url('/') }}{{ storyData['slug'] }};text={{ storyData['headline'] }};&original_referer={{ url('/') }}','',
   'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');
   return false;" >
 
-       
+
                 <svg width="25px" height="25px" viewBox="0 0 80 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                     <!-- Generator: Sketch 3.6.1 (26313) - http://www.bohemiancoding.com/sketch -->
                     <title>twitter</title>
@@ -76,7 +74,7 @@
                 <!--end of svg code for the facebook rounded icon -->
             </a></li>
 
-        
+
 
     </ul>
 </span> <!-- end of story share -->
