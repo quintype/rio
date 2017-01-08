@@ -91,6 +91,25 @@ Twig.extendFunction("url", function(string) {
    return window.location.origin + string;
 });
 
+Twig.extendFunction("getPhotoStoryImages", function(story) {
+  var storyHeroImage = {
+      'image-s3-key' : story['hero-image-s3-key'] ,
+      'image-metadata' : story['hero-image-metadata'],
+      'title' :  story['title']
+    };
+    var storyImages = {};
+    storyImages = [storyHeroImage];
+
+    _.forEach(story['cards'], function(card) {
+      _.forEach(card['story-elements'], function (storyElement) {
+        if (storyElement['type'] === 'image') {
+          storyImages.push(storyElement);
+        }
+      });
+    });
+    return storyImages;
+});
+
 Twig.extendFunction("get_logo", function(key,param) {
   var data =  {"Atlantic":
   [{"Logo" : "https://s3.amazonaws.com/third-party-logos/atlantic.png",
