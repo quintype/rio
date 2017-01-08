@@ -14,7 +14,7 @@
             </div>
             <div class="author-name">
                 <h2>{{authorDetails['name']}}</h2>
-                <p>{{ authorDetails['bio'] }}</p>
+                <p>{{ authorDetails['bio'] | raw }}</p>
             </div>
         </div>
     </section>
