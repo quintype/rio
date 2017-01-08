@@ -9,10 +9,13 @@
     {% include "story/templates/default" %}
   {% endif %}
 </div>
+<div class="loading">
+  <div class="loader-image"></div>
+  <span>Loading...</span>
+</div>
 <script>
   qtReady.push(function() {
-    app.videos.setupYoutubeVideo();
-    app.videos.loadYoutubeLibrary();
+    app.videos.load();
     app.analytics.setup();
     app.infiniteScroll.infiniteScroll();
   })

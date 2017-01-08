@@ -15,15 +15,17 @@ function nextStoryLoader(params,start,callback,excludeStoryIds) {
 }
 
 function renderStory(story) {
-  var html = template.render({storyData: story});
+  var html = template.render({storyData: story, config: qtConfig});
   excludeStoryIds.push(story.id);
   $('.js-stories-container').append(html);
+  $('.loading').hide();
 }
 
 var storiesLoaded = 0;
 
 var scrollFn = function(e) {
-  if ($doc.height() - $win.height() == $win.scrollTop()) {
+  if ($doc.height() - $win.height() == $win.scrollTop() ) {
+    $('.loading').show();
     storiesLoaded += 1
     nextStoryLoader({}, storiesLoaded, renderStory,excludeStoryIds);
   }
@@ -32,7 +34,9 @@ var scrollFn = function(e) {
 var scrollHandler = _.throttle(scrollFn, 300);
 
 
-$win.scroll(scrollHandler);
+function init() {
+  $win.scroll(scrollHandler);
+}
 
 function infiniteScroll() {
   firstStoryId = $('.js-story-header-content').data("storyId");
@@ -54,5 +58,6 @@ function infiniteScroll() {
 
 
 module.exports  = {
-  infiniteScroll: infiniteScroll
+  infiniteScroll: infiniteScroll,
+  init: init
 }
