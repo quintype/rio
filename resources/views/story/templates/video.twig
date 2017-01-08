@@ -1,8 +1,8 @@
+{% include "story/header-card" %}
+
 <div class="video-story-header">
   <div data-youtube-id="{{ storyCards[0]['story-elements'][0]['embed-url']|split('/')|last }}"></div>
 </div>
-
-{% include "story/header-card" %}
 
 <div class="story-body">
   <div class="card  {{ card['metadata']['attributes']['alignment'][0] }}">

@@ -1,9 +1,6 @@
 <div class="js-story-header-content story-header__content"
         data-story-slug="{{storyData['slug']}}"
         data-story-id="{{storyData['id']}}">
-  <div class="story-header__section-name">
-    <span>{{storyData["sections"][0]["name"]}}</span>
-  </div>
   <h1 class="story-header__story-headline js-story-headline">{{storyData["headline"]}}</h1>
   {% if storyData["subheadline"] %}
   <div class='story-header__subtitle'>
@@ -11,6 +8,9 @@
   </div>
   {% endif %}
   <div class="textbottom__article storybyline">
+    <div class="story-header__section-name">
+      <span>{{storyData["sections"][0]["name"]}}</span>
+    </div>
     <span class="textbottom__article__name">
     {% for authornames in storyData["authors"]  %}
     {{ authornames['name'] }}

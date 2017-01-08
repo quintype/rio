@@ -31,6 +31,24 @@ function decode64($string) {
     return base64_decode($string);
 }
 
+function getPhotoStoryImages($story) {
+  $photoArray = [
+    ['image-s3-key' => $story['hero-image-s3-key'],
+    'image-metadata' => $story['hero-image-metadata'],
+    'title' => $story['hero-image-caption'], ],
+  ];
+  foreach ($story['cards'] as $card) {
+    foreach ($card['story-elements'] as $key => $element) {
+      if ($element['type'] == 'image') {
+        array_push($photoArray, ['image-s3-key' => $element['image-s3-key'],
+        'image-metadata' => $element['image-metadata'],
+        'title' => $element['title'], ]);
+      }
+    }
+   }
+  return $photoArray;
+}
+
 
 function get_logo($key,$p) {
 

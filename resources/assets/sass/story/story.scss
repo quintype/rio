@@ -23,10 +23,12 @@
     }
   }
   &__content {
-    margin: auto;
-    width: 80%;
+    overflow: hidden;
   }
   &__section-name {
+    display: inline;
+    float: left;
+    margin-right: 20px;
     span {
       font-size: em(16);
       font-weight: $bold;
