@@ -1,23 +1,31 @@
 @import "vendor/susy/susy"; // Susy Grid http://susy.oddbird.net/
 @import "vendor/breakpoint/breakpoint"; //Breakpoint SASS http://breakpoint-sass.com/
 @import "colors";
+//base
 @import "base/_grids";
 @import "base/_mixins";
 @import "base/_typography";
 @import "base/_z-index-scale";
+
 @import "layout";
 @import "story/story";
 @import "static";
 @import "podcast";
+@import "slider";
+
+//slick
 @import "slick/slick-theme";
 @import "slick/slick";
-@import "slider";
+
+//layout
 @import "layout/404";
 @import "layout/noresults";
 @import "layout/header";
 @import "layout/photo_story_page";
 @import "layout/video_story_page";
-@include border-box-sizing;
+@import "layout/section_page";
+@import "layout/author";
+
 //story
 @import "story/card";
 @import "story/sub_section";
@@ -41,10 +49,12 @@
 @import "story/elements/elements_subtypes/summary";
 @import "story/templates/recipe";
 
-@import "layout/section_page";
-@import "layout/author";
+
 //module
 @import "module/loader";
+@include border-box-sizing;
+
+
 main {
     @include container;
     background-color: blue;
@@ -1295,3 +1305,14 @@ article {
 .podicon {
     width: 20px;
 }
+.loading {
+  display: none;
+  text-align: center;
+  font-weight: $bold;
+  letter-spacing: 1px;
+}
+.loader-image {
+    background: url(loader.gif) no-repeat center center;
+    background-size: contain;
+    height: 32px;
+  }

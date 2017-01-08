@@ -7,7 +7,8 @@ module.exports = function () {
             document.getElementById("story-container").innerHTML = template.render({
                 storyData: story,
                 food_stories: Array(20).fill(story),
-                preview: true
+                preview: true,
+                config: qtConfig
             });
         }
     });
