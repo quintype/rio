@@ -707,8 +707,8 @@ article {
 .wrap .textwrap {
     padding: 0 em(15) em(0) em(15);
     @include breakpoint($small-pc) {
-        height: 115px;
-        padding: 0 em(15) em(15) em(15);
+        height: 90px;
+        padding: 0 em(15) 0 em(15);
     }
 }
 
@@ -843,6 +843,9 @@ article {
     position: relative;
     float: left;
     width: 100%;
+    &:hover {
+      .story-template-type { opacity: 1}
+    }
 }
 
 .tagswrap {
@@ -1312,7 +1315,18 @@ article {
   letter-spacing: 1px;
 }
 .loader-image {
-    background: url(loader.gif) no-repeat center center;
-    background-size: contain;
-    height: 32px;
-  }
+  background: url(loader.gif) no-repeat center center;
+  background-size: contain;
+  height: 32px;
+}
+.story-template-type {
+  position: absolute;
+  bottom: 18px;
+  background-color: rgba(0,0,0,0.5);
+  color: white;
+  padding: 5px 6px;
+  font-size: 10px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  opacity: 0;
+}

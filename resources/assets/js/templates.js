@@ -88,17 +88,18 @@ Twig.extendFunction("decode64", function(string) {
 });
 
 Twig.extendFunction("url", function(string) {
-   return window.location.origin + string;
+   return window.location.origiphotoStoryImagesn + string;
 });
 
 Twig.extendFunction("getPhotoStoryImages", function(story) {
+  console.log(story);
   var storyHeroImage = {
       'image-s3-key' : story['hero-image-s3-key'] ,
       'image-metadata' : story['hero-image-metadata'],
       'title' :  story['title']
     };
-    var storyImages = {};
-    storyImages = [storyHeroImage];
+
+    var storyImages = [storyHeroImage];
 
     _.forEach(story['cards'], function(card) {
       _.forEach(card['story-elements'], function (storyElement) {

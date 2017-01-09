@@ -41,7 +41,7 @@
                         <div class="titletop_small">{{ shorthead(story["headline"]) }}</div>
                         <div class="sourcetop">{{ story["hero-image-attribution"] | raw}}</div>
                         <figure>
-                            <img src="{{focusedImageUrl(story['hero-image-s3-key'], config['image-cdn'], [16,9], story['hero-image-metadata'],{w:300})}}"/>
+                          <img src="{{focusedImageUrl(story['hero-image-s3-key'], config['image-cdn'], [16,9], story['hero-image-metadata'],{w:300})}}"/>
                         </figure>
                     </div>
                 </a>
@@ -63,6 +63,9 @@
                             </figure>
                             <div class="sourcefrom">{{ story["hero-image-attribution"] | raw }}</div>
                         </a>
+                        <span class="story-template-type">
+                          {{story['story-template']}}
+                        </span>
                     </div>
 
                     <div class="textwrap">
@@ -159,6 +162,7 @@
                                 <figure>
                                     <img src="{{focusedImageUrl(story['hero-image-s3-key'], config['image-cdn'], [16,9], story['hero-image-metadata'], {w:400})}}"/>
                                 </figure>
+                                <span class="story-template-type">{{story['story-template']}}</span>
                                 <div class="sourcefrom">{{ story["hero-image-attribution"] | raw }}</div>
                             </div>
                             <div class="textwrap short">
@@ -293,6 +297,7 @@
                                     <figure>
                                         <img src="{{focusedImageUrl(story['hero-image-s3-key'], config['image-cdn'], [16,9], story['hero-image-metadata'], {w:400})}}"/>
                                     </figure>
+                                    <span class="story-template-type">{{story['story-template']}}</span>
                                     <div class="sourcefrom">{{ story["hero-image-attribution"] | raw }}</div>
                                 </div>
                                 <div class="textwrap">
