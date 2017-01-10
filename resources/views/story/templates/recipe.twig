@@ -73,7 +73,7 @@
                         <img src="http://placehold.it/100x100">
                     </div>
                     <div class="story-template__story-rate-recipe-section__tab-content__ratenow js-rating-widget">
-                        <p><span>3 People</span> Rated This Recepie</p>
+                        <p><span class ="rater_count">{{getRatingValues['rater-count']}}</span> People Rated This Recepie</p>
                         <span class="unrated-stars" id="rating">
                         <span data-rating="1" class="star">★</span>
                         <span data-rating="2" class="star">★</span>
@@ -86,9 +86,9 @@
                         <p>Average Rating</p>
                         <div class="rated-stars">
                             <span class="star-percentage">★★★★★</span>
-                            <span class="star-percentage star-percentage-rated" style="width:{{ratingPercent}}%;">★★★★★</span>
+                            <span class="star-percentage star-percentage-rated" style="width:{{getRatingValues['rating-percentage']}}%;">★★★★★</span>
                         </div>
-                        <span class="rated-value">{{averageRating}}</span>
+                        <span class="rated-value">{{getRatingValues['average-rating']}}</span>
                     </div>
                 </div>
             </div>
@@ -98,55 +98,74 @@
 <!-- content -->
 
 <script>
-    var token = '{{ csrf_token() }}';
-    var storyId = '{{storyData['story-content-id']}}';
+  var token = '{{ csrf_token() }}';
+  var storyId = '{{storyData['story-content-id']}}';
+  var user_rating = "user_rating";
+  var ratingValue = getCookie(user_rating);
+
+  if (ratingValue >= 1 && ratingValue <= 5){
+    ratedOnce(ratingValue);
+  } else {
+    $(".star").click(function(){
+      var rating = $(this).attr("data-rating");
+      document.cookie = "user_rating = "+rating;
+      ratedOnce(rating);
+      updateRating(storyId, rating, token);
+    });
+  }
+
+  function ratedOnce(rating){
     this.ratingStars = document.querySelectorAll('#rating span');
-    function getCookie(name)
-    {
-      var re = new RegExp(name + "=([^;]+)");
-      var value = re.exec(document.cookie);
-      return (value != null) ? unescape(value[1]) : null;
-    }
-    var ratingValue = getCookie(ratingStars);
-    console.log(ratingValue);
-    for (var i = 0; i < ratingValue ; i++) {
+    for (var i = 0; i < rating ; i++) {
       this.ratingStars[i].classList.add('star-rated');
     }
+    $(".star").off("click");
+  }
 
-    $(".star").click(function(){
-      // if(){
-      //   $(".star").off("click");
-      // }
-        var rating = $(this).attr("data-rating");
-        document.cookie = "ratingStars = "+rating;
-        this.ratingStars = document.querySelectorAll('#rating span');
-        for (var i = 0; i < rating ; i++) {
-          this.ratingStars[i].classList.add('star-rated');
-        }
-        $(".star").off("click");
-        $.ajax({
-         type: "POST",
-         url: "/api/stories/"+storyId+"/votes",
-         data: JSON.stringify({ 'magnitude': parseInt(rating), '_token': token }),
-         contentType: 'application/json',
-         success: function (data) {
+  function updateRating(storyId, rating, token){
+    $.ajax({
+      type: "POST",
+      url: "/api/stories/"+storyId+"/votes",
+      data: JSON.stringify({ 'magnitude': parseInt(rating), '_token': token }),
+      contentType: 'application/json',
+      success: function (data) {
+        getAverageRating(storyId);
+      },
+      error: function (data) {
+         console.log('Error:', data);
+       }
+     });
+  }
 
-         },
-         error: function (data) {
-           console.log('Error:', data);
-          }
-        });
-        $.get("/api/stories/"+storyId+"", function(data, status){
-          var votes = data.story.votes;
-          var numerator = 0; var denominator = 0;
-          for (var key in votes) {
-            numerator += key * votes[key];
-            denominator += votes[key];
-          }
-          var rating = (numerator/denominator);
-          var averageRating = Math.round(rating * 10)/10; var ratingPercent = (averageRating * 100)/5;
-          $(".star-percentage-rated").width(ratingPercent+'%');
-          $(".rated-value").text(averageRating);
-        });
+  function getAverageRating(){
+    $.get("/api/stories/"+storyId+"", function(data, status){
+      var votes = data.story.votes;
+      var numerator = 0; var noOfVoters = 0;
+      for (var key in votes) {
+       numerator += key * votes[key];
+       noOfVoters += votes[key];
+     }
+     var rating = (numerator/noOfVoters);
+     var averageRating = Math.round(rating * 10)/10; var ratingPercent = (averageRating * 100)/5;
+     $(".rater_count").text(noOfVoters);
+     $(".star-percentage-rated").width(ratingPercent+'%');
+     $(".rated-value").text(averageRating);
    });
- </script>
+  }
+
+  function getCookie(cname) {
+    var name = cname + "=";
+    var decodedCookie = decodeURIComponent(document.cookie);
+    var ca = decodedCookie.split(';');
+    for (var i = 0; i < ca.length; i++) {
+      var c = ca[i];
+      while (c.charAt(0) == ' ') {
+        c = c.substring(1);
+      }
+      if (c.indexOf(name) == 0) {
+         return parseInt(c.substring(name.length, c.length));
+      }
+    }
+    return "";
+  }
+</script>

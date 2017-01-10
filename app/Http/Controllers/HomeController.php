@@ -63,8 +63,7 @@ class HomeController extends QuintypeController
             $authorbio = strip_tags($author_data['bio']);
             array_push($otherAuthor, $author_data);
         }
-        $averageRating = $this->getAverageRating($story);
-        $ratingPercent = ($averageRating * 100)/(5);
+        $getRatingValues = $this->getAverageRating($story);
         $authorDetails = $this->client->getAuthor($story['author-id']);
         $cardAttribute = function ($card) {
             if (array_key_exists('metadata', $card) &&
@@ -100,8 +99,7 @@ class HomeController extends QuintypeController
           'photoStoryImages' => $photoStoryImages,
           'otherAuthor' => $otherAuthor,
           'authorDetails' => $authorDetails,
-          'averageRating' => $averageRating,
-          'ratingPercent' =>$ratingPercent,
+          'getRatingValues' => $getRatingValues,
           'page' => $page,
           'meta' => $this->meta,
           'sectionNames' => $sectionNames

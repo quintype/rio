@@ -28,12 +28,15 @@ class QuintypeController extends Controller
 
     protected function getAverageRating($story) {
       if(sizeof($story['votes']) > 0) {
-         $numerator = 0; $denominator = 0;
+         $numerator = 0; $noOfVoters = 0;
          foreach ($story['votes'] as $key => $value) {
            $numerator += ($key * $value);
-           $denominator += $value;
+           $noOfVoters += $value;
          }
-         return round(($numerator) / ($denominator), 1);
+         $averageRatingValue = round(($numerator) / ($noOfVoters), 1);
+         $ratingPercentValue = ($averageRatingValue * 100)/(5);
+         $getRatingValues = array("average-rating"=> $averageRatingValue , "rating-percentage"=> $ratingPercentValue, "rater-count"=>$noOfVoters);
+         return $getRatingValues;
        }
      }
 }
