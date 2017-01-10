@@ -63,6 +63,8 @@ class HomeController extends QuintypeController
             $authorbio = strip_tags($author_data['bio']);
             array_push($otherAuthor, $author_data);
         }
+        $averageRating = $this->getAverageRating($story);
+        $ratingPercent = ($averageRating * 100)/(5);
         $authorDetails = $this->client->getAuthor($story['author-id']);
         $cardAttribute = function ($card) {
             if (array_key_exists('metadata', $card) &&
@@ -87,7 +89,7 @@ class HomeController extends QuintypeController
         if($story['story-template'] == 'photo') {
            $photoStoryImages = $this->getPhotoStoryImages($story);
         }
-        $averageRating = array("average-value" => 4.2, "average-percentage" => 84) ;
+
         $page = ['type' => 'story'];
         $setSeo = $this->seo->story($page['type'], $story);
         $this->meta->set($setSeo->prepareTags());
@@ -99,12 +101,13 @@ class HomeController extends QuintypeController
           'otherAuthor' => $otherAuthor,
           'authorDetails' => $authorDetails,
           'averageRating' => $averageRating,
+          'ratingPercent' =>$ratingPercent,
           'page' => $page,
           'meta' => $this->meta,
           'sectionNames' => $sectionNames
         ]));
 
-    }
+     }
 
     public function sectionview($sectionSlug, $subSectionSlug = '')
      {

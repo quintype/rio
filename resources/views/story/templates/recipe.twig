@@ -86,9 +86,9 @@
                         <p>Average Rating</p>
                         <div class="rated-stars">
                             <span class="star-percentage">★★★★★</span>
-                            <span class="star-percentage star-percentage-rated" style="width:{{averageRating['average-percentage']}}%;">★★★★★</span>
+                            <span class="star-percentage star-percentage-rated" style="width:{{ratingPercent}}%;">★★★★★</span>
                         </div>
-                        <span class="rated-value">{{averageRating['average-value']}}</span>
+                        <span class="rated-value">{{averageRating}}</span>
                     </div>
                 </div>
             </div>
@@ -100,27 +100,53 @@
 <script>
     var token = '{{ csrf_token() }}';
     var storyId = '{{storyData['story-content-id']}}';
+    this.ratingStars = document.querySelectorAll('#rating span');
+    function getCookie(name)
+    {
+      var re = new RegExp(name + "=([^;]+)");
+      var value = re.exec(document.cookie);
+      return (value != null) ? unescape(value[1]) : null;
+    }
+    var ratingValue = getCookie(ratingStars);
+    console.log(ratingValue);
+    for (var i = 0; i < ratingValue ; i++) {
+      this.ratingStars[i].classList.add('star-rated');
+    }
+
     $(".star").click(function(){
+      // if(){
+      //   $(".star").off("click");
+      // }
         var rating = $(this).attr("data-rating");
+        document.cookie = "ratingStars = "+rating;
         this.ratingStars = document.querySelectorAll('#rating span');
         for (var i = 0; i < rating ; i++) {
           this.ratingStars[i].classList.add('star-rated');
         }
         $(".star").off("click");
-
         $.ajax({
          type: "POST",
          url: "/api/stories/"+storyId+"/votes",
-         data: {'magnitude': rating, '_token': token },
+         data: JSON.stringify({ 'magnitude': parseInt(rating), '_token': token }),
+         contentType: 'application/json',
          success: function (data) {
-           console.log(data);
+
          },
          error: function (data) {
            console.log('Error:', data);
-         }
-       });
-        // $.post("/api/stories/"+storyId+"/votes", {'magnitude': rating, '_token': token });
-
-
-    });
-</script>
+          }
+        });
+        $.get("/api/stories/"+storyId+"", function(data, status){
+          var votes = data.story.votes;
+          var numerator = 0; var denominator = 0;
+          for (var key in votes) {
+            numerator += key * votes[key];
+            denominator += votes[key];
+          }
+          var rating = (numerator/denominator);
+          var averageRating = Math.round(rating * 10)/10; var ratingPercent = (averageRating * 100)/5;
+          $(".star-percentage-rated").width(ratingPercent+'%');
+          $(".rated-value").text(averageRating);
+        });
+   });
+ </script>
