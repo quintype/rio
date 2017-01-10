@@ -1,0 +1,10 @@
+<div class="menubarimg mobile-menu js-menu">
+    <ul class="menuitems">
+        {% for menuItem in client.menuItems(nestedMenuItems) %}
+            {% set menuItemUrl = menuBase(menuItem.menuType()) ~ menuItem.url() %}
+            <li>
+                <a href="{{menuItemUrl}}">{{menuItem.title()}}</a>
+            </li>
+        {% endfor %}
+    </ul>
+</div>

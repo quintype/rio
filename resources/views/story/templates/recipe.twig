@@ -33,7 +33,7 @@
                         <span>{{storyData['metadata']['story-attributes']['difficultylevel'][0]}}</span></li>
                 </ul>
             </div>
-            {% for card in storyCards | slice(0,1)  %}
+            {% for card in storyData['cards'] | slice(0,1)  %}
                 <div class="story-template__story-content-story-section">
                        <div class="story-template__story-content-story-section__left">
                           <ul> Ingredients
@@ -52,7 +52,7 @@
                               {% endif %}
                             {% endfor %}
 
-                            {% for card in storyCards | slice(1) %}
+                            {% for card in storyData['cards'] | slice(1) %}
                               <div class="card {{ card['metadata']['attributes']['alignment'][0] }}">
                                 {% include "story/card" with {'storyElements': card['story-elements'] } %}
                               </div>

@@ -10,14 +10,13 @@ function loadEagerPlayers($storyEl) {
   });
 }
 
-function loadYoutubeLibrary() {
-    window.onYouTubeIframeAPIReady = loadEagerPlayers;
-    $("#youtube-iframe-api").append("<script src='https://www.youtube.com/iframe_api'></script>");
+function initYoutubeLibrary() {
+  window.onYouTubeIframeAPIReady = loadEagerPlayers;
+  $("#youtube-iframe-api").append("<script src='https://www.youtube.com/iframe_api'></script>");
 }
 
-function setupYoutubeVideo() {
+function loadYoutubeVideos() {
   $('[data-youtube-id]').each(function(i, el) {
-    console.log('here')
     var $el = $(el),
         videoId = $el.data('youtubeId'),
         player = {
@@ -37,9 +36,13 @@ function setupYoutubeVideo() {
       .attr('data-loader', 'youtube')
       .addClass('eager');
   });
+
+  if (window.YT) {
+    loadEagerPlayers();
+  }
 }
 
 module.exports = {
-  setupYoutubeVideo: setupYoutubeVideo,
-  loadYoutubeLibrary: loadYoutubeLibrary
+  load: loadYoutubeVideos,
+  init: initYoutubeLibrary
 };

@@ -1,4 +1,19 @@
 {% extends "layout" %}
 {% block content %}
-    {% include "/story/story" %}
+<script>
+  qtReady.push(function() {
+    app.videos.init();
+    app.analytics.setup();
+    app.infiniteScroll.init();
+  })
+</script>
+<div class="js-stories-container">
+  {% include "/story/story" %}
+  <div id="youtube-iframe-api"></div>
+</div>
 {% endblock %}
+
+
+
+
+

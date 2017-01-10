@@ -2,7 +2,7 @@
       width: 100%;
       position: relative;
       float: left;
-      margin-bottom: 20px;
+      margin: em(20) 0;
       @include breakpoint($pc) {
           width: 100%;
           position: relative;

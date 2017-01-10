@@ -1,6 +1,6 @@
 .story-element-image-gallery {
   width: 100%;
-  margin-bottom: 20px;
+  margin: em(20) 0;
   @include breakpoint($pc) {
      float: left;
    }

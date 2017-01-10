@@ -1,26 +1,35 @@
 @import "vendor/susy/susy"; // Susy Grid http://susy.oddbird.net/
 @import "vendor/breakpoint/breakpoint"; //Breakpoint SASS http://breakpoint-sass.com/
 @import "colors";
+//base
 @import "base/_grids";
 @import "base/_mixins";
 @import "base/_typography";
 @import "base/_z-index-scale";
+
 @import "layout";
 @import "story/story";
 @import "static";
 @import "podcast";
+@import "slider";
+
+//slick
 @import "slick/slick-theme";
 @import "slick/slick";
-@import "slider";
+
+//layout
 @import "layout/404";
 @import "layout/noresults";
 @import "layout/header";
 @import "layout/photo_story_page";
 @import "layout/video_story_page";
-@include border-box-sizing;
+@import "layout/section_page";
+@import "layout/author";
+
 //story
 @import "story/card";
 @import "story/sub_section";
+@import "story/stories_list";
 @import "story/elements/image";
 @import "story/elements/jsembed";
 @import "story/elements/polltype";
@@ -40,10 +49,12 @@
 @import "story/elements/elements_subtypes/summary";
 @import "story/templates/recipe";
 
-@import "layout/section_page";
-@import "layout/author";
+
 //module
 @import "module/loader";
+@include border-box-sizing;
+
+
 main {
     @include container;
     background-color: blue;
@@ -696,8 +707,8 @@ article {
 .wrap .textwrap {
     padding: 0 em(15) em(0) em(15);
     @include breakpoint($small-pc) {
-        height: 115px;
-        padding: 0 em(15) em(15) em(15);
+        height: 90px;
+        padding: 0 em(15) 0 em(15);
     }
 }
 
@@ -832,6 +843,9 @@ article {
     position: relative;
     float: left;
     width: 100%;
+    &:hover {
+      .story-template-type { opacity: 1}
+    }
 }
 
 .tagswrap {
@@ -1293,4 +1307,26 @@ article {
 
 .podicon {
     width: 20px;
+}
+.loading {
+  display: none;
+  text-align: center;
+  font-weight: $bold;
+  letter-spacing: 1px;
+}
+.loader-image {
+  background: url(loader.gif) no-repeat center center;
+  background-size: contain;
+  height: 32px;
+}
+.story-template-type {
+  position: absolute;
+  bottom: 18px;
+  background-color: rgba(0,0,0,0.5);
+  color: white;
+  padding: 5px 6px;
+  font-size: 10px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  opacity: 0;
 }

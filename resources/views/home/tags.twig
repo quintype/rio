@@ -1,14 +1,17 @@
-<div class="content"><!-- content open-->
 <section>
-    <h3 class="line-title top-title"> Tag: {{tag}} </h3>
+    <h3 class="line-title top-title">
+        Tag: {{tag}}
+    </h3>
     <div class="sectionsleft" id="load-more-tag-stories-target">
-      {% include "story/elements/stories_list" with {'stories': tagresults} %}
+        {% include "shared/stories_list" with {'stories': tagresults} %}
     </div>
 </section>
-{% set resultsLength = tagresults|length %}
-{% if resultsLength == 7  %}
+{% set resultsLength = tagresults | length %}
+{% if resultsLength == 7 %}
     {% include "story/elements/loadmore" %}
 {% endif %}
 <script type="text/javascript">
-    qtReady.push(function() { app.loadMoreStories('#loadmore', '#load-more-tag-stories-target', {{ params | json_encode | raw }}); })
+    qtReady.push(function() {
+        app.loadMoreStories('#loadmore', '#load-more-tag-stories-target', {{ params | json_encode | raw }});
+    })
 </script>

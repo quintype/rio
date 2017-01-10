@@ -1,0 +1,10 @@
+
+.article_list_left {
+    @include span(12);
+    @include aspect-ratio(9,5);
+    @include breakpoint($pc) {
+        width: 40%;
+        margin-right: 0;
+        padding: 0em;
+    }
+}

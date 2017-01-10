@@ -184,7 +184,8 @@ return [
             'shorthead',
             'shortsummary',
             'decode64',
-            'menuBase'
+            'menuBase',
+            'getPhotoStoryImages'
         ],
 
         /*

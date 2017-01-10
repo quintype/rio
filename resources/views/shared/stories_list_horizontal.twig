@@ -1,4 +1,5 @@
 <div class="clear"></div>
+ <div class="gallery-fix-div">
 {% for story in stories %}
     <article>
         <div class="wrap border">
@@ -8,6 +9,9 @@
                     <figure>
                         <img src="{{focusedImageUrl(story['hero-image-s3-key'], config['image-cdn'], [16,9], story['hero-image-metadata'], {w: 400})}}"/>
                     </figure>
+                    <span class="story-template-type">
+                        {{story['story-template']}}
+                    </span>
                     <div class="sourcefrom">{{ story["hero-image-attribution"] | raw }}</div>
                 </div>
 
@@ -24,3 +28,4 @@
         </div>
     </article>
 {% endfor %}
+</div>

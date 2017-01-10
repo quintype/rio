@@ -53,9 +53,8 @@ class HomeController extends QuintypeController
     public function storyview($category, $y, $m, $d, $slug)
     {
         $story = $this->client->storyBySlug(['slug' => $slug]);
-        $this->client->addBulkRequest('related_stories', 'top', ['section' => $story['sections'][0]['name'], 'fields' => $this->fields, 'limit' => 4]);
         $this->client->executeBulk();
-        $related_stories = $this->client->getBulkResponse('related_stories');
+
         $sectionNames = $this->getSectionNames($story);
         $otherAuthor = array();
         for ($kk = 0; $kk < sizeof($story['authors']); ++$kk) {
@@ -84,19 +83,13 @@ class HomeController extends QuintypeController
         };
 
         $story['cards'] = array_map($cardAttribute, $story['cards']);
-        $photoStoryImages = [];
-        if($story['story-template'] == 'photo') {
-           $photoStoryImages = $this->getPhotoStoryImages($story);
-        }
 
         $page = ['type' => 'story'];
         $setSeo = $this->seo->story($page['type'], $story);
         $this->meta->set($setSeo->prepareTags());
+
         return view('story', $this->toView([
           'storyData' => $story,
-          'storyCards' => $story['cards'],
-          'relatedstories' => $related_stories,
-          'photoStoryImages' => $photoStoryImages,
           'otherAuthor' => $otherAuthor,
           'authorDetails' => $authorDetails,
           'getRatingValues' => $getRatingValues,
@@ -280,25 +273,6 @@ class HomeController extends QuintypeController
         ])
       );
     }
-
-    private function getPhotoStoryImages($story)
-    {
-        $photoArray = [
-          ['image-s3-key' => $story['hero-image-s3-key'],
-          'image-metadata' => $story['hero-image-metadata'],
-          'title' => $story['hero-image-caption'], ],
-        ];
-        foreach ($story['cards'] as $card) {
-            foreach ($card['story-elements'] as $key => $element) {
-                if ($element['type'] == 'image') {
-                    array_push($photoArray, ['image-s3-key' => $element['image-s3-key'],
-                    'image-metadata' => $element['image-metadata'],
-                    'title' => $element['title'], ]);
-                }
-            }
-         }
-         return $photoArray;
-     }
 
     public function getSectionNames($story)
     {
