@@ -1,7 +1,9 @@
 <div class="content">
     <div class="story-template">
         <div class="story-template__story">
-            <div class="story-template__story-head">
+            <div class="js-story-header-content story-template__story-head"
+                  data-story-slug="{{storyData['slug']}}"
+                  data-story-id="{{storyData['id']}}">
                 <p><span>In</span>&nbsp;{{ sectionNames }}</p>
                 <h1>{{ storyData['headline'] }}</h1>
                 <div class="story-template__story-head__author">
