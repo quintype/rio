@@ -100,7 +100,6 @@
 <!-- content -->
 
 <script>
-  var token = '{{ csrf_token() }}';
   var storyId = '{{storyData['story-content-id']}}';
   var user_rating = "user_rating";
   var ratingValue = getCookie(user_rating);
@@ -112,7 +111,7 @@
       var rating = $(this).attr("data-rating");
       document.cookie = "user_rating = "+rating;
       ratedOnce(rating);
-      updateRating(storyId, rating, token);
+      updateRating(storyId, rating);
     });
   }
 
@@ -128,7 +127,7 @@
     $.ajax({
       type: "POST",
       url: "/api/stories/"+storyId+"/votes",
-      data: JSON.stringify({ 'magnitude': parseInt(rating), '_token': token }),
+      data: JSON.stringify({ 'magnitude': parseInt(rating) }),
       contentType: 'application/json',
       success: function (data) {
         getAverageRating(storyId);
