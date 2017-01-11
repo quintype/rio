@@ -23,5 +23,20 @@ class QuintypeController extends Controller
         "nestedMenuItems" => $this->client->prepareNestedMenu($this->config["layout"]["menu"]),
         "breaking_news" => $this->client->getBreakingNews(['limit' => 5, 'fields' => 'headline,metadata']),
       ], $args);
+
     }
+
+    protected function getAverageRating($story) {
+      if(sizeof($story['votes']) > 0) {
+         $numerator = 0; $noOfVoters = 0;
+         foreach ($story['votes'] as $key => $value) {
+           $numerator += ($key * $value);
+           $noOfVoters += $value;
+         }
+         $averageRatingValue = round(($numerator) / ($noOfVoters), 1);
+         $ratingPercentValue = ($averageRatingValue * 100)/(5);
+         $getRatingValues = array("average-rating"=> $averageRatingValue , "rating-percentage"=> $ratingPercentValue, "rater-count"=>$noOfVoters);
+         return $getRatingValues;
+       }
+     }
 }

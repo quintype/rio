@@ -65,6 +65,6 @@ use AuthenticatesAndRegistersUsers,
                     'email' => $data['email'],
                     'password' => bcrypt($data['password']),
         ]);
-    }
+     }
 
 }

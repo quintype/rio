@@ -62,6 +62,7 @@ class HomeController extends QuintypeController
             $authorbio = strip_tags($author_data['bio']);
             array_push($otherAuthor, $author_data);
         }
+        $getRatingValues = $this->getAverageRating($story);
         $authorDetails = $this->client->getAuthor($story['author-id']);
         $cardAttribute = function ($card) {
             if (array_key_exists('metadata', $card) &&
@@ -91,12 +92,13 @@ class HomeController extends QuintypeController
           'storyData' => $story,
           'otherAuthor' => $otherAuthor,
           'authorDetails' => $authorDetails,
+          'getRatingValues' => $getRatingValues,
           'page' => $page,
           'meta' => $this->meta,
-          'sectionNames' =>$sectionNames
+          'sectionNames' => $sectionNames
         ]));
 
-    }
+     }
 
     public function sectionview($sectionSlug, $subSectionSlug = '')
      {
