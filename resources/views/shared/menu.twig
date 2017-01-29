@@ -1,5 +1,10 @@
 {% include "/shared/mobile_menu" %}
 <div class="header-logo">
-    <a href="/" title="demo" class="site-logo"></a>
+  <span itemprop="publisher" itemscope itemtype="https://schema.org/Organization">
+  <span itemprop="name" content="{{config['title']}}"></span>
+  <span itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+    <meta itemprop="url" content="{{assetPath('rio.png')}}">
+  </span>
+  <a href="/" title="demo" class="site-logo"></a>
 </div>
 {% include "/shared/web_menu" %}
