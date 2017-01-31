@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "d25c5514a7b49e70cbdc0109dc511272",
-    "content-hash": "afccb3c22fac036413c74bf07c0f906e",
+    "hash": "e84a42be0fb3147b5bb43335c23b4efd",
+    "content-hash": "ec76d2cb9329ec2bf52a83134359f4bd",
     "packages": [
         {
             "name": "classpreloader/classpreloader",
@@ -1161,16 +1161,16 @@
         },
         {
             "name": "quintype/meta",
-            "version": "2.0.3",
+            "version": "2.0.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/quintype/meta.git",
-                "reference": "2c776ed835d2e5e5a4590c0edecbafb2fd285556"
+                "reference": "90f47323d77e422aba79629458ccff2d3b2384cb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/quintype/meta/zipball/2c776ed835d2e5e5a4590c0edecbafb2fd285556",
-                "reference": "2c776ed835d2e5e5a4590c0edecbafb2fd285556",
+                "url": "https://api.github.com/repos/quintype/meta/zipball/90f47323d77e422aba79629458ccff2d3b2384cb",
+                "reference": "90f47323d77e422aba79629458ccff2d3b2384cb",
                 "shasum": ""
             },
             "require": {
@@ -1207,10 +1207,10 @@
                 "view"
             ],
             "support": {
-                "source": "https://github.com/quintype/meta/tree/2.0.3",
+                "source": "https://github.com/quintype/meta/tree/2.0.4",
                 "issues": "https://github.com/quintype/meta/issues"
             },
-            "time": "2017-01-25 12:41:26"
+            "time": "2017-01-30 09:26:41"
         },
         {
             "name": "quintype/seo",
@@ -3079,16 +3079,16 @@
         },
         {
             "name": "sebastian/comparator",
-            "version": "1.2.3",
+            "version": "1.2.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/comparator.git",
-                "reference": "6554a8aff8735fcd859b44279d5c03a6d1b1cb23"
+                "reference": "2b7424b55f5047b47ac6e5ccb20b2aea4011d9be"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/comparator/zipball/6554a8aff8735fcd859b44279d5c03a6d1b1cb23",
-                "reference": "6554a8aff8735fcd859b44279d5c03a6d1b1cb23",
+                "url": "https://api.github.com/repos/sebastianbergmann/comparator/zipball/2b7424b55f5047b47ac6e5ccb20b2aea4011d9be",
+                "reference": "2b7424b55f5047b47ac6e5ccb20b2aea4011d9be",
                 "shasum": ""
             },
             "require": {
@@ -3139,7 +3139,7 @@
                 "compare",
                 "equality"
             ],
-            "time": "2017-01-29 07:17:51"
+            "time": "2017-01-29 09:50:25"
         },
         {
             "name": "sebastian/diff",

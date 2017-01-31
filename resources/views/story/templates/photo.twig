@@ -10,6 +10,11 @@
     </div>
     {% endfor %}
   </div>
+  <div itemtype="https://schema.org/ImageObject" itemscope="itemscope" itemprop="image">
+    <meta itemprop="url" content="{{focusedImageUrl(storyData['hero-image-s3-key'],config['image-cdn'], [16,9], storyData['hero-image-metadata'], {w: 1000})}}" class="story-img"></meta>
+    <span content="{{storyData['hero-image-metadata']['width']}}" itemprop="width"></span>
+    <span content="{{storyData['hero-image-metadata']['height']}}" itemprop="height"></span>
+  </div>
   <div class="story-body">
     {% include "story/cards" with {'storyCards': storyData['cards']} %}
     {% include "story/tags" with {'storyTags': storyData['tags']} %}
