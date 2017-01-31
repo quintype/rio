@@ -60,8 +60,14 @@ padding: 0 12px;
      @include span( last 4);
      background-color: $grey;
    }
+   .ads-box-small {
+    float:right;
+    text-align: right;
+   }
  }
-
+.lead-story-left-container__bg-tranparent {
+  background-color: transparent;
+}
 .article-grids {
    @include aspect-ratio(16,9);
    margin-bottom: em(15);
@@ -173,8 +179,11 @@ padding: 0 12px;
          margin-top: em(20);
          @include breakpoint($pc) {
             display: block;
+            float: right;
+            text-align: right;
             padding-left: em(80);
             width: 40%;
+            margin-bottom: 20px;
         }
     }
     .load-clearfix {
