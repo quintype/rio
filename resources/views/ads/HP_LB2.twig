@@ -1,6 +1,8 @@
 <script>
   googletag.cmd.push(function() {
-    googletag.defineSlot('/60988533/Rio_HP_LB2', [[728, 90], [320, 50]], 'div-gpt-ad-1485772432963-1').addService(googletag.pubads()).setTargeting('demo', '{{ app.request.get("demo") }}');
+    googletag.defineSlot('/60988533/Rio_HP_LB2', [[728, 90], [320, 50]], 'div-gpt-ad-1485772432963-1')
+    {% include 'ads/common/targeting' %}
+    .addService(googletag.pubads());
     googletag.pubads().enableSingleRequest();
     googletag.pubads().collapseEmptyDivs();
     googletag.pubads().enableSyncRendering();
