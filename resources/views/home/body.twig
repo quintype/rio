@@ -217,7 +217,7 @@
                                 <div class="articleshare__icons">
                                     <ul>
                                         <li>
-                                            <a onClick="window.open('http://www.facebook.com/sharer.php?p[url]={{ url()}}/{{ story['slug'] }}','sharer', 'toolbar=0,status=0,width=548,height=325');" target="_parent" href="javascript: void(0)">
+                                            <a onClick="window.open('http://www.facebook.com/sharer.php?p[url]={{ url("/")}}/{{ story['slug'] }}','sharer', 'toolbar=0,status=0,width=548,height=325');" target="_parent" href="javascript: void(0)">
                                                 <div id="facebooksmall">
                                                     <center>
                                                         <span class="icons">
@@ -243,7 +243,7 @@
                                                         class="share__button twitter"
                                                         rel="nofollow"
                                                         class="storyshare__icons__twitter storyshare__icons__alignment"
-                                                        onclick="javascript:window.open('https://twitter.com/intent/tweet?url={{ url()}}/{{ story['slug'] }};text={{ storyData['headline'] }};&original_referer={{ url() }}', '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;">
+                                                        onclick="javascript:window.open('https://twitter.com/intent/tweet?url={{ url("/")}}/{{ story['slug'] }};text={{ storyData['headline'] }};&original_referer={{ url("/") }}', '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;">
 
                                                         <span class="icons">
                                                             <svg width="20px" height="20px" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
