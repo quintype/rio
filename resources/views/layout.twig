@@ -10,31 +10,14 @@
     <meta name="twitter:widgets:csp" content="on">
     {{ meta.display([], true)|raw }}
 
-
+    <!-- Google ads -->
     <script src='https://www.googletagservices.com/tag/js/gpt.js'></script>
     <script>
         var googletag = googletag || {};
         googletag.cmd = googletag.cmd || [];
-      </script>
-    <script>
-      googletag.cmd.push(function() {
-        googletag.defineSlot('/60988533/Rio_HP_LB1', [[728, 90], [320, 50]], 'div-gpt-ad-1485772432963-0').addService(googletag.pubads()).setTargeting('demo', '{{ app.request.get("demo") }}');
-        googletag.defineSlot('/60988533/Rio_HP_LB2', [[728, 90], [320, 50]], 'div-gpt-ad-1485772432963-1').addService(googletag.pubads()).setTargeting('demo', '{{ app.request.get("demo") }}');
-        googletag.defineSlot('/60988533/Rio_HP_Mrec1', [300, 250], 'div-gpt-ad-1485772432963-2').addService(googletag.pubads()).setTargeting('demo', '{{ app.request.get("demo") }}');
-        googletag.defineSlot('/60988533/Rio_HP_Mrec2', [300, 250], 'div-gpt-ad-1485772432963-3').addService(googletag.pubads()).setTargeting('demo', '{{ app.request.get("demo") }}');
-        googletag.defineSlot('/60988533/Rio_Section_300x600', [300, 600], 'div-gpt-ad-1485772432963-4').addService(googletag.pubads()).setTargeting('demo', '{{ app.request.get("demo") }}');
-        googletag.defineSlot('/60988533/Rio_Section_320x50', [320, 50], 'div-gpt-ad-1485772432963-5').addService(googletag.pubads()).setTargeting('demo', '{{ app.request.get("demo") }}');
-        googletag.defineSlot('/60988533/Rio_SS_Mrec', [300, 250], 'div-gpt-ad-1485772432963-6').addService(googletag.pubads()).setTargeting('demo', '{{ app.request.get("demo") }}');
-        googletag.defineSlot('/60988533/Rio_Story_LB1', [728, 90], 'div-gpt-ad-1485772432963-7').addService(googletag.pubads()).setTargeting('demo', '{{ app.request.get("demo") }}');
-        googletag.defineSlot('/60988533/Rio_Story_LB2', [728, 90], 'div-gpt-ad-1485772432963-8').addService(googletag.pubads()).setTargeting('demo', '{{ app.request.get("demo") }}');
-        googletag.defineSlot('/60988533/Rio_Story_Mrec1', [300, 250], 'div-gpt-ad-1485772432963-9').addService(googletag.pubads()).setTargeting('demo', '{{ app.request.get("demo") }}');
-        googletag.defineSlot('/60988533/Rio_Story_Mrec2', [300, 250], 'div-gpt-ad-1485772432963-10').addService(googletag.pubads()).setTargeting('demo', '{{ app.request.get("demo") }}');
-        googletag.pubads().enableSingleRequest();
-        googletag.pubads().collapseEmptyDivs();
-        googletag.pubads().enableSyncRendering();
-        googletag.enableServices();
-      });
     </script>
+    {% include 'ads/common/all_ads' %}
+    <!-- End Google ads -->
 
     <!-- Qlitics Snippet -->
     <script>

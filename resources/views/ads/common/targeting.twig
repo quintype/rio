@@ -1,0 +1,3 @@
+{% for queryParam, queryValue in queryParams %}
+  .setTargeting('{{ queryParam }}', '{{ queryValue }}')
+{% endfor %}
