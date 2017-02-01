@@ -35,7 +35,9 @@ var scrollHandler = _.throttle(scrollFn, 300);
 
 
 function init() {
-  $win.scroll(scrollHandler);
+  setTimeout(function(){
+    $win.scroll(scrollHandler);
+  }, 500)
 }
 
 function infiniteScroll() {
