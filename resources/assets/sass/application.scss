@@ -668,8 +668,7 @@ article {
         width: 33.33333%;
         margin: 0px;
         padding: 0px;
-        margin-bottom: 20px;
-        margin: 0px 7px;
+        margin: 36px 7px 20px;
         @include breakpoint($phone) {
             flex: 0 1 96%;
             margin: 0 auto;
