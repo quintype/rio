@@ -727,7 +727,7 @@ article {
     font-size: 12px;
     font-weight: $regular;
     padding-bottom: 10px;
-    font-family: $sans;
+    font-family: $proxima;
     margin-bottom: em(20);
     position: relative;
     float: left;
@@ -895,7 +895,7 @@ article {
     }
     a {
         font-size: em(14);
-        font-family: $sans;
+        font-family: $proxima;
         cursor: pointer;
     }
 }

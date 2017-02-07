@@ -13,7 +13,7 @@
             margin-bottom: 30px;
             p {
                 font-size: $fontsize-small;
-                font-family: $sans;
+                font-family: $proxima;
                 font-weight: $regular;
                 text-align: center;
                 color: $dark-gray;
@@ -54,14 +54,14 @@
         .author-box {
             &__name {
                 font-size: $fontsize-small;
-                font-family: $sans;
+                font-family: $proxima;
                 font-weight: $regular;
                 color: $dark-gray;
                 text-align: left;
             }
             &_detail {
                 font-size: $fontsize-smaller;
-                font-family: $sans;
+                font-family: $proxima;
                 font-weight: $regular;
                 color: $black;
                 text-align: left;
