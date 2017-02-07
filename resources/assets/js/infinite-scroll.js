@@ -50,7 +50,7 @@ function infiniteScroll() {
 
     var $el = $(this);
     var headline = $el.find('.js-story-headline').text();
-    var url = '/' + $el.data("storySlug");
+    var url = '/' + $el.data("storySlug") + window.location.search;
     if (history.replaceState) {
       history.replaceState({}, headline, url);
       $(document).prop('title', headline);
