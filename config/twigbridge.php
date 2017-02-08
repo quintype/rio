@@ -184,6 +184,7 @@ return [
             'shorthead',
             'shortsummary',
             'decode64',
+            'dateIsoFormat',
             'menuBase',
             'getPhotoStoryImages'
         ],
