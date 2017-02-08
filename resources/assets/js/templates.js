@@ -95,6 +95,10 @@ Twig.extendFunction("url", function(string) {
    return window.location.origiphotoStoryImagesn + string;
 });
 
+Twig.extendFunction("dateIsoFormat", function(date) {
+   return new Date(date).toISOString();
+});
+
 Twig.extendFunction("getPhotoStoryImages", function(story) {
   console.log(story);
   var storyHeroImage = {

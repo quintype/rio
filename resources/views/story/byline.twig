@@ -9,7 +9,7 @@
         {% if story["authors"] | length > 1 %}
             <span class="textbottom__article">
                 <time datetime="">
-                    {% set timestamp = (story["first-published-at"] / 1000) | round(0, 'floor') %}{{timestamp|date('M j, Y')}}
+                    {% set timestamp = (story["first-published-at"] / 1000) | round(0, 'floor') %}{{timestamp|date('M dS Y, h.i A' ,'Asia/Kolkata')}}
                 </time>
             </span>
 
@@ -34,7 +34,7 @@
             </a>
             <span class="textbottom__article">
                 <time datetime="">
-                    {% set timestamp = (story["first-published-at"] / 1000) | round(0, 'floor') %}{{timestamp|date('M j, Y')}}
+                    {% set timestamp = (story["first-published-at"] / 1000) | round(0, 'floor') %}{{timestamp|date('M dS Y, h.i A' ,'Asia/Kolkata')}}
                 </time>
             </span>
 
