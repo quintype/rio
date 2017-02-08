@@ -15,7 +15,7 @@
         h1 {
             font-size: em(22);
             color: $light-blue;
-            font-family: $sans;
+            font-family: $proxima;
             font-weight: $regular2;
             margin-top: 0px;
             text-transform: uppercase;
@@ -42,7 +42,7 @@
                     padding: 0px;
                 }
                 h3 {
-                    font-family: $sans;
+                    font-family: $proxima;
                     font-size: em(25);
                     margin-top: 10px;
                     margin-bottom: 5px;
@@ -50,13 +50,13 @@
                     font-weight: $bold;
                 }
                 p {
-                    font-family: $sans;
+                    font-family: $proxima;
                     font-size: em(14);
                     color: lighten($dark-gray, 10%);
                 }
             }
             &-date {
-                font-family: $sans !important;
+                font-family: $proxima !important;
                 font-size: em(12)!important;
                 color: darken($light-gray, 20%)!important;
                 margin-top: 10px;
@@ -113,7 +113,7 @@
                 }
                 &__right {
                     &-heading {
-                        font-family: $sans;
+                        font-family: $proxima;
                         font-size: em(14);
                         color: $dark-gray;
                         font-weight: $regular2;
@@ -128,7 +128,7 @@
                         }
                     }
                     &-date {
-                        font-family: $sans;
+                        font-family: $proxima;
                         font-size: em(12);
                         color: darken($light-gray, 20%);
                         margin-top: 7px;
@@ -197,7 +197,7 @@
             }
             &__img-overlay {
                 h4 {
-                    font-family: $sans;
+                    font-family: $proxima;
                     font-size: em(14);
                     color: $dark-gray;
                     font-weight: $regular2;
@@ -251,7 +251,7 @@
                         width: calc(60% - 25px);
                     }
                     .article__title {
-                        font-family: $sans;
+                        font-family: $proxima;
                         font-size: em(18);
                         color: $dark-gray;
                         font-weight: $regular2;
@@ -262,7 +262,7 @@
                         -webkit-box-orient: vertical;
                     }
                     .date-story-list {
-                        font-family: $sans !important;
+                        font-family: $proxima !important;
                         font-size: em(14)!important;
                         color: darken($light-gray, 20%)!important;
                         margin-top: 15px;
