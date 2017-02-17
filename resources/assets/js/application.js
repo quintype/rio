@@ -37,6 +37,11 @@ $(document).ready(function(){
     $(".menuitems").hide();
   });
 
+  $('.snapshot-header').click( function(event){
+    $(".snapshot-text").toggleClass("hide");
+    $(".snapshot-icon-plus").toggleClass("hide");
+  });
+
   $('.js-breakingnews-marquee').marquee({
       duration: 19000,
       startVisible: true,

@@ -1,12 +1,17 @@
 .story-element-summary {
   position: relative;
-  span.snapshot-icon {
+  .snapshot-icon {
     position: absolute;
     right: 20px;
     top: -2px;
     font-size: 32px;
     color: $white;
+    &-plus{
+      top: 1px;
+      right: 17px;
+    }
   }
+
   .snapshot-header h5 {
     background-color: $blue-gray;
     padding: 7px 15px;
@@ -15,6 +20,7 @@
     color: $white;
     letter-spacing: 1px;
   }
+
   .snapshot-text {
       padding: em(15) em(35);
       border: 1px solid $blue-gray;
@@ -24,5 +30,9 @@
     li {
       margin-bottom: em(10);
     }
+  }
+
+  .hide {
+    display: none;
   }
 }
