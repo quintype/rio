@@ -3,7 +3,7 @@
 return [
     "publisher-name" => "rio",
     "asset-host" => "http://localhost:8000",
-    "api-host-remove-web" => true,
+    "api-host-remove-string" => array("-web", ".rio"),
     "host-to-api-host" => array(
         "staging.lvh.me" => "https://demo-rio.staging.quintype.io"
     ),
