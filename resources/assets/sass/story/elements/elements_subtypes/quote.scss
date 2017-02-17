@@ -1,8 +1,6 @@
 .story-element-quote {
   width: 100%;
-  margin-bottom: 20px;
   position: relative;
-  float: left;
 
    blockquote {
     margin: 0;
@@ -11,7 +9,7 @@
     color: $grey;
     float: left;
     width: 100%;
-    font-size: em(14);
+    font-size: em(20);
 
     p {
       font-weight: $bold;
@@ -23,7 +21,7 @@
       position: absolute;
       left: 0px;
       top: 0;
-      background: url("http://xplorethoughts.com/demo/quote.svg")no-repeat center center;
+      background: transparent url("./images/main/quote.svg")no-repeat center center;
       background-size: cover;
       zoom: 2;
       width: em(12);
@@ -35,22 +33,27 @@
       }
     }
     @include breakpoint($pc) {
-      font-size: em(17);
+      font-size: em(28);
       line-height: 28px;
     }
   }
 
  .attribution {
+    position: relative;
     color: $dark-blue;
     text-transform: capitalize;
     float: right;
     padding-right: em(10);
-    font-size: em(12);
+    font-size: em(18);
     font-style: italic;
     font-weight: $bold;
     text-align: right;
+
+    &:before {
+      content:"-";
+    }
     @include breakpoint($pc) {
-      font-size: em(14);
+      font-size: em(22);
     }
   }
 

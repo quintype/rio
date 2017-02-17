@@ -1,21 +1,38 @@
 .story-element-summary {
-  font-style: italic;
   position: relative;
-  font-weight: $bold;
-  margin-bottom: 20px;
-  float: left;
-  width: 100%;
-  margin: em(10) 0 em(10) 0;
-    p {
-      font-size: em(16);
-      line-height: 1.6;
+  .snapshot-icon {
+    position: absolute;
+    right: 20px;
+    top: -2px;
+    font-size: 32px;
+    color: $white;
+    &-plus{
+      top: 1px;
+      right: 17px;
+    }
+  }
+
+  .snapshot-header h5 {
+    background-color: $blue-gray;
+    padding: 7px 15px;
+    font-size: 25px;
+    font-weight: 700;
+    color: $white;
+    letter-spacing: 1px;
+  }
+
+  .snapshot-text {
+      padding: em(15) em(35);
+      border: 1px solid $blue-gray;
+    ol, ul , li{
+      list-style: disc;
+    }
+    li {
       margin-bottom: em(10);
-      color: $dark-blue;
     }
-    ul li {
-          list-style: none;
-    }
-    ol li {
-         list-style: none;
-    }
+  }
+
+  .hide {
+    display: none;
+  }
 }

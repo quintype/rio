@@ -5,16 +5,13 @@
   float: left;
 
   blockquote {
-    padding: 0;
-    font-size: em(15);
+    font-size: em(28);
     color: $grey;
-    padding-left: 1em;
+    padding-left: em(8);
     font-family: $merri;
-    font-weight: $bold;
-    font-style: italic;
+    font-weight: 400;
     margin-left: 0;
-    width: 100%;
-    border-left: em(3) solid $light-blue;
+    border-left: em(3) solid $dark-blue;
   }
 
    .attribution {
@@ -22,8 +19,7 @@
       text-transform: capitalize;
       float: right;
       padding-right: em(10);
-      font-size: em(14);
-      font-style: italic;
+      font-size: em(20);
       font-family: $merri;
       font-weight: $bold;
       display: inline-block;

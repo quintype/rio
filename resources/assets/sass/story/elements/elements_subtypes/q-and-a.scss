@@ -5,7 +5,8 @@
   margin-bottom: 20px;
 
   p {
-    font-size: em(16);
+    font-size: em(26);
+    font-weight: 600;
     line-height: 1.6;
     margin-bottom: em(10);
     color: $dark-blue;
@@ -15,8 +16,10 @@
     p {
       color: $grey;
       font-family: $merri;
-      font-size: em(16);
+      font-size: em(22);
       margin: 0;
+      padding-left: em(10);
+      font-weight: 100;
     }
   }
 }
