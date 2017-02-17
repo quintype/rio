@@ -46,7 +46,7 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Exception $e)
     {
-        $client = new Api(config('quintype.api-host'));
+        $client = new Api(getQuintypeAPIHost($request->getHost()));
         $menuItems = array_merge($client->config(), config('quintype'))["layout"]["menu"];
         $nestedMenuItems = $client->prepareNestedMenu($menuItems);
 
