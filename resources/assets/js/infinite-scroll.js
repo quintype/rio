@@ -19,6 +19,12 @@ function renderStory(story) {
   excludeStoryIds.push(story.id);
   $('.js-stories-container').append(html);
   $('.loading').hide();
+  $('.snapshot-header').click( function(event){
+    var target;
+    target = $(event.target).closest(".snapshot-header");
+    $(target).siblings( ".snapshot-text" ).toggleClass("hide");
+    $(event.target).siblings( ".snapshot-icon-plus" ).toggleClass("hide");
+  });
 }
 
 var storiesLoaded = 0;
