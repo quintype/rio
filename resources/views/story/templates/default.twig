@@ -1,11 +1,13 @@
 {% include "story/header-card" %}
 <div class="story-header">
-  <div class="story-header__hero-image">
-    <figure>
-      <img src="{{focusedImageUrl(storyData['hero-image-s3-key'],config['image-cdn'], [16,9], storyData['hero-image-metadata'], {w: 1000})}}" class="story-img"/>
+  <div class="story-header__hero-image" >
+    <figure itemtype="https://schema.org/ImageObject" itemscope="itemscope" itemprop="image">
+      <img itemprop="url" src="{{focusedImageUrl(storyData['hero-image-s3-key'],config['image-cdn'], [16,9], storyData['hero-image-metadata'], {w: 1000})}}" class="story-img"/>
       {% if storyData['hero-image-caption'] %}
       <figcaption>{{storyData['hero-image-caption'] | raw}}</figcaption>
       {% endif %}
+      <span content="{{storyData['hero-image-metadata']['width']}}" itemprop="width"></span>
+      <span content="{{storyData['hero-image-metadata']['height']}}" itemprop="height"></span>
     </figure>
     <div class="sourcefrom">
       {{ storyData["hero-image-attribution"] | raw }}
@@ -13,7 +15,9 @@
   </div>
 </div>
 <div class="story-body">
-  {% include "story/cards" with {'storyCards': storyData['cards']} %}
+  <div itemprop="articleBody">
+   {% include "story/cards" with {'storyCards': storyData['cards']} %}
+  </div>
   {% include "story/tags" with {'storyTags': storyData['tags']} %}
   {% include "story/ads" %}
 </div>

@@ -15,18 +15,23 @@
     </div>
     <span class="textbottom__article__name" itemprop="author" itemscope itemtype="http://schema.org/Person">
     {% for authornames in storyData["authors"]  %}
-    <a href="/author/{{authornames['author-id']}}">{{ authornames['name'] }}</a>
+    <a href="/author/{{authornames['author-id']}}">
+      <span itemprop="name">{{ authornames['name'] }}</span>
+    </a>
     {% if loop.index == (storyData["authors"] | length ) - 1 %} & {% else %}
     {% if loop.index != (storyData["authors"] | length ) %} , {% endif %} {% endif %}
     {% endfor %}
     {% if storyData["authors"] is empty %}
-    <a href="/author/{{storyData['author-id']}}">{{ storyData["author-name"] }}</a>
+    <a href="/author/{{storyData['author-id']}}">
+      <span itemprop="name">{{ storyData["author-name"] }}</span>
+    </a>
     {% endif %}
     </span>
     {% if storyData["first-published-at"] %}
-    <span class="textbottom__article--share" itemprop="datePublished"> <time>
-    {% set timestamp = (storyData["first-published-at"]// 1000)|round(0, 'floor') %}{{ timestamp|date('M j, Y') }}
-    </time></span>
+    <span class="textbottom__article--share" content="{{ dateIsoFormat(storyData['first-published-at'] // 1000) }}" itemprop="datePublished">
+      <time>{% set timestamp = (storyData["first-published-at"]// 1000)|round(0, 'floor') %}{{ timestamp|date('M dS Y, h.i A' ,'Asia/Kolkata') }}</time>
+      <time itemprop="dateModified" content="{{ dateIsoFormat(storyData['last-published-at'] // 1000) }}">
+    </span>
     {% endif %}
     {% include "shared/socialshare" %}
   </div>

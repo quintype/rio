@@ -22,16 +22,13 @@
       ]
     ]
   },
-  "devDependencies": {
+  "dependencies": {
     "babelify": "^7.3.0",
     "gulp": "^3.9.1",
-    "gulp-quintype": "^1.0.4",
+    "gulp-quintype": "^1.1.1",
     "gulp-shell": "^0.5.2",
-    "laravel-elixir": "^5.0.0",
     "quintype-js": "^0.1.4",
-    "twigify": "git://github.com/gja/twigify#allow-transforms"
-  },
-  "dependencies": {
+    "twigify": "git://github.com/gja/twigify#allow-transforms",
     "babel-preset-es2015": "^6.9.0",
     "del": "^2.2.1",
     "jquery": "^3.1.1",

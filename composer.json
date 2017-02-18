@@ -4,12 +4,7 @@
     "keywords": ["framework", "laravel"],
     "license": "MIT",
     "type": "project",
-
-    "repositories": [{
-        "type": "vcs",
-        "url": "https://github.com/quintype/meta"
-    }],
-
+    
     "require": {
         "php": ">=5.5.9",
         "laravel/framework": "5.2.*",
@@ -36,6 +31,7 @@
             "App\\": "app/"
         },
         "files": [
+            "resources/multiple_domains.php",
             "resources/helpers.php"
         ]
     },

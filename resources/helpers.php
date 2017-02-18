@@ -49,6 +49,9 @@ function getPhotoStoryImages($story) {
   return $photoArray;
 }
 
+function dateIsoFormat($data) {
+  return date(DATE_ISO8601, $data);
+}
 
 function get_logo($key,$p) {
 

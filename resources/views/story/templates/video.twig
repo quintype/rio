@@ -3,16 +3,22 @@
 <div class="video-story-header">
   <div data-youtube-id="{{ storyCards[0]['story-elements'][0]['embed-url']|split('/')|last }}"></div>
 </div>
-
+<div itemtype="https://schema.org/ImageObject" itemscope="itemscope" itemprop="image">
+  <meta itemprop="url" content="{{focusedImageUrl(storyData['hero-image-s3-key'],config['image-cdn'], [16,9], storyData['hero-image-metadata'], {w: 1000})}}" class="story-img"></meta>
+  <span content="{{storyData['hero-image-metadata']['width']}}" itemprop="width"></span>
+  <span content="{{storyData['hero-image-metadata']['height']}}" itemprop="height"></span>
+</div>
 <div class="story-body">
-  <div class="card  {{ card['metadata']['attributes']['alignment'][0] }}">
+  <div itemprop="articleBody">
+    <div class="card  {{ card['metadata']['attributes']['alignment'][0] }}">
      {% include "story/card" with {'storyElements': storyCards[0]['story-elements'] | slice(1) } %}
-  </div>
-  {% for card in storyCards | slice(1) %}
+    </div>
+    {% for card in storyCards | slice(1) %}
     <div class="card {{ card['metadata']['attributes']['alignment'][0] }}">
-      {% include "story/card" with {'storyElements': card['story-elements'] } %}
+     {% include "story/card" with {'storyElements': card['story-elements'] } %}
     </div>
   {% endfor %}
+ </div>
   {% include "story/tags" with {'storyTags': storyData['tags']} %}
   {% include "story/ads" %}
 </div>
