@@ -15,7 +15,7 @@ RUN git log -n1 --pretty="Commit Date: %aD%nBuild Date: `date --rfc-2822`%n%h %a
     composer install && \
     npm install && \
     ./node_modules/.bin/gulp --production && \
-    chown -R www-data.www-data /app && \
+    chown -R nginx:nginx /app && \
     chmod 755 ./docker/start-in-container.sh
 
 CMD ["./docker/start-in-container.sh"]
