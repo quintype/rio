@@ -3,6 +3,9 @@
   float: left;
   width: 100%;
   margin-bottom: 20px;
+  border: 1px solid $bigFact-border;
+  border-radius: em(20);
+  padding: 0px 30px 20px;
   h2 {
     font-size: em(20);
     line-height: 1.6;
