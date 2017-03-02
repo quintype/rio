@@ -39,4 +39,15 @@ class QuintypeController extends Controller
          return $getRatingValues;
        }
      }
+
+     public function imageSizeCalc($story) {
+       $imagePath = $this->config['cdn-image'].'/'.$story['hero-image-s3-key'];
+       if (strpos($imagePath,'http:') === false) {
+         $imagePath = 'http://'.$imagePath;
+       }
+       list($imageWidth, $imageHeight) = getimagesize($imagePath);
+       $story['hero-image-metadata']['height'] = $imageHeight;
+       $story['hero-image-metadata']['width'] = $imageWidth;
+       return $story['hero-image-metadata'];
+     } 
 }

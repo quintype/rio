@@ -62,6 +62,10 @@ class HomeController extends QuintypeController
             $authorbio = strip_tags($author_data['bio']);
             array_push($otherAuthor, $author_data);
         }
+        $imageSizeArray = $story['hero-image-metadata'];
+        if (array_key_exists("height", $imageSizeArray) == false || array_key_exists("width", $imageSizeArray) == false ) {
+            $story['hero-image-metadata'] = $this->imageSizeCalc($story);
+        }
         $getRatingValues = $this->getAverageRating($story);
         $authorDetails = $this->client->getAuthor($story['author-id']);
         $cardAttribute = function ($card) {
