@@ -30,7 +30,7 @@
                     font-size: em(12);
                     font-weight: 400;
                     padding-bottom: 10px;
-                    font-family: $sans;
+                    font-family: $proxima;
                     margin-bottom: 10px;
                 }
             }
@@ -70,7 +70,7 @@
                     color: $base-blue;
                     font-size: em(16);
                     font-weight: bold;
-                    font-family: $sans;
+                    font-family: $proxima;
                     padding-top: 5px;
                     padding-bottom: 10px;
                     @include breakpoint($pc){

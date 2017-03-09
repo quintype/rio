@@ -32,6 +32,9 @@
             bottom: 5px;
         }
     }
+    &:focus {
+        outline: none;
+    }
 }
 
 .site-logo {
@@ -45,12 +48,12 @@
 
 .breaking-news {
     width: 100%;
-    height: 50px;
+    height: 40px;
     background-color: $base-blue;
     border-bottom: 5px solid $light-blue;
     &__title {
         @include span(3);
-        height: 50px;
+        height: 40px;
         background-color: $light-blue;
         color: $white;
         text-transform: uppercase;
@@ -59,7 +62,7 @@
         z-index: $zIndex-1;
         position: relative;
         @include breakpoint($phone) {
-            height: 45px!important;
+            height: 40px!important;
         }
         @include breakpoint($pc) {
             @include span(2);
@@ -82,9 +85,9 @@
     }
     &__headlines {
         @include span(9);
-        height: 50px;
+        height: 40px;
         margin-right: 0;
-        padding: 20px 10px 5px;
+        padding: 15px 10px 5px;
         color: $white;
         @include breakpoint($pc) {
             @include span(10);
@@ -184,7 +187,7 @@
         height: auto;
         a {
             color: $dark-gray;
-            font-family: $sans;
+            font-family: $proxima;
             padding: em(15) 0 em(15) 0;
             letter-spacing: 1px;
             position: relative;

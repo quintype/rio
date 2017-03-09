@@ -19,6 +19,12 @@ function renderStory(story) {
   excludeStoryIds.push(story.id);
   $('.js-stories-container').append(html);
   $('.loading').hide();
+  $('.snapshot-header').click( function(event){
+    var target;
+    target = $(event.target).closest(".snapshot-header");
+    $(target).siblings( ".snapshot-text" ).toggleClass("hide");
+    $(event.target).siblings( ".snapshot-icon-plus" ).toggleClass("hide");
+  });
 }
 
 var storiesLoaded = 0;
@@ -35,7 +41,9 @@ var scrollHandler = _.throttle(scrollFn, 300);
 
 
 function init() {
-  $win.scroll(scrollHandler);
+  setTimeout(function(){
+    $win.scroll(scrollHandler);
+  }, 500)
 }
 
 function infiniteScroll() {
@@ -48,7 +56,7 @@ function infiniteScroll() {
 
     var $el = $(this);
     var headline = $el.find('.js-story-headline').text();
-    var url = '/' + $el.data("storySlug");
+    var url = '/' + $el.data("storySlug") + window.location.search;
     if (history.replaceState) {
       history.replaceState({}, headline, url);
       $(document).prop('title', headline);

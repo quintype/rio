@@ -78,7 +78,6 @@ padding: 0 12px;
 }
 
 .lead-story__add-box {
-   background-color: $grey;
    font-size: em(16);
    width: 300px;
    height: 250px;
@@ -161,7 +160,7 @@ padding: 0 12px;
                     width: calc(60% - 25px);
                 }
                 .article__title {
-                    font-family: $sans;
+                    font-family: $proxima;
                     font-size: em(18);
                     color: $dark-gray;
                     font-weight: $regular2;

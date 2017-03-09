@@ -1,5 +1,6 @@
 .story-element-blurb {
   font-style: italic;
+  font-size: em(28);
   position: relative;
   color: $dark-blue;
   font-weight: $bold;
@@ -8,6 +9,7 @@
   border-top: 2px solid $light-gray;
   border-bottom: 2px solid $light-gray;
   margin-bottom: 20px;
+  padding: 0 em(10);
   blockquote {
     padding-left: 0;
     margin-left: 0;

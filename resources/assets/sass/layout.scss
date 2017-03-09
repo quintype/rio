@@ -1,10 +1,12 @@
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic,700);
+@import url(https://fonts.googleapis.com/css?family=Proxima+Nova:400,400italic,600,600italic,700,800,900);
 
+$proxima : 'Proxima Nova', Helvetica, Arial, sans-serif ;
 $sans: 'Open Sans', Helvetica,Arial, sans-serif;
 $serif: 'expo-serif-pro', 'gerogia', serif;
 
-$primary-typeface: $sans;
-$secondary-typeface: $serif;
+$primary-typeface: $proxima;
+$secondary-typeface: $sans;
 
 
 body {
@@ -17,14 +19,15 @@ body {
 }
 
 .page {
-  background: $light-blue;
+/*   background: $light-blue;
   background: -moz-linear-gradient(top, $light-blue 0%, rgba(179,220,237,1) 0%, rgba(255,255,255,1) 400px, rgba(255,255,255,1) 100%);
   background: -webkit-gradient(left top, left bottom, color-stop(0%, $light-blue), color-stop(0%, rgba(179,220,237,1)), color-stop(50%, rgba(255,255,255,1)), color-stop(100%, rgba(255,255,255,1)));
   background: -webkit-linear-gradient(top, rgba(41,184,229,1) 0%, rgba(179,220,237,1) 0%, rgba(255,255,255,1) 400px, rgba(255,255,255,1) 100%);
   background: -o-linear-gradient(top, $light-blue 0%, rgba(179,220,237,1) 0%, rgba(255,255,255,1) 400px, rgba(255,255,255,1) 100%);
   background: -ms-linear-gradient(top, $light-blue 0%, rgba(179,220,237,1) 0%, rgba(255,255,255,1) 400px, rgba(255,255,255,1) 100%);
   background: linear-gradient(to bottom, $light-blue 0%, rgba(179,220,237,1) 0%, rgba(255,255,255,1) 400px, rgba(255,255,255,1) 100%);
-  background-repeat: no-repeat;
+  background-repeat: no-repeat; */
+  background : $white;
 }
 
 .content{

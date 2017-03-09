@@ -4,7 +4,12 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
+<<<<<<< HEAD
     "content-hash": "cbffd166fd23cc9e81417434de946c62",
+=======
+    "hash": "b760b5038de9308681f7249fc631cf9c",
+    "content-hash": "c1cdb6c6d04c0a67f41b5d02b15720d0",
+>>>>>>> master
     "packages": [
         {
             "name": "classpreloader/classpreloader",
@@ -694,7 +699,11 @@
                 "sftp",
                 "storage"
             ],
+<<<<<<< HEAD
             "time": "2017-02-09T11:33:58+00:00"
+=======
+            "time": "2017-02-09 11:33:58"
+>>>>>>> master
         },
         {
             "name": "monolog/monolog",
@@ -1141,16 +1150,16 @@
         },
         {
             "name": "quintype/api",
-            "version": "1.5.0",
+            "version": "1.6.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/quintype/quintype-api-php.git",
-                "reference": "6ac31ea7c64aa6c6ebf11bc95e8ef112b572b408"
+                "reference": "d3bdf9966390e4717ef08f93635f360fa6fdc3cc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/quintype/quintype-api-php/zipball/6ac31ea7c64aa6c6ebf11bc95e8ef112b572b408",
-                "reference": "6ac31ea7c64aa6c6ebf11bc95e8ef112b572b408",
+                "url": "https://api.github.com/repos/quintype/quintype-api-php/zipball/d3bdf9966390e4717ef08f93635f360fa6fdc3cc",
+                "reference": "d3bdf9966390e4717ef08f93635f360fa6fdc3cc",
                 "shasum": ""
             },
             "require": {
@@ -1163,7 +1172,11 @@
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
+<<<<<<< HEAD
             "time": "2016-12-31T09:50:53+00:00"
+=======
+            "time": "2017-02-07 09:23:35"
+>>>>>>> master
         },
         {
             "name": "quintype/meta",
@@ -2440,6 +2453,7 @@
         },
         {
             "name": "mockery/mockery",
+<<<<<<< HEAD
             "version": "0.9.9",
             "source": {
                 "type": "git",
@@ -2450,6 +2464,18 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/padraic/mockery/zipball/6fdb61243844dc924071d3404bb23994ea0b6856",
                 "reference": "6fdb61243844dc924071d3404bb23994ea0b6856",
+=======
+            "version": "0.9.8",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/padraic/mockery.git",
+                "reference": "1e5e2ffdc4d71d7358ed58a6fdd30a4a0c506855"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/padraic/mockery/zipball/1e5e2ffdc4d71d7358ed58a6fdd30a4a0c506855",
+                "reference": "1e5e2ffdc4d71d7358ed58a6fdd30a4a0c506855",
+>>>>>>> master
                 "shasum": ""
             },
             "require": {
@@ -2501,7 +2527,11 @@
                 "test double",
                 "testing"
             ],
+<<<<<<< HEAD
             "time": "2017-02-28T12:52:32+00:00"
+=======
+            "time": "2017-02-09 13:29:38"
+>>>>>>> master
         },
         {
             "name": "phpdocumentor/reflection-common",
