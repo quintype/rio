@@ -2,7 +2,9 @@
 <div class="story-header">
   <div class="story-header__hero-image" >
     <figure itemtype="https://schema.org/ImageObject" itemscope="itemscope" itemprop="image">
-      <img itemprop="url" src="{{focusedImageUrl(storyData['hero-image-s3-key'],config['image-cdn'], [16,9], storyData['hero-image-metadata'], {w: 1000})}}" class="story-img"/>
+      <img src="{{focusedImageUrl(storyData['hero-image-s3-key'],config['image-cdn'], [16,9], storyData['hero-image-metadata'], {w: 1000})}}" class="story-img"/>
+      <meta itemprop="url" content="{{focusedImageUrl(storyData['hero-image-s3-key'],config['image-cdn'], [16,9], storyData['hero-image-metadata'], {w: 1000})}}"></meta>
+
       {% if storyData['hero-image-caption'] %}
       <figcaption>{{storyData['hero-image-caption'] | raw}}</figcaption>
       {% endif %}
