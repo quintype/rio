@@ -10,5 +10,4 @@ return [
     "api-host" => "http://rio-demo-web.staging.quintype.io",
     "image-cdn" => "//qt-staging-01.imgix.net",
     "title" => "Quintype demo"
->>>>>>> master
 ];
