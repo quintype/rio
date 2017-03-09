@@ -1,7 +1,7 @@
-    &.header + .content {
+    .header + .content {
         overflow: visible;
     }
-    
+
     .author-page {
         &__image-section {
             background: rgba($white, .75);
