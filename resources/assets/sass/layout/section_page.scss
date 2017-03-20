@@ -217,6 +217,7 @@
         display: flex;
         width: 100%;
         &__bottom-story-list {
+            width: 100%;
             @include breakpoint($pc) {
                 width: calc(60% - 25px);
                 margin-right: 25px;
