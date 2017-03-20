@@ -11,21 +11,22 @@
                     </a>
                 </div>
                 <div class="lead-story-content-container">
+                   <div class="article__title">
                     <a href="/{{section_stories[0]['slug']}}">
-                        <div class="article__title">{{shorthead(section_stories[0]['headline'])}}</div>
+                        <h5>{{shorthead(section_stories[0]['headline'])}}</h5>
                     </a>
                     {% if section_stories[0]["summary"] %}
                         <div class="article__desciption">
-                            <p>{{section_stories[0]['summary']}}</p>
+                            <p>{{section_stories[0]['subheadline']}}</p>
                         </div>
                     {% endif %}
+                   </div>
                     <div class="author-name-description">
                         <a href="/author/{{section_stories[0]['author-id']}}">
                             by
                             {{section_stories[0]['author-name']}}
                         </a>
-                        <time>on
-                            {{ (section_stories[0]['first-published-at'] // 1000)|date('M d, Y')}}</time>
+                        <time>on{{ (section_stories[0]['first-published-at'] // 1000)|date('M d, Y')}}</time>
                     </div>
                 </div>
             </div>
