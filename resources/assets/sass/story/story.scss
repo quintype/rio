@@ -1,4 +1,8 @@
 //TO DO: refactor this code, its copy of climaedesk tripti 7/12/2016
+.story-view {
+  padding: 15px;
+}
+
 .story-header {
   overflow: hidden;
   &__hero-image {
@@ -28,16 +32,16 @@
   &__section-name {
     display: inline;
     float: left;
-    margin-right: 20px;
+    margin-right: 13px;
     span {
-      font-size: em(16);
+      font-size: em(14);
       font-weight: $bold;
       letter-spacing: 1.1px;
       color: $white;
       background-color: $light-blue;
       text-transform: uppercase;
       vertical-align: middle;
-      padding: 7px 15px;
+      padding: 4px 15px;
     }
   }
   &__story-headline {
@@ -143,7 +147,7 @@
   }
   .textbottom__article--share time {
     font-size: em(15);
-    margin-top: 0px;
+    margin-top: 8px;
     padding: 0;
     border-right: 0px solid #dddddd;
     line-height: 19px;
@@ -151,7 +155,7 @@
   }
 }
 .story-body {
-  width: 80%;
+  width: 90%;
   margin: auto;
 }
 .story ~ .footer {
