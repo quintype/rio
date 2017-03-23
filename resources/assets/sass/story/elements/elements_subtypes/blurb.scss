@@ -1,6 +1,9 @@
 .story-element-blurb {
   font-style: italic;
-  font-size: em(28);
+  font-size: em(18);
+  @include breakpoint($pc) {
+    font-size: em(28);
+  }
   position: relative;
   color: $dark-blue;
   font-weight: $bold;

@@ -1,18 +1,18 @@
 <div class="js-story-header-content story-header__content"
         data-story-slug="{{storyData['slug']}}"
         data-story-id="{{storyData['id']}}">
-  <h1 class="story-header__story-headline js-story-headline" itemprop="headline">
-    <a href="/{{storyData['slug']}}">{{storyData["headline"]}}</a>
-  </h1>
+   <div class="story-header__section-name">
+     <span>{{storyData["sections"][0]["name"]}}</span>
+   </div>
+   <h1 class="story-header__story-headline js-story-headline" itemprop="headline">
+      <a href="/{{storyData['slug']}}">{{storyData["headline"]}}</a>
+   </h1>
   {% if storyData["subheadline"] %}
   <div class='story-header__subtitle'>
     <span> {{storyData["subheadline"] | striptags |raw }}  </span>
   </div>
   {% endif %}
   <div class="textbottom__article storybyline">
-    <div class="story-header__section-name">
-      <span>{{storyData["sections"][0]["name"]}}</span>
-    </div>
     <span class="textbottom__article__name" itemprop="author" itemscope itemtype="http://schema.org/Person">
     {% for authornames in storyData["authors"]  %}
     <a href="/author/{{authornames['author-id']}}">

@@ -5,7 +5,10 @@
   float: left;
 
   blockquote {
-    font-size: em(28);
+    font-size: em(18);
+    @include breakpoint($pc) {
+      font-size: em(28);
+    }
     color: $grey;
     padding-left: em(8);
     font-family: $merri;
@@ -20,6 +23,9 @@
       float: right;
       padding-right: em(10);
       font-size: em(20);
+      @include breakpoint($pc) {
+        font-size: em(24);
+      }
       font-family: $merri;
       font-weight: $bold;
       display: inline-block;

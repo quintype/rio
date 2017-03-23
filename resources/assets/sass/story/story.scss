@@ -1,6 +1,6 @@
 //TO DO: refactor this code, its copy of climaedesk tripti 7/12/2016
 .story-view {
-  padding: 15px;
+  padding: 10px;
 }
 
 .story-header {
@@ -42,6 +42,10 @@
       text-transform: uppercase;
       vertical-align: middle;
       padding: 4px 15px;
+      @include breakpoint($pc) {
+        font-size: em(16);
+        padding: 7px 15px;
+      }
     }
   }
   &__story-headline {
@@ -147,7 +151,7 @@
   }
   .textbottom__article--share time {
     font-size: em(15);
-    margin-top: 8px;
+    margin-top: 0px;
     padding: 0;
     border-right: 0px solid #dddddd;
     line-height: 19px;
