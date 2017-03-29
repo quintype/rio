@@ -1,10 +1,19 @@
-<div class="menubarimg mobile-menu js-menu">
+  <div class="menubarimg mobile-menu js-menu"></div>
     <ul class="menuitems">
         {% for menuItem in client.menuItems(nestedMenuItems) %}
             {% set menuItemUrl = menuBase(menuItem.menuType()) ~ menuItem.url() %}
             <li>
-                <a href="{{menuItemUrl}}">{{menuItem.title()}}</a>
+               <a href="{{menuItemUrl}}">{{menuItem.title()}}</a>
+                {% if menuItem['children']| length > 0 %}
+                <button class="menu__item__dropdown-toggle js-sub-menu-toggle"><span class="sr-only"></span></button>
+                <ul class="sub-menu">
+                {% for submenu_item in menuItem['children'] %}
+                  <li class="sub-menu__item">
+                    <a href="{{menuItemUrl}}/{{submenu_item['section-slug']}}">{{ submenu_item['title'] }}</a>
+                  </li>
+                {% endfor %}
+              </ul>
+              {% endif %}
             </li>
         {% endfor %}
     </ul>
-</div>

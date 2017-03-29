@@ -147,8 +147,9 @@
         width: 100%;
         background-color: lighten($white, 20%);
         li {
+          position: relative;
             a {
-                display: block;
+                display: inline;
                 width: 100%;
                 line-height: 40px;
                 color: $dark-gray;
@@ -167,7 +168,7 @@
         background-color: lighten($white, 20%);
         li {
             a {
-                display: block;
+                display: inline;
                 width: 100%;
                 line-height: 40px;
                 color: $dark-gray;
@@ -207,7 +208,17 @@
         }
     }
 }
-
+.sub-menu {
+    display: none;
+    padding: 0 0 0 em(20);
+    list-style: none;
+    &--open {
+      display: block;
+    }
+    &__item:not(:last-child) {
+      padding: 0 0 em(5);
+    }
+  }
 .desktop-menu {
     display: none;
     @include clearfix();
@@ -259,6 +270,27 @@
             }
         }
     }
+}
+
+.menu__item__dropdown-toggle {
+  float: right;
+  background: none;
+  border: 0;
+  font-size: em(16);
+  padding: em(5, 12) em(10, 12);
+  &::after {
+    content: 'v';
+    display: inline-block;
+    text-align: center;
+    transition: transform .3s;
+    color: $question-blue;
+  }
+  &--open {
+    &::after {
+      -webkit-transform: rotate(180deg);
+      transform: rotate(180deg);
+    }
+  }
 }
 
 .desktop-submenu {
