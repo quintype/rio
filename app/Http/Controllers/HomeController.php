@@ -181,7 +181,9 @@ class HomeController extends QuintypeController
         $this->meta->set($setSeo->prepareTags());
 
         if (sizeof($searchedstories) < 1) {
-            return view('noresults');
+            return view('noresults', $this->toView([
+            'page' => $page
+          ]));
         } else {
             return view('search', $this->toView([
             'searchresults' => $searchedstories,
