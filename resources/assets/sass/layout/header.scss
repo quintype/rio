@@ -142,15 +142,14 @@
     width: 200px;
     @include breakpoint($phone) {
         left: 0;
+        width: 67%;
         top: 60px;
         padding: 5px 15px;
-        width: 100%;
         background-color: lighten($white, 20%);
         li {
           position: relative;
             a {
                 display: inline;
-                width: 100%;
                 line-height: 40px;
                 color: $dark-gray;
                 &:hover,
@@ -163,13 +162,12 @@
     @include breakpoint($only-phone-tablets) {
         left: 0;
         top: 60px;
+        width: 67%;
         padding: 5px 15px;
-        width: 100%;
         background-color: lighten($white, 20%);
         li {
             a {
                 display: inline;
-                width: 100%;
                 line-height: 40px;
                 color: $dark-gray;
                 &:hover,
