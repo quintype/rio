@@ -28,13 +28,14 @@ $(document).ready(function(){
     $(".menuitems").slideToggle("slow");
   });
 
+  $(".js-sub-menu-toggle").click(function() {
+    $(this).toggleClass( 'menu__item__dropdown-toggle--open');
+    $(this).next('.sub-menu').toggleClass('sub-menu--open');
+  });
+
   $('#search_init,#search_init1').click(function (event) {
     event.stopPropagation();
     $(".nav-search").toggle();
-  });
-
-  $(document).click( function(){
-    $(".menuitems").hide();
   });
 
   $('.snapshot-header').click( function(event){
