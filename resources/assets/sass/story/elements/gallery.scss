@@ -1,11 +1,8 @@
 .story-element-image-gallery {
   width: 100%;
   margin: em(20) 0;
-  @include breakpoint($pc) {
-     float: left;
-   }
+  @include clearfix();
   &__image {
-    float : left;
     width: 100%;
     figure { margin: 0; }
     @include breakpoint($pc) {

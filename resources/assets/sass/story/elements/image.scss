@@ -1,7 +1,6 @@
 .story-element-image {
   @include aspect-ratio(16,9);
   position: relative;
-  float: left;
   width: 100%;
   margin: 20px 0;
 

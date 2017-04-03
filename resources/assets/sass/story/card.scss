@@ -2,18 +2,27 @@
   overflow: hidden;
   width: 100%;
 }
+
 .media-right {
   .story-element-image {
     float: right;
     // width: 400px;
   }
 }
+
+.media-left {
+  .story-element-image {
+    float: left;
+  }
+}
+
 .media-left, .media-right {
   .story-element-image {
     width: 400px;
     margin-top: 27px;
     margin-right: 20px;
   }
+
   .story-element-text {
     float: none;
   }

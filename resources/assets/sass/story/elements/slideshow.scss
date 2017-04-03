@@ -3,7 +3,6 @@
      position: relative;
      width: 100%;
      margin: em(20)  auto ;
-     float: left;
      @include aspect-ratio(16,9);
 
      figcaption {
