@@ -22,8 +22,11 @@
     margin-top: 27px;
     margin-right: 20px;
   }
-
-  .story-element-text {
-    float: none;
-  }
 }
+
+  .media-left, .media-right {
+    .story-element-text {
+      float: none;
+      width: 100%;
+    }
+  }
