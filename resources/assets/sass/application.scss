@@ -667,6 +667,16 @@ article {
     }
 }
 
+.author-gallery-fix {
+  flex-wrap: wrap;
+  article {
+    @include breakpoint ($tablet-max-width) {
+      width: 31%;
+    }
+    width: 32%;
+  }
+}
+
 .sourcefrom {
     font-style: italic;
     text-align: right;
