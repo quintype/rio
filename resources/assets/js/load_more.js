@@ -27,7 +27,7 @@ function loadMore(button, target, params, api = '') {
   target = $(target);
   $(button).click(function() {
     loadStories(params, storiesLoaded, function(stories) {
-      storiesLoaded += limit
+      storiesLoaded += offset
       if(_.size(stories) == 0) {
         $(button).hide();
       } else {
