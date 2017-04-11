@@ -42,7 +42,7 @@ $(document).ready(function(){
     var target;
     target = $(event.target).closest(".snapshot-header");
     $(target).siblings( ".snapshot-text" ).toggleClass("hide");
-    $(event.target).siblings( ".snapshot-icon-plus" ).toggleClass("hide");
+    $(event.target).siblings( ".snapshot-icon" ).toggleClass("hide");
   });
 
   $('.js-breakingnews-marquee').marquee({

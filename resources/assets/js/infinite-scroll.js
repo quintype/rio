@@ -23,7 +23,7 @@ function renderStory(story) {
     var target;
     target = $(event.target).closest(".snapshot-header");
     $(target).siblings( ".snapshot-text" ).toggleClass("hide");
-    $(event.target).siblings( ".snapshot-icon-plus" ).toggleClass("hide");
+    $(event.target).siblings( ".snapshot-icon" ).toggleClass("hide");
   });
 }
 
