@@ -26,7 +26,7 @@
     {% include "story/elements/loadmore" %}
 </div>
 <script type="text/javascript">
- var params= $.extend( {{params|json_encode |raw}}, { limit: 9 } );
+ var params= $.extend( {{params|json_encode |raw}}, { limit: 9, offset: 9 } );
  qtReady.push(function() {
    app.loadMoreStories('#loadmore', '.author-stories', params, 'search');
  })

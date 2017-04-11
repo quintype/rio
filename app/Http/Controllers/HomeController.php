@@ -262,7 +262,7 @@ class HomeController extends QuintypeController
         $params = [
             'author-id' => $authorId,
             'sort' => 'latest-published',
-            'limit' => 3,
+            'limit' => 9,
             'fields' => $this->fields,
         ];
         $authorStories = $this->client->search($params);

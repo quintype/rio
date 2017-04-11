@@ -22,8 +22,8 @@ function renderStories(stories, api) {
 
 function loadMore(button, target, params, api = '') {
   var limit = params.limit || 20;
-  var storiesLoaded = limit;
-
+  var offset = params.offset || 20;
+  var storiesLoaded = offset;
   target = $(target);
   $(button).click(function() {
     loadStories(params, storiesLoaded, function(stories) {
