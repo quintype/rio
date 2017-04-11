@@ -295,3 +295,22 @@
         }
     }
 }
+
+
+.sub-section-page{
+        h1 {
+            font-size: em(22);
+            color: $light-blue;
+            font-family: $proxima;
+            font-weight: $regular2;
+            margin-top: 0px;
+            text-transform: uppercase;
+            letter-spacing: em(1);
+            width: 100%;
+            margin: 20px 0px 15px 0px;
+            padding-left: 15px;
+            @include breakpoint($pc) {
+                padding-left: 0px;
+            }
+        }
+}
