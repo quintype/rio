@@ -43,6 +43,7 @@ require("../../../resources/views/story/elements/polltype.twig");
 require("../../../resources/views/story/elements/references.twig");
 require("../../../resources/views/story/elements/title.twig");
 require("../../../resources/views/story/elements/external-file.twig");
+require("../../../resources/views/story/elements/data.twig");
 
 //element subtypes
 require("../../../resources/views/story/elements/elements_subtypes/bigfact.twig");
@@ -52,6 +53,7 @@ require("../../../resources/views/story/elements/elements_subtypes/jwplayer.twig
 require("../../../resources/views/story/elements/elements_subtypes/q-and-a.twig");
 require("../../../resources/views/story/elements/elements_subtypes/quote.twig");
 require("../../../resources/views/story/elements/elements_subtypes/summary.twig");
+require("../../../resources/views/story/elements/elements_subtypes/table.twig");
 
 var TEMPLATES = {
     "home_body": require("../../../resources/views/home/body.twig"),
