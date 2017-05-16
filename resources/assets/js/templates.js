@@ -46,6 +46,7 @@ require("../../../resources/views/story/elements/external-file.twig");
 require("../../../resources/views/story/elements/data.twig");
 
 //element subtypes
+require("../../../resources/views/story/elements/elements_subtypes/also-read.twig");
 require("../../../resources/views/story/elements/elements_subtypes/bigfact.twig");
 require("../../../resources/views/story/elements/elements_subtypes/blockquote.twig");
 require("../../../resources/views/story/elements/elements_subtypes/blurb.twig");
