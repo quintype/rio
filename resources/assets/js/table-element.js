@@ -1,4 +1,4 @@
-var Papa = require('./vendor/papaparse.min');
+var Papa = require('./vendor/papaparse');
 var _ = require("lodash");
 
 function toObject(value) {

@@ -2,6 +2,7 @@ var Twig = require("twig");
     require("jquery.marquee");
     require("jquery");
     require('./vendor/jquery.inview');
+    // require('./vendor/datatable/dataTables.fixedHeader.min');
     require("slick");
 
 global.app = {
@@ -13,7 +14,8 @@ global.app = {
     analytics: require("./analytics.js"),
     videos: require("./videos.js"),
     infiniteScroll: require("./infinite-scroll"),
-    slickSlider: require("./photo-story-slider")
+    slickSlider: require("./photo-story-slider"),
+    handleFileSelect: require("./table-element")
 };
 
 
@@ -55,4 +57,8 @@ $(document).ready(function(){
   $( '.story-element-text a[href^="http://"] ' ).attr( 'target','_blank' );
   $( '.story-element-text a[href^="https://"] ' ).attr( 'target','_blank' );
 
+  var tableData = $('#data-table').attr('content');
+  if (tableData) {
+    global.app.handleFileSelect(tableData);
+  }
 });

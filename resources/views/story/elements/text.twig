@@ -1,8 +1,10 @@
-{% set elementSubtype = '/story/elements/elements_subtypes/'~dataElement['subtype'] %}
+{# {% set elementSubtype = '/story/elements/elements_subtypes/'~dataElement['subtype'] %}
 {% if dataElement['subtype'] != null %}
    {% include elementSubtype with {'dataElement': dataElement} %}
 {% else %}
     <div class="story-element-{{ dataElement['type'] }}">
-         {{ dataElement['text'] | raw }}
+        {{ dataElement['text'] | raw }}
     </div>
 {% endif %}
+
+ #}
