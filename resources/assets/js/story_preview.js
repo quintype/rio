@@ -5,15 +5,14 @@ function postStoryPageRender() {
   global.app.slickSlider.imageGallery();
   global.app.videos.load();
   global.app.videos.init();
-  var tableData = $('#data-table').attr('content');
-  if (tableData) {
-    global.app.handleFileSelect(tableData);
-  }
+  $('.js-table-element').each(function() {
+    var $element = $(this);
+    global.app.handleFileSelect($element);
+  })
 }
 
 module.exports = function () {
   window.addEventListener("message", function (event) {
-    console.log('hi');
     var story = event.data['story'];
     if (story) {
       document.getElementById("story-container").innerHTML = template.render({

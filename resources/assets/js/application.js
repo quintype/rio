@@ -57,8 +57,14 @@ $(document).ready(function(){
   $( '.story-element-text a[href^="http://"] ' ).attr( 'target','_blank' );
   $( '.story-element-text a[href^="https://"] ' ).attr( 'target','_blank' );
 
-  var tableData = $('#data-table').attr('content');
-  if (tableData) {
-    global.app.handleFileSelect(tableData);
-  }
+  $('.js-table-element').each(function() {
+    var $element = $(this);
+    global.app.handleFileSelect($element);
+  })
+
+ //  var tableData = $('#data-table').attr('content');
+ // if (tableData) {
+ //   global.app.handleFileSelect(tableData);
+ //    }
+
 });

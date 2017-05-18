@@ -1,7 +1,7 @@
-<div class="story-element-{{ dataElement['subtype'] }}">
+<div class="story-element-{{ dataElement['subtype'] }} js-table-element">
   <table id="data-table"
           class="display"
           width="100%"
           content="{{dataElement['data']['content']}}"
-          header="{{dataElement['metadata']['has-header'] | json_encode}}"></table>
+          header="{{dataElement['metadata']['has-header'] | raw }}"></table>
 </div>

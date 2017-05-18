@@ -103,7 +103,6 @@ Twig.extendFunction("dateIsoFormat", function(date) {
 });
 
 Twig.extendFunction("getPhotoStoryImages", function(story) {
-  console.log(story);
   var storyHeroImage = {
       'image-s3-key' : story['hero-image-s3-key'] ,
       'image-metadata' : story['hero-image-metadata'],
