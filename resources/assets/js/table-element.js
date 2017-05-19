@@ -5,7 +5,7 @@ function toObject(value) {
   return {title: value}
 }
 
-function handleFileSelect($element) {
+function getTableElement($element) {
   var tableElement = $element.find('#data-table');
   var tableData = tableElement.attr('content');
   var hasHeader = tableElement.attr('header');
@@ -33,5 +33,5 @@ function handleFileSelect($element) {
 
 }
 
-module.exports = handleFileSelect;
+module.exports = getTableElement;
 

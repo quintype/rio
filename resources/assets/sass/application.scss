@@ -1,6 +1,7 @@
 @import "vendor/susy/susy"; // Susy Grid http://susy.oddbird.net/
 @import "vendor/breakpoint/breakpoint"; //Breakpoint SASS http://breakpoint-sass.com/
 @import "colors";
+
 //base
 @import "base/_grids";
 @import "base/_mixins";
@@ -50,11 +51,10 @@
 @import "story/templates/recipe";
 @import "story/elements/elements_subtypes/table";
 
-
 //module
 @import "module/loader";
 @include border-box-sizing;
-
+@import "module/jquery.dataTables"; //its library css i am customizing this
 
 main {
     @include container;
