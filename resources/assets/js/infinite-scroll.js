@@ -10,8 +10,24 @@ function nextStoryLoader(params,start,callback,excludeStoryIds) {
   params['limit'] = 1;
   var notStoryContentIds = _.toString(excludeStoryIds);
   var fields = 'id,headline,slug,hero-image-s3-key,hero-image-metadata,first-published-at,last-published-at,alternative,published-at,author-name,author-id,sections,story-template,summary,metadata,hero-image-attribution,cards,subheadline,authors,tags';
-  $.getJSON("/api/v1/stories", _.merge({}, params, {offset: start, fields: fields,'not-story-content-ids': notStoryContentIds}),
-    (response) => callback(_.first(response["stories"])))
+
+  $.getJSON( "/api/v1/stories", _.merge({}, params, { fields: fields, 'not-story-content-ids': notStoryContentIds}) )
+  .done(function( response ) {
+    var stories = _.compact(response["stories"]);
+    if (_.isEmpty(stories)) {
+      $('.loading').hide();
+      $win.unbind(scrollHandler);
+    } else {
+      callback(_.first(stories));
+    }
+    isLoading = false;
+  })
+  .fail(function( jqxhr, textStatus, error ) {
+    $('.loading').hide();
+    var err = textStatus + ", " + error;
+    console.log( "Request Failed: " + err );
+    isLoading = false;
+  });
 }
 
 function renderStory(story) {
@@ -28,17 +44,21 @@ function renderStory(story) {
 }
 
 var storiesLoaded = 0;
+var isLoading = false;
 
 var scrollFn = function(e) {
   if ($doc.height() - $win.height() == $win.scrollTop() ) {
+    if (isLoading) {
+      return;
+    }
     $('.loading').show();
     storiesLoaded += 1
+    isLoading = true;
     nextStoryLoader({}, storiesLoaded, renderStory,excludeStoryIds);
   }
 }
 
 var scrollHandler = _.throttle(scrollFn, 300);
-
 
 function init() {
   setTimeout(function(){
@@ -63,7 +83,6 @@ function infiniteScroll() {
     }
   });
 }
-
 
 module.exports  = {
   infiniteScroll: infiniteScroll,
