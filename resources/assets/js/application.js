@@ -13,7 +13,8 @@ global.app = {
     analytics: require("./analytics.js"),
     videos: require("./videos.js"),
     infiniteScroll: require("./infinite-scroll"),
-    slickSlider: require("./photo-story-slider")
+    slickSlider: require("./photo-story-slider"),
+    getTableElement: require("./table-element")
 };
 
 
@@ -54,5 +55,10 @@ $(document).ready(function(){
 
   $( '.story-element-text a[href^="http://"] ' ).attr( 'target','_blank' );
   $( '.story-element-text a[href^="https://"] ' ).attr( 'target','_blank' );
+
+  $('.js-table-element').each(function() {
+    var $element = $(this);
+    global.app.getTableElement($element);
+  })
 
 });
