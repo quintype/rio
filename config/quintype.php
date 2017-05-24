@@ -1,7 +1,7 @@
 <?php
 
 return [
-    "publisher-name" => "rio",
+    "publisher-name" => "demo",
     "asset-host" => "http://localhost:8000",
     "sketches-host"=> "https://rio.quintype.io",
     "api-host-remove-string" => array("-web", ".rio"),
