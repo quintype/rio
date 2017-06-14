@@ -12,10 +12,10 @@
     <script type="text/javascript">
       window.talktype=window.talktype||function(f){if(talktype.loaded)f();else(talktype.q=talktype.q||[]).push(arguments);};
     </script>
-    <div id="talktype-container-{{ storyData['story-version-id'] }}" class="iframe-container" data-talktype-account-id="1" data-talktype-host="http://metype-api.staging.quintype.com/"></div>
+    <div id="talktype-container-{{ storyData['id'] }}" class="iframe-container" data-talktype-account-id="1" data-talktype-host="http://metype-api.staging.quintype.com/"></div>
     <script type="text/javascript">
       talktype(function() {
-        talktype.commentWidgetIframe(document.getElementById("talktype-container-{{ storyData['story-version-id'] }}"));
+        talktype.commentWidgetIframe(document.getElementById("talktype-container-{{ storyData['id'] }}"));
       });
     </script>
     <script src="//metype-api.staging.quintype.com/quintype/metype/assets/application.js" async></script>
