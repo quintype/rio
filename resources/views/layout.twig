@@ -30,38 +30,6 @@
   </head>
   <body class='page'>
     <script type="text/javascript">var qtReady = qtReady || [];</script>
-    <style>
-      .metype-feed-iframe {
-        position: fixed;
-        border: none;
-        top: 0;
-        right: 0;
-        width: 360px;
-        transform: translate3d(100%, 0, 0);
-        transition: ease-out 0.3s;
-        z-index: 101;
-        height: 100% !important;
-        overflow-y: scroll;
-        -webkit-overflow-scrolling: touch;
-      }
-
-      .metype-clickthru {
-        background: url("http://localhost:3000/quintype/metype/assets/icons/metype-icon-4ee8eea1714db6ce12097ce34d2a4650b2964e6255f149df024b6de6bf650131.svg") no-repeat center center;
-        height: 50px;
-        width: 50px;
-        background-size: 50%;
-        text-indent: 0;
-        background-color: white;
-        position: fixed;
-        bottom: 200px;
-        right: 0;
-        border: 2px solid #3a9fdd;
-        border-right: none;
-        padding: 10px;
-        border-radius: 5px;
-        cursor: pointer;
-      }
-    </style>
     <div id="feed-metype-container" class="feed-iframe-container" data-metype-account-id="1" data-metype-host="http://localhost:3000/" data-metype-publisher="METYPE-DEMO">
       <div class="metype-clickthru" onClick="talktype.toggleButton()"></div>
     </div>
@@ -72,7 +40,7 @@
        talktype.feedWidgetIframe(document.getElementById("feed-metype-container"));
      });
     </script>
-    <script src="http://localhost:3000/quintype/metype/assets/application.self-4368057e35c9de4a3a7064e31aa8156c50e1cc8e985846ccbeba6e172888de3d.js?body=1" async="async"></script>
+    <script src="//metype-api.staging.quintype.com/quintype/metype/assets/application.js" async="async"></script>
     <div class="header">
       {% include "/shared/header" %}
     </div>
