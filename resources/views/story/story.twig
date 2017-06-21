@@ -9,9 +9,6 @@
     {% include "story/templates/default" %}
   {% endif %}
   <div class="story-comments">
-    <script type="text/javascript">
-      window.talktype=window.talktype||function(f){if(talktype.loaded)f();else(talktype.q=talktype.q||[]).push(arguments);};
-    </script>
     <div id="talktype-container-{{ storyData['id'] }}" class="iframe-container" data-talktype-account-id="1" data-metype-host="http://localhost:3000/"></div>
     <script type="text/javascript">
       talktype(function() {
