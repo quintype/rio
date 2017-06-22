@@ -9,7 +9,7 @@
     {% include "story/templates/default" %}
   {% endif %}
   <div class="story-comments">
-    <div id="talktype-container-{{ storyData['id'] }}" class="iframe-container" data-talktype-account-id="1" data-metype-host="//metype-api.staging.quintype.com/"></div>
+    <div id="talktype-container-{{ storyData['id'] }}" class="iframe-container" data-talktype-account-id="1" data-metype-host="https://metype-api.staging.quintype.com"></div>
     <script type="text/javascript">
       talktype(function() {
         talktype.commentWidgetIframe(document.getElementById("talktype-container-{{ storyData['id'] }}"));
