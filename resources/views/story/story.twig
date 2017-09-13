@@ -8,11 +8,26 @@
   {% else %}
     {% include "story/templates/default" %}
   {% endif %}
+  {% set storyURL =  config['asset-host'] ~ "/" ~  storyData['slug'] %}
+  <div class="story-comments">
+    <div id="talktype-container-{{ storyData['id'] }}"
+         class="iframe-container"
+         data-metype-account-id="48"
+         data-metype-host="https://metype-api.staging.quintype.com"
+         data-metype-page-url="{{ storyURL }}">
+    </div>
+    <script type="text/javascript">
+      talktype(function() {
+        talktype.commentWidgetIframe(document.getElementById("talktype-container-{{ storyData['id'] }}"));
+      });
+    </script>
+</div>
 </div>
 <div class="loading">
   <div class="loader-image"></div>
   <span>Loading...</span>
 </div>
+
 <script>
   qtReady.push(function() {
     app.videos.load();
