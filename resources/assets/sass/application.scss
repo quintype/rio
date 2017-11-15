@@ -993,6 +993,7 @@ article {
     /*background-color: $light-gray;*/
     text-align: center;
     font-weight: $bold;
+    overflow: auto;
     margin: em(25) auto em(25) auto;
     @include breakpoint($phone) {
         display: none;
