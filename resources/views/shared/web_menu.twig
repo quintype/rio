@@ -25,7 +25,7 @@
     {% endfor %}
     <li class="desktop-menu__all-text js-menu">
         <img src="{{ assetPath('icons/burger-menu.svg') }}">
-        <div class="menuitems">
+        <div class="menuitems web-menu-items">
             <ul>
                 {% for menuItem in client.menuItems(nestedMenuItems) | slice(4) %}
                     {% set menuItemUrl = menuBase(menuItem.menuType()) ~ menuItem.url() %}

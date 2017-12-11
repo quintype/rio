@@ -27,6 +27,9 @@ $(document).ready(function(){
   $(".js-menu").click(function(event){
    event.stopPropagation();
     $(".menuitems").slideToggle("slow");
+    if($(window).width()>800){
+      $(".web-menu-items").offset({left:$(".desktop-menu__all-text.js-menu").position().left});
+    }
   });
 
   $(".js-sub-menu-toggle").click(function() {
