@@ -34,7 +34,7 @@ Route::get('/section/{section}/{subSection}', [
     'uses' => 'HomeController@sectionview',
 ]);
 
-Route::get('/{section}/{y}/{m}/{d}{story_slug}', [
+Route::get('/{section}/{y}/{m}/{d}/{story_slug}', [
     'uses' => 'HomeController@storySlugWithDate',
 ]);
 
