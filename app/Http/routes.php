@@ -17,15 +17,15 @@ Route::post('/api/{route}', "ProxyController@proxyPost")->where('route', '.*');
  */
 
 Route::get('/', 'HomeController@index');
+
 Route::get('/ping', function () {
     return 'pong';
 });
+
 Route::get('/preview/home', 'PreviewController@home');
+
 Route::get('/preview/story', 'PreviewController@storyView');
 
-Route::get('/{section}/{story_slug}', [
-    'uses' => 'HomeController@storyview',
-]);
 Route::get('/section/{section}', [
     'uses' => 'HomeController@sectionview',
 ]);
@@ -34,18 +34,30 @@ Route::get('/section/{section}/{subSection}', [
     'uses' => 'HomeController@sectionview',
 ]);
 
+Route::get('/{section}/{y}/{m}/{d}{story_slug}', [
+    'uses' => 'HomeController@storySlugWithDate',
+]);
+
+Route::get('/{section}/{story_slug}', [
+    'uses' => 'HomeController@storySlugWithoutDate',
+]);
+
 Route::get('/search', [
     'uses' => 'HomeController@searchview',
 ]);
+
 Route::get('/tag', [
     'uses' => 'HomeController@tagsview',
 ]);
+
 Route::get('/privacy-policy', [
     'uses' => 'HomeController@privacyview',
 ]);
+
 Route::get('/about-us', [
     'uses' => 'HomeController@aboutview',
 ]);
+
 Route::get('/terms-and-conditions', [
     'uses' => 'HomeController@termsview',
 ]);

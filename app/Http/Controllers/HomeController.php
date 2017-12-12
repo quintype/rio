@@ -22,7 +22,7 @@ class HomeController extends QuintypeController
 
         $this->client->buildStacksRequest($this->config['layout']['stacks'], $this->fields);
 
-        $this->client->executeBulk();
+        $this->client->executeBulkCached();
 
         $showAltInPage = 'home';
         $top_stories = $this->client->getBulkResponse('top_stories', $showAltInPage);
@@ -50,10 +50,19 @@ class HomeController extends QuintypeController
       ]));
     }
 
+    public function storySlugWithoutDate($category, $slug)
+    {
+      return $this->storyview($category, $slug);
+    }
+
+    public function storySlugWithDate($category, $y, $m, $d, $slug)
+    {
+      return $this->storyview($category, $slug);
+    }
+
     public function storyview($category, $slug)
     {
         $story = $this->client->storyBySlug(['slug' => $slug]);
-        $this->client->executeBulk();
 
         $sectionNames = $this->getSectionNames($story);
         $otherAuthor = array();

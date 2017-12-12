@@ -46,17 +46,6 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Exception $e)
     {
-        $client = new Api(getQuintypeAPIHost($request->getHost()));
-        $menuItems = array_merge($client->config(), config('quintype'))["layout"]["menu"];
-        $nestedMenuItems = $client->prepareNestedMenu($menuItems);
-
-        if ($e instanceof \Symfony\Component\HttpKernel\Exception\NotFoundHttpException) {
-            return response()->view('errors/404', ['client' => $client, 'nestedMenuItems' => $nestedMenuItems], 404);
-        }
-        if ($e instanceof \GuzzleHttp\Exception\ClientException) {
-            return response()->view('errors/404', ['client' => $client, 'nestedMenuItems' => $nestedMenuItems], 404);
-        }
-
         return parent::render($request, $e);
     }
 }

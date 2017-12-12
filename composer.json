@@ -4,7 +4,7 @@
     "keywords": ["framework", "laravel"],
     "license": "MIT",
     "type": "project",
-    
+
     "require": {
         "php": ">=5.5.9",
         "laravel/framework": "5.2.*",
@@ -13,7 +13,7 @@
         "symfony/yaml": "2.0.*",
         "quintype/seo": "1.1.0",
         "quintype/meta": "2.0.4",
-        "quintype/api": "1.6.1"
+        "quintype/api": "1.14.2"
     },
 
     "require-dev": {
