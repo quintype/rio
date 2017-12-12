@@ -50,7 +50,7 @@ class HomeController extends QuintypeController
       ]));
     }
 
-    public function storyview($category, $y, $m, $d, $slug)
+    public function storyview($category, $slug)
     {
         $story = $this->client->storyBySlug(['slug' => $slug]);
         $this->client->executeBulk();

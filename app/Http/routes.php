@@ -23,7 +23,7 @@ Route::get('/ping', function () {
 Route::get('/preview/home', 'PreviewController@home');
 Route::get('/preview/story', 'PreviewController@storyView');
 
-Route::get('/{section}/{year}/{month}/{date}/{story_slug}', [
+Route::get('/{section}/{story_slug}', [
     'uses' => 'HomeController@storyview',
 ]);
 Route::get('/section/{section}', [
