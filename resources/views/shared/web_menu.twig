@@ -23,11 +23,13 @@
             {% endif %}
         </li>
     {% endfor %}
+    {% set burgerMenuItems = client.menuItems(nestedMenuItems) | slice(4) %}
+    {% if burgerMenuItems %}
     <li class="desktop-menu__all-text js-menu">
         <img src="{{ assetPath('icons/burger-menu.svg') }}">
         <div class="menuitems web-menu-items">
             <ul>
-                {% for menuItem in client.menuItems(nestedMenuItems) | slice(4) %}
+                {% for menuItem in burgerMenuItems %}
                     {% set menuItemUrl = menuBase(menuItem.menuType()) ~ menuItem.url() %}
                     <li class="menuitems__item">
                         <a href="{{menuItemUrl}}">{{menuItem.title()}}</a>
@@ -36,5 +38,6 @@
             </ul>
         </div>
     </li>
+    {% endif %}
 </ul>
 </div>

@@ -19,6 +19,7 @@ class QuintypeController extends Controller
     {
         return array_merge([
         "config" => $this->config,
+        "publisherNameFromSketches" => $this->client->config()['publisher-name'],
         "client" => $this->client,
         "nestedMenuItems" => $this->client->prepareNestedMenu($this->config["layout"]["menu"]),
         "breaking_news" => $this->client->getBreakingNews(['limit' => 5, 'fields' => 'headline,metadata']),
@@ -50,5 +51,5 @@ class QuintypeController extends Controller
        $story['hero-image-metadata']['height'] = $imageHeight;
        $story['hero-image-metadata']['width'] = $imageWidth;
        return $story['hero-image-metadata'];
-     } 
+     }
 }

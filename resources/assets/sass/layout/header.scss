@@ -1,6 +1,5 @@
 .header {
-    background-color: $white;
-    height: 100px;
+    background-color: $black;
     vertical-align: inherit;
     line-height: 3px;
     color: $light-blue;
@@ -39,7 +38,6 @@
 
 .site-logo {
     display: block;
-    background: transparent url(patner-logos/dying-the-art-of.png) no-repeat center center;
     width: 88px;
     height: 50px;
     margin: auto;

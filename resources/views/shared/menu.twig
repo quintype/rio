@@ -1,11 +1,12 @@
 {% include "/shared/mobile_menu" %}
 {# removed logo upon request by Tribu for certain demo #}
 <div class="header-logo">
+  {% set logoUrl = assetPath('patner-logos/' ~ publisherNameFromSketches ~ '.png') %}
   <span itemprop="publisher" itemscope itemtype="https://schema.org/Organization">
   <span itemprop="name" content="{{config['title']}}"></span>
   <span itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
-    <meta itemprop="url" content="{{assetPath('patner-logos/dying-the-art-of.png')}}">
+    <meta itemprop="url" content="{{ logoUrl }}">
   </span>
-  <a href="/" title="demo" class="site-logo"></a>
+  <a href="/" title="demo" class="site-logo" style="background: url('{{ logoUrl }}') no-repeat center center;"></a>
 </div>
 {% include "/shared/web_menu" %}
