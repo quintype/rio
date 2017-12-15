@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "53813234c9de62b259298996adee5d92",
-    "content-hash": "20f878b1972eabd6fcbf975dd5d92e8c",
+    "hash": "bd3cf97bb26f831e9ea4190f0f546934",
+    "content-hash": "2cadf8c60e7f20556f9b65f5789d7ca5",
     "packages": [
         {
             "name": "classpreloader/classpreloader",
@@ -1145,16 +1145,16 @@
         },
         {
             "name": "quintype/api",
-            "version": "1.14.2",
+            "version": "1.14.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/quintype/quintype-api-php.git",
-                "reference": "eaae8656f10e726037448b38ed893117e63f3c30"
+                "reference": "85abc9562b776736a980fac320522028eae0ae24"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/quintype/quintype-api-php/zipball/eaae8656f10e726037448b38ed893117e63f3c30",
-                "reference": "eaae8656f10e726037448b38ed893117e63f3c30",
+                "url": "https://api.github.com/repos/quintype/quintype-api-php/zipball/85abc9562b776736a980fac320522028eae0ae24",
+                "reference": "85abc9562b776736a980fac320522028eae0ae24",
                 "shasum": ""
             },
             "require": {
@@ -1167,7 +1167,7 @@
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
-            "time": "2017-11-02 12:25:44"
+            "time": "2017-12-15 09:46:12"
         },
         {
             "name": "quintype/meta",
@@ -1479,16 +1479,16 @@
         },
         {
             "name": "symfony/event-dispatcher",
-            "version": "v3.4.1",
+            "version": "v3.4.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/event-dispatcher.git",
-                "reference": "ca20b8f9ef149f40ff656d52965f240d85f7a8e4"
+                "reference": "b869cbf8a15ca6261689de2c28a7d7f2d0706835"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/event-dispatcher/zipball/ca20b8f9ef149f40ff656d52965f240d85f7a8e4",
-                "reference": "ca20b8f9ef149f40ff656d52965f240d85f7a8e4",
+                "url": "https://api.github.com/repos/symfony/event-dispatcher/zipball/b869cbf8a15ca6261689de2c28a7d7f2d0706835",
+                "reference": "b869cbf8a15ca6261689de2c28a7d7f2d0706835",
                 "shasum": ""
             },
             "require": {
@@ -1538,7 +1538,7 @@
             ],
             "description": "Symfony EventDispatcher Component",
             "homepage": "https://symfony.com",
-            "time": "2017-11-09 14:14:31"
+            "time": "2017-12-14 19:40:10"
         },
         {
             "name": "symfony/finder",
