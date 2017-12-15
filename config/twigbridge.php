@@ -186,7 +186,8 @@ return [
             'decode64',
             'dateIsoFormat',
             'menuBase',
-            'getPhotoStoryImages'
+            'getPhotoStoryImages',
+            'checkIfPartnerLogoExits'
         ],
 
         /*

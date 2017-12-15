@@ -141,3 +141,8 @@ function menuBase($menuType)
         return '';
     }
 }
+
+function checkIfPartnerLogoExits($partnerName)
+{
+  return file_exists(public_path()."/partner-logos/".$partnerName) ? $partnerName : 'demo';
+}

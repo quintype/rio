@@ -1,12 +1,13 @@
 {% include "/shared/mobile_menu" %}
 {# removed logo upon request by Tribu for certain demo #}
 <div class="header-logo">
-  {% set logoUrl = assetPath('patner-logos/' ~ publisherNameFromSketches ~ '.png') %}
+  {% set partnerLogo = checkIfPartnerLogoExits(publisherNameFromSketches ~ '.png') %}
+  {% set partnerLogo = url('/partner-logos/' ~ partnerLogo) %}
   <span itemprop="publisher" itemscope itemtype="https://schema.org/Organization">
   <span itemprop="name" content="{{config['title']}}"></span>
   <span itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
-    <meta itemprop="url" content="{{ logoUrl }}">
+    <meta itemprop="url" content="{{ partnerLogo }}">
   </span>
-  <a href="/" title="demo" class="site-logo" style="background: url('{{ logoUrl }}') no-repeat center center;"></a>
+  <a href="/" title="demo" class="site-logo" style="background: url('{{ partnerLogo }}') no-repeat center center;"></a>
 </div>
 {% include "/shared/web_menu" %}
