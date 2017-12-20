@@ -9,6 +9,6 @@ return [
         "staging.lvh.me" => "https://demo-rio.staging.quintype.io"
     ),
     "api-host" => "http://rio-demo-web.staging.quintype.io",
-    "image-cdn" => "//qt-staging-01.imgix.net",
+    "image-cdn" => "//thumbor-stg.assettype.com",
     "title" => "Quintype demo"
 ];
