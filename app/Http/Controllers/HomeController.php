@@ -17,10 +17,11 @@ class HomeController extends QuintypeController
         $top_stories = $entertainment = $videos = $international = $banners = $most_popular = [];
         $this->client->addBulkRequest('top_stories', 'top', ['fields' => $this->fields, 'limit' => 8]);
         if ($this->config['sections']) {
-          $section1 = $this->config['sections'][0] ? $this->config['sections'][0] : '';
-          $section2 = $this->config['sections'][1] ? $this->config['sections'][1] : '';
-          $section3 = $this->config['sections'][2] ? $this->config['sections'][2] : '';
-          $section4 = $this->config['sections'][3] ? $this->config['sections'][3] : '';
+          $defaultSection = ['id' => '0', 'name' => 'Default'];
+          $section1 = isset($this->config['sections'][0]) ? $this->config['sections'][0] : $defaultSection;
+          $section2 = isset($this->config['sections'][1]) ? $this->config['sections'][1] : $defaultSection;
+          $section3 = isset($this->config['sections'][2]) ? $this->config['sections'][2] : $defaultSection;
+          $section4 = isset($this->config['sections'][3]) ? $this->config['sections'][3] : $defaultSection;
 
           $this->client->addBulkRequest('entertainment', 'top', ['section-id' => $section1['id'], 'fields' => $this->fields, 'limit' => 4]);
           $this->client->addBulkRequest('videos', 'top', ['section-id' => $section2['id'], 'fields' => $this->fields, 'limit' => 3]);
