@@ -14,40 +14,48 @@ class HomeController extends QuintypeController
 
     public function index()
     {
+        $top_stories = $entertainment = $videos = $international = $banners = $most_popular = [];
         $this->client->addBulkRequest('top_stories', 'top', ['fields' => $this->fields, 'limit' => 8]);
-        $this->client->addBulkRequest('entertainment', 'top', ['section' => 'Entertainment', 'fields' => $this->fields, 'limit' => 4]);
-        $this->client->addBulkRequest('videos', 'top', ['section' => 'Videos', 'fields' => $this->fields, 'limit' => 3]);
-        $this->client->addBulkRequest('international', 'top', ['section' => 'International', 'fields' => $this->fields, 'limit' => 3]);
-        $this->client->addBulkRequest('banners', 'top', ['section' => 'Banners', 'fields' => $this->fields, 'limit' => 1]);
+        if ($this->config['sections']) {
+          $section1 = $this->config['sections'][0] ? $this->config['sections'][0] : '';
+          $section2 = $this->config['sections'][1] ? $this->config['sections'][1] : '';
+          $section3 = $this->config['sections'][2] ? $this->config['sections'][2] : '';
+          $section4 = $this->config['sections'][3] ? $this->config['sections'][3] : '';
 
-        $this->client->buildStacksRequest($this->config['layout']['stacks'], $this->fields);
+          $this->client->addBulkRequest('entertainment', 'top', ['section-id' => $section1['id'], 'fields' => $this->fields, 'limit' => 4]);
+          $this->client->addBulkRequest('videos', 'top', ['section-id' => $section2['id'], 'fields' => $this->fields, 'limit' => 3]);
+          $this->client->addBulkRequest('international', 'top', ['section-id' => $section3['id'], 'fields' => $this->fields, 'limit' => 3]);
+          $this->client->addBulkRequest('banners', 'top', ['section-id' => $section4['id'], 'fields' => $this->fields, 'limit' => 1]);
 
-        $this->client->executeBulkCached();
+          $this->client->buildStacksRequest($this->config['layout']['stacks'], $this->fields);
 
-        $showAltInPage = 'home';
-        $top_stories = $this->client->getBulkResponse('top_stories', $showAltInPage);
-        $entertainment = $this->client->getBulkResponse('entertainment', $showAltInPage);
-        $videos = $this->client->getBulkResponse('videos', $showAltInPage);
-        $international = $this->client->getBulkResponse('international', $showAltInPage);
-        $banners = $this->client->getBulkResponse('banners', $showAltInPage);
+          $this->client->executeBulkCached();
 
-        $stacks = $this->client->buildStacks($this->config['layout']['stacks']);
-        $most_popular = $this->client->getStoriesByStackName('Most Shared', $stacks);
+          $top_stories = $this->client->getBulkResponse('top_stories');
+          $entertainment = $this->client->getBulkResponse('entertainment');
+          $videos = $this->client->getBulkResponse('videos');
+          $international = $this->client->getBulkResponse('international');
+          $banners = $this->client->getBulkResponse('banners');
+
+          $stacks = $this->client->buildStacks($this->config['layout']['stacks']);
+          $most_popular = $this->client->getStoriesByStackName('Most Shared', $stacks);
+        }
+
 
         $page = ['type' => 'home'];
         $setSeo = $this->seo->home($page['type']);
         $this->meta->set($setSeo->prepareTags());
 
         return view('home', $this->toView([
-        'stories' => $top_stories,
-        'entertainment' => $entertainment,
-        'videos' => $videos,
-        'international' => $international,
-        'most_popular' => $most_popular,
-        'banners' => $banners,
-        'page' => $page,
-        'meta' => $this->meta,
-      ]));
+          'stories' => $top_stories,
+          'entertainment' => ["stories" => $entertainment, "section" => $section1],
+          'videos' => ["stories" => $videos, "section" => $section2],
+          'international' => ["stories" => $international, "section" => $section3],
+          'most_popular' => $most_popular,
+          'banners' => $banners,
+          'page' => $page,
+          'meta' => $this->meta,
+        ]));
     }
 
     public function storySlugWithoutDate($category, $slug)

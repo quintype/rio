@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "977e7b853f81d37b81f4cf224703c9c9",
-    "content-hash": "aa5e70ed10e45b0ae301375ae45ebf1d",
+    "hash": "a92eb6bae3b85983c4207a50cb5cceab",
+    "content-hash": "fc2f5ff21d1d8ab511ede1b943ced744",
     "packages": [
         {
             "name": "classpreloader/classpreloader",
@@ -1145,16 +1145,16 @@
         },
         {
             "name": "quintype/api",
-            "version": "1.14.3",
+            "version": "1.15.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/quintype/quintype-api-php.git",
-                "reference": "85abc9562b776736a980fac320522028eae0ae24"
+                "reference": "625ef4c3250e1b16534f9abfe897686baf138ba2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/quintype/quintype-api-php/zipball/85abc9562b776736a980fac320522028eae0ae24",
-                "reference": "85abc9562b776736a980fac320522028eae0ae24",
+                "url": "https://api.github.com/repos/quintype/quintype-api-php/zipball/625ef4c3250e1b16534f9abfe897686baf138ba2",
+                "reference": "625ef4c3250e1b16534f9abfe897686baf138ba2",
                 "shasum": ""
             },
             "require": {
@@ -1167,20 +1167,20 @@
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
-            "time": "2017-12-15 09:46:12"
+            "time": "2017-12-18 13:02:12"
         },
         {
             "name": "quintype/meta",
-            "version": "2.0.4",
+            "version": "2.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/quintype/meta.git",
-                "reference": "90f47323d77e422aba79629458ccff2d3b2384cb"
+                "reference": "67d02b6ef365017b2b390f24e641c9b6fc663726"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/quintype/meta/zipball/90f47323d77e422aba79629458ccff2d3b2384cb",
-                "reference": "90f47323d77e422aba79629458ccff2d3b2384cb",
+                "url": "https://api.github.com/repos/quintype/meta/zipball/67d02b6ef365017b2b390f24e641c9b6fc663726",
+                "reference": "67d02b6ef365017b2b390f24e641c9b6fc663726",
                 "shasum": ""
             },
             "require": {
@@ -1217,7 +1217,7 @@
                 "meta",
                 "view"
             ],
-            "time": "2017-01-30 09:26:41"
+            "time": "2017-11-06 10:03:11"
         },
         {
             "name": "quintype/seo",
