@@ -1,5 +1,7 @@
     .header + .content {
         overflow: visible;
+        overflow: auto;
+        min-height: 80vh;
     }
 
     .author-page {
