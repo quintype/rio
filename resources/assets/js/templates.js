@@ -20,6 +20,11 @@ require("../../../resources/views/story/ads.twig");
 
 require("../../../resources/views/ads/Story_LB1_placeholder.twig");
 require("../../../resources/views/ads/Story_Mrec1_placeholder.twig");
+require("../../../resources/views/ads/HP_LB1_placeholder.twig");
+require("../../../resources/views/ads/HP_Mrec1_placeholder.twig");
+require("../../../resources/views/ads/HP_LB2_placeholder.twig");
+require("../../../resources/views/ads/HP_Mrec2_placeholder.twig");
+require("../../../resources/views/ads/HP_LB_placeholder.twig");
 
 //templates
 require("../../../resources/views/story/templates/photo.twig");
