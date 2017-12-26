@@ -1,7 +1,8 @@
 <div class="clear"></div>
 <div class='footer-short'>
     <div class="content">
-        <center>&copy; Copyright 2016 - Quintype demo |
+      {% set currentYear = date().date | split('-') %}
+        <center>&copy; Copyright {{ currentYear[0] }} |
             <a target="_blank" href="http://www.quintype.com/">
                 Powered by Quintype</a>
         </center>
