@@ -27,6 +27,42 @@
     </script>
     <script async src='/qlitics.js'></script>
     <!-- End Qlitics Snippet -->
+    <!--Reveal Ads-->
+    <script type='text/javascript'>
+      var eventMethod = window.addEventListener ? "addEventListener" : "attachEvent";
+      var eventer = window[eventMethod];
+      var messageEvent = eventMethod == "attachEvent" ? "onmessage" : "message";
+      // Listen to message from child window
+      eventer(messageEvent,function(e) {
+      var key = e.message ? "message" : "data";
+      var data = e[key];
+      var eventName = data.message || 'ignore';
+      if (eventName == 'adContentAvailable') {
+       // replace content
+        var el = document.querySelector("div[id*='"+data.adUnit.substr(1)+"']");
+        el.innerHTML = data.content;
+        let scriptTag = document.createElement('script');
+        scriptTag.innerHTML = data.script;
+        document.querySelector("div[id*='"+data.adUnit+"']")
+        el.appendChild(scriptTag);
+        }
+      },false);
+    </script>
+
+    <script async='async' src='https://www.googletagservices.com/tag/js/gpt.js'></script>
+    <script>
+      var googletag = googletag || {};
+      googletag.cmd = googletag.cmd || [];
+    </script>
+    <script>
+      googletag.cmd.push(function() {
+        googletag.defineOutOfPageSlot('/52868882/Q_OutOfPage_01', 'div-gpt-ad-1508230408514-0').addService(googletag.pubads());
+        googletag.pubads().enableSingleRequest();
+        googletag.pubads().setTargeting('section','{{chartbeatConfig.sections}}');
+        googletag.pubads().setTargeting('environment','{{{env}}}');
+        googletag.pubads().collapseEmptyDivs();googletag.enableServices();
+      });
+    </script>
   </head>
   <body class='page'>
     <script type="text/javascript">var qtReady = qtReady || [];</script>
